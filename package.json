@@ -1,0 +1,22 @@
+{
+  "name": "generator-lego",
+  "version": "0.0.9",
+  "description": "f2e workflow, a gulp app generator",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/duowan/generator-lego.git"
+  },
+  "main": "app/index.js",
+  "dependencies": {
+    "yeoman-generator": "~0.17.0",
+    "gruntfile-api": "0.0.9"
+  },
+  "author": "twlk28",
+  "license": "MIT",
+  "keywords": [
+    "yeoman-generator",
+    "f2e",
+    "workflow",
+    "gulp"
+  ]
+}

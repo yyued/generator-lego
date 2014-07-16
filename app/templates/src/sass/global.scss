@@ -1,0 +1,17 @@
+@import "lego/lego";
+html {
+    overflow-y: scroll;
+}
+body {
+    font: #{$base-font-size}/#{$base-line-height} $base-font-family;
+    color: $base-color;
+    a {
+        text-decoration: none;
+        color: nth($base-link-color,1);
+        &:hover {
+            text-decoration: underline;
+            color: nth($base-link-color,2);
+        }
+    }
+}
+  

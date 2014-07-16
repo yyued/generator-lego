@@ -1,0 +1,86 @@
+{
+    "home": {
+        "path_to_layout": "src/home.html",
+        "path_to_data": [
+            "src/data/global.json"
+        ]
+    },
+    "bind": {
+        "path_to_layout": "src/bind.html",
+        "path_to_data": [
+            "src/data/global.json"
+        ]
+    },
+    "bind2": {
+        "path_to_layout": "src/bind2.html",
+        "path_to_data": [
+            "src/data/global.json"
+        ]
+    },
+    "binded": {
+        "path_to_layout": "src/binded.html",
+        "path_to_data": [
+            "src/data/global.json"
+        ]
+    },
+    "collect-gold": {
+        "path_to_layout": "src/collect-gold.html",
+        "path_to_data": [
+            "src/data/global.json"
+        ]
+    },
+    "databank": {
+        "path_to_layout": "src/databank.html",
+        "path_to_data": [
+            "src/data/global.json"
+        ]
+    },
+    "disclaimer": {
+        "path_to_layout": "src/disclaimer.html",
+        "path_to_data": [
+            "src/data/global.json"
+        ]
+    },
+    "feedback": {
+        "path_to_layout": "src/feedback.html",
+        "path_to_data": [
+            "src/data/global.json"
+        ]
+    },
+    "gold2whatever-pop": {
+        "path_to_layout": "src/gold2whatever-pop.html",
+        "path_to_data": [
+            "src/data/global.json"
+        ]
+    },
+    "gold2whatever": {
+        "path_to_layout": "src/gold2whatever.html",
+        "path_to_data": [
+            "src/data/global.json"
+        ]
+    },
+    "help": {
+        "path_to_layout": "src/help.html",
+        "path_to_data": [
+            "src/data/global.json"
+        ]
+    },
+    "mytreasure": {
+        "path_to_layout": "src/mytreasure.html",
+        "path_to_data": [
+            "src/data/global.json"
+        ]
+    },
+    "plugin": {
+        "path_to_layout": "src/plugin.html",
+        "path_to_data": [
+            "src/data/global.json"
+        ]
+    },
+    "setting": {
+        "path_to_layout": "src/setting.html",
+        "path_to_data": [
+            "src/data/global.json"
+        ]
+    }
+}

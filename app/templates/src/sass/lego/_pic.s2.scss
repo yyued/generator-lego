@@ -1,0 +1,71 @@
+//
+/*
+style1
+li的width,height值为img的盒模型宽高值
+如果em定义了高度，在ie下鼠标移上去不会出现鼠标手型，需设置cursor:pointer
+-0.34em前提是tahoma为默认英文字体
+*/
+$imgWidth: 140px;
+$imgHeight: 240px;
+$imgBorder: 1px solid #D8D8D8;
+// 风格2
+.mod-pic-s2 {
+	letter-spacing: -0.34em;
+	word-spacing: -0.34em;
+	li {
+		display: inline-block;
+		*display: inline;
+		*zoom: 1;
+		vertical-align: top;
+		letter-spacing: normal;
+		word-spacing: normal;
+		overflow: hidden;
+		width: 150px;
+		margin: 0 0 10px 10px;
+	}
+	a {
+		zoom: 1;
+		display: block;
+		text-align: center;
+		position: relative;
+		padding: 4px;
+		border: 1px solid #D8D8D8;
+		background-color: #FFF;
+		&:hover {
+			zoom: 1;
+			text-decoration: none;
+			border-color: #999;
+			background-color: #F90;
+		}
+		em {
+			text-decoration: none;
+			background-color: rgba(0, 0, 0, 0.6);
+		    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);
+		    color: #FFF;
+		}
+	}
+	img {
+		width: $imgWidth;
+		height: $imgHeight;
+
+	}
+	em {
+		display: block;
+		vertical-align: baseline;
+		text-align: center;
+		cursor: pointer;
+		line-height: 18px;
+		padding: 4px 0;
+		position: absolute;
+		left: 4px;
+		bottom: 4px;
+		background-color: rgba(255, 255, 255, 0.6);
+	    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99FFFFFF,endColorstr=#99FFFFFF);
+	    width: $imgWidth;
+	    text-decoration: none;
+	}
+}
+@media all and (-webkit-min-device-pixel-ratio:1) {
+	.mod-pic-s2 {word-spacing: normal;}
+}
+:root .mod-pic-s2 em {filter: none\9;}

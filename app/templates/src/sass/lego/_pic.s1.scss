@@ -1,0 +1,51 @@
+//
+/*
+style1
+li的width,height值为img的盒模型宽高值
+如果em定义了高度，在ie下鼠标移上去不会出现鼠标手型，需设置cursor:pointer
+-0.34em前提是tahoma为默认英文字体
+*/
+$imgWidth: 130px;
+$imgHeight: 90px;
+$imgMargin: 0 0 10px 10px;
+$imgBorder: 1px solid #ddd;
+.mod-pic {
+	letter-spacing: -0.34em;
+	word-spacing: -0.34em;
+	@media all and (-webkit-min-device-pixel-ratio: 1) {
+		& { word-spacing: normal; }
+	}
+	li {
+		@include inline-block;
+		vertical-align: top;
+		letter-spacing: normal;
+		word-spacing: normal;
+		overflow: hidden;
+		margin: $imgMargin;
+		width: $imgWidth;
+		a {
+			zoom: 1;
+			display: block;
+			text-align: center;
+			position: relative;
+			&:hover {
+				zoom: 1;
+				text-decoration: none;
+				em {
+					text-decoration: underline;
+				}
+			}
+		}
+		img {
+			width: $imgWidth;
+			height: $imgHeight;
+		}
+		em {
+			display: inline-block;
+			vertical-align: baseline;
+			text-align: left;
+			cursor: pointer;
+			line-height: 16px;
+		}
+	}
+}

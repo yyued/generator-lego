@@ -1,0 +1,25 @@
+//
+// $Date: 2014-01-14 14:02:52 +0800 (Tue, 14 Jan 2014) $
+//
+// Base Color
+$base-color            : #333 !default;
+$base-background-color : #fff !default;
+$base-link-color       : #333 #F40 !default;
+
+// Base Content
+$base-font-size          : 12px !default;
+$base-line-height        : 1.5 !default;
+$base-font-family        : Tahoma, sans-serif !default;
+$base-header-font-family : "Microsoft YaHei" !default;
+
+// Base Borders & Box Shadows
+$base-border        : 1px solid $base-color !default;
+$base-border-radius : 3px !default;
+$base-box-shadow    : 0 1px 2px rgba($base-color,.25) !default;
+
+// Colors
+$color-default : #999999 !default;
+$color-success : #5cb85c !default;
+$color-error   : #d9534f !default;
+$color-warning : #f0ad4e !default;
+$color-info    : #5bc0de !default;

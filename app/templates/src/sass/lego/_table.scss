@@ -1,0 +1,30 @@
+//
+.table{
+	width: 100%;
+	thead{
+		th{
+			font-weight: 700;
+			line-height: 30px;
+			text-align: left;
+			padding-left: 10px;
+		}
+	}
+	tbody{
+		td{
+			line-height: 30px;
+			padding-left: 10px;
+			border-top: 1px solid #d2d2d2;
+		}
+		tr:nth-child(even){
+			td{
+				background-color: #f9f9f9;
+			}
+		}
+	}
+	&.is-bordered{
+		border: 1px solid #d2d2d2;
+		th,td{
+			border: 1px solid #d2d2d2;
+		}
+	}
+}

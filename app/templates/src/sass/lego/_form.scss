@@ -1,0 +1,96 @@
+//
+$labelWidth: 80px;
+$groupMargin: 10px;
+.form{
+	.form-group{
+		// @extend %clearfix;
+		@include clearfix;
+		margin-bottom: $groupMargin;
+		label{
+			float: left; _display: inline;
+			width: $labelWidth;
+			text-align: right;
+			line-height: 28px;
+		}
+		input{
+			float: left; _display: inline;
+			line-height: 16px;
+			padding: 5px;
+			border: 1px solid #ccc;
+		}
+	}
+	.form-action{
+		// @extend %clearfix;
+		@include clearfix;
+		padding-left: $labelWidth;
+		margin-bottom: $groupMargin;
+	}
+	.remeber{
+		// @extend %clearfix;
+		@include clearfix;
+		input{
+			float: left; _display: inline;
+			margin: 3px 4px 0 0;
+		}
+	}
+	textarea{
+		border: 1px solid #ccc;
+		padding: 5px;
+		_margin-left:-3px;
+	}
+	.help-inline{
+		display: inline-block;
+		padding-left: 10px;
+		line-height: 28px;
+		color: #999;
+	}
+	.help-block{
+		display: block;
+		clear: both;
+		width: 100%;
+		padding-left: $labelWidth;
+		line-height: 16px;
+		color: #f30;
+	}
+	.input-file-s1{
+		display:inline-block;
+		*display:inline;
+		*zoom:1;
+		vertical-align:
+		middle;
+		position:relative;
+		overflow:hidden;
+		cursor:pointer;
+		input{
+			height:100%;
+			position:absolute;
+			right:0;
+			top:0;
+			font-size:26px;
+			opacity:0;
+			filter:alpha(opacity=0);
+			cursor:pointer;
+		}
+	}
+	.input-file-s2{
+		position:relative;
+		input{
+			height:22px;
+			line-height:22px;
+			padding:2px;
+			border:1px solid #aaa;
+			margin-right: 5px;
+			vertical-align: middle;
+		}
+		.upload-file{
+			width: 180px;
+		    height:30px;
+			position:absolute;
+			left:0;
+			top:0;
+			opacity:0;
+			filter:alpha(opacity=0);
+			cursor:pointer;
+		}
+	}
+}

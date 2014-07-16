@@ -1,0 +1,67 @@
+//
+.box {
+	zoom: 1;
+	position: relative;
+	// 边框
+	&.is-bordered {
+		border: 1px solid #E5E5E5;
+		.box-hd {
+			margin: -1px -1px 0;
+			border: 1px solid #E5E5E5;
+		}
+	}
+	// 圆角
+	&.is-rounded{
+		@include border-radius(4px);
+		.box-hd {
+			@include border-radius(4px 4px 0 0);
+		}
+		.box-bd {
+			@include border-radius(4px);
+		}
+	}
+}
+.box-hd {
+	padding: 0 10px;
+	height: 30px;
+	line-height: 30px;
+	background-color: #EEE;
+	.icon {
+		float: left;
+		width: 16px;
+		height: 16px;
+		margin-top: 7px;
+		margin-right: 8px;
+		background-color: #3c6;
+	}
+	.title {
+		float: left;
+		margin: 0 10px 0 0;
+		font-size: 14px;
+	}
+	// 头部组件
+	.act {
+		float: right;
+		.links {
+			float: left;
+			a,
+			.line {
+				float: left;
+				margin: 0 4px;
+				font-size: 12px;
+			}
+			.line {
+				margin: 0 2px;
+				color: #999;
+				overflow: hidden;
+			}
+		}
+		.more {
+			margin-left: 10px;
+		}
+	}
+}
+.box-bd {
+	@include clearfix;
+	// @extend %clearfix;
+}

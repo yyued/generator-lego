@@ -1,0 +1,13 @@
+{
+  	"site_name": "多玩游戏网",
+  	"analytics_id": "XOXOXO",
+  	"section1": {
+  		"title": "section1",
+  		"items":[
+			{"name": "ABC", "href": "#"},
+			{"name": "111", "href": "#"},
+			{"name": "zzz", "href": "#"},
+			{"name": "986", "href": "#"}
+		]
+  	}
+}

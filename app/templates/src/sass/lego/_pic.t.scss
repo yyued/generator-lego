@@ -1,0 +1,53 @@
+//
+// 去掉.cont的定义可以实现文字围绕图片效果
+.mod-pic-t {
+	zoom: 1;
+	overflow: hidden;
+	position: relative;
+	padding: 0 20px;
+	li {
+		zoom: 1;
+		overflow: hidden;
+		margin-top: -1px;
+		border-top: 1px solid #CCC;
+		padding: 20px 0;
+		.pic {
+			float: left;
+			margin-right: 10px;
+			img {
+				width: 130px;
+				height: 90px;
+				//border: 1px solid #D8D8D8;
+			}
+			&:hover {
+				background-color: transparent;
+				img {
+					//border-color: #999;
+				}
+			}
+		}
+		.cont {
+			zoom: 1;
+			overflow: hidden;
+			h4 {
+				overflow: hidden;
+				font-size: 14px;
+				height: 30px;
+				line-height: 26px;
+			}
+			p {
+				line-height: 20px;
+			}
+			.more {
+				display: inline-block;
+				color: #0082C3;
+			}
+		}
+	}
+}
+// 图片居右
+a.fr {
+	margin-right: 0;
+	margin-left: 10px;
+	float: right!important;
+}

@@ -1,0 +1,32 @@
+//
+%badge{
+	display: inline-block;
+	vertical-align: baseline;
+	white-space: nowrap;
+	text-align: center;
+	min-width: 16px;
+	height: 16px;
+	line-height: 16px;
+	overflow: hidden;
+	font-size: 12px;
+	color: #fff;
+}
+.badge{
+	@extend %badge;
+	background-color: $color-default;
+}
+.badge-success{
+	background-color: $color-success;
+}
+.badge-warning{
+	background-color: $color-warning;
+}
+.badge-error{
+	background-color: $color-error;
+}
+.badge-info{
+	background-color: $color-info;
+}
+.is-rounded {
+	@include border-radius(8px);
+}

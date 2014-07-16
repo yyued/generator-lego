@@ -1,0 +1,27 @@
+//
+%label{
+	display: inline-block;
+	white-space: nowrap;
+	vertical-align: baseline;
+	font-size: 1em;
+	line-height: 1;
+	padding: 2px 4px;
+	@include border-radius(3px);
+	color: #fff;
+}
+.label{
+	@extend %label;
+	background-color: $color-default;
+}
+.label-success{
+	background-color: $color-success;
+}
+.label-warning{
+	background-color: $color-warning;
+}
+.label-error{
+	background-color: $color-error;
+}
+.label-info{
+	background-color: $color-info;
+}

@@ -1,0 +1,73 @@
+//
+.pagination {
+	width: 100%;
+	clear: both;
+	font-size: 0;
+	a,
+	span,
+	input,
+	button {
+		display: inline-block;
+		*display: inline;
+		*zoom: 1;
+		vertical-align: top;
+		white-space: nowrap;
+		font-size: 12px;
+	}
+	a {
+		height: 22px;
+		line-height: 22px;
+		padding: 0 8px;
+		margin: 2px;
+		border: 1px solid #d8d8d8;
+		color: #666;
+		background: #eee;
+		&:hover {
+			text-decoration: none;
+			border-color: #2791CA;
+			color: #666;
+		}
+		&.current {
+			cursor: default;
+			font-weight: 700;
+			color: #fff !important;
+			background-color: #2fa2e0;
+			border-color: #2791CA;
+		}
+	}
+	span {
+		line-height: 24px;
+		margin: 2px;
+		color: #666;
+	}
+	ins {
+		display: inline-block;
+		*display: inline;
+		*zoom: 1;
+		vertical-align: top;
+		margin-left: 2px;
+		text-decoration: none;
+		span {
+			margin: 2px 0;
+		}
+		input {
+			width: 2em;
+			height: 18px;
+			line-height: 18px;
+			padding: 2px 4px;
+			margin: 2px 0;
+			border: 1px solid #D8D8D8;
+		}
+		button {
+			margin: 2px 0;
+			height: 24px;
+		}
+	}
+	&.round {
+		a,
+		ins input {
+			-webkit-border-radius: 3px;
+			border-radius: 3px;
+		}
+	}
+}
