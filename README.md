@@ -20,7 +20,7 @@
 	* 在克隆目录执行 `npm link` 链接到全局模块的位置
 	* 在空目录执行 `yo lego` 初始化项目
 2. npm
-	* `npm install -g generator-lego`	
+	* `npm install -g generator-lego`
 	* 在空目录执行 `yo lego` 初始化项目
 
 ### <a name="file-tree"></a>文件结构 [[⬆]](#top)
@@ -62,10 +62,12 @@ yourProj/
 
 #### 开发
 * `gulp` 创建一个链接，自动检测`src`文件夹下的静态文件，自动刷新。支持sass编译。
-* `gulp -p 8080` 同上，`-p`参数指定特定端口。
 
 #### 发布
 * `gulp release` 将静态文件压缩到 `dest/`。
+
+#### 打包
+* `gulp zip` ，替换发布代码资源路径为线上路径，将源码和发布代码压缩成一个zip包。
 
 ### <a name="show-case"></a>Demo [[⬆]](#top)
 //TODO
@@ -75,6 +77,7 @@ yourProj/
 
 ### <a name="license"></a>License [[⬆]](#top)
 Released under [MIT] LICENSE
+
 
 ---
 [1]: https://github.com/jking90/docpad-plugin-nodesass/issues/14

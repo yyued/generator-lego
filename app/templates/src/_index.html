@@ -6,20 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="Keywords" content="多玩游戏">
     <meta name="description" content="">
-    <title> <%= global.site_name%> </title>
+    <title> 多玩游戏 </title>
     <link href="css/global.css" rel="stylesheet">
 </head>
 <body>
-    <% include partial/duowan-nav %>
-    <div class="wrap">
-
-    <ul>
-    <% _.each(global.section1.items, function(item, i){ %>
-        <li><a href=" <%= item.href %>"> <%= item.name %></a></li>
-    <% }) %>
-    </ul>       
+    <div class="wrap">  
 
     </div>
-    <% include partial/duowan-siteinfo %>
+    <!-- 多玩通用导航{ -->
+    <script src="http://www.duowan.com/public/s/i/navbar/navbar.js" charset="utf-8"></script>
+    <!-- }多玩通用导航 -->
+    <!-- 多玩通用页脚{ -->
+    <script src="http://www.duowan.com/assets/js/duowanFooter.js" charset="utf-8"></script>
+    <!-- }多玩通用页脚 -->
 </body>
 </html>

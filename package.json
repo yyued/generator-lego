@@ -1,6 +1,6 @@
 {
   "name": "generator-lego",
-  "version": "0.0.9",
+  "version": "0.1.1",
   "description": "f2e workflow, a gulp app generator",
   "repository": {
     "type": "git",
@@ -8,8 +8,7 @@
   },
   "main": "app/index.js",
   "dependencies": {
-    "yeoman-generator": "~0.17.0",
-    "gruntfile-api": "0.0.9"
+    "yeoman-generator": "~0.17.0"
   },
   "author": "twlk28",
   "license": "MIT",
