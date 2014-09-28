@@ -48,6 +48,7 @@ module.exports = function(gulp, plugins) {
     	gulp.watch('src/css/**', ['dev_css'])
     	gulp.watch('src/img/**', reload)
     	gulp.watch('src/js/**', reload)
+        gulp.watch('src/*.html', reload)
     })  
 
 }
