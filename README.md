@@ -15,12 +15,13 @@
 ### <a name="quick-start"></a>快速开始 [[⬆]](#top)
 提供以下2种获取方式：	
 
-1. Clone the repo
+1. npm
+	* `npm install -g generator-lego`
+	* 在空目录执行 `yo lego` 初始化项目
+
+2. Clone the repo
 	* `git clone git@github.com:duowan/generator-lego.git`
 	* 在克隆目录执行 `npm link` 链接到全局模块的位置
-	* 在空目录执行 `yo lego` 初始化项目
-2. npm
-	* `npm install -g generator-lego`
 	* 在空目录执行 `yo lego` 初始化项目
 
 ### <a name="file-tree"></a>文件结构 [[⬆]](#top)
@@ -70,7 +71,7 @@ yourProj/
 * `gulp zip` ，替换发布代码资源路径为线上路径，将源码和发布代码压缩成一个zip包。
 
 ### <a name="show-case"></a>Demo [[⬆]](#top)
-//TODO
+![showcase01](https://cloud.githubusercontent.com/assets/1762523/4558145/146cf2e4-4edc-11e4-8e21-9d408776a14d.gif)
 
 ### <a name="known-issues"></a>已知问题 [[⬆]](#top)
 * sass编译出错中断console 。 [见issue][1]
