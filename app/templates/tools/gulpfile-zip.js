@@ -17,7 +17,7 @@ module.exports = function(gulp, plugins) {
     		.pipe(gulp.dest('assets/dest'))
     })
     gulp.task('zip_trans', function() {
-    	var url = require('path').join('http://assets.dwstatic.com', pkg.description, pkg.name, pkg.version)
+    	var url = require('url').resolve('http://assets.dwstatic.com', pkg.description, pkg.name, pkg.version)
         return gulp.src(['dest/**/*.html'])
         	.pipe( plugins.cdnAbsolutePath({assets:'dest', cdn:url}) )
         	.pipe(gulp.dest('assets/dest'))
