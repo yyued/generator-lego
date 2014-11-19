@@ -7,7 +7,7 @@ var yeoman = require('yeoman-generator'),
 
 
 var LegoGenerator = yeoman.generators.Base.extend({
-	
+
 	init: function (){
 		// global config for prompting & shell script
 		this.gConfig = this.src.readJSON('.yo-rc.json')
@@ -71,7 +71,7 @@ var LegoGenerator = yeoman.generators.Base.extend({
 		this.directory('src', 'src')
 		this.directory('tools', 'tools')
 		this.copy('gulpfile.js', 'gulpfile.js')
-		this.copy('package.json', 'package.json')		
+		this.copy('package.json', 'package.json')
 		// this.copy('bower.json', 'src/bower.json')
 		// GruntfileEditor.init( fs.readFileSync(path.join(__dirname, 'templates', 'Gruntfile.js')) )
 		// GruntfileEditor.addGlobalDeclarationRaw('SVN_USR', '"'+this.svnUsr+'"')
@@ -90,14 +90,14 @@ var LegoGenerator = yeoman.generators.Base.extend({
         	// this.spawnCommand('bower', ['install'], {cwd: 'src'})
         	if(this.gConfig['open_app']){
         		this.spawnCommand('open', ['-a', this.gConfig['open_app'], '.'])
-        	} 
+        	}
         	this.spawnCommand('gulp')
 		}
 		if(process.platform === "win32"){
 			this.spawnCommand('mklink', ['/d', '.\\node_modules', path.join(__dirname, 'templates', 'lib')])
         	// this.spawnCommand('bower', ['install'], {cwd: 'src'})
         	if(this.gConfig['open_app']){
-        		this.spawnCommand('start', ['', this.gConfig['open_app'], '.'])			
+        		this.spawnCommand('start', ['', this.gConfig['open_app'], '.'])
         	}
 		}
         this.installDependencies()
