@@ -1,8 +1,0 @@
-{
-  "name": "<%= projectName %>",
-  "version": "<%= projectVersion %>",
-  "license": "MIT",
-  "devDependencies": {
-    "jquery": "*"
-  }
-}

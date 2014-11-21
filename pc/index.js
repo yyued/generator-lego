@@ -9,13 +9,11 @@ var yeoman = require('yeoman-generator'),
 
 var LegoGenerator = yeoman.generators.Base.extend({
 	
-	// 1. 提问前的准备工作
 	init: function (){
-		// 当前模板的全局配置数据，配置svn信息和命令执行的参数
+		// 当前模板的全局配置数据，配置svn信息和命令流
 		this.gConfig = this.src.readJSON('.yo-rc.json')
 	},
 
-	// 2. 提问
 	prompting: function(){
 		var done = this.async()
 		var questions = [
@@ -69,7 +67,6 @@ var LegoGenerator = yeoman.generators.Base.extend({
 		}.bind(this))
 	},
 
-	// 3. 资源文件拷贝
 	writing: function(){
 		// 同步问答结果，更新当前模板的配置数据
 		this.gConfig.projectAuthor = this.projectAuthor
@@ -84,7 +81,6 @@ var LegoGenerator = yeoman.generators.Base.extend({
 		this.copy('package.json', 'package.json')
 	},
 
-	// 4. 拷贝后执行命名 如建立润链接等
 	end: function(){
 		// 文件转移后 删除不需要的文件
 		del(['src/**/.gitignore'])

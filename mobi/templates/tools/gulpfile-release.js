@@ -73,6 +73,10 @@ module.exports = function(gulp, plugins) {
             }))
             .pipe(gulp.dest('dest/img'))
     })
+    gulp.task('rels_fonts', function() {
+        return gulp.src('src/fonts/**')
+            .pipe(gulp.dest('dest/fonts'))
+    })
     gulp.task('rels_html', function() {
         return gulp.src(['src/*.html'])
             .pipe(gulp.dest('dest'))
@@ -81,7 +85,7 @@ module.exports = function(gulp, plugins) {
         del.sync(['dest/**'])
     })
 
-    gulp.task('release', ['rels_clean', 'rels_html', 'rels_sprite', 'rels_js', 'rels_img'], function(){
+    gulp.task('release', ['rels_clean', 'rels_html', 'rels_sprite', 'rels_js', 'rels_img', 'rels_fonts'], function(){
         portfinder.getPort(function (err, port) {
             browserSync({
                 server: {
