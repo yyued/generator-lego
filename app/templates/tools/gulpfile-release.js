@@ -20,7 +20,7 @@ module.exports = function(gulp, plugins) {
             style: 'compact',
             onError: function(err) { console.log('...err...: ' + err) }
         }
-        return gulp.src('src/sass/**')
+        return gulp.src('src/sass/*.scss')
             .pipe(plugins.sass(config))
             .pipe(plugins.autoprefixer("last 1 version", "> 1%", "ie 8", "ie 7"))
             .pipe(gulp.dest('src/css'))
@@ -89,6 +89,7 @@ module.exports = function(gulp, plugins) {
                     directory: true
                 },
                 notify: false,
+                ghostMode:false,
                 codeSync: false,
                 port: that.port||port,
                 open: "external",
@@ -104,6 +105,7 @@ module.exports = function(gulp, plugins) {
                     directory: true
                 },
                 notify: false,
+                ghostMode:false,
                 codeSync: false,
                 port: that.port||port,
                 open: "external",

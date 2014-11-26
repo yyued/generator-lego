@@ -1,0 +1,17 @@
+.mod-scrollTop{
+    width:44px;
+    height:44px;
+    position:fixed;
+    bottom:60px;
+    right:10px;
+    z-index:999;
+    background: rgba(0,0,0,0.6);
+    border-radius: 10px;
+    i{
+        display: block;
+        width: 100%;
+        line-height: 44px;
+        color: #fff;
+        text-align: center;
+    }
+}

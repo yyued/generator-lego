@@ -17,12 +17,10 @@ module.exports = function(gulp, plugins) {
             browserSync({
                 server: {
                     baseDir: "src",
-                    directory: true,
-                    middleware: function(req, res, next){
-                        next()
-                    }
+                    directory: true
                 },
                 notify: false,
+                ghostMode:false,
                 port: that.port||port,
                 open: "external",
                 browser: "/Applications/Google\ Chrome.app/"
@@ -36,7 +34,7 @@ module.exports = function(gulp, plugins) {
             style: 'compact',
             onError: function(err){ console.log('...err...: ' + err) }
         }
-        return gulp.src('src/sass/**')
+        return gulp.src('src/sass/*.scss')
             .pipe(plugins.sass(config))
             .pipe(plugins.autoprefixer("last 1 version", "> 1%", "ie 8", "ie 7"))
             .pipe(gulp.dest('src/css'))

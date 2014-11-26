@@ -96,7 +96,7 @@ var LegoGenerator = yeoman.generators.Base.extend({
         	if(this.gConfig['open_app']){
         		this.spawnCommand('open', ['-a', this.gConfig['open_app'], '.'])
         	} 
-        	this.spawnCommand('gulp')
+        	this.spawnCommand('gulp', ['-w'])
 		}
         this.installDependencies()
         // this.log('done!')
