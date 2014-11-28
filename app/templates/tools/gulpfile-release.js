@@ -54,7 +54,7 @@ module.exports = function(gulp, plugins) {
                 if (argv.t) {
                     var timestamp = +new Date
                     gulp.src(['dest/css/**'])
-                        .pipe(plugins.replace(/[\w-]*\.(jpg|gif|png)/g, '$1?'+timestamp))
+                        .pipe(plugins.replace(/([\w-]*\.(jpg|gif|png))/g, '$1?'+timestamp))
                         .pipe(gulp.dest('dest/css'));
                 }
             }
