@@ -80,22 +80,37 @@ var LegoGenerator = yeoman.generators.Base.extend({
 		this.copy('gulpfile.js', 'gulpfile.js')
 		this.copy('package.json', 'package.json')
 	},
-
+	
 	end: function(){
-		// 文件转移后 删除不需要的文件
+		// 文件转移后，删除不需要的文件
 		del(['src/**/.gitignore'])
 
-		// 文件转移后 执行以下命令
-		if(process.platform === "darwin"||"linux"){
-        	this.spawnCommand('ln', ['-s', path.join(__dirname, 'templates', 'node_modules'), 'node_modules'])
-        	// this.spawnCommand('bower', ['install'], {cwd: 'src'})
-        	if(this.gConfig['open_app']){
-        		this.spawnCommand('open', ['-a', this.gConfig['open_app'], '.'])
-        	} 
-        	this.spawnCommand('gulp')
+		// 建立软连接并安装依赖
+		if(win32){
+			var exec = require('child_process').exec
+			exec('mklink /d .\\node_modules '+ path.join(__dirname, '..', 'node_modules') )
+		}else{
+        	this.spawnCommand('ln', ['-s', path.join(__dirname, '..', 'node_modules'), 'node_modules'])
 		}
-        this.installDependencies()
-        // this.log('done!')
+		
+		// 安装完依赖后，回调里执行`gulp`
+		// https://github.com/yeoman/generator/blob/45258c0a48edfb917ecf915e842b091a26d17f3e/lib/actions/install.js#L67-69
+	    this.installDependencies({
+	    	bower: false,
+ 			npm: true,
+	    	skipInstall: false,
+	    	callback: execAfterInstall.bind(this)
+	    })
+
+        function execAfterInstall(){
+			if(!win32){
+	        	if(this.gConfig['open_app']){
+	        		this.spawnCommand('open', ['-a', this.gConfig['open_app'], '.'])
+	        	} 
+			}
+        	this.spawnCommand('gulp', ['-w'])
+            log('资源初始化完毕! 现在可以 coding...')
+        }
 	}
 
 });

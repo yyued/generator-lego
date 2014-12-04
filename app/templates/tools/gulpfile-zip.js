@@ -1,6 +1,7 @@
 module.exports = function(gulp, plugins) {
 
     var del = require('del'),
+        path = require('path'),
         log = console.log;
 
     var pkg = require('../package.json');
@@ -23,8 +24,9 @@ module.exports = function(gulp, plugins) {
         	.pipe(gulp.dest('assets/dest'))
     })
     gulp.task('zip_done', ['zip_clean', 'zip_copySrc', 'zip_copyDest', 'zip_trans'], function() {
+        var zipname = path.basename(path.join(__dirname, '..'))+'.zip'
         return gulp.src(['assets/**'])
-            .pipe(plugins.zip('assets.zip'))
+            .pipe(plugins.zip(zipname))
             .pipe(gulp.dest('./'))
     })
 

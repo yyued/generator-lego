@@ -1,6 +1,6 @@
 {
   "name": "generator-lego",
-  "version": "0.2.1",
+  "version": "0.2.5",
   "description": "f2e workflow, a gulp app generator",
   "repository": {
     "type": "git",
