@@ -52,6 +52,24 @@ var LegoGenerator = yeoman.generators.Base.extend({
 				default: this.gConfig.projectAuthor||''
 			}
 		]
+
+		// 是否初始一线专区的资源
+		questions.push({
+			name: 'projectAssets',
+			type: 'list',
+			message: '初始的静态资源:',
+			choices: [
+				{
+					name: '默认资源',
+					value: 'src',
+					checked: true
+				},{
+					name: '游戏一线专区资源',
+					value: 'src4GameChannelOne'
+				}
+			]
+		})
+
 		if(!this.gConfig.svnUsr){
 			questions.push({
 				name: 'svnUsr',
@@ -79,9 +97,12 @@ var LegoGenerator = yeoman.generators.Base.extend({
 		this.gConfig.svnPwd = this.svnPwd?this.svnPwd:this.gConfig.svnPwd
 		this.write(path.join(__dirname, 'templates', '.yo-rc.json'), JSON.stringify(this.gConfig, null, 4), {encoding: 'utf8'})
 		
-		
 		// 拷贝资源文件，资源文件可以通过`<%= %>`读取当前实例的数据
-		this.directory('src', 'src')
+		if(this.projectAssets === 'src4GameChannelOne'){
+			this.directory('src4GameChannelOne', 'src')
+		}else{
+			this.directory('src', 'src')
+		}
 		this.directory('tools', 'tools')
 		this.copy('gulpfile.js', 'gulpfile.js')
 		this.copy('package.json', 'package.json')

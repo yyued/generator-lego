@@ -67,7 +67,7 @@ module.exports = function(gulp, plugins) {
             .pipe(gulp.dest('dest/js'))
     })
     gulp.task('rels_img', function() {
-        return gulp.src('src/img/**')
+        return gulp.src(['src/img/**', '!src/img/**/*.psd'])
             .pipe(plugins.imagemin({
                 progressive: true
             }))

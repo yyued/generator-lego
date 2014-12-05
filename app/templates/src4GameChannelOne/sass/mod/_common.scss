@@ -1,0 +1,60 @@
+/* 通用box */
+.m-newsbox{
+    .box-hd{
+        height: 32px;
+        line-height: 32px;
+        background-color: #262A34;
+        padding: 0px;
+        h3{
+            color: #B5C6DB;
+        }
+        .icon{
+            background-image: url("../img/icon-map.png");
+            background-position: 0 -60px;
+            background-repeat: no-repeat;
+            width: 37px;
+            height: 32px;
+            overflow: hidden;
+            margin-top: 0px;
+            background-color: #262A34;
+            margin-right: 2px;
+        }
+    }
+    .act{
+        .more{
+            color: #B5C6DB!important;
+            margin-right: 10px;
+        }
+    }
+    .box-bd{
+        background-color: #F0F0F0;
+        border: 1px solid #E1E1E1;
+        border-top: none;
+    }
+}
+
+/* 通用文章列表 */
+.list-article{
+    li{
+        padding-left: 10px;
+        position: relative;
+        font-size: 12px;
+        .date{
+            color: #808080;
+        }
+    }
+    i{
+        position: absolute;
+        top: 50%;
+        left: 0px;
+        width: 0;
+        height: 0;
+        margin-top: -3px;
+        border-width: 3px;
+        border-style: dashed;
+        border-color: transparent transparent transparent #818CAA;
+        _border-color:#FBFBFB #FBFBFB #FBFBFB #818CAA;
+        font-size: 0;
+        line-height: 0;
+    }
+}

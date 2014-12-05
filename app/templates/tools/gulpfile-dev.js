@@ -45,9 +45,8 @@ module.exports = function(gulp, plugins) {
             .pipe(reload({stream:true}))
     })
     gulp.task('dev_ejs', function() {
-        var data = require('../src/tpl/d/global.json')
         return gulp.src('src/tpl/*.ejs')
-            .pipe(plugins.ejs(data).on('error', console.log))
+            .pipe(plugins.ejs().on('error', console.log))
             .pipe(gulp.dest('src/'))
             .pipe(reload({stream:true}))
     })
