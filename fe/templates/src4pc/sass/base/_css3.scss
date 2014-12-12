@@ -1,0 +1,285 @@
+//
+// css3 mixins
+// http://css3please.com
+// $Date: 2014-01-14 14:02:52 +0800 (Tue, 14 Jan 2014) $
+//
+// border-radius
+@mixin border-radius ( $arguments ) {
+	-webkit-border-radius: $arguments;
+	        border-radius: $arguments;
+	        @include background-clip;
+}
+// background-clip
+@mixin background-clip {
+    -webkit-background-clip: padding-box;
+       -moz-background-clip: padding;
+            background-clip: padding-box;
+}
+// box-shadow
+@mixin box-shadow( $x:0, $y:0, $blur:4, $color:rgba(0,0,0,.6) ) {
+	-webkit-box-shadow: $x + 0px $y + 0px $blur + 0px $color;
+	        box-shadow: $x + 0px $y + 0px $blur + 0px $color;
+}
+// linear-gradient
+@mixin gradient ( $origin:top, $from:#FFFFFF, $to:#000000 ) {
+	background-color: $start;
+	background-image: -webkit-linear-gradient($origin, $from, $to);
+	background-image:    -moz-linear-gradient($origin, $from, $to);
+	background-image:     -ms-linear-gradient($origin, $from, $to);
+	background-image:      -o-linear-gradient($origin, $from, $to);
+	background-image:         linear-gradient($origin, $from, $to);
+}
+// rgba
+@mixin rgba ( $arguments: rgba(0,0,0,.6) ) {
+	background-color: transparent;
+	background-color: $arguments;
+}
+// rotate
+@mixin rotate ( $deg: 90 ) {
+  -webkit-transform: rotate( $deg + 0deg );
+     -moz-transform: rotate( $deg + 0deg );
+      -ms-transform: rotate( $deg + 0deg );
+       -o-transform: rotate( $deg + 0deg );
+          transform: rotate( $deg + 0deg );
+}
+// scale
+@mixin scale ( $factor: 1 ) {
+	-webkit-transform: scale( $factor );
+	   -moz-transform: scale( $factor );
+	    -ms-transform: scale( $factor );
+	     -o-transform: scale( $factor );
+	        transform: scale( $factor );
+}
+// 3dtransforms
+@mixin transforms3d ( $deg: 180 ) {
+    -webkit-perspective: 300;
+       -moz-perspective: 300;
+        -ms-perspective: 300;
+            perspective: 300;
+      -webkit-transform: rotateY( $deg + 0deg );
+         -moz-transform: rotateY( $deg + 0deg );
+          -ms-transform: rotateY( $deg + 0deg );
+              transform: rotateY( $deg + 0deg );
+    -webkit-transform-style: preserve-3d;
+       -moz-transform-style: preserve-3d;
+        -ms-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+}
+// transition
+// http://goo.gl/LnJck
+@mixin transition ( $what:all, $time:.3s, $ease:ease-out, $delay:0 ) {
+	-webkit-transition: $what $time $ease $delay;
+	   -moz-transition: $what $time $ease $delay;
+	    -ms-transition: $what $time $ease $delay;
+	     -o-transition: $what $time $ease $delay;
+		    transition: $what $time $ease $delay;
+	-webkit-backface-visibility: hidden;
+	-webkit-transform-style: preserve-3d;
+}
+// text-shadow
+@mixin textshadow ( $x:1px, $y:1px, $blur:3px, $color:rgba(0,0,0,.8) ) {
+	text-shadow: $x + 0px $y + 0px $blur + 0px $color;
+}
+// opacity
+@mixin opacity ( $value:1 ) {
+	$ieOpacity: $value * 100;
+	filter: alpha(opacity=#{$ieOpacity});
+	opacity: $value;
+}
+// box-sizing
+@mixin boxsizing ( $type: border-box ) {
+	-webkit-box-sizing: $type;
+	   -moz-box-sizing: $type;
+	        box-sizing: $type;
+}
+// background-size
+@mixin bgsize ( $x:100%, $y:100% ) {
+	-webkit-background-size: $x $y;
+	        background-size: $x $y;
+}
+// columns
+@mixin columns ( $count:2, $gap:10px ) {
+	-webkit-column-count: $count;
+	   -moz-column-count: $count;
+	        column-count: $count;
+	  -webkit-column-gap: $gap;
+	     -moz-column-gap: $gap;
+	          column-gap: $gap;
+}
+// animation
+@mixin animation ( $name:myanim, $duration:2s, $delay:0, $ease:infinite ) {
+	-webkit-animation: $name $duration $delay $ease;
+	   -moz-animation: $name $duration $delay $ease;
+	    -ms-animation: $name $duration $delay $ease;
+	     -o-animation: $name $duration $delay $ease;
+}
+// keyframes
+@mixin keyframes {
+	@-webkit-keyframes myanim {
+		0%   { opacity: 0.0; }
+		50%  { opacity: 0.5; }
+		100% { opacity: 1.0; }
+	}
+	@-moz-keyframes myanim {
+		0%   { opacity: 0.0; }
+		50%  { opacity: 0.5; }
+		100% { opacity: 1.0; }
+	}
+	@-o-keyframes myanim {
+		0%   { opacity: 0.0; }
+		50%  { opacity: 0.5; }
+		100% { opacity: 1.0; }
+	}
+	@keyframes myanim {
+		0%   { opacity: 0.0; }
+		50%  { opacity: 0.5; }
+		100% { opacity: 1.0; }
+	}
+}
+// matrix
+// http://css3please.com/#box_matrix
+// http://peterned.home.xs4all.nl/matrices/
+// http://meyerweb.com/eric/tools/matrix/
+@mixin matrix ( $arguments ) {
+	-webkit-transform: matrix( $arguments );
+	   -moz-transform: matrix( $arguments );
+	    -ms-transform: matrix( $arguments );
+	     -o-transform: matrix( $arguments );
+	        transform: matrix( $arguments );
+}
+// font-face
+@mixin font-face (){
+	@font-face {
+		font-family: 'WebFont';
+				src: url('myfont.woff') format('woff'),
+					 url('myfont.ttf') format('truetype');
+	}
+}
+// tab-size
+@mixin tabsize ( $value: 2 ) {
+    -moz-tab-size: $value;
+      -o-tab-size: $value;
+         tab-size: $value;
+}
+// 2D平移
+@mixin translate ( $x: 0, $y: 0 ) {
+	-webkit-transform: translate( $x, $y );
+	   -moz-transform: translate( $x, $y );
+	    -ms-transform: translate( $x, $y );
+	     -o-transform: translate( $x, $y );
+	        transform: translate( $x, $y );
+}
+// 斜切扭曲
+@mixin skew ( $degX: 45, $degY: 0 ) {
+	-webkit-transform: skew( $degX + 0deg, $degY + 0deg );
+	   -moz-transform: skew( $degX + 0deg, $degY + 0deg );
+	    -ms-transform: skew( $degX + 0deg, $degY + 0deg );
+	     -o-transform: skew( $degX + 0deg, $degY + 0deg );
+	        transform: skew( $degX + 0deg, $degY + 0deg );
+}
+// 3D
+@mixin translate3d ( $x, $y: 0, $z: 0 ) {
+	-webkit-transform: translate3d( $x, $y, $z );
+	   -moz-transform: translate3d( $x, $y, $z );
+	    -ms-transform: translate3d( $x, $y, $z );
+	     -o-transform: translate3d( $x, $y, $z );
+	        transform: translate3d( $x, $y, $z );
+}
+//
+@mixin perspective ( $value: 1000 ) {
+	-webkit-perspective: $value;
+	   -moz-perspective: $value;
+	    -ms-perspective: $value;
+	     -o-perspective: $value;
+	        perspective: $value;
+}
+// 盒模型
+@mixin box ( $orient:horizontal, $pack:center, $align:center ) {
+	           display: -webkit-box;
+	           display: -moz-box;
+	           display: box;
+	-webkit-box-orient: $orient;
+	   -moz-box-orient: $orient;
+	        box-orient: $orient;
+	  -webkit-box-pack: $pack;
+	     -moz-box-pack: $pack;
+	          box-pack: $pack;
+	 -webkit-box-align: $align;
+	    -moz-box-align: $align;
+	         box-align: $align;
+}
+@mixin flex ( $val: 1 ) {
+	-webkit-box-flex: $val;
+	   -moz-box-flex: $val;
+	        box-flex: $val;
+}
+
+
+
+@mixin columns ( $colwidth:250px, $colcount:0, $colgap:50px, $columnRuleColor:#EEE, $columnRuleStyle:solid, $columnRuleWidth:1px) {
+  -moz-column-width: $colwidth;
+  -moz-column-count: $colcount;
+  -moz-column-gap: $colgap;
+  -moz-column-rule-color: $columnRuleColor;
+  -moz-column-rule-style: $columnRuleStyle;
+  -moz-column-rule-width: $columnRuleWidth;
+  -webkit-column-width: $colwidth;
+  -webkit-column-count: $colcount;
+  -webkit-column-gap: $colgap;
+  -webkit-column-rule-color: $columnRuleColor;
+  -webkit-column-rule-style: $columnRuleStyle;
+  -webkit-column-rule-width: $columnRuleWidth;
+  column-width: $colwidth;
+  column-count: $colcount;
+  column-gap: $colgap;
+  column-rule-color: $columnRuleColor;
+  column-rule-style: $columnRuleStyle;
+  column-rule-width: $columnRuleWidth;
+}
+
+
+// 垂直渐变
+@mixin vertical-gradient ( $from:#FFFFFF, $to:#000000 ) {
+	background-color: $start;
+	background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+	background-image: -webkit-linear-gradient(top, $from, $to);
+	background-image:    -moz-linear-gradient(top, $from, $to);
+	background-image:     -ms-linear-gradient(top, $from, $to);
+	background-image:      -o-linear-gradient(top, $from, $to);
+	background-image:         linear-gradient(top, $from, $to);
+}
+// 水平渐变
+@mixin horizontal-gradient ( $from:#FFFFFF, $to:#000000 ) {
+	background-color: $start;
+	background-image: -webkit-gradient(linear, left top, right top, from($from), to($to));
+	background-image: -webkit-linear-gradient(left, $from, $to);
+	background-image:    -moz-linear-gradient(left, $from, $to);
+	background-image:     -ms-linear-gradient(left, $from, $to);
+	background-image:      -o-linear-gradient(left, $from, $to);
+	background-image:         linear-gradient(left, $from, $to);
+}
+
+
+// 变换
+@mixin transform ( $arguments ) {
+	-webkit-transform: $arguments;
+     -moz-transform: $arguments;
+      -ms-transform: $arguments;
+       -o-transform: $arguments;
+          transform: $arguments;
+}
+@mixin transform ( $rotate:90deg, $scale:1, $skew:1deg, $translate:10px ) {
+	-webkit-transform: rotate($rotate) scale($scale) skew($skew) translate($translate);
+	   -moz-transform: rotate($rotate) scale($scale) skew($skew) translate($translate);
+	    -ms-transform: rotate($rotate) scale($scale) skew($skew) translate($translate);
+	     -o-transform: rotate($rotate) scale($scale) skew($skew) translate($translate);
+	        transform: rotate($rotate) scale($scale) skew($skew) translate($translate);
+}
+// 变换原点(参照点)
+@mixin transform-origin ( $x: center, $y: center ) {
+	-webkit-transform-origin: $x $y;
+	   -moz-transform-origin: $x $y;
+	    -ms-transform-origin: $x $y;
+	     -o-transform-origin: $x $y;
+	        transform-origin: $x $y;
+}

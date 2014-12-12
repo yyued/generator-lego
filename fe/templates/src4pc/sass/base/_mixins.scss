@@ -1,0 +1,129 @@
+//
+// $Date: 2014-01-14 14:02:52 +0800 (Tue, 14 Jan 2014) $
+//
+@function getButtonColor($color) {
+	@return if( lightness($color) > 50, #333, #FFF );
+}
+@function black($opacity){
+	@return rgba(0,0,0,$opacity);
+}
+@function white($opacity){
+	@return rgba(255,255,255,$opacity);
+}
+@mixin reset{
+	margin: 0;
+	padding: 0;
+}
+@mixin inline-block{
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+@mixin clearfix{
+	*zoom: 1;
+	&:before,
+	&:after{
+		content: "";
+		display: table;
+		line-height: 0;
+	}
+	&:after{
+		clear: both;
+	}
+}
+@mixin size($value) {
+	width: $value;
+	height: $value;
+}
+@mixin size($width, $height) {
+	width: $width;
+	height: $height;
+}
+@mixin float($float:left){
+	float: $float;
+	_display: inline;
+}
+@mixin float-left{
+	float: left;
+	_display: inline;
+}
+@mixin float-right{
+	float: right;
+	_display: inline;
+}
+@mixin hide-text{
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+@mixin reset-filter {
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+@mixin background-color($value) {
+	background-color: transparent;
+	background-color: $value;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#{ie-hex-str($value)},endColorstr=#{ie-hex-str($value)});
+	zoom: 1;
+}
+@mixin break {
+	-ms-word-break: break-all;
+	word-break: break-all;
+	word-break: break-word;
+}
+@mixin ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+@mixin pre {
+	white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+}
+@mixin wrap {
+	text-wrap: wrap;
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	word-wrap: break-word;
+}
+// http://www.hicss.net/solve-change-line-in-css/
+@mixin nowrap {
+	white-space: nowrap;
+	word-break: keep-all;
+}
+@mixin opacity($opacity) {
+	opacity: $opacity;
+	filter: alpha(opacity=#{$opacity * 100});
+}
+@mixin min-height($height) {
+	min-height: $height;
+	height: auto !important;
+	_height: $height;
+}
+//http://manaten.net/archives/270
+@mixin sprite($image, $x, $y, $width, $height) {
+	width: $width;
+	height: $height;
+	display: block;
+	overflow: hidden;
+	background: $image $x*-1 $y*-1 no-repeat;
+	text-indent: 100%;
+	white-space: nowrap;
+}
+
+// Gradients  添加渐变过渡函数，20140110 add by petsa
+@mixin gradient($color-form, $color-to) {
+  background: $color-form; // Old browsers
+  background: -moz-linear-gradient(top, $color-form 0%, $color-to 100%); // FF3.6+
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$color-form), color-stop(100%,$color-to)); // Chrome,Safari4+
+  background: -webkit-linear-gradient(top, $color-form 0%, $color-to 100%); // Chrome10+,Safari5.1+
+  background: -o-linear-gradient(top, $color-form 0%, $color-to 100%); // Opera 11.10+
+  background: -ms-linear-gradient(top, $color-form 0%, $color-to 100%); // IE10+
+  background: linear-gradient(to bottom, $color-form 0%, $color-to 100%); // W3C
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-form', endColorstr='$color-to',GradientType=0 ); // IE6-9
+
+}

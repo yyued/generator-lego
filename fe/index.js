@@ -12,7 +12,6 @@ var LegoGenerator = yeoman.generators.Base.extend({
 	
 	// 1. 提问前的准备工作
 	init: function (){
-		this.conflicter.force = true
 		// 当前模板的全局配置数据，配置svn信息和命令执行的参数
 		this.gConfig = this.src.readJSON('.yo-rc.json')
 	},
@@ -21,65 +20,30 @@ var LegoGenerator = yeoman.generators.Base.extend({
 	prompting: function(){
 		var done = this.async()
 		this.projectAuthor = process.env.USER
+		this.projectName = path.basename(process.cwd())
+		// 读取assetsURL列表，提供选择或输入
+		// 
 		var questions = [
 			{
-				name: 'projectAssets',
+				name: 'assetsDir',
 				type: 'list',
 				message: '初始的静态资源:',
 				choices: [
 					{
-						name: 'LEGO样式库',
-						value: 'src',
+						name: 'PC端基础样式',
+						value: 'src4pc',
 						checked: true
 					},{
-						name: 'pc基础样式',
-						value: 'src4pc'
-					},{
-						name: 'mobi基础样式',
+						name: '移动端基础样式',
 						value: 'src4mobi'
-					},{
-						name: '游戏一线专区模板',
-						value: 'src4game1'
 					}
 				]
 			},{
-				name: 'projectFamily',
-				type: 'list',
-				message: '发布到svn静态资源服务器的根文件夹:',
-				choices: [
-					{
-						name: 'special',
-						value: 'special',
-						checked: true
-					},{
-						name: 'project',
-						value: 'project'
-					},{
-						name: 'game',
-						value: 'game'
-					}
-				]
-			},{
-				name: 'projectName',
-				message: '项目名称',
-				default: path.basename(process.cwd())
-			},{
-				name: 'projectVersion',
-				message: '版本号',
-				default: '1.0.0'
+				name: 'assetsURL',
+				message: '打包时的转换路径',
+				default: this.gConfig.assetsURL||''
 			}
 		]
-		if(!this.gConfig.svnUsr){
-			questions.push({
-				name: 'svnUsr',
-				message: 'svn用户名',
-				default: this.gConfig.svnUsr||''
-			},{
-				name: 'svnPwd',
-				message: 'svn密码',
-				default: this.gConfig.svnPwd||''
-			})
-		}
 		this.prompt(questions, function(answers){
 			for(var item in answers){
 				answers.hasOwnProperty(item) && (this[item] = answers[item])
@@ -91,12 +55,11 @@ var LegoGenerator = yeoman.generators.Base.extend({
 	// 3. 资源文件拷贝
 	writing: function(){
 		// 同步问答结果，更新当前模板的配置数据
-		this.gConfig.svnUsr = this.svnUsr?this.svnUsr:this.gConfig.svnUsr
-		this.gConfig.svnPwd = this.svnPwd?this.svnPwd:this.gConfig.svnPwd
+		this.gConfig.assetsURL = this.assetsURL
 		this.write(path.join(__dirname, 'templates', '.yo-rc.json'), JSON.stringify(this.gConfig, null, 4), {encoding: 'utf8'})
 		
 		// 拷贝资源文件，资源文件可以通过`<%= %>`读取当前实例的数据
-		this.directory(this.projectAssets, 'src')
+		this.directory(this.assetsDir, 'src')
 		this.directory('tools', 'tools')
 		this.copy('gulpfile.js', 'gulpfile.js')
 		this.copy('package.json', 'package.json')
@@ -136,6 +99,5 @@ var LegoGenerator = yeoman.generators.Base.extend({
 	}
 
 });
-
 
 module.exports = LegoGenerator;
