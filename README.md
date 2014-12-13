@@ -79,9 +79,7 @@ yourProj/
 
 ### <a name="task-dtls"></a>任务说明 [[⬆]](#top)
 #### 初始化项目
-* 执行`yo lego`，初始化多玩网站部的项目。
-* 执行`yo lego:pc`，初始化PC类的项目。
-* 执行`yo lego:mobi`，初始化移动类型的项目。
+* 执行`yo lego:fe`
 
 #### 开发
 * `gulp` 创建一个链接，自动检测`src`文件夹下的静态文件，自动刷新。支持sass编译。
