@@ -1,12 +1,12 @@
 @charset "UTF-8";
 //
-.list-article{
+.mod-art {
 	li {
 		overflow: hidden;
 		height: 24px;
 		line-height: 24px;
 		padding-left: 10px;
-		//background: url(../img/icon_li.png) no-repeat 0 12px;
+		background: url(../img/icon_li.png) no-repeat 0 12px;
 		.date{
 			float: right;
 			margin-left: 4px;

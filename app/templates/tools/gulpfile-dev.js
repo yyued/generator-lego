@@ -58,6 +58,12 @@ module.exports = function(gulp, plugins) {
         var gm = require('gm')
         var ejs = require('gulp-ejs/node_modules/ejs')
 
+        var classnameRule = function(fileName, p){
+            var relPath = path.relative('src/slice', path.dirname(p))
+            var name = path.join(relPath, fileName).replace(/\//g, '-')
+            return name
+        }
+
         var files, data = {}
         async.series([
             // 列出图片
@@ -80,7 +86,7 @@ module.exports = function(gulp, plugins) {
                         arr.push({
                             filepath: f,
                             imageurl: path.relative('src/sass', f).split(path.sep).join('/'),
-                            classname: path.basename(f, path.extname(f)),
+                            classname: classnameRule.call({}, path.basename(f, path.extname(f)), f),
                             width: size.width,
                             height: size.height
                         })
@@ -95,16 +101,17 @@ module.exports = function(gulp, plugins) {
             // 生成css
             function(next){
                 var tpl = (function(){/*
-@mixin slice($slice_url, $default_pos:false){
-  background-image: url($slice_url); background-repeat: no-repeat; 
-  @if($default_pos){display: inline-block; *display: inline; *zoom: 1; vertical-align: middle; text-align: center;}
-}
 <% slice.forEach(function(e){ %>
-.<%= e.classname%>{ @include slice('<%= e.imageurl%>'); width:<%= e.width%>px; height:<%= e.height %>px; }
+.<%= e.classname%>{
+    background-image: url(<%= e.imageurl%>);
+    width:<%= e.width%>px;
+    height:<%= e.height %>px; 
+    background-repeat: no-repeat; 
+}
 <% }) %>
                     */}).toString().split('\n').slice(1, -1).join('\n')
                 var css = ejs.render(tpl, data).replace(/^\n/mg, '')
-                fs.writeFileSync('src/sass/_icon.scss', css)
+                fs.writeFileSync('src/sass/_slice.scss', css)
             }
         ])
     })

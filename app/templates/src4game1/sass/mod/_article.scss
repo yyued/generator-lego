@@ -1,0 +1,123 @@
+@charset "UTF-8";
+
+@import "lightbox";
+
+.ZQ-page--article{
+	h1{
+		text-align: center;
+		color: #3A6ECC;
+		font-size: 28px;
+		height: 1.1em;
+		line-height: 1.1em;
+		padding-top: 40px;
+		margin-bottom: 12px;
+		font-weight: normal;
+	}
+	address{
+		margin-top: 12px;
+		text-align: center;
+		font-style: normal;
+		color: #999;
+		a{
+			margin: 0 10px;
+			color: #3A6ECC;
+		}
+		padding-bottom: 20px;
+		border-bottom: 1px dashed #EAEAEA;
+		margin: 0 30px;
+	}
+	.mod-page{
+		padding-bottom: 0px;
+	}
+	#share-links{
+		height: 18px;
+		padding: 10px 0;
+		border-top: 1px dashed #EAEAEA;
+		.bdsharebuttonbox{
+			float: left!important;
+		}
+	}
+	.summary{
+		@include clearfix();
+		background-color: #FBFBFB;
+		padding-right: 12px;
+		font-size: 14px;
+		margin: 20px 30px 0 30px;
+		.label{
+			float: left;
+			*display: inline;
+			width: 32px;
+			height: 53px;
+			background-color: #EAEAEA;
+			padding-left: 16px;
+			padding: 12px 16px 0 16px;
+			color: #999;
+			font-weight: bold;
+			font-size: 15px;
+			line-height: 1.2em;
+			margin-right: 16px;
+		}
+		p{
+			padding-top: 8px;
+			overflow: hidden;
+			*zoom: 1;
+			line-height: 1.8em;
+		}
+	}
+	#text{
+		position: relative;
+		padding: 0 30px;
+		p{
+			font-size: 16px;
+			margin-top: 2em;
+			line-height: 1.8em;
+		}
+		img{
+			max-width: 100%;
+			margin: 0 auto;
+			cursor: pointer;
+		}
+	}
+	.sweatmeat{
+		margin: 40px auto 0 auto;
+		width: 752px;
+		padding-bottom: 30px;
+	}
+	.sweatmeat__hd{
+		margin-bottom: 9px;
+		font-size: 14px;
+		a{
+			color: #3A6ECC;
+		}
+	}
+	.sweatmeat__bd{
+		height: 148px;
+		width: 750px;
+		background-color: #FCFCFC;
+		border: 1px solid #EFEFEF;
+	}
+	.index-slide{
+		margin-bottom: 0px;
+	}
+	.m-tab--weekly{
+		.m-list--news{
+			padding: 14px 0 2px 0;
+			li{
+				height: 28px;
+				line-height: 28px;
+			}
+		}
+	}
+	.mod-pic--video{
+		position: relative;
+		zoom: 1;
+		margin-right: -32px;
+		padding: 16px 0 0 16px;
+		li{
+			margin: 0 32px 0 0;
+		}
+	}
+	.ZQ-relative{
+		margin-top: 35px;
+	}
+}

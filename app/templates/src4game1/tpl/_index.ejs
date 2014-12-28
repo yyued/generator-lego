@@ -1,100 +1,54 @@
 <!doctype html>
 <html>
 <head>
-    <% include partial/head %>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Keywords" content="多玩游戏">
+    <meta name="description" content="">
+    <title> 一线专区模板 </title>
+    <link href="css/global.css" rel="stylesheet">
+    <link href="css/demo.css" rel="stylesheet">
+    <script src="http://assets.dwstatic.com/common/js/jquery.js"></script>
+    <script src="http://assets.dwstatic.com/b=lego/2.0.0/js&f=lego.switchable.js"></script>
+    <script src="js/main.js"></script>
 </head>
 <body>
-<!-- 站点导航{ -->
-<script type="text/javascript" src="http://www.duowan.com/public/s/i/navbar/navbar.js?20120215"></script>
-<!-- }站点导航 -->
-
-
-    <!-- 专题主体{ -->
-
-        <div id="doc">
-            <!-- 专区头部{ -->
-            <% include  partial/header %>
-            <!-- }专区头部 -->
-
-
-            <!-- 专区主要内容{ -->
-            <div class="layout">
-                <div class="blank10 layout-hd"></div>
-                <!-- main{ -->
-                <div id="main" class="g-2-1">
-                    <!-- 重点新闻{ -->
-                    <% include partial/topnews %>
-                    <!-- }重点新闻 -->
-                    <!-- 焦点图{ -->
-                    <% include partial/slider %>
-                    <!-- }焦点图 -->
-
-                    <!-- 游戏向导{ -->
-                    <% include partial/gameguide %>
-                    <!-- }游戏向导 -->
-
-                    <!-- 游戏视频{ -->
-                    <div class="blank8"></div>
-                    <% include partial/gamepic %>
-                    <!-- }游戏视频 -->
-
-                    <div class="blank8"></div>
-                    <!-- 论坛热贴{ -->
-                    <% include partial/gamebbs %>
-                    <!-- }论坛热贴 -->
-                    <!-- 论坛热贴{ -->
-                    <div class="box m-newsbox m-gamebbs g-c11 fl">
-                        <div class="box-hd">
-                            <i class="icon"></i>
-                            <h3 class="title">论坛热贴</h3>
-                            <div class="act">
-                                <a class="more" href="#">更多&raquo;</a>
-                            </div>
-                        </div>
-                        <div class="box-bd">
-                            <ul class="list-article">
-                                <li><i></i><span class="date">01.02</span><a href="#" title="">韩国玩家星际争霸高达作品死神来了</a></li>
-                                <li><i></i><span class="date">11.20</span><a href="#" title="">转虫族给力啊 星际猪出品趣味星际2漫画</a></li>
-                                <li><i></i><span class="date">11.17</span><a href="#" title="">首位GSL美女选手参赛照片 震撼护士装</a></li>
-                                <li><i></i><span class="date">11.14</span><a href="#" title="">韩国GSL第三季1500人预选赛首日现场图赏</a></li>
-                                <li><i></i><span class="date">11.13</span><a href="#" title="">国内画师leon19星际争霸2美术作品欣赏</a></li>
-                            </ul>
-                            <ul class="list-article">
-                                <li><i></i><span class="date">01.02</span><a href="#" title="">韩国玩家星际争霸高达作品死神来了</a></li>
-                                <li><i></i><span class="date">11.20</span><a href="#" title="">转虫族给力啊 星际猪出品趣味星际2漫画</a></li>
-                                <li><i></i><span class="date">11.17</span><a href="#" title="">首位GSL美女选手参赛照片 震撼护士装</a></li>
-                                <li><i></i><span class="date">11.14</span><a href="#" title="">韩国GSL第三季1500人预选赛首日现场图赏</a></li>
-                                <li><i></i><span class="date">11.13</span><a href="#" title="">国内画师leon19星际争霸2美术作品欣赏</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- }论坛热贴 -->
-
-                    <div class="blank10"></div>
-                    <% include partial/zhiye %>
-                    <script>
-                        KISSDW.tab("#profession", "hover");
-                    </script>
-
-                </div>
-                <!-- }main -->
-                <!-- aside{ -->
-                <% include partial/index-aside %>
-                <!-- }aside -->
-                <div class="blank10 layout-ft"></div>
-            </div>
-            <!-- }专区主要内容 -->
-
+    <!-- 专区{ -->
+    <div class="ZQ" id="ZQ">
+        <!-- 专区导航{ -->
+        <% include partial/zq-head %>
+        <!-- }专区导航 -->
+        <!-- 专区内容{ -->
+        <div class="ZQ__body">
+            <!-- 首页首屏{ -->
+            <% include partial/index-focus %>
+            <!-- }首页首屏 -->
+            <!-- 游戏推荐{ -->
+            <% include partial/index-guide %>
+            <!-- }游戏推荐 -->
+            <!-- 游戏职业{ -->
+            <% include partial/index-job %>
+            <!-- }游戏职业 -->
+            <!-- 游戏视频{ -->
+            <% include partial/game-video %>
+            <!-- }游戏视频 -->
+            <!-- 游戏截图{ -->
+            <% include partial/game-cut %>
+            <!-- }游戏截图 -->
+            <!-- 职业攻略{ -->
+            <% include partial/index-jobguide %>
+            <!-- }职业攻略 -->
+            <!-- 专区文章{ -->
+            <% include partial/index-text %>
+            <!-- }专区文章 -->
         </div>
+        <!-- }专区内容 -->
 
-    <!-- }专题主体 -->
-
-
-    <div class="blank10"></div>
-    <div class="blank10"></div>
-    <!-- 页脚{ -->
-    <% include partial/footer %>
-    <!-- }页脚 -->
-
+        <!-- 专区底部{ -->
+        <% include partial/zq-foot %>
+        <!-- }专区底部 -->
+    </div>
+    <!-- }专区 -->
 </body>
 </html>

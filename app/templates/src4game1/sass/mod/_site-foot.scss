@@ -1,0 +1,160 @@
+@charset "UTF-8";
+
+/* 专区底部 */
+.ZQ__foot{
+	#footer{
+		background-color: #222222;
+		padding: 22px 0 22px 0;
+		p,a,.foot-nav{
+			color: #666;
+		}
+	}
+}
+
+/* 友情链接 */
+.ZQ__friend{
+	background-color: #2D2D2D;
+	.duowan{
+		position: absolute;
+		top: 28px;
+		left: 0px;
+	}
+	.inner{
+		position: relative;
+		*zoom: 1;
+		width: 1136px;
+		margin: 0 auto;
+		@include clearfix();
+		padding: 10px 0 10px 0px;
+	}
+	.label{
+		display: inline-block; *display: inline; *zoom: 1;
+		margin-bottom: 7px;
+		position: relative;
+		z-index: 5;
+		padding-right: 16px;
+		background-color: #2D2D2D;
+		em{
+			display: inline-block; *display: inline; *zoom: 1;
+			background-color: #222222;
+			color: #999;
+			font-size: 14px;
+			font-family: "Microsoft YaHei", sans-serif;
+			padding: 0px 9px 0px 9px;
+			height: 25px;
+			line-height: 25px;
+		}
+	}
+	.link{
+		overflow: hidden;
+		*zoom: 1;
+		font-size: 0px;
+		margin-bottom: -3px;
+		a{
+			display: inline-block; *display: inline; *zoom: 1;
+			padding: 0 11px 0 10px;
+			border-left: 1px solid #464646;
+			position: relative;
+			margin-left: -1px;
+			font-size: 12px;
+			color: #999;
+			line-height: 1.1em;
+			margin-bottom: 7px;
+		}
+	}
+}
+
+/* 网站地图 */
+.ZQ__map{
+	background-color: #EAEAEA;
+	.inner{
+		width: 1136px;
+		margin: 0 auto;
+		@include clearfix();
+		overflow: hidden;
+		padding: 20px 0;
+		position: relative;
+		zoom: 1;
+	}
+	.map-list{
+		@include clearfix();
+		position: relative;
+		margin-left: -61px;
+		float: left;
+		display: inline;
+	}
+	.list{
+		width: 138px;
+		padding: 0 15px;
+		float: left;
+		*display: inline;
+		text-align: center;
+		border-left: 1px solid #DBDBDB;
+		.label{
+			display: block;
+			*zoom: 1;
+			@include ellipsis();
+			text-align: center;
+			font-weight: bold;
+			color: #888;
+			height: 26px;
+			line-height: 26px;
+		}
+		li{
+			@include ellipsis();
+			text-align: center;
+			height: 26px;
+			line-height: 26px;
+		}
+		a{
+			color: #888;
+		}
+	}
+	.foot-action{
+		float: right;
+		display: inine;
+		.duowan{
+			width: 178px;
+			height: 44px;
+			text-indent: -100%;
+			font-size: 0px;
+			display: block;
+			background-image: url("../slice/icon-footlogo.png");
+		}
+		.search{
+			margin-top: 20px;
+			margin-bottom: 10px;
+			position: relative;
+			zoom: 1;
+			input{
+				font-size: 14px;
+				padding: 8px 30px 8px 4px;
+				width: 144px;
+				color: #BCBCBC;
+				border: 1px solid #E2E2E2;
+				background-color: #FBFBFB;
+				&:focus{
+					outline: none;
+				}
+			}
+			.submit{
+				position: absolute;
+				top: 50%;
+				right: 5px;
+				background-image: url("../slice/icon-search1.png");
+				width: 18px;
+				height: 18px;
+				text-indent: -200%;
+				overflow: hidden;
+				margin-top: -9px;
+				font-size: 0px;
+			}
+		}
+		.connect,.que{
+			color: #888;
+		}
+		.que{
+			margin-left: 5px;
+		}
+	}
+}

@@ -104,7 +104,7 @@ module.exports = function(gulp, plugins) {
 <% }) %>
                     */}).toString().split('\n').slice(1, -1).join('\n')
                 var css = ejs.render(tpl, data).replace(/^\n/mg, '')
-                fs.writeFileSync('src/sass/_icon.scss', css)
+                fs.writeFileSync('src/sass/_slice.scss', css)
             }
         ])
     })

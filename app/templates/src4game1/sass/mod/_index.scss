@@ -1,0 +1,611 @@
+@charset "UTF-8";
+
+.index-hotnews-ctn{
+	padding: 15px 15px 0 15px;
+	background-color: #FFF;
+	border: 1px solid #EFEFEF;
+}
+
+.index-toppic{
+	.toppic-group{
+		margin-bottom: 18px;
+		.large{
+			display: block;
+			text-align: center;
+			color: #3A6ECC;
+			font-size: 20px;
+			height: 1.2em;
+			line-height: 1.2em;
+			margin-bottom: 10px;
+			font-weight: bold;
+			@include ellipsis();
+		}
+		.toppic{
+			height: 1.2em;
+			line-height: 1.2em;
+			text-align: center;
+			overflow: hidden;
+			a{
+				margin: 0px;
+				font-size: 12px;
+			}
+		}
+	}
+}
+
+/* 热点新闻 */
+.index-hotnews-tab{
+	@extend %tab;
+	.mod-tab-hd{
+		@include clearfix();
+	}
+	.mod-tab-bd{
+		background-color: transparent;
+		overflow: hidden;
+	}
+	.mod-tab-trigger{
+		margin-bottom: 5px;
+		li{
+			height: 30px;
+			line-height: 30px;
+			background-color: #EAEAEA;
+			color: #666;
+			font-size: 14px;
+			margin: 0px 1px 0px 0;
+			overflow: visible;
+			font-weight: normal;
+			padding: 0 17px;
+			width: auto;
+			a{
+				color: #666;
+			}
+		}
+		li.selected{
+			background-color: #3A6ECC;
+			color: #fff;
+			position: relative;
+			font-weight: normal;
+			&::before{
+				content: "";
+				position: absolute;
+				left: 50%;
+				bottom: -8px;
+				width: 0;
+				height: 0;
+				border-width: 4px;
+				border-style: solid;
+				border-color: #3A6ECC transparent transparent;
+				font-size: 0;
+				line-height: 0;
+				margin-left: -4px;
+			}
+		}
+	}
+	.mod-tab-content{
+		position: relative;
+		margin-top: -5px;
+		margin-bottom: -1px;
+	}
+	.m-list{
+		padding: 11px 0;
+		border-bottom: 1px dashed #EAEAEA;
+		font-size: 14px;
+		li{
+			overflow: hidden;
+			
+		}
+	}
+}
+
+/* 游戏前瞻 */
+.index-gamebrocast{
+	margin-bottom: 16px;
+	.box-bd{
+		padding-top: 20px;
+	}
+	.mod-pic--toppic{
+		li{
+			margin-bottom: 14px;
+		}
+	}
+	.other-data{
+		overflow: hidden;
+		position: relative;
+		ul{
+			font-size: 0px;
+			position: relative;
+			margin-left: -20px;
+		}
+		li{
+			display: inline-block; *display: inline; *zoom: 1;
+			padding: 0 19px;
+			border-left: 1px solid #EAEAEA;
+			font-size: 14px;
+			height: 1.2em;
+			line-height: 1.2em;
+			margin: 7px 0;
+		}
+	}
+}
+
+/* 精彩专题 */
+.index-wonder-toppic{
+	.box-bd{
+		padding-top: 22px;
+		overflow: hidden;
+		.mod-pic--min{
+			position: relative;
+			margin-bottom: -16px;
+		}
+	}
+}
+
+/* 游戏游戏视频 */
+.index-game-video{
+	.mod-tab-bd{
+		padding-top: 20px;
+	}
+	.mod-tab-content{
+		overflow: hidden;
+		.mod-pic--video{
+			margin-bottom: -10px;
+		}
+	}
+}
+
+/* 游戏攻略 */
+.index-gameguide{
+	padding: 12px 0;
+	.box-hd{
+		margin: 0 16px;
+	}
+	.box-bd{
+		padding-top: 8px;
+	}
+	.guide-box{
+		.guide-box__hd{
+			height: 35px;
+			line-height: 35px;
+			h4{
+				font-size: 16px;
+				font-weight: normal;
+			}
+		}
+		.guide-box__bd{
+			
+		}
+	}
+	.game-role{
+		@include clearfix();
+		position: relative;
+		margin-right: -17px;
+		li{
+			float: left;
+			*display: inline;
+			width: 80px;
+			height: 80px;
+			position: relative;
+			*zoom: 1;
+			margin: 0 16px 16px 0;
+			a:hover{
+				.desc{
+					display: block;
+				}
+			}
+			img{
+				width: 100%;
+				height: 100%;
+			}
+			.desc{
+				display: none;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				color: #fff;
+				width: 60px;
+				height: 40px;
+				padding: 20px 10px;
+				background-color:transparent;
+				background-color:rgba(0,0,0,0.65);
+				filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#a5000000,endColorstr=#a5000000);
+				zoom:1;
+				text-align: center;
+			}
+		}
+	}
+	.job-guide{
+		padding-left: 15px;
+	}
+	.all-copy{
+		padding-left: 15px;
+		.m-list{
+			@include clearfix();
+			position: relative;
+			margin-right: -10px;
+		}
+		li{
+			float: left;
+			*display: inline;
+			width: 100px;
+			margin-right: 10px;
+			@include ellipsis();
+		}
+	}
+	.copy-guide{
+		padding-left: 16px;
+	}
+	.copy-guide-bottom{
+		margin-top: 22px;
+	}
+	.guide-list{
+		padding-top: 18px;
+		li{
+			@include clearfix();
+			padding-bottom: 10px;
+			.label,a{
+				float: left;
+				*display: inline;
+				height: 20px;
+				line-height: 20px;
+			}
+			.label{
+				background-color: #E9F1FD;
+				color: #3A6ECC;
+				font-size: 12px;
+				padding: 0 10px;
+				position: relative;
+				z-index: 5;
+				margin-right: -1px;
+			}
+			a{
+				display: inline-block; *display: inline; *zoom: 1;
+				height: 20px;
+				line-height: 20px;
+				padding-left: 15px;
+				border-left: 1px solid #EAEAEA;
+				margin-right: 15px;
+			}
+		}
+	}
+}
+
+/* 职业攻略 */
+.ZQ-jobguide{
+	padding: 12px 0 0 0;
+	.box-hd{
+		margin: 0 16px;
+	}
+	.box-bd{
+		padding-top: 10px;
+	}
+	.guide-box{
+		.guide-box__hd{
+			height: 35px;
+			line-height: 35px;
+			h4{
+				font-size: 16px;
+				font-weight: normal;
+				float: left;
+			}
+			.more {
+				padding-left: 13px;
+				position: relative;
+				zoom: 1;
+				margin-left: 10px;
+				float: right;
+				display: inline;
+				color: #999;
+				&:hover{
+					color: nth($base-link-color,2);
+				}
+				i{
+					position: absolute;
+					top: 50%;
+					left: 0px;
+					margin-top: -5px;
+					width: 9px;
+					height: 9px;
+					font-size: 0px;
+					background-image: url("../slice/icon-more.png");
+				}
+			}
+		}
+		.guide-box__bd{
+			
+		}
+	}
+	.job-list{
+		padding-left: 15px;
+		h4{
+			font-weight: normal;
+			font-size: 16px;
+			height: 35px;
+			line-height: 35px;
+		}
+		.list{
+			@include clearfix();
+			a{
+				margin: 0 16px 16px 0;
+				float: left;
+				*display: inline;
+			}
+			img{
+				border: 1px solid #EFEFEF;
+			}
+		}
+	}
+	.upgrade-guide{
+		.guide-box__hd{
+			border-bottom: 1px solid #EAEAEA;
+		}
+		.guide-box__bd{
+			padding-top: 12px;
+		}
+	}
+	.col-A{
+		float: left;
+		*display: inline;
+		width: 751px;
+		margin-right: 16px;
+	}
+	.col-B{
+		float: left;
+		*display: inline;
+		width: 352px;
+	}
+	.m-list{
+		li{
+			height: 28px;
+			line-height: 28px;
+		}
+	}
+}
+
+/* 专区资料 */
+.ZQ-channal-data{
+	.data-list{
+		padding: 21px 0 0 0;
+		font-size: 0px;
+		position: relative;
+		margin-left: -17px;
+		margin-top: -1px;
+		border-top: 1px dashed #EAEAEA;
+		padding-bottom: 12px;
+		.label,a{
+			display: inline-block; *display: inline; *zoom: 1;
+			font-size: 14px;
+		}
+		.label{
+			padding: 0 6px;
+			background-color: #3A6ECC;
+			color: #fff;
+			margin-left: 17px;
+		}
+		a{
+			padding: 0 16px;
+			border-left: 1px solid #EAEAEA;
+			line-height: 1.2em;
+			height: 1.2em;
+			margin-bottom: 10px;
+		}
+	}
+	.box-bd{
+		overflow: hidden;
+	}
+}
+
+/* 职业攻略 */
+.ZQ-job{
+	.mod-tab-content{
+		overflow: hidden;
+		*zoom: 1;
+		padding: 20px 0 0px 0;
+	}
+	.game-role{
+		float: left;
+		*display: inline;
+		width: 190px;
+		height: 310px;
+		border: 1px solid #EFEFEF;
+		margin-right: 16px;
+	}
+	.role-intro{
+		margin-bottom: 13px;
+		h3{
+			font-size: 18px;
+			color: #3A6ECC;
+			padding-bottom: 10px;
+			span{
+				color: #999;
+				font-size: 14px;
+				font-weight: normal;
+				margin-left: 10px;
+			}
+		}
+		.toppic-item{
+			display: inline-block; *display: inline; *zoom: 1;
+			height: 25px;
+			line-height: 25px;
+			background-color: #E9F1FD;
+			color: #3A6ECC;
+			font-size: 12px;
+			padding: 0 10px;
+			margin-right: 8px;
+		}
+		.item{
+			padding-bottom: 10px;
+			font-size: 14px;
+			line-height: 1.8em;
+			.label{
+				float: left;
+				*display: inline;
+				color: #999;
+				font-weight: bold;
+			}
+			a{
+				color: #4574C5;
+			}
+			a:hover{
+				color: nth($base-link-color,2);
+			}
+		}
+	}
+	.role-intro-ctn{
+		float: left;
+		*display: inline;
+		width: 496px;
+		margin-right: 49px;
+		.upgrade-guide{
+			width: 100%;
+		}
+	}
+	.guide-box{
+		.guide-box__hd{
+			@include clearfix();
+			padding-bottom: 9px;
+			h4{
+				height: 1.1em;
+				line-height: 1.1em;
+				font-size: 16px;
+				font-weight: normal;
+				float: left;
+			}
+			.more {
+				padding-left: 13px;
+				position: relative;
+				zoom: 1;
+				margin-left: 10px;
+				float: right;
+				display: inline;
+				color: #999;
+				&:hover{
+					color: nth($base-link-color,2);
+				}
+				i{
+					position: absolute;
+					top: 50%;
+					left: 0px;
+					margin-top: -4px;
+					width: 9px;
+					height: 9px;
+					font-size: 0px;
+					background-image: url("../slice/icon-more.png");
+				}
+			}
+		}
+		.guide-box__bd{
+			
+		}
+	}
+	.upgrade-guide{
+		float: left;
+		*display: inline;
+		width: 350px;
+		.guide-box__hd{
+			border-bottom: 1px solid #EAEAEA;
+		}
+		.guide-box__bd{
+			padding-top: 12px;
+		}
+	}
+	.mod-pic--video.mini{
+		position: relative;
+		margin-bottom: -16px;
+	}
+	.m-list{
+		li{
+			height: 28px;
+			line-height: 28px;
+		}
+	}
+}
+
+/* 图片列表页 */
+.ZQ-page--video{
+	.mod-pic--video{
+		padding-left: 21px;
+		padding-top: 20px;
+		li{
+			width: 172px;
+			margin: 0 18px 16px 0;
+			img{
+				width: 172px;
+				height: 120px;
+				border: none;
+			}
+			.video-time{
+				top: 93px;
+				width: 162px;
+			}
+		}
+	}
+}
+
+/* 专区新闻列表页 */
+.ZQ-page--news{
+	.m-list{
+		padding: 25px 16px 0 16px;
+		overflow: hidden;
+		li{
+			margin-top: 1px;
+			margin-bottom: -1px;
+			height: 46px;
+			line-height: 46px;
+			border-bottom: 1px dashed #EAEAEA;
+		}
+	}
+}
+
+/* 专区相关新闻 */
+.ZQ-relative{
+	padding: 15px;
+	width: 720px;
+	margin: 0 auto;
+	border: 1px solid #EFEFEF;
+	.m-list{
+		@include clearfix();
+		position: relative;
+		margin-right: -10px;
+		margin-bottom: -8px;
+		li{
+			float: left;
+			*display: inline;
+			width: 215px;
+			margin-right: 10px;
+			@include ellipsis();
+		}
+	}
+}
+
+.ZQ-relative__hd{
+	padding-bottom: 10px;
+	h3{
+		font-size: 16px;
+		font-weight: normal;
+		height: 1.1em;
+		line-height: 1.1em;
+	}
+}
+
+.ZQ-relative__bd{
+	overflow: hidden;
+}
+
+
+/* 攻略新闻 */
+.ZQ-gameread{
+	.box-bd{
+		padding-top: 13px;
+	}
+	.m-list{
+		position: relative;
+		margin-right: -50px;
+		@include clearfix();
+		li{
+			float: left;
+			*display: inline;
+			width: 354px;
+			margin-right: 48px;
+		}
+	}
+}

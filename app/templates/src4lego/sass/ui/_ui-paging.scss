@@ -1,0 +1,96 @@
+@charset "utf-8";
+/*
+ *@ Name:       分页导航基础模块
+ *@ Update:     2014-11-11 21:28:11
+ */
+
+/* ===基类=== */
+.ui-paging {
+	zoom: 1;
+	vertical-align: middle;
+	font-size: 0; /* 所有浏览器 */
+    *word-spacing: -1px; /* IE6/7 */
+}
+@media (-webkit-min-device-pixel-ratio:0) {
+	.ui-paging {
+	    letter-spacing: -5px; /* Safari 5- 等不支持 font-size: 0 的浏览器*/
+	}
+}
+.ui-paging * {
+	font-size: 12px;
+    letter-spacing: normal;
+    word-spacing: normal;
+}
+.ui-paging__item {
+	@include inline-block;
+	padding: 5px 8px;
+	margin-right: 10px;
+	line-height: 1;
+	border-radius: 3px;
+	color: #666;
+	border: 1px solid #fff;
+	
+	/* ===状态类（当前）=== */
+	&.is-current {
+		color: #fff;
+		background-color: #428bca;
+		border-color: #428bca;
+		&:hover {
+			background-color: #428bca;
+			border-color: #428bca;
+		}
+	}
+	
+	/* ===状态类（禁用）=== */
+	&.is-disabled {
+		filter: none;
+		cursor: default;
+	}
+}
+a.ui-paging__item {
+	&:hover {
+		background-color: #f5f5f5;
+		border-color: #f5f5f5;
+	}
+}
+.ui-paging__ellipsis,
+.ui-paging__info {
+	margin-right: 10px;
+}
+.ui-paging__which {
+	height: 20px;
+	line-height: 20px;
+	padding: 0 6px;
+	width: 22px;
+	border: 1px solid;
+	border-color: #c1c1c1;
+	margin-right: 10px;
+}
+
+
+
+/* ===扩展类（完整型）=== */
+.ui-paging--full {
+	.ui-paging__item {
+		background-color: #f5f5f5;
+		border-color: #f5f5f5;
+		&.is-current {
+			color: #fff;
+			background-color: #428bca;
+			border-color: #428bca;
+		}
+		&.is-disabled {
+			color: #fff;
+			background-color: #d4d4d4;
+			border-color: #d4d4d4;
+		}
+	}
+	a.ui-paging__item {
+		&:hover {
+			color: #fff;
+			background-color: #428bca;
+			border-color: #428bca;
+		}
+	}
+}
+

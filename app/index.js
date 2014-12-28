@@ -28,24 +28,24 @@ var LegoGenerator = yeoman.generators.Base.extend({
 				message: '初始的静态资源:',
 				choices: [
 					{
-						name: 'LEGO样式库',
-						value: 'src',
+						name: 'pc模板(带lego样式库)',
+						value: 'src4lego',
 						checked: true
 					},{
-						name: 'pc基础样式',
+						name: 'pc模板(不带lego样式库)',
 						value: 'src4pc'
 					},{
-						name: 'mobi基础样式',
-						value: 'src4mobi'
+						name: 'mobi模板(带legomobi样式库)',
+						value: 'src4legomobi'
 					},{
-						name: '游戏一线专区模板',
+						name: '新游戏一线专区模板',
 						value: 'src4game1'
 					}
 				]
 			},{
 				name: 'projectFamily',
 				type: 'list',
-				message: '发布到svn静态资源服务器的根文件夹:',
+				message: 'CDN根目录（项目类型）:',
 				choices: [
 					{
 						name: 'special',
@@ -61,11 +61,24 @@ var LegoGenerator = yeoman.generators.Base.extend({
 				]
 			},{
 				name: 'projectName',
-				message: '项目名称',
-				default: path.basename(process.cwd())
+				message: 'CDN二级目录（项目名称）',
+				validate: function(val){
+				    var done = this.async();
+				    setTimeout(function() {
+						if (/[^a-zA-Z_-\d\/]+/.test(val)) {
+				        	done("非法字符，只能是数字、字符、下划线的组合");
+				        	return;
+				      	}
+				      	if (val.trim() === ''){
+				      		done("不能为空");
+				        	return;	
+				      	}
+				      	done(true);
+				    }, 100);
+				}
 			},{
 				name: 'projectVersion',
-				message: '版本号',
+				message: 'CDN三级目录（项目版本号）',
 				default: '1.0.0'
 			}
 		]

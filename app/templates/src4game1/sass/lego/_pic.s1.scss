@@ -10,7 +10,7 @@ $imgWidth: 130px;
 $imgHeight: 90px;
 $imgMargin: 0 0 10px 10px;
 $imgBorder: 1px solid #ddd;
-.mod-pic {
+%mod-pic{
 	letter-spacing: -0.34em;
 	word-spacing: -0.34em;
 	@media all and (-webkit-min-device-pixel-ratio: 1) {
@@ -49,4 +49,7 @@ $imgBorder: 1px solid #ddd;
 			line-height: 16px;
 		}
 	}
+}
+.mod-pic {
+	@extend %mod-pic;
 }

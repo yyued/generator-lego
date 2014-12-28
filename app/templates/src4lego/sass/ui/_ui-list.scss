@@ -1,0 +1,84 @@
+@charset "utf-8";
+/*
+ *@ name:       文字列表基础模块
+ *@ include:    基类 + 基本扩展类 + 双栏扩展类
+ *@ update:     2014-10-22 16:41:56
+ */
+
+
+/* ===基类=== */
+$item-height: 24px; // item高度
+$item-line-height: 24px; // item行高
+$tag-color: #F60 !default; // 标签颜色
+$meta-color: #999 !default; // meta颜色
+$num-color: #666 !default; // number颜色
+$num-bgcolor: #E8E8E8 !default; // number背景颜色
+
+.ui-list__item {
+	height: $item-height;
+	line-height: $item-line-height;
+	overflow: hidden;
+}
+.ui-list__link {
+	margin-right: 10px;
+}
+.ui-list__tag {
+	color: $tag-color;
+}
+.ui-list__meta {
+	float: right;
+	margin-left: 10px;
+	color: $meta-color;
+}
+.ui-list__dot,
+.ui-list__square,
+.ui-list__num {
+	@include inline-block;
+	vertical-align: middle;
+	overflow: hidden;
+}
+.ui-list__dot {
+	margin-right: 5px;
+	width: 3px;
+	height: 3px;
+	background-color: #666;
+	border-radius: 50%;
+}
+.ui-list__square {
+	margin-right: 5px;
+	width: 3px;
+	height: 3px;
+	background-color: #666;
+}
+.ui-list__num {
+	margin-right: 5px;
+	width: 18px;
+	height: 14px;
+	border-radius: 2px;
+	font: normal 12px/14px verdana;
+	text-align: center;
+	color: $num-color;
+	background-color: $num-bgcolor;
+}
+
+
+/* ===扩展类（双栏）=== */
+.ui-list--half {
+	font-size: 0; /* 所有浏览器 */
+    *word-spacing: -1px; /* IE6/7 */
+	.ui-list__item {
+		@include inline-block;
+		vertical-align: top;
+        font-size: 12px;
+        letter-spacing: normal;
+        word-spacing: normal;
+		width: 48%;
+		*width: 47.99%;
+		margin-right: 2%;
+	}
+}
+@media (-webkit-min-device-pixel-ratio:0) {
+    .ui-list--half {
+        letter-spacing: -5px; /* Safari 5- 等不支持 font-size: 0 的浏览器*/
+    }
+}

@@ -1,0 +1,54 @@
+@charset "utf-8";
+/*
+ *@ Name:       table表格基础模块
+ *@ Update:     2014-11-11 21:22:19
+ */
+ 
+$font-size: 12px; // 表格字号
+$cell-padding: 8px; // 单元格padding
+$border-color: #d2d2d2; // 边框颜色
+$th-font-wieght: 700; // 表头加粗
+$striped-bg: #f9f9f9; // 隔行变色的背景色
+$tr-hover-bg: #f9f9f9; // hover变色的背景色
+
+/* ===基类=== */
+.ui-table {
+	width: 100%;
+	font-size: $font-size;
+	th,
+	td {
+		padding: $cell-padding;
+	}
+	th {
+		text-align: left;
+		font-weight: $th-font-wieght;
+	}
+	
+	/* ===情景类（隔行变色表格）=== */
+	&.has-border {
+		th,
+		td {
+			border: 1px solid $border-color;
+		}
+	}
+	
+	/* ===情景类（隔行变色表格）=== */
+	&.has-striped {
+		tbody tr:nth-child(even) td {
+			background-color: $striped-bg;
+		}
+	}
+	
+	/* ===情景类（hover变色表格）=== */
+	&.has-hover {
+		tbody tr:hover {
+			background-color: $tr-hover-bg;
+		}
+	}
+}
+
+
+
+
+
+

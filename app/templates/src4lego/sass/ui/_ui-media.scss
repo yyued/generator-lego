@@ -1,0 +1,30 @@
+@charset "utf-8";
+/*
+ *@ Name:       图文混排基础模块
+ *@ Update:     2014-06-07
+ */
+
+$img-width: 130px; // 图片宽度
+$img-height: 90px; // 图片高度
+
+.ui-media__item {
+	@include clearfix;
+	margin-bottom: 20px;
+}
+.ui-media__hd {
+	float: left;
+	margin-right: 15px;
+}
+.ui-media__bd {
+	overflow: hidden;
+	zoom: 1;
+}
+.ui-media__ft {
+	float: right;
+	margin-left: 15px;
+}
+.ui-media__img {
+	width: $img-width;
+	height: $img-height;
+	overflow: hidden;
+}

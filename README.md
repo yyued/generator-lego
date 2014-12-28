@@ -61,7 +61,7 @@ yourProj/
 │    ├── tpl/                   // 仅 Copy 不做操作，用来存放ejs模板
 │    └── index.html             
 │    
-└── dest/                       // 发布目录，执行 `gulp release` 生成
+└── dest/                       // 发布目录，执行 `gulp build` 生成
     ├── css/                    
     │   └── global.css
     ├── img/                   
@@ -85,7 +85,7 @@ yourProj/
 * `gulp` 创建一个链接，自动检测`src`文件夹下的静态文件，自动刷新。支持sass编译。
 
 #### 构建
-* `gulp release` 将静态文件压缩到 `dest/`，该阶段会执行雪碧图合并。
+* `gulp build` 将静态文件压缩到 `dest/`，该阶段会执行雪碧图合并。
 
 #### 发布
 * `gulp publish` 将静态文件提交到svn资源服务器。
@@ -98,7 +98,7 @@ yourProj/
 	* `-p` port 的简写，给webserver指定端口号；此参数需要指定参数值作为端口号，如：8080
 	* `-w` watch 的简写，检测slice文件夹，自动生成scss样式；此参数不需指定参数值
 
-2. `gulp release [-p <port>] [-t]`
+2. `gulp build [-p <port>] [-t]`
 	* `-p` port 的简写，给webserver指定端口号；此参数需要指定参数值作为端口号，如：8080
 	* `-t` timestamp 的简写，给css文件的图片请求打上时间戳；此参数不需指定参数值
 

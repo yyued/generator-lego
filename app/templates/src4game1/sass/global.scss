@@ -2,303 +2,34 @@
 
 @import "lego/lego";
 
+/* 定义专区通用样式变量 */
+@import "mod/variables";
+
+/* 通用样式 */
+@import "mod/pagemod";
+@import "mod/layout";
+
 html {
     overflow-y: scroll;
+    overflow-x: hidden;
 }
-
 body {
     font: #{$base-font-size}/#{$base-line-height} $base-font-family;
     color: $base-color;
+    font-family: "Microsoft YaHei", sans-serif;
     a {
         text-decoration: none;
-        color: nth($base-link-color, 1);
+        color: nth($base-link-color,1);
         &:hover {
             text-decoration: underline;
-            color: nth($base-link-color, 2);
+            color: nth($base-link-color,2);
         }
     }
 }
 
-@import "mod/_commonReset";
-@import "mod/common";
+:root em,:root span{filter:none\9}/*for IE9*/
 
-//通用模块样式
-@import "mod/taglist";
+/* 首页样式 */
+@import "mod/index";
 
-//标签页样式重置
-
-/* 新闻 */
-#news {
-    .mod-tab-hd {
-        background-image: none;
-        background-color: #262A34;
-        .tab-nav {
-            padding-top: 4px;
-            height: 28px;
-        }
-        li {
-            height: 28px;
-            line-height: 27px;
-            font-size: 14px;
-            width: 77px;
-            color: #B5C6DB;
-        }
-        li.hover {
-            background-image: none;
-            background-color: #FBFBFB;
-            color: #262A34;
-        }
-        .more {
-            color: #b5c6db !important;
-        }
-    }
-}
-
-/* tab游戏截图 */
-.video {
-    .mod-tab-hd {
-        background-image: none;
-        background-color: #262A34;
-        h3 {
-            background-image: none;
-            color: #B5C6DB;
-            height: 36px;
-            line-height: 36px;
-            position: relative;
-            i {
-                position: absolute;
-                top: 3px;
-                left: 0px;
-                background-image: url("../img/icon-map.png");
-                background-position: 0 -60px;
-                background-repeat: no-repeat;
-                width: 37px;
-                height: 32px;
-            }
-        }
-        .tab-nav {
-            margin-top: 4px;
-        }
-        li {
-            height: 32px;
-            line-height: 31px;
-            font-size: 14px;
-            width: 87px;
-            color: #B5C6DB;
-            &.hover {
-                background-image: none;
-                background-color: #F0F0F0;
-                color: #262A34;
-            }
-        }
-        .more {
-            color: #b5c6db !important;
-        }
-    }
-    .mod-tab-bd {
-        background-color: #F0F0F0;
-        border-color: #E1E1E1;
-        .pic {
-            a {
-                color: #333333;
-            }
-        }
-    }
-}
-
-/* 游戏信息 */
-.m-gameinfo {
-    .box-bd {
-        padding: 8px 10px;
-        li {
-            color: #333333;
-            height: 25px;
-            line-height: 25px;
-            a {
-                color: #333333 !important;
-            }
-        }
-    }
-}
-
-/* 游戏专题 */
-.m-gamecopy {
-    .box-bd {
-        padding: 7px;
-    }
-    .mod-pic {
-        margin-bottom: 8px;
-        li {
-            margin: 10px 0 0 10px;
-            width: 133px;
-            height: 63px;
-            position: relative;
-            border: 1px solid #DBDBDB;
-            padding: 1px;
-            font-size: 0;
-            em {
-                position: absolute;
-                bottom: 0px;
-                left: 0px;
-                padding-left: 10px;
-                width: 123px;
-                height: 20px;
-                line-height: 20px;
-                background-color: transparent;
-                background-color: rgba(0, 0, 0, 0.7);
-                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2000000,endColorstr=#b2000000);
-                zoom: 1;
-                color: #fff;
-                font-size: 12px;
-                *zoom: 1;
-            }
-            img {
-                width: 133px;
-                height: 63px;
-            }
-        }
-    }
-}
-
-:root .m-gamecopy em {
-    filter: none\9;
-}
-
-/*for IE9*/
-
-/* 游戏服务器 */
-.m-gameserver {
-    .box-bd {
-        padding: 10px 15px;
-        ul {}
-        li {
-            padding-left: 43px;
-            position: relative;
-            line-height: 25px;
-            *zoom: 1;
-            em {
-                position: absolute;
-                top: 0px;
-                left: 0px;
-            }
-            a {
-                margin-left: 5px;
-                display: inline-block;
-                *display: inline;
-                *zoom: 1;
-            }
-        }
-    }
-}
-
-/* 推荐文章 */
-.m-gamebbs {
-    .box-bd {
-        padding: 7px 0 6px 0;
-    }
-    .list-article {
-        padding: 7px 12px;
-    }
-}
-
-/* 游戏向导 */
-.m-gameguide {
-    .box-bd {
-        padding: 8px 10px;
-    }
-    ul {
-        overflow: hidden;
-        *zoom: 1;
-        position: relative;
-        li {
-            margin-top: -1px;
-            border-top: 1px solid #DFDFDF;
-            padding: 6px 0 1px 6em;
-            position: relative;
-            overflow: hidden;
-            *zoom: 1;
-            line-height: 1.1em;
-            z-index: 100;
-            em {
-                position: absolute;
-                top: 6px;
-                left: 0px;
-                width: 6em;
-                text-align: right;
-                color: #353A6F;
-                font-weight: bold;
-                height: 200px;
-                background-color: #F0F0F0;
-                z-index: 10;
-            }
-            a {
-                display: inline-block;
-                *display: inline;
-                *zoom: 1;
-                padding: 0 10px;
-                border-left: 1px solid #D6D6D6;
-                margin-bottom: 8px;
-                position: relative;
-                margin-left: -1px;
-            }
-        }
-    }
-}
-
-/* 焦点图 */
-.mod-slider-title {
-    li {
-        background-image: url("../img/icon-map.png");
-        background-position: 0 -28px;
-        background-repeat: no-repeat;
-        b {
-            color: #888888;
-        }
-        &.hover {
-            b {
-                color: #D5F1FF;
-            }
-            background-position: 0 0px;
-        }
-    }
-}
-
-/* 游戏截图 */
-.m-gameshotcut {
-    .mod-pic {
-        padding-top: 15px;
-        position: relative;
-        *zoom: 1;
-        margin-left: -9px;
-        li {
-            width: 130px;
-            margin-left: 26px;
-            img {
-                width: 126px;
-                height: 86px;
-                border: 1px solid #DBDBDB;
-                padding: 1px;
-            }
-        }
-    }
-}
-
-/* 大尺寸游戏截图 */
-.m-gameshotcut-large {
-    .mod-pic {
-        padding-top: 14px;
-        position: relative;
-        *zoom: 1;
-        margin-left: -5px;
-        li {
-            width: 130px;
-            margin-left: 26px;
-            img {
-                width: 126px;
-                height: 86px;
-                border: 1px solid #DBDBDB;
-                padding: 1px;
-            }
-        }
-    }
-}
+@import "mod/article";

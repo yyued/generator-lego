@@ -1,0 +1,26 @@
+// gobal vars
+$base-color            : #333 !default;
+$base-background-color : #fff !default;
+$base-link-color       : #333 #F40 !default;
+$base-font-size        : 12px !default;
+$base-line-height      : 1.5 !default;
+$base-font-family      : Microsoft YaHei, Tahoma, sans-serif !default;
+
+@import "base/config";
+// @import "ui/config";
+@import "slice";
+
+body {
+    font: #{$base-font-size}/#{$base-line-height} $base-font-family;
+    color: $base-color;
+    background-color: $base-background-color;
+}
+a {
+    text-decoration: none;
+    color: nth($base-link-color,1);
+    &:hover {
+        text-decoration: underline;
+        color: nth($base-link-color,2);
+    }
+}
+  

@@ -11,7 +11,7 @@ $base-font-family      : Microsoft YaHei, Tahoma, sans-serif !default;
 @import "base/mixins";
 @import "base/css3";
 
-@import "icon";
+@import "slice";
 
 body {
     font: #{$base-font-size}/#{$base-line-height} $base-font-family;
