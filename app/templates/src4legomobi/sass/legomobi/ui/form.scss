@@ -1,0 +1,57 @@
+/*初始表单默认样式 */
+.mod-inputgroup {
+  width: auto;
+  height: auto;
+  padding: 0;
+}
+
+.mod-inputgroup input {
+  margin-bottom: 0;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
+  border-radius: 0;
+  box-shadow: none;
+  display:block; 
+  width: 100%;
+}
+
+.mod-inputgroup input:last-child {
+  border-bottom-width: 0;
+}
+
+/*带label说明文字列表样式*/
+
+.mod-inputgroup .input-row {
+  overflow: hidden;
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
+  background-color: #fff;
+}
+
+.mod-inputgroup .input-row:first-child {
+  border-radius: 3px 3px 0 0;
+}
+
+.mod-inputgroup .input-row:last-child {
+  border-bottom-width: 0;
+  border-radius: 0 0 3px 3px;
+}
+
+.mod-inputgroup .input-row label {
+  float: left;
+  width: 25%;
+  min-width: 4em;
+  line-height: 44px;
+  height: 44px;
+  font-weight: bold;
+  padding-left: 10px;
+  color:#666;
+}
+
+.mod-inputgroup .input-row label + input {
+  float: right;
+  width: 65%;
+  padding-left: 0;
+  margin-bottom: 0;
+  border-bottom: 0;
+}

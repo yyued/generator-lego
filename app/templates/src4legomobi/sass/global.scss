@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+/* 统一入口Legomobi ui  */
+// @import "legomobi";
+
+/* 拆分调用 */
+/* Legomobi reset */
+@import "legomobi/base";
+/* Legomobi sass工具函数 */
+@import "legomobi/tools";
+/* Legomobi UI */
+@import "legomobi/ui";
+/* Legomobi Components */
+@import "legomobi/components";
+
+
+
+
