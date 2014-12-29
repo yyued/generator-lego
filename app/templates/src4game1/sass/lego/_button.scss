@@ -1,0 +1,109 @@
+@charset "UTF-8";
+//
+@import "css3";
+@import "mixins";
+//Reds
+$red: #e74c3c;
+$dark-red: #C0392B;
+
+//Hipsters
+$info: #1ABC9C;
+$dark-info: #16A085;
+
+//Blues
+$blue: #3498DB;
+$dark-blue: #2980B9;
+
+//Grays
+$gray: #95a5a6;
+$dark-gray: #7F8C8D;
+
+//Greens
+$green: #2ECC71;
+$dark-green: #27AE60;
+
+//Orange
+$orange: #f1c40f;
+$dark-orange: #f39c12;
+
+//All colors
+$colors: primary $dark-blue $blue, //class name, bg color, hover bg color
+         success $dark-green $green,
+         error $dark-red $red,
+         warning $dark-orange $orange,
+         info $dark-info $info,
+         default $dark-gray $gray;
+.btn {
+  display: inline-block;
+  padding: 4px 15px;
+  line-height: 20px;
+  font-size: 12px;
+  color: #FFF;
+  background-color: #09f;
+  cursor: pointer;
+  text-align: center;
+  vertical-align: middle;
+  border: 0 none;
+  margin: 0;
+  overflow: visible;
+  width: auto;
+  *width: 1;
+  &:hover, &:focus {
+    zoom: 1;
+    text-decoration: none;
+    background: #0af;
+    color: #fff;
+  }
+
+  &.is-disabled {
+    cursor: no-drop;
+    background-color: #ccc;
+  }
+
+  &.active, &:active {
+    outline: 0;
+  }
+
+  [class^="icon-"], [class*=" icon-"] {
+    margin-right: 5px;
+  }
+  &.btn-block{
+    display: block;
+  }
+  &.btn-mini{
+    line-height: 16px;
+    padding: 0 2px;
+  }
+  &.btn-small{
+    padding: 2px 4px;
+  }
+  &.btn-large{
+    font-size: 16px;
+    letter-spacing: 1px;
+    line-height: 20px;
+    padding: 10px 16px;
+  }
+}
+input.btn,button.btn{
+  height: 28px;
+  line-height: 1;
+  *line-height: 28px;
+  overflow: hidden;
+  *padding: 0 .3em;
+}
+/* Button colors definition */
+/*---------------------------*/
+@each $color in $colors {
+  .btn-#{nth($color, 1)} {
+    background-color: nth($color, 2);
+
+    &:hover, &:focus {
+      background-color: nth($color, 3);
+    }
+
+    &.is-disabled {
+      background-color: nth($color, 2);
+    }
+  }
+}
+

@@ -51,12 +51,10 @@ module.exports = function(gulp, plugins) {
                 del(['dest/slice/**'])
                 
                 // 给css文件的图片请求加上时间戳
-                if (argv.t) {
-                    var timestamp = +new Date
-                    gulp.src(['dest/css/**'])
-                        .pipe(plugins.replace(/(\/[\w-]*\.(jpg|jpeg|gif|png|bmp|tiff|otf|ttf|woff|svg|webp|swf|htc))/ig, '$1?'+timestamp))
-                        .pipe(gulp.dest('dest/css'));
-                }
+                var timestamp = +new Date
+                gulp.src(['dest/css/**'])
+                    .pipe(plugins.replace(/(\/[\w-]*\.(jpg|jpeg|gif|png|bmp|tiff|otf|ttf|woff|svg|webp|swf|htc))/ig, '$1?'+timestamp))
+                    .pipe(gulp.dest('dest/css'));
             }
         })
     })

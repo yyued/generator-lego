@@ -32,13 +32,13 @@
 ### <a name="quick-start"></a>快速开始 [[⬆]](#top)
 提供以下2种获取方式：	
 
-1. npm
-	* `npm install -g generator-lego`
-	* 在任意空目录执行 `yo lego` 初始化项目
-
-2. Clone the repo
+1. Clone the repo
 	* `git clone git@github.com:duowan/generator-lego.git`
 	* 在克隆目录执行 `npm link` 链接到全局模块的位置
+	* 在任意空目录执行 `yo lego` 初始化项目
+
+2. npm
+	* `npm install -g generator-lego`
 	* 在任意空目录执行 `yo lego` 初始化项目
 
 ### <a name="file-tree"></a>文件结构 [[⬆]](#top)
@@ -98,9 +98,8 @@ yourProj/
 	* `-p` port 的简写，给webserver指定端口号；此参数需要指定参数值作为端口号，如：8080
 	* `-w` watch 的简写，检测slice文件夹，自动生成scss样式；此参数不需指定参数值
 
-2. `gulp build [-p <port>] [-t]`
+2. `gulp build [-p <port>]`
 	* `-p` port 的简写，给webserver指定端口号；此参数需要指定参数值作为端口号，如：8080
-	* `-t` timestamp 的简写，给css文件的图片请求打上时间戳；此参数不需指定参数值
 
 3. `gulp publish [-m <message>]`
 	* `-m` message 的简写，提交的svn的注释；此参数需要指定参数值

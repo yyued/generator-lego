@@ -21,6 +21,7 @@ var LegoGenerator = yeoman.generators.Base.extend({
 	prompting: function(){
 		var done = this.async()
 		this.projectAuthor = process.env.USER
+		var timestamp = +new Date()
 		var questions = [
 			{
 				name: 'projectAssets',
@@ -62,6 +63,7 @@ var LegoGenerator = yeoman.generators.Base.extend({
 			},{
 				name: 'projectName',
 				message: 'CDN二级目录（项目名称）',
+				default: timestamp.toString(),
 				validate: function(val){
 				    var done = this.async();
 				    setTimeout(function() {
