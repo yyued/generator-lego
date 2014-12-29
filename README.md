@@ -5,9 +5,9 @@
 
 ### <a name="top"></a>目录
 * [主要功能](#intro)
+* [环境准备](#sys-env)
 * [快速开始](#quick-start)
 * [文件结构](#file-tree)
-* [环境准备](#sys-env)
 * [任务说明](#task-dtls)
 * [Demo](#show-case)
 * [已知问题](#known-issues)
@@ -29,6 +29,15 @@
 * 打包
 
 
+### <a name="sys-env"></a>环境准备 [[⬆]](#top)
+1. Node 环境：*默认此步骤已完成*  （Mac用户建议使用 [Brew] 安装 [Node.js]） 
+2. Yeoman环境：`npm install -g yo`
+3. Gulp 环境：`npm install -g gulp`
+4. 图片编辑环境：
+	* `brew install GraphicsMagick`
+	* `brew install phantomjs`
+
+
 ### <a name="quick-start"></a>快速开始 [[⬆]](#top)
 提供以下2种获取方式：	
 
@@ -40,6 +49,7 @@
 2. npm
 	* `npm install -g generator-lego`
 	* 在任意空目录执行 `yo lego` 初始化项目
+
 
 ### <a name="file-tree"></a>文件结构 [[⬆]](#top)
 `generator-lego` 初始化和执行任务涉及的文件结构：
@@ -69,13 +79,6 @@ yourProj/
     └── index.html               
 ```
 
-### <a name="sys-env"></a>环境准备 [[⬆]](#top)
-1. Node 环境：*默认此步骤已完成*  （Mac用户建议使用 [Brew] 安装 [Node.js]） 
-2. Yeoman环境：`npm install -g yo`
-3. Gulp 环境：`npm install -g gulp`
-4. 图片编辑环境：
-	* `brew install GraphicsMagick`
-	* `brew install phantomjs`
 
 ### <a name="task-dtls"></a>任务说明 [[⬆]](#top)
 #### 初始化项目
