@@ -1,10 +1,10 @@
 @charset "UTF-8";
 
 /* Legomobi reset */
-@import "base";
+@import "base/base";
 /* Legomobi sass工具函数 */
-@import "tools";
+@import "tools/tools";
 /* Legomobi UI */
-@import "ui";
+@import "ui/ui";
 /* Legomobi Components */
-@import "components";
+@import "components/components";
