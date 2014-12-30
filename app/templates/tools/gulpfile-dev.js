@@ -1,6 +1,7 @@
 module.exports = function(gulp, plugins) {
 
     var argv = require('yargs').argv,
+        chalk = require('chalk'),
         moment = require('moment'),
         portfinder = require('portfinder'),
         browserSync = require('browser-sync'),
@@ -32,15 +33,13 @@ module.exports = function(gulp, plugins) {
             sourceComments: 'map',
             sourceMap: 'sass',
             style: 'compact',
-            onError: function(err){ console.log('...err...: ' + err) }
+            onError: function(err){ log(chalk.bold.red('【sass compile error】>>> \n' + err)) }
         }
         return gulp.src('src/sass/*.scss')
+            .pipe(plugins.cached('sass', {optimizeMemory: true}))
             .pipe(plugins.sass(config))
             .pipe(plugins.autoprefixer("last 1 version", "> 1%", "ie 8", "ie 7"))
-            .pipe(gulp.dest('src/css'))
-    })
-    gulp.task('dev_css', function() {
-        return gulp.src('src/css/**')
+            .pipe(plugins.remember('sass'))
             .pipe(gulp.dest('src/css'))
             .pipe(reload({stream:true}))
     })
@@ -122,7 +121,6 @@ module.exports = function(gulp, plugins) {
         }
         gulp.watch('src/tpl/**', ['dev_ejs'])
         gulp.watch('src/sass/**', ['dev_sass'])
-        gulp.watch('src/css/**', ['dev_css'])
         gulp.watch('src/img/**', reload)
         gulp.watch('src/js/**', reload)
         gulp.watch('src/*.html', reload)
