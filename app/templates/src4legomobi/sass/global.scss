@@ -4,10 +4,10 @@
 // @import "legomobi";
 
 /* 拆分调用 */
-/* Legomobi reset */
-@import "legomobi/base/base";
 /* Legomobi sass工具函数 */
 @import "legomobi/tools/tools";
+/* Legomobi reset */
+@import "legomobi/base/base";
 /* Legomobi UI */
 @import "legomobi/ui/ui";
 /* Legomobi Components */
