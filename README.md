@@ -33,9 +33,12 @@
 1. Node 环境：*默认此步骤已完成*  （Mac用户建议使用 [Brew] 安装 [Node.js]） 
 2. Yeoman环境：`npm install -g yo`
 3. Gulp 环境：`npm install -g gulp`
-4. 图片编辑环境：
-	* `brew install GraphicsMagick`
-	* `brew install phantomjs`
+4. 图片编辑环境(Mac)：
+	* `brew install GraphicsMagick` 
+	* `brew install phantomjs` 
+5. 图片编辑环境(Win)：
+	* [GraphicsMagick 下载地址][1] 备胎：[GraphicsMagick-1.3.20-**Q8**-win**32/64**-dll.zip](http://pan.baidu.com/s/1qWDE7Y8#path=%252Ff2e-workflow)
+	* [phantomjs 下载地址][2]  备胎：[phantomjs-1.9.7-windows.zip](http://pan.baidu.com/s/1qWDE7Y8#path=%252Ff2e-workflow)
 
 
 ### <a name="quick-start"></a>快速开始 [[⬆]](#top)
@@ -82,7 +85,7 @@ yourProj/
 
 ### <a name="task-dtls"></a>任务说明 [[⬆]](#top)
 #### 初始化项目
-* 执行`yo lego:fe`
+* 执行`yo lego`
 
 #### 开发
 * `gulp` 创建一个链接，自动检测`src`文件夹下的静态文件，自动刷新。支持sass编译。
@@ -90,11 +93,8 @@ yourProj/
 #### 构建
 * `gulp build` 将静态文件压缩到 `dest/`，该阶段会执行雪碧图合并。
 
-#### 发布
-* `gulp publish` 将静态文件提交到svn资源服务器。
-
 #### 打包
-* `gulp zip` ，替换构建后代码资源路径为线上路径，将源码和构建后代码压缩成一个zip包。
+* `gulp zip` 将源码和构建后代码压缩成一个zip包。
 
 #### 其他命令参数
 1. `gulp [-p <port>] [-w] `
@@ -103,9 +103,6 @@ yourProj/
 
 2. `gulp build [-p <port>]`
 	* `-p` port 的简写，给webserver指定端口号；此参数需要指定参数值作为端口号，如：8080
-
-3. `gulp publish [-m <message>]`
-	* `-m` message 的简写，提交的svn的注释；此参数需要指定参数值
 
 
 ### <a name="show-case"></a>Demo [[⬆]](#top)
@@ -124,4 +121,6 @@ Released under [MIT] LICENSE
 [yeoman]:http://yeoman.io/
 [gulp]:https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md#getting-started
 [MIT]: http://rem.mit-license.org/
+[1]: http://www.graphicsmagick.org/download.html
+[2]: http://phantomjs.org/download.html
 

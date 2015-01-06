@@ -1,8 +1,8 @@
 module.exports = function(gulp, plugins) {
 
     var argv = require('yargs').argv,
-        chalk = require('chalk'),
         moment = require('moment'),
+        chalk = require('chalk'),
         portfinder = require('portfinder'),
         browserSync = require('browser-sync'),
         reload = browserSync.reload,
@@ -30,16 +30,33 @@ module.exports = function(gulp, plugins) {
     })
     gulp.task('dev_sass', function() {
         var config = {
-            sourceComments: 'map',
-            sourceMap: 'sass',
-            style: 'compact',
             onError: function(err){ log(chalk.bold.red('【sass compile error】>>> \n' + err)) }
+        }
+
+        // no sourcemaps, more faster
+        if(argv.n){
+            return gulp.src('src/sass/*.scss')
+                .pipe(plugins.cached('sass', {optimizeMemory: true}))
+                .pipe(plugins.sass(config))
+                .pipe(plugins.autoprefixer("last 1 version", "> 1%", "ie 8", "ie 7"))
+                .pipe(plugins.remember('sass'))
+                .pipe(gulp.dest('src/css'))
+                .pipe(reload({stream:true}))    
         }
         return gulp.src('src/sass/*.scss')
             .pipe(plugins.cached('sass', {optimizeMemory: true}))
+            .pipe(plugins.sourcemaps.init())
             .pipe(plugins.sass(config))
+            .pipe(plugins.sourcemaps.write({includeContent: false, sourceRoot: '../sass/'}))
+            .pipe(plugins.sourcemaps.init({loadMaps: true}))
             .pipe(plugins.autoprefixer("last 1 version", "> 1%", "ie 8", "ie 7"))
+            .pipe(plugins.sourcemaps.write({includeContent: false, sourceRoot: '../sass/'}))
             .pipe(plugins.remember('sass'))
+            .pipe(gulp.dest('src/css'))
+            .pipe(reload({stream:true}))
+    })
+    gulp.task('dev_css', function() {
+        return gulp.src('src/css/**')
             .pipe(gulp.dest('src/css'))
             .pipe(reload({stream:true}))
     })
@@ -56,12 +73,6 @@ module.exports = function(gulp, plugins) {
         var async = require('gulp-uglify/node_modules/uglify-js/node_modules/async')
         var gm = require('gm')
         var ejs = require('gulp-ejs/node_modules/ejs')
-
-        var classnameRule = function(fileName, p){
-            var relPath = path.relative('src/slice', path.dirname(p))
-            var name = path.join(relPath, fileName).replace(/\//g, '-')
-            return name
-        }
 
         var files, data = {}
         async.series([
@@ -85,7 +96,7 @@ module.exports = function(gulp, plugins) {
                         arr.push({
                             filepath: f,
                             imageurl: path.relative('src/sass', f).split(path.sep).join('/'),
-                            classname: classnameRule.call({}, path.basename(f, path.extname(f)), f),
+                            classname: path.basename(f, path.extname(f)),
                             width: size.width,
                             height: size.height
                         })
@@ -100,13 +111,12 @@ module.exports = function(gulp, plugins) {
             // 生成css
             function(next){
                 var tpl = (function(){/*
-<% slice.forEach(function(e){ %>
-.<%= e.classname%>{
-    background-image: url(<%= e.imageurl%>);
-    width:<%= e.width%>px;
-    height:<%= e.height %>px; 
-    background-repeat: no-repeat; 
+@mixin slice($slice_url, $default_pos:false){
+  background-image: url($slice_url); background-repeat: no-repeat; 
+  @if($default_pos){display: inline-block; *display: inline; *zoom: 1; vertical-align: middle; text-align: center;}
 }
+<% slice.forEach(function(e){ %>
+.<%= e.classname%>{ @include slice('<%= e.imageurl%>'); width:<%= e.width%>px; height:<%= e.height %>px; }
 <% }) %>
                     */}).toString().split('\n').slice(1, -1).join('\n')
                 var css = ejs.render(tpl, data).replace(/^\n/mg, '')
@@ -121,6 +131,7 @@ module.exports = function(gulp, plugins) {
         }
         gulp.watch('src/tpl/**', ['dev_ejs'])
         gulp.watch('src/sass/**', ['dev_sass'])
+        gulp.watch('src/css/**', ['dev_css'])
         gulp.watch('src/img/**', reload)
         gulp.watch('src/js/**', reload)
         gulp.watch('src/*.html', reload)
