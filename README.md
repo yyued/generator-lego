@@ -39,6 +39,7 @@
 5. 图片编辑环境(Win)：
 	* [GraphicsMagick 下载地址][1] 备胎：[GraphicsMagick-1.3.20-**Q8**-win**32/64**-dll.zip](http://pan.baidu.com/s/1qWDE7Y8#path=%252Ff2e-workflow)
 	* [phantomjs 下载地址][2]  备胎：[phantomjs-1.9.7-windows.zip](http://pan.baidu.com/s/1qWDE7Y8#path=%252Ff2e-workflow)
+	* [添加环境变量][3]  设置环境变量后，重启系统。
 
 
 ### <a name="quick-start"></a>快速开始 [[⬆]](#top)
@@ -123,4 +124,5 @@ Released under [MIT] LICENSE
 [MIT]: http://rem.mit-license.org/
 [1]: http://www.graphicsmagick.org/download.html
 [2]: http://phantomjs.org/download.html
+[3]: https://github.com/hzlzh/f2e-workflow/issues/6
 
