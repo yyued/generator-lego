@@ -23,7 +23,7 @@
 * 自动编译sass
 * 自动补全css3浏览器前缀
 * 支持ejs模板
-* 多雪碧图合并、2x拼图
+* [多雪碧图合并、2x拼图][4]
 * 压缩图片
 * 发布到svn
 * 打包
@@ -125,4 +125,4 @@ Released under [MIT] LICENSE
 [1]: http://www.graphicsmagick.org/download.html
 [2]: http://phantomjs.org/download.html
 [3]: https://github.com/hzlzh/f2e-workflow/issues/6
-
+[4]: https://github.com/twlk28/multi-sprite/#configs
