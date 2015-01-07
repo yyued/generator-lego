@@ -1,19 +1,16 @@
 @charset "utf-8";
 /*
- *@ Name:       样式基础设置
- *@ Update:     2014-11-19 21:02:54
+ *@name:   样式基础设置
+ *@update: 2015-01-07 18:23:42
  */
 
-/**
- * 1. 优化字体渲染
- * @doc: http://www.feeldesignstudio.com/2013/05/text-rendering
- */
+@import "mixins";
+@import "normalize";
+
+/* 优化字体渲染 http://www.feeldesignstudio.com/2013/05/text-rendering */
 html {
-	text-rendering: optimizelegibility; /* 1 */
+	text-rendering: optimizelegibility;
 }
-// body {
-// 	word-wrap: break-word;
-// }
 
 /**
  * 1. 修正 IE8 图片消失bug
