@@ -111,12 +111,14 @@ module.exports = function(gulp, plugins) {
             // 生成css
             function(next){
                 var tpl = (function(){/*
-@mixin slice($slice_url, $default_pos:false){
-  background-image: url($slice_url); background-repeat: no-repeat; 
-  @if($default_pos){display: inline-block; *display: inline; *zoom: 1; vertical-align: middle; text-align: center;}
-}
+// CSS Sprites切片样式
 <% slice.forEach(function(e){ %>
-.<%= e.classname%>{ @include slice('<%= e.imageurl%>'); width:<%= e.width%>px; height:<%= e.height %>px; }
+.<%= e.classname%> {
+    width: <%= e.width%>px;
+    height: <%= e.height %>px;
+    background-image: url(<%= e.imageurl%>);
+    background-repeat: no-repeat;
+}
 <% }) %>
                     */}).toString().split('\n').slice(1, -1).join('\n')
                 var css = ejs.render(tpl, data).replace(/^\n/mg, '')

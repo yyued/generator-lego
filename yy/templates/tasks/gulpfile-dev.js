@@ -112,12 +112,13 @@ module.exports = function(gulp, plugins) {
             // 生成css
             function(next){
                 var tpl = (function(){/*
+// CSS Sprites切片样式
 <% slice.forEach(function(e){ %>
-.<%= e.classname%>{
+.<%= e.classname%> {
+    width: <%= e.width%>px;
+    height: <%= e.height %>px;
     background-image: url(<%= e.imageurl%>);
-    width:<%= e.width%>px;
-    height:<%= e.height %>px; 
-    background-repeat: no-repeat; 
+    background-repeat: no-repeat;
 }
 <% }) %>
                     */}).toString().split('\n').slice(1, -1).join('\n')

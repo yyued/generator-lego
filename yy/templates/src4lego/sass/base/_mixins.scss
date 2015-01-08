@@ -1,6 +1,6 @@
 /**
  * @name:      SASS常用Function与Mixins
- * @update:    2015-01-07 15:50:28
+ * @update:    2015-01-08 15:32:38
  * @copyright: MIT License
 */
 
@@ -28,10 +28,10 @@
  * @param: $opacity {number}  透明度值
  */
 @function black($opacity){
-	@return rgba(0,0,0,$opacity);
+    @return rgba(0,0,0,$opacity);
 }
 @function white($opacity){
-	@return rgba(255,255,255,$opacity);
+    @return rgba(255,255,255,$opacity);
 }
 
 
@@ -80,62 +80,62 @@
     }
  */
 
-$elementSeparator: '__';
-$modifierSeparator: '--';
-@function containsModifier($selector) {
-    $selector: selectorToString($selector);
-    @if str-index($selector, $modifierSeparator) {
-        @return true;
-    } @else {
-        @return false;
-    }
-}
-@function selectorToString($selector) {
-    $selector: inspect($selector); //cast to string
-    $selector: str-slice($selector, 2, -2); //remove brackets
-    @return $selector;
-}
-@function getBlock($selector) {
-    $selector: selectorToString($selector);
-    $modifierStart: str-index($selector, $modifierSeparator) - 1;
-    @return str-slice($selector, 0, $modifierStart);
-}
-@mixin b($block) {
-    .#{$block} {
-        @content;
-    }
-}
-@mixin e($element) {
-    $selector: &;
-    @if containsModifier($selector) {
-        $block: getBlock($selector);
-        @at-root {
-            #{$selector} {
-                #{$block+$elementSeparator+$element} {
-                    @content;
-                }
-            }
-        }
-    } @else {
-        @at-root {
-            #{$selector+$elementSeparator+$element} {
-                @content;
-            }
-        }
-    }
-}
-@mixin m($modifier) {
-    @at-root {
-        #{&}#{$modifierSeparator+$modifier} {
-            @content;
-        }
-    }
-}
+// $elementSeparator: '__';
+// $modifierSeparator: '--';
+// @function containsModifier($selector) {
+//     $selector: selectorToString($selector);
+//     @if str-index($selector, $modifierSeparator) {
+//         @return true;
+//     } @else {
+//         @return false;
+//     }
+// }
+// @function selectorToString($selector) {
+//     $selector: inspect($selector); //cast to string
+//     $selector: str-slice($selector, 2, -2); //remove brackets
+//     @return $selector;
+// }
+// @function getBlock($selector) {
+//     $selector: selectorToString($selector);
+//     $modifierStart: str-index($selector, $modifierSeparator) - 1;
+//     @return str-slice($selector, 0, $modifierStart);
+// }
+// @mixin b($block) {
+//     .#{$block} {
+//         @content;
+//     }
+// }
+// @mixin e($element) {
+//     $selector: &;
+//     @if containsModifier($selector) {
+//         $block: getBlock($selector);
+//         @at-root {
+//             #{$selector} {
+//                 #{$block+$elementSeparator+$element} {
+//                     @content;
+//                 }
+//             }
+//         }
+//     } @else {
+//         @at-root {
+//             #{$selector+$elementSeparator+$element} {
+//                 @content;
+//             }
+//         }
+//     }
+// }
+// @mixin m($modifier) {
+//     @at-root {
+//         #{&}#{$modifierSeparator+$modifier} {
+//             @content;
+//         }
+//     }
+// }
    
 /* @name: 重置 */
 @mixin reset{
-	margin: 0;
-	padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 /*
@@ -157,16 +157,16 @@ $modifierSeparator: '--';
 
 /* @name: 闭合浮动 */
 @mixin clearfix{
-	*zoom: 1;
-	&:before,
-	&:after{
-		content: "";
-		display: table;
-		line-height: 0;
-	}
-	&:after{
-		clear: both;
-	}
+    *zoom: 1;
+    &:before,
+    &:after{
+        content: "";
+        display: table;
+        line-height: 0;
+    }
+    &:after{
+        clear: both;
+    }
 }
 
 /*
@@ -183,24 +183,16 @@ $modifierSeparator: '--';
 
 /* @name: 文本隐藏 */
 @mixin hide-text{
-	text-indent: 100%;
-	white-space: nowrap;
-	overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 /*
  * @name:  文字溢出显示省略号
- * @param: $display {string}  元素显示形态 (inline-block || block)
  * @param: $width {dimension}  指定宽度 (需带单位)
  */
-@mixin ellipsis($display: inline-block,$width: auto) {
-    @if($display && $display == inline-block) {
-        display: inline-block;
-        *display: inline;
-        *zoom: 1;
-    } @else {
-       display: block;
-    }
+@mixin ellipsis($width: auto) {
     @if($width) {
         width: $width;
     }
@@ -254,9 +246,9 @@ $modifierSeparator: '--';
  * @param: $height {dimension}  最小高度
  */
 @mixin min-height($height) {
-	min-height: $height;
-	height: auto !important;
-	_height: $height;
+    min-height: $height;
+    height: auto !important;
+    _height: $height;
 }
 
 /*
