@@ -8,6 +8,7 @@
 * [环境准备](#sys-env)
 * [快速开始](#quick-start)
 * [文件结构](#file-tree)
+* [功能说明](#func-dtls)
 * [任务说明](#task-dtls)
 * [Demo](#show-case)
 * [已知问题](#known-issues)
@@ -23,7 +24,7 @@
 * 自动编译sass
 * 自动补全css3浏览器前缀
 * 支持ejs模板
-* [多雪碧图合并、2x拼图][4]
+* [多雪碧图合并、2x、3x拼图][4]
 * 压缩图片
 * 发布到svn
 * 打包
@@ -62,7 +63,8 @@
 yourProj/
 │
 ├── package.json                // 项目依赖定义
-├── gulp.js                     // 配置任务
+├── gulp.js                     // gulp配置任务入口
+├── tasks/ 						// gulp任务流，开发、构建、发布等
 │
 ├── node_modules    			  // `npm install` 拉取依赖包
 │
@@ -83,16 +85,26 @@ yourProj/
     └── index.html               
 ```
 
+### <a name="func-dtls"></a>功能说明 [[⬆]](#top)
+#### ejs模板
+	* 参与ejs编译的文件匹配路径`src/tpl/*.ejs`
+	* 文件夹`src/tpl`可内建子文件夹，存放被引用的代码片段；子文件夹不会编译出html文件
+	* 开发阶段，编译后生成的html文件，位于`src/`；如已有同名html文件，覆盖之
+	* 构建阶段，编译后生成的html文件，位于`dest/`；同样覆盖同名html文件
+
+#### 雪碧图合并
+	* 移步至 [多雪碧图合并、2x、3x拼图][4]
+
 
 ### <a name="task-dtls"></a>任务说明 [[⬆]](#top)
 #### 初始化项目
 * 执行`yo lego`
 
 #### 开发
-* `gulp` 创建一个链接，自动检测`src`文件夹下的静态文件，自动刷新。支持sass编译。
+* `gulp` 创建一个链接，自动检测`src`文件夹下的静态文件，自动刷新。支持sass、ejs编译。
 
 #### 构建
-* `gulp build` 将静态文件压缩到 `dest/`，该阶段会执行雪碧图合并。
+* `gulp build` 将静态文件压缩到 `dest/`，该阶段会执行雪碧图合并、ejs编译。
 
 #### 打包
 * `gulp zip` 将源码和构建后代码压缩成一个zip包。
