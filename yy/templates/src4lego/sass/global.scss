@@ -9,7 +9,7 @@ $base-background-color   : #fff !default; // 背景颜色
 $base-link-color         : #333 #f40 !default; // 链接颜色[default，hover]
 
 @import "base/base"; // 样式基础设置
-// @import "ui/config"; // LEGO UI
+@import "lego/config"; // LEGO UI
 @import "slice"; // sprites切片样式
 
 body {
@@ -25,4 +25,3 @@ a {
         color: nth($base-link-color,2);
     }
 }
-  

@@ -1,18 +1,26 @@
-//
-// $Date: 2014-01-14 14:02:52 +0800 (Tue, 14 Jan 2014) $
-//
-// 优化字体渲染
-// http://www.feeldesignstudio.com/2013/05/text-rendering
+@charset "utf-8";
+/*
+ *@name:   样式基础设置
+ *@update: 2015-01-07 18:23:42
+ */
+
+@import "mixins";
+@import "normalize";
+
+/* 优化字体渲染 http://www.feeldesignstudio.com/2013/05/text-rendering */
 html {
 	text-rendering: optimizelegibility;
 }
-body {
-	word-wrap: break-word;
-}
+
+/**
+ * 1. 修正 IE8 图片消失bug
+ * 2. 去除现代浏览器图片底部的空隙
+ */
 img {
 	max-width: 100%;
+	width: auto\9; /* 1 */
 	height: auto;
-	vertical-align: middle;
+	vertical-align: top; /* 2 */
 }
 i, em {
 	font-style: normal;
@@ -27,92 +35,32 @@ dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legen
 article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 	margin: 0; padding: 0;
 }
+
+/* IE6 7 8(q) bug 显示为行内表现 */
 iframe {
 	display: block;
 }
-textarea {
-	resize: vertical;
-}
-// IE bug fixed: th 不继承 text-align
+
+/* IE bug fixed: th 不继承 text-align */
 th {
     text-align: inherit;
 }
-// 修正表单元素并不继承父级 font 的问题
-body, button, input, select, textarea {
-    font-family: Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
+
+/* 修正表单元素不继承父级字体族的问题 */
+input, button, select, textarea {
+    font-family: $base-font-family;
 }
-%clearfix{
-	*zoom: 1;
-	&:before,
-	&:after{
-		content: "";
-		display: table;
-		line-height: 0;
-	}
-	&:after{
-		clear: both;
-	}
+
+/**
+ * 1. 移除 IE6-11 中默认的垂直滚动条
+ * 2. 禁止水平拖动，防止破坏布局
+ */
+textarea {
+    overflow: auto; /* 1 */
+    resize: vertical; /* 2 */
 }
-// 清除浮动
-.clearfix {
-	@extend %clearfix;
-}
-// 空白占位层
-$blank-step: 5;
-%blank {
-	display: block;
-	clear: both;
-	overflow: hidden;
-}
-@for $i from 1 through 4 {
-	.blank#{$blank-step*$i} {
-		@extend %blank;
-	}
-	.blank#{$blank-step*$i} {
-		height: #{$blank-step*$i}px;
-	}
-}
-// 常用类
-.fr {
-	float: right;
-	_display: inline;
-}
-.fl {
-	float: left;
-	_display: inline;
-}
-.show {
-	display: block;
-}
-.hide {
-	display: none;
-}
-.hidden {
-	display: none !important;
-	visibility: hidden;
-}
-.left {
-	text-align: left !important;
-}
-.right {
-	text-align: right !important;
-}
-.center {
-	text-align: center !important;
-}
-.indent {
-	text-indent: 2em;
-}
-.highlight {
-	color: #F30 !important;
-}
-.important {
-	font-weight: 700 !important;
-}
-.no-border {
-	border: 0 none !important;
-}
-.transparent {
-	opacity: .0;
-	filter: alpha(opacity=0);
+
+/* 一致的 del 样式 */
+del {
+    text-decoration:line-through;
 }
