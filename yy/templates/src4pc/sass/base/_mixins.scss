@@ -1,6 +1,6 @@
 /**
  * @name:      SASS常用Function与Mixins
- * @update:    2015-01-08 15:32:38
+ * @update:    2015-01-09 16:18:05
  * @copyright: MIT License
 */
 
@@ -181,11 +181,53 @@
     }
 }
 
-/* @name: 文本隐藏 */
-@mixin hide-text{
+/*
+ * @name:  文本隐藏 (text-indent: -9999px;有性能问题)
+ * @param: $support-for-ie {boolean}  是否支持IE6
+ */
+@mixin hide-text($support-for-ie:true){
     text-indent: 100%;
     white-space: nowrap;
     overflow: hidden;
+    @if $support-for-ie{
+        *text-indent: -9999px;
+        *text-align: left;
+    }
+}
+
+/*
+ * @name:  隐藏增加可访问性的文字，注意与hide-text的区别是，他隐藏整个元素
+ * @param: $support-for-ie {boolean}  是否支持IE6
+ */
+@mixin invisible($support-for-ie:true) {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    @if $support-for-ie{
+        *clip: rect(1px 1px 1px 1px);
+    }
+}
+
+/*
+ * @name:  图片代替文字
+ * @param: $support-for-ie {boolean}  是否支持IE6
+ */
+@mixin img-replace($support-for-ie: true) {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    @if $support-for-ie {
+        *text-indent: -9999px;
+        *text-align: left;
+    }
+    &:before {
+        content: "";
+        display: block;
+        width: 0;
+        height: 150%;
+    }
 }
 
 /*
@@ -221,13 +263,16 @@
     word-break: break-word;
 }
 
-/* @name: 保留空白符序列，但是正常地进行换行 */
-@mixin pre {
-    white-space: -moz-pre-wrap;
-    white-space: -pre-wrap;
-    white-space: -o-pre-wrap;
-    white-space: pre-wrap;
-    word-wrap: break-word;
+/* @name: 阻止长字符串（例如url或无意义连续英文字符）打破布局 */
+@mixin pre { 
+    white-space: pre;           // CSS 2.0
+    white-space: pre-wrap;      // CSS 2.1
+    white-space: pre-line;      // CSS 3.0
+    white-space: -pre-wrap;     // Opera 4-6
+    white-space: -o-pre-wrap;   // Opera 7
+    white-space: -moz-pre-wrap; // Mozilla
+    white-space: -hp-pre-wrap;  // HP Printers
+    word-wrap: break-word;      // IE 5+
 }
 
 /*
