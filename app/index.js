@@ -1,5 +1,7 @@
 "use strict";
 var yeoman = require('yeoman-generator'),
+	glob = require('yeoman-generator/node_modules/glob'),
+	_ = require('yeoman-generator/node_modules/lodash'),
 	path = require('path'),
 	exec = require('child_process').exec,
 	fs = require('fs'),
@@ -14,6 +16,23 @@ var LegoGenerator = yeoman.generators.Base.extend({
 	init: function (){
 		// 当前模板的全局配置数据，配置svn信息和命令执行的参数
 		this.gConfig = this.src.readJSON('.yo-rc.json')
+
+		// 初始环境检测
+		// 若当前目录没有node_modules文件夹，则建立软连接；否则继续
+		// 若当前存在src文件夹，则退出；否则继续
+		var dirs = glob.sync('+(src|node_modules)')
+		if(!_.contains(dirs, 'node_modules')){
+			if(win32){
+				require('child_process').exec('mklink /d .\\node_modules '+ path.join(__dirname, '..', 'node_modules') )
+			}else{
+	        	this.spawnCommand('ln', ['-s', path.join(__dirname, '..', 'node_modules'), 'node_modules'])
+			}
+			console.log('node_modules 软连接创建完毕!')
+		}
+		if(_.contains(dirs, 'src')){
+			console.log('资源已初始化，退出...')
+			process.exit(1)
+		}
 	},
 
 	// 2. 提问
@@ -65,16 +84,8 @@ var LegoGenerator = yeoman.generators.Base.extend({
 	end: function(){
 		// 文件转移后，删除不需要的文件
 		del(['src/**/.gitignore','src/**/.npmignore'])
-
-		// 建立软连接并安装依赖
-		if(win32){
-			var exec = require('child_process').exec
-			exec('mklink /d .\\node_modules '+ path.join(__dirname, '..', 'node_modules') )
-		}else{
-        	this.spawnCommand('ln', ['-s', path.join(__dirname, '..', 'node_modules'), 'node_modules'])
-		}
 		
-		// 安装完依赖后，回调里执行`gulp`
+		// 安装包依赖后，执行`gulp`
 		// https://github.com/yeoman/generator/blob/45258c0a48edfb917ecf915e842b091a26d17f3e/lib/actions/install.js#L67-69
 	    this.installDependencies({
 	    	bower: false,
