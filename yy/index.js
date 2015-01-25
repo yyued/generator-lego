@@ -2,6 +2,7 @@
 var yeoman = require('yeoman-generator'),
 	glob = require('yeoman-generator/node_modules/glob'),
 	_ = require('yeoman-generator/node_modules/lodash'),
+	chalk = require('yeoman-generator/node_modules/chalk'),
 	path = require('path'),
 	exec = require('child_process').exec,
 	fs = require('fs'),
@@ -26,11 +27,13 @@ var LegoGenerator = yeoman.generators.Base.extend({
 			}else{
 	        	this.spawnCommand('ln', ['-s', path.join(__dirname, '..', 'node_modules'), 'node_modules'])
 			}
-			console.log('node_modules 软连接创建完毕!')
+			log(chalk.bold.green('node_modules 软连接创建完毕!'))
 		}
 		if(_.contains(dirs, 'src')){
-			console.log('资源已初始化，退出...')
-			process.exit(1)
+			log(chalk.bold.green('资源已初始化，退出...'))
+			setTimeout(function(){
+				process.exit(1)
+			}, 200)
 		}
 
 		// 当前模板的全局配置数据，配置svn信息和命令执行的参数
