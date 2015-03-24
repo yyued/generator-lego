@@ -72,6 +72,7 @@ yourProj/
 │    ├── css/                   
 │    │   └── global.css         // 经过sass编译后的出口css文件
 │    ├── sass/                  // sass源文件
+│    ├── slice/                 // 切片文件夹，拼雪碧图用
 │    ├── img/                   // 仅 Copy 不做操作
 │    ├── js/                    // 仅 Copy 不做操作
 │    ├── tpl/                   // 仅 Copy 不做操作，用来存放ejs模板
@@ -87,13 +88,13 @@ yourProj/
 
 ### <a name="func-dtls"></a>功能说明 [[⬆]](#top)
 #### ejs模板
-	* 参与ejs编译的文件匹配路径`src/tpl/*.ejs`
-	* 文件夹`src/tpl`可内建子文件夹，存放被引用的代码片段；子文件夹不会编译出html文件
-	* 开发阶段，编译后生成的html文件，位于`src/`；如已有同名html文件，覆盖之
-	* 构建阶段，编译后生成的html文件，位于`dest/`；同样覆盖同名html文件
+* 参与ejs编译的文件匹配路径`src/tpl/*.ejs`
+* 文件夹`src/tpl`可内建子文件夹，存放被引用的代码片段；子文件夹不会编译出html文件
+* 开发阶段，编译后生成的html文件，位于`src/`；如已有同名html文件，覆盖之
+* 构建阶段，编译后生成的html文件，位于`dest/`；同样覆盖同名html文件
 
 #### 雪碧图合并
-	* 移步至 [多雪碧图合并、2x、3x拼图][4]
+* 移步至 [多雪碧图合并、2x、3x拼图][4]
 
 
 ### <a name="task-dtls"></a>任务说明 [[⬆]](#top)
@@ -140,4 +141,4 @@ Released under [MIT] LICENSE
 [1]: http://www.graphicsmagick.org/download.html
 [2]: http://phantomjs.org/download.html
 [3]: https://github.com/hzlzh/f2e-workflow/issues/6
-[4]: https://github.com/twlk28/multi-sprite/#configs
+[4]: https://github.com/twlk28/multi-sprite#%E6%A0%B7%E5%BC%8F%E7%BA%A6%E5%AE%9A
