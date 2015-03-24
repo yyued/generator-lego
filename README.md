@@ -44,16 +44,9 @@
 
 
 ### <a name="quick-start"></a>快速开始 [[⬆]](#top)
-提供以下2种获取方式：	
-
-1. Clone the repo
-	* `git clone git@github.com:duowan/generator-lego.git`
-	* 在克隆目录执行 `npm link` 链接到全局模块的位置
-	* 在任意空目录执行 `yo lego` 初始化项目
-
-2. npm
-	* `npm install -g generator-lego`
-	* 在任意空目录执行 `yo lego` 初始化项目
+* 点击右边【clone in desktop】克隆到本地
+* 在克隆目录执行 `npm link` 链接到全局模块的位置
+* 在任意空目录执行 `yo lego` 初始化项目
 
 
 ### <a name="file-tree"></a>文件结构 [[⬆]](#top)
@@ -94,7 +87,9 @@ yourProj/
 * 构建阶段，编译后生成的html文件，位于`dest/`；同样覆盖同名html文件
 
 #### 雪碧图合并
-* 移步至 [多雪碧图合并、2x、3x拼图][4]
+* 切片放在文件夹`src/slice/`，该文件夹可继续创建子文件夹存放切片
+* 需要合并的切片，使用`background-image:url()`引入切片样式，不要使用`background`属性的缩写
+* 详细说明移步 [多雪碧图合并、2x、3x拼图][4]
 
 
 ### <a name="task-dtls"></a>任务说明 [[⬆]](#top)
@@ -141,4 +136,4 @@ Released under [MIT] LICENSE
 [1]: http://www.graphicsmagick.org/download.html
 [2]: http://phantomjs.org/download.html
 [3]: https://github.com/hzlzh/f2e-workflow/issues/6
-[4]: https://github.com/twlk28/multi-sprite#%E6%A0%B7%E5%BC%8F%E7%BA%A6%E5%AE%9A
+[4]: https://github.com/twlk28/multi-sprite
