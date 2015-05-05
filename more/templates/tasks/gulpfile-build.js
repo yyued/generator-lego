@@ -4,12 +4,11 @@ module.exports = function(gulp, plugins) {
         del = require('del'),
         moment = require('moment'),
         multiSprite = require('multi-sprite'),
-        portfinder = require('portfinder'),
         browserSync = require('browser-sync'),
         log = console.log;
 
     var that = this;
-    that.port = +argv.p || undefined;
+    that.port = +argv.p || 3000;
     var pkg = require('../package.json');
     var banner = '/*!' + '\n * @project : ' + pkg.name + '\n * @version : ' + pkg.version + '\n * @author  : ' + pkg.author + '\n * @update  : ' + moment().format('YYYY-MM-DD h:mm:ss a') + '\n */\r';
 
@@ -18,11 +17,11 @@ module.exports = function(gulp, plugins) {
             sourceComments: 'map',
             sourceMap: 'sass',
             style: 'compact',
-            onError: function(err) { console.log('...err...: ' + err) }
+            onError: function(err){ log(chalk.bold.red('【sass compile error】>>> \n' + JSON.stringify(err) )) }
         }
         return gulp.src('src/sass/*.scss')
             .pipe(plugins.sass(config))
-            .pipe(plugins.autoprefixer("last 1 version", "> 1%", "ie 8", "ie 7"))
+            .pipe(plugins.autoprefixer( {browser: ['> 0%']} ))
             .pipe(gulp.dest('src/css'))
     })
     gulp.task('build_css', ['build_sass'], function() {
@@ -89,35 +88,31 @@ module.exports = function(gulp, plugins) {
     })
 
     gulp.task('build', ['build_clean', 'build_html', 'build_sprite', 'build_js', 'build_img', 'build_fonts'], function(){
-        portfinder.getPort(function (err, port) {
-            browserSync({
-                server: {
-                    baseDir: "dest",
-                    directory: true
-                },
-                notify: false,
-                ghostMode:false,
-                codeSync: false,
-                port: that.port||port,
-                open: "external",
-                browser: "/Applications/Google\ Chrome.app/"
-            })
+        browserSync({
+            server: {
+                baseDir: "dest",
+                directory: true
+            },
+            notify: false,
+            ghostMode:false,
+            codeSync: false,
+            port: that.port,
+            open: "external",
+            browser: "/Applications/Google\ Chrome.app/"
         })
     })
     gulp.task('dest', function(){
-        portfinder.getPort(function (err, port) {
-            browserSync({
-                server: {
-                    baseDir: "dest",
-                    directory: true
-                },
-                notify: false,
-                ghostMode:false,
-                codeSync: false,
-                port: that.port||port,
-                open: "external",
-                browser: "/Applications/Google\ Chrome.app/"
-            })
+        browserSync({
+            server: {
+                baseDir: "dest",
+                directory: true
+            },
+            notify: false,
+            ghostMode:false,
+            codeSync: false,
+            port: that.port,
+            open: "external",
+            browser: "/Applications/Google\ Chrome.app/"
         })
     })
 

@@ -3,55 +3,50 @@ module.exports = function(gulp, plugins) {
     var argv = require('yargs').argv,
         chalk = require('chalk'),
         moment = require('moment'),
-        portfinder = require('portfinder'),
         browserSync = require('browser-sync'),
         reload = browserSync.reload,
         log = console.log;
 
     var that = this;
-    that.port = +argv.p || undefined;
+    that.port = +argv.p || 3000;
     var pkg = require('../package.json');
     var banner = '/*!' + '\n * @project : ' + pkg.name + '\n * @version : ' + pkg.version + '\n * @author  : ' + pkg.author + '\n * @update  : ' + moment().format('YYYY-MM-DD h:mm:ss a') + '\n */\r';
     
     gulp.task('dev_conn', function() {
-        portfinder.getPort(function (err, port) {
-            browserSync({
-                server: {
-                    baseDir: "src",
-                    directory: true
-                },
-                notify: false,
-                ghostMode:false,
-                port: that.port||port,
-                open: "external",
-                browser: "/Applications/Google\ Chrome.app/"
-            })
+        browserSync({
+            server: {
+                baseDir: "src",
+                directory: true
+            },
+            notify: false,
+            ghostMode:false,
+            port: that.port,
+            open: "external",
+            browser: "/Applications/Google\ Chrome.app/"
         })
     })
     gulp.task('dev_sass', function() {
         var config = {
-            onError: function(err){ log(chalk.bold.red('【sass compile error】>>> \n' + err)) }
+            onError: function(err){ log(chalk.bold.red('【sass compile error】>>> \n' + JSON.stringify(err) )) }
         }
 
-        // no sourcemaps, more faster
+        // `gulp -n` 不启用sourcemap
         if(argv.n){
             return gulp.src('src/sass/*.scss')
                 .pipe(plugins.cached('sass', {optimizeMemory: true}))
                 .pipe(plugins.sass(config))
-                .pipe(plugins.autoprefixer("last 1 version", "> 1%", "ie 8", "ie 7"))
+                .pipe(plugins.autoprefixer({browser: ['> 0%']}))
                 .pipe(plugins.remember('sass'))
                 .pipe(gulp.dest('src/css'))
                 .pipe(reload({stream:true}))    
         }
         return gulp.src('src/sass/*.scss')
-            // .pipe(plugins.cached('sass', {optimizeMemory: true}))
             .pipe(plugins.sourcemaps.init())
             .pipe(plugins.sass(config))
             .pipe(plugins.sourcemaps.write({includeContent: false, sourceRoot: '../sass/'}))
             .pipe(plugins.sourcemaps.init({loadMaps: true}))
-            .pipe(plugins.autoprefixer("last 1 version", "> 1%", "ie 8", "ie 7"))
+            .pipe(plugins.autoprefixer( {browser: ['> 0%']} ))
             .pipe(plugins.sourcemaps.write({includeContent: false, sourceRoot: '../sass/'}))
-            // .pipe(plugins.remember('sass'))
             .pipe(gulp.dest('src/css'))
             .pipe(reload({stream:true}))
     })
@@ -62,6 +57,7 @@ module.exports = function(gulp, plugins) {
             .pipe(reload({stream:true}))
     })
 
+    // 检测 src/slice 文件夹，读取图片信息来生成css切片样式
     gulp.task('dev_slice2css', function(){
         var fs = require('fs')
         var path = require('path')
@@ -77,7 +73,7 @@ module.exports = function(gulp, plugins) {
 
         var files, data = {}
         async.series([
-            // 列出图片
+            // 1. 文件过滤
             function(next){
                 var glob = require("glob")
                 files = glob.sync("src/slice/**", {nodir:true})
@@ -87,7 +83,7 @@ module.exports = function(gulp, plugins) {
                 next(null)
             },
 
-            // 生成数据
+            // 2. 生成切片数据
             function(next){
                 var arr = data.slice = []
                 async.eachSeries(files, iterator, callback)
@@ -109,12 +105,12 @@ module.exports = function(gulp, plugins) {
                 }
             },
 
-            // 生成css
+            // 3. 生成css文件
             function(next){
                 var tpl = (function(){/*
 // CSS Sprites切片样式
 <% slice.forEach(function(e){ %>
-.<%= e.classname%> {
+%<%= e.classname%> {
     width: <%= e.width%>px;
     height: <%= e.height %>px;
     background-image: url(<%= e.imageurl%>);
