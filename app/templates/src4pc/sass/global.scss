@@ -1,0 +1,26 @@
+@charset "utf-8";
+
+/* === 全局变量配置 === */
+$base-font-size          : 12px !default; // 字号
+$base-font-family        : Tahoma, Arial, "Helvetica Neue", Helvetica, sans-serif !default; // 字体族
+$base-line-height        : 1.5 !default; // 行号
+$base-color              : #333 !default; // 字体颜色
+$base-background-color   : #fff !default; // 背景颜色
+$base-link-color         : #333 #f40 !default; // 链接颜色[default，hover]
+
+@import "base/base"; // 样式基础设置
+@import "slice"; // sprites切片样式
+
+body {
+    font: #{$base-font-size}/#{$base-line-height} $base-font-family;
+    color: $base-color;
+    background-color: $base-background-color;
+}
+a {
+    text-decoration: none;
+    color: nth($base-link-color,1);
+    &:hover {
+        text-decoration: underline;
+        color: nth($base-link-color,2);
+    }
+}
