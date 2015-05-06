@@ -4,18 +4,18 @@
 
 	src----sass---common---base---base.scss	                  // 基础样式库
 		  |		    |       |
-		  |         |       |--tool---easy-animation.scss....    // sass工具库
+		  |         |       |--tool	                              // sass工具库
 		  |         |       |
 		  |         |       |--UI--ui(button,form....)           // ui元素库
 		  |		    |       |      
-		  |         |       |--component--slider---slider.scss.. // 组件样式库
+		  |         |       |--component--slider---_slider.scss.. // 组件样式库
 		  |         | 		 |
 		  |			|        |-- _mobile-lego.scss               // 需要导入的总括scss文件
 		  |			|
 		  |         |
-		  |         |-slice---slice.scss                         // 切片样式
+		  |         |-slice--_slice.scss                          // 切片样式
 		  |         |
-		  |         |-index.scss                                 // 自定义样式
+		  |         |- _global.scss                                // 全局公共样式
 		  |
 		  |---css
 		  |
@@ -49,8 +49,9 @@
 
 1. SASS
 	
-		页面样式需要引入公共SCSS文件：
-		脚手架生成 src/sass/common/_mobile-lego.scss 
+		页面样式需要引入 全局公共SCSS文件：
+		脚手架生成 src/sass/_global.scss 
+		ps:无须编译的sass文件，命名需要带下划线开头
 	
 2. JS
 
