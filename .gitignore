@@ -2,5 +2,5 @@
 .svn
 .idea
 node_modules
-.yo-rc.json
+
 README_ignore.md
