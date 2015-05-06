@@ -1,44 +1,34 @@
 @charset "utf-8";
 /*
- *@name:   样式基础设置
- *@update: 2015-01-07 18:23:42
+ * @file: 基础样式设置
+ * @update: 2015-05-05 21:09:12
  */
 
 @import "mixins";
 @import "normalize";
 
-/* 优化字体渲染 http://www.feeldesignstudio.com/2013/05/text-rendering */
-html {
-	text-rendering: optimizelegibility;
-}
-
-/**
- * 1. 修正 IE8 图片消失bug
- * 2. 去除现代浏览器图片底部的空隙
- */
+/* 去除现代浏览器图片底部的空隙 */
 img {
-	max-width: 100%;
-	width: auto\9; /* 1 */
-	height: auto;
-	vertical-align: top; /* 2 */
+    vertical-align: top;
 }
 i, em {
-	font-style: normal;
+    font-style: normal;
 }
 ol, ul, menu {
-	list-style: none outside none;
+    list-style: none outside none;
 }
-fieldset,iframe,abbr,acronym {
-	border: 0 none;
+fieldset, iframe, abbr, acronym {
+    border: 0 none;
 }
 dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td, hr,
 article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-	margin: 0; padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 /* IE6 7 8(q) bug 显示为行内表现 */
 iframe {
-	display: block;
+    display: block;
 }
 
 /* IE bug fixed: th 不继承 text-align */
@@ -48,7 +38,7 @@ th {
 
 /* 修正表单元素不继承父级字体族的问题 */
 input, button, select, textarea {
-    font-family: $base-font-family;
+    font-family: Tahoma, Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
 /**
