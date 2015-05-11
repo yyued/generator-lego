@@ -29,7 +29,7 @@
           |---tpl---partial---header.ejs....                     // HTML模板库文件夹
 		  |		   |          
 		  |        |
-		  |		   |--index.ejs.... 		                       // 调用用HTML模板文件
+		  |		   |--index.ejs.... 		                      // 调用用HTML模板文件
 		  |	   
 		  |
 		  |---index.html
@@ -45,7 +45,7 @@
 	
 		页面样式需要引入 全局公共SCSS文件：
 		脚手架生成 src/sass/_global.scss 
-		ps:无须编译的sass文件，命名需要带下划线开头
+		ps: 无须编译的sass文件，命名需要带下划线开头
 	
 2. JS
 
@@ -78,14 +78,12 @@
  
  2. swiper 
  
- 	参考[官网API](http://www.swiper.com.cn/api/index.html) 或 参考svn/assets/mobile/demo/swiper目录下相关demo
+ 	参考[官网API](http://www.swiper.com.cn/api/index.html) 或 参考svn/assets/mobile/demo/swiper目录下相关demo<br/>
  	PS：需要引入样式文件 
  		
  		
- 3. expand方法包：
+ 3. expand方法包(基于zepto的扩展方法集)
  	     	
- 	     · 仿jquery slideDown收起效果 - slideDown
- 	     · 仿jquery slideUp收起效果 - slideUp
  	     · 
 
 
