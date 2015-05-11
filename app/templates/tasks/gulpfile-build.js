@@ -31,13 +31,13 @@ module.exports = function(gulp, plugins) {
             .pipe(gulp.dest('dest/css'))
     })
     gulp.task('build_slice', function() {
-        return gulp.src('src/slice/**')
-            .pipe(gulp.dest('dest/slice'))
+        return gulp.src('src/img/slice/**')
+            .pipe(gulp.dest('dest/img/slice'))
     })
     gulp.task('build_sprite', ['build_slice', 'build_css'], function() {
         return multiSprite({
             srcCss: 'dest/css',
-            srcImg: 'dest/slice',
+            srcImg: 'dest/img/slice',
             destCss: 'dest/css',
             destImg: 'dest/img/sprite',
             'algorithm': 'binary-tree',
@@ -47,7 +47,7 @@ module.exports = function(gulp, plugins) {
                 'quality': 90
             },
             successCB: function(){
-                del(['dest/slice/**'])
+                del(['dest/img/slice/**'])
                 
                 // 给css文件的图片请求加上时间戳
                 var timestamp = +new Date
@@ -64,7 +64,7 @@ module.exports = function(gulp, plugins) {
             .pipe(gulp.dest('dest/js'))
     })
     gulp.task('build_img', function() {
-        return gulp.src(['src/img/**', '!src/img/**/*.psd'])
+        return gulp.src(['src/img/**', '!src/img/**/*.psd', '!src/img/slice/**'])
             .pipe(plugins.imagemin({
                 progressive: true
             }))

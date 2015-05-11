@@ -57,7 +57,7 @@ module.exports = function(gulp, plugins) {
             .pipe(reload({stream:true}))
     })
 
-    // 检测 src/slice 文件夹，读取图片信息来生成css切片样式
+    // 检测 src/img/slice 文件夹，读取图片信息来生成css切片样式
     gulp.task('dev_slice2css', function(){
         var fs = require('fs')
         var path = require('path')
@@ -66,7 +66,7 @@ module.exports = function(gulp, plugins) {
         var ejs = require('gulp-ejs/node_modules/ejs')
 
         var classnameRule = function(fileName, p){
-            var relPath = path.relative('src/slice', path.dirname(p))
+            var relPath = path.relative('src/img/slice', path.dirname(p))
             var name = path.join(relPath, fileName).replace(/\//g, '-')
             return name
         }
@@ -76,7 +76,7 @@ module.exports = function(gulp, plugins) {
             // 1. 文件过滤
             function(next){
                 var glob = require("glob")
-                files = glob.sync("src/slice/**", {nodir:true})
+                files = glob.sync("src/img/slice/**", {nodir:true})
                 files = files.filter(function(f){
                     return !~(path.basename(f).indexOf('@'))
                 })
@@ -126,7 +126,7 @@ module.exports = function(gulp, plugins) {
 
     gulp.task('default', ['dev_conn'], function(){
         if(argv.w){
-            gulp.watch('src/slice/**', ['dev_slice2css'])
+            gulp.watch('src/img/slice/**', ['dev_slice2css'])
         }
         gulp.watch('src/tpl/**', ['dev_ejs'])
         gulp.watch('src/sass/**', ['dev_sass'])
