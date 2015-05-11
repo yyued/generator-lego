@@ -122,8 +122,8 @@ yourProj/
 
 ### <a name="known-issues"></a>已知问题 [[⬆]](#top)
 1. win下 `npm install gulp-sass@2.0.0` 报 git命令没有找到，导致安装失败 
-* 临时处理，在 git shell 下执行`npm install gulp-sass@2.0.0`
-* 该问题依赖模块已解决，等待官方下个版本更新[issue][5][issue][6]
+	* 临时处理，在 git shell 下执行`npm install gulp-sass@2.0.0`
+	* 该问题依赖模块已解决，等待官方下个版本更新[issue][5][issue][6]
 
 
 ### <a name="license"></a>License [[⬆]](#top)
