@@ -9,13 +9,13 @@
 		  |         |       |--UI--ui(button,form....)           // ui元素库
 		  |		    |       |      
 		  |         |       |--component--slider---_slider.scss.. // 组件样式库
-		  |         | 		 |
-		  |			|        |-- _mobile-lego.scss               // 需要导入的总括scss文件
+		  |         | 		|
+		  |			|       |-- _mobile-lego.scss                 // 总括scss文件
 		  |			|
 		  |         |
-		  |         |-slice--_slice.scss                          // 切片样式
+		  |         |---slice--_slice.scss                        // 切片样式
 		  |         |
-		  |         |- _global.scss                                // 全局公共样式
+		  |         |--- _global.scss                              // 需要导入的全局公共样式
 		  |
 		  |---css
 		  |
