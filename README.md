@@ -121,8 +121,9 @@ yourProj/
 ![showcase01](https://cloud.githubusercontent.com/assets/1762523/4558145/146cf2e4-4edc-11e4-8e21-9d408776a14d.gif)
 
 ### <a name="known-issues"></a>已知问题 [[⬆]](#top)
-1. gulp-sourcemaps 失效问题[test—case][5]：
-如需要sourcemaps，请去掉`gulp-dev.js`和`gulp-build.js`的`.pipe(plugins.autoprefixer( {browser: ['> 0%']} ))`配置；autoprefixer 增加厂商前缀的功能请使用编辑器或IDE替代。
+1. win下 `npm install gulp-sass@2.0.0` 报 git命令没有找到，导致安装失败 
+* 临时处理，在 git shell 下执行`npm install gulp-sass@2.0.0`
+* 该问题依赖模块已解决，等待官方下个版本更新[issue][5][issue][6]
 
 
 ### <a name="license"></a>License [[⬆]](#top)
@@ -139,4 +140,5 @@ Released under [MIT] LICENSE
 [2]: http://phantomjs.org/download.html
 [3]: https://github.com/hzlzh/f2e-workflow/issues/6
 [4]: https://github.com/twlk28/multi-sprite
-[5]: https://github.com/MethodGrab/gulp-sourcemaps-test-case
+[5]: https://github.com/sass/node-sass/issues/933
+[6]: https://github.com/sass/node-sass/pull/943
