@@ -1,41 +1,35 @@
-## YY UED 2015移动端解决方案
+## YY UED 2015移动端解决方案（纯净版）
 
 > 目录结构：
 
-	src----sass---common---base---base.scss	                  // 基础样式库
-		  |		    |       |
-		  |         |       |--tool	                              // sass工具库
-		  |         |       |
-		  |         |       |--UI--ui(button,form....)           // ui元素库
-		  |		    |       |      
-		  |         |       |--component--slider---_slider.scss.. // 组件样式库
-		  |         | 		|
-		  |			|       |-- _mobile-lego.scss                 // 总括scss文件
+	src----sass---base---_base.scss	                              // 基础样式
+		  |		    | 	|
+		  |         |   |
+		  |         |   |-_tool.scss                             // 工具类使用样式
 		  |			|
 		  |         |
-		  |         |---slice--_slice.scss                        // 切片样式
+		  |         |---_slice.scss                              // 切片样式文件
 		  |         |
-		  |         |--- _global.scss                              // 需要导入的全局公共样式
+		  |         |---_global.scss                             // 需要导入的全局公共样式
+		  |			|
+		  |			|---index.scss                               // 自定义样式文件
 		  |
 		  |---css
 		  |
-		  |---js---index.js                                      // 自定义脚本
+		  |---js---index.js                                      // 自定义脚本文件
 		  |      |		  
 		  |      |
-		  |      |---module----header.js                         // 自定义组件模块脚本
-		  |		             |
-		  |					 |-footer.js             
+		  |      |---module----header.js....                     // 自定义模块脚本文件
 		  |
 		  |---img
 		  |
-		  |---slice                                              // 工作流切片图片
+		  |---slice                                              // 工作流切片图片文件夹
 		  |						
 		  |			
-          |---tpl---partial---header.ejs                         // HTML模板库
-		  |		   |          |
-		  |        |          |.......
+          |---tpl---partial---header.ejs....                     // HTML模板库文件夹
+		  |		   |          
 		  |        |
-		  |		   |--index.ejs..... 		                      // 调用用HTML模板
+		  |		   |--index.ejs.... 		                       // 调用用HTML模板文件
 		  |	   
 		  |
 		  |---index.html
@@ -63,14 +57,14 @@
 		'legoPath': 'http://assets.dwstatic.com/mobile/src/js/'
 		},
 		alias: {
-			'zepto': 'legoPath/main/zepto/zepto.min.js',// 基础核心zepto包
-			'touch': 'legoPath/main/zepto/zepto.touch.js',// zepto tap等事件扩展包
-			'fx':  'legoPath/main/zepto/zepto.fx.js',// zepto animate等方法扩展包
-			'scroll': 'legoPath/main/zepto/zepto.scroll.js',// zepto scrollTop等方法扩展包
-			'expand': 'legoPath/module/expand/expand.js',// zepto 自定义方法扩展包
-			'swiper': 'legoPath/module/swiper/swiper.min.js',// swiper(轮播)核心包
-	      	'iscroll': 'legoPath/module/iscroll/iscroll.js',// iscroll(滑动)核心包
-	      	'hammer': 'legoPath/module/iscroll/hammer.min.js',// hammer(手势)核心包
+			'zepto': 'legoPath/main/zepto/zepto.min.js',              // 基础核心zepto包
+			'touch': 'legoPath/main/zepto/zepto.touch.js',            // zepto tap等事件扩展包
+			'fx':  'legoPath/main/zepto/zepto.fx.js',                 // zepto animate等方法扩展包
+			'scroll': 'legoPath/main/zepto/zepto.scroll.js',          // zepto scrollTop等方法扩展包
+			'expand': 'legoPath/module/expand/expand.js',             // zepto 自定义方法扩展包
+			'swiper': 'legoPath/module/swiper/swiper.min.js',         // swiper(轮播)核心包
+	      	'iscroll': 'legoPath/module/iscroll/iscroll.js',          // iscroll(滑动)核心包
+	      	'hammer': 'legoPath/module/iscroll/hammer.min.js',        // hammer(手势)核心包
 		}      	
       	
   
@@ -84,7 +78,8 @@
  
  2. swiper 
  
- 	参考[官网API](http://www.swiper.com.cn/api/index.html) 或 参考svn/assets/mobile/demo/swiper目录下相关demo 
+ 	参考[官网API](http://www.swiper.com.cn/api/index.html) 或 参考svn/assets/mobile/demo/swiper目录下相关demo
+ 	PS：需要引入样式文件 
  		
  		
  3. expand方法包：

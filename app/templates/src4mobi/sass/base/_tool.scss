@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+/* @name: 上下左右居中 */
+@mixin centers{
+    text-align:center; 
+	display:table-cell; 
+	vertical-align:middle;
+}
+
+/*
+ * @name: 文字溢出显示省略号
+ * @ps: 需要设置宽度
+ */
+@mixin ellipsis{
+    white-space: nowrap;
+    word-wrap: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+}
+
+/* @name: 强制不换行 */
+@mixin nowrap{
+    white-space: nowrap;
+    word-wrap: normal;
+    word-break: keep-all;
+}
+
+/* @name: 清除浮动 */
+@mixin clearFix{
+	overflow: hidden;
+	clear: both;
+}
