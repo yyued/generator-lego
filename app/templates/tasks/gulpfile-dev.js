@@ -6,6 +6,8 @@ module.exports = function(gulp, plugins) {
         browserSync = require('browser-sync'),
         reload = browserSync.reload,
         log = console.log;
+    
+    var win32 = process.platform === 'win32';
 
     var that = this;
     that.port = +argv.p || 3000;
@@ -26,15 +28,36 @@ module.exports = function(gulp, plugins) {
         })
     })
     gulp.task('dev_sass', function() {
-        var config = {
-            onError: function(err){ log(chalk.bold.red('【sass compile error】>>> \n' + JSON.stringify(err) )) }
+
+        function sassCompile4win(){
+            function normalizeErr(err){
+                var path = require('path')
+                var cwd = path.join(__dirname, '..')
+                var relativePath = path.relative(cwd, err.file)
+                return relativePath+' @'+err.line+':'+err.column+'\n'+err.message
+            }
+            var config = {
+                onError: function(err){
+                    return plugins.notify().write(normalizeErr(err))
+                }
+            }
+            return plugins.sass(config)
+        }
+        function sassCompile4nix(){
+            function handler(){
+                return plugins.notify.onError({
+                    title:'sass编译错误', 
+                    message:'<%=error.message%>'
+                })
+            }
+            return plugins.sass().on('error', handler()) 
         }
 
         // `gulp -n` 不启用sourcemap
         if(argv.n){
             return gulp.src('src/sass/*.scss')
                 .pipe(plugins.cached('sass', {optimizeMemory: true}))
-                .pipe(plugins.sass(config))
+                .pipe(win32? sassCompile4win() : sassCompile4nix())
                 .pipe(plugins.autoprefixer({browser: ['> 0%']}))
                 .pipe(plugins.remember('sass'))
                 .pipe(gulp.dest('src/css'))
@@ -42,7 +65,7 @@ module.exports = function(gulp, plugins) {
         }
         return gulp.src('src/sass/*.scss')
             .pipe(plugins.sourcemaps.init())
-            .pipe(plugins.sass(config))
+            .pipe(win32? sassCompile4win() : sassCompile4nix())
             .pipe(plugins.sourcemaps.write({includeContent: false, sourceRoot: '../sass/'}))
             .pipe(plugins.sourcemaps.init({loadMaps: true}))
             .pipe(plugins.autoprefixer( {browser: ['> 0%']} ))
