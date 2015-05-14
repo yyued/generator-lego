@@ -21,9 +21,8 @@
 		  |      |
 		  |      |---module----header.js....                     // 自定义模块脚本文件
 		  |
-		  |---img
+		  |---img---slice                                        // 工作流切片图片文件夹
 		  |
-		  |---slice                                              // 工作流切片图片文件夹
 		  |						
 		  |			
           |---tpl---partial---header.ejs....                     // HTML模板库文件夹
