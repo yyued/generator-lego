@@ -17,7 +17,7 @@
 	.bbs{
 		float: right;
 		*display: inline;
-		background-color: #3A6ECC;
+		background-color: nth($base-link-color,2);
 		font-size: 0px;
 		border: 1px solid #30333B;
 		cursor: pointer;
@@ -68,6 +68,7 @@
 .ZQ__topguide{
 	background-color: #1F232E;
 	padding: 10px 20px 0 20px;
+	height:70px;
 	@include clearfix();
 	.guide-nav{
 		width: 920px;
@@ -111,6 +112,7 @@
 			}
 			a{
 				color: #7D86A2;
+				display:block;
 			}
 			a:hover{
 				color: #169FFF;

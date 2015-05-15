@@ -1,0 +1,76 @@
+.index-smdatabase{
+	.db-hd{
+		padding-top: 15px;
+		border-bottom: 1px dashed #e2e2e2;
+		padding-bottom: 13px;
+		.labels{
+			font-size: 0px;
+			margin-bottom: 7px;
+		}
+		label{
+			height:25px;
+			line-height: 25px;
+			color:#999999;
+			font-size: 14px;
+			vertical-align: middle;
+		}
+		ul{
+			@include inline-block;
+			vertical-align: middle;
+			@include clearfix;
+		}
+		li{
+			padding: 0 16px;
+			line-height: 25px;
+			height:25px;
+			text-align: center;
+			font-size: 14px;
+			float: left;
+			cursor: pointer;
+		}
+		li:hover,.selected{
+			background-color: #9a7a54;
+			color:#ffffff;
+		}
+	}
+	.db-bd{
+		padding-top: 20px;
+		padding-bottom: 20px;
+		height:272px;
+		overflow: hidden;
+		position: relative;
+	}
+	.db-hero-group{
+		font-size: 0px;
+
+		margin-bottom: -16px;
+
+		li{
+			@include inline-block;
+			position: relative;
+			margin-right: 16px;
+			margin-bottom: 16px;
+			cursor: pointer;
+		}
+		a,img{
+			display:block;
+			width:80px;
+			height:80px;
+		}
+		.mask{
+			width:74px;
+			height:74px;
+			border:3px solid #d47301;
+			background-color: transparent;
+			position: absolute;
+			left:0px;
+			top:0px;
+			display:none;
+		}
+		li:hover,.selected{
+			.mask{
+				display:block;
+			}
+		}
+	}
+}

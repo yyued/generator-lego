@@ -1,0 +1,202 @@
+.index-hero{
+	font-size: 0px;
+	border:1px solid #efefef;
+	padding: 10px 0px 13px 12px;
+	background-color: #FFF;
+	position: relative;
+	z-index: 999;
+	.hero-group{
+		@include inline-block;
+		margin-right: 6px;
+
+		label{
+			display:inline-block;
+			padding:4px 8px;
+			font-size: 12px;
+			color:#ffffff;
+			background-color: #9a7a54;
+			width: 12px;
+			height:60px - 8;
+			line-height: 1em;
+			vertical-align: middle;
+			margin-right: 10px;
+		}
+	}
+	.hero-list{
+		@include inline-block;
+		vertical-align: middle;
+		height:60px;
+		font-size: 0px;
+		li{
+			position: relative;
+			@include inline-block;
+			// margin-right: 10px;
+			padding-right: 10px;
+			cursor: pointer;
+			padding-bottom: 15px;
+			width:60px;
+			height:60px;
+			a,img{
+				display:block;
+				width:60px;
+				height:60px;
+			}
+		}
+		.mask{
+			border:3px solid #d47301;
+			background-color: transparent;
+			overflow: hidden;
+			width:54px;
+			height:54px;
+			position: absolute;
+			left:0px;
+			top:0px;
+			display:none;
+			z-index: 2;
+		}
+		.selected{
+			.mask{
+				display:block;
+			}
+			.icon-triangle{
+				display:inline-block;
+			}
+		}
+		.icon-triangle{
+			width:0px;
+			height:0px;
+			overflow: hidden;
+			border-width:4px;
+			border-style:dashed dashed solid dashed;
+			border-color:transparent transparent #8d6143 transparent;
+			position: absolute;
+			left:26px;
+			top:64px;
+			display:none;
+		}
+	}
+	.hero-con{
+		width:1134px;
+		height:247px;
+		border: 1px solid #dddddd;
+		border-top:2px solid #8a5d3e;
+		position: absolute;
+		left:-1px;
+		top:82px;
+		background-color: #efefef;
+		z-index: 20;
+		@include box-shadow(0px,2px,6px,rgba(0,0,0,.1));
+	}
+	.gl-group{
+		@include clearfix;
+	}
+	.title{
+		color:#333333;
+		font-size: 16px;
+		line-height: 36px;
+		height:36px;
+		font-weight: normal;
+		@include inline-block;
+		// float: left;
+	}
+	.hreo-close{
+		position: absolute;
+		right:16px;
+		top:12px;
+		height:22px;
+		line-height: 22px;
+		width:62px - 28;
+		padding-left: 28px;
+		color:#666666;
+		font-size: 12px;
+		background-color: #dddddd;
+		i{
+			width:11px;
+			height:6px;
+			position: absolute;
+			left:11px;
+			top:50%;
+			margin-top: -3px;
+			background-image: url("../img/slice/back.png");
+
+		}
+		&:hover{
+			text-decoration: none;
+		}
+	}
+}
+// 英雄攻略
+.hero-gl{
+	float: left;
+	width:319px;
+	padding:0 15px;
+	overflow: hidden;
+	.box-hd{
+		padding-top: 8px;
+		border-bottom: 1px solid #ccc;
+		height:36px;
+		@include clearfix;
+	}
+	.box-bd{
+		padding-top: 12px;
+	}
+	.act{
+		float: right;
+		height:36px;
+		line-height: 36px;
+		.more{
+			position: relative;
+			padding-left: 13px;
+			zoom:1;
+			font-size: 12px;
+		}
+		i{
+			position: absolute;
+			top:50%;
+			left:0px;
+			margin-top: -4px;
+			width:9px;
+			height:9px;
+			font-size: 0px;
+			background-image: url("../img/slice/icon-more.png");
+		}
+	}
+	.m-list{
+		a{
+			width:300px;
+			display:inline-block;
+			@include ellipsis;
+			word-wrap:normal;
+		}
+	}
+}
+//副本攻略
+.hero-fb{
+	float: left;
+	width:753px;
+	padding: 0 15px;
+	overflow: hidden;
+	.box-hd{
+		border-bottom: 1px solid #ccc;
+		padding-top: 8px;
+	}
+	.box-bd{
+		padding-top: 20px;
+	}
+	.mod-pic--video li img{
+		width:174px;
+		height:118px;
+		border:none;
+	}
+	.mod-pic--video li{
+		width:174px;
+		// font-size: 0px;
+	}
+	.mod-pic--video li .video-time{
+		width:174px - 10;
+		top:93px;
+		@include ellipsis;
+		font-size: 14px;
+		text-align: left;
+	}
+}

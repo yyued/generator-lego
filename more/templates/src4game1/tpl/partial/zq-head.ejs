@@ -23,7 +23,7 @@
                 </p>
                 <div class="search">
                     <form id="form-search" method="get" action="http://so.duowan.com/cse/search" target="_blank" accept-charset="utf-8">
-                        <input type="text" name="q" data-baidusug="on" id="" placeholder="请输入关键字...">
+                        <input type="text" name="q" data-baidusug="on" id="" value="请输入关键字" onfocus="if(this.value=='请输入关键字') this.value='';" onblur="if(this.value=='') this.value='请输入关键字';" >
                         <input type="hidden" name="s" value="14439980297804472906" />
                         <a href="javascript:void(0)" class="submit" onClick="javascript:document.getElementById('form-search').submit()" target="_self" title="搜索">搜索</a>
                     </form>

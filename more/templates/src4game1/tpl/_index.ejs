@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -10,6 +10,7 @@
     <link href="css/global.css" rel="stylesheet">
     <link href="css/demo.css" rel="stylesheet">
     <script src="http://assets.dwstatic.com/common/js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.nicescroll.min.js"></script>
     <script src="http://assets.dwstatic.com/b=lego/2.0.0/js&f=lego.switchable.js"></script>
     <script src="js/main.js"></script>
 </head>
@@ -21,6 +22,9 @@
         <!-- }专区导航 -->
         <!-- 专区内容{ -->
         <div class="ZQ__body">
+            <!-- 英雄选择{ -->
+            <% include partial/index-heromenu %>
+            <!-- }英雄选择 -->
             <!-- 首页首屏{ -->
             <% include partial/index-focus %>
             <!-- }首页首屏 -->
@@ -30,6 +34,9 @@
             <!-- 游戏职业{ -->
             <% include partial/index-job %>
             <!-- }游戏职业 -->
+            <!-- 数据库{ -->
+            <% include partial/index-database %>
+            <!-- }数据库 -->
             <!-- 游戏视频{ -->
             <% include partial/game-video %>
             <!-- }游戏视频 -->

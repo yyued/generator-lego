@@ -12,7 +12,7 @@
 		.large{
 			display: block;
 			text-align: center;
-			color: #3A6ECC;
+			color: nth($base-link-color,2);
 			font-size: 20px;
 			height: 1.2em;
 			line-height: 1.2em;
@@ -45,7 +45,8 @@
 	}
 	.mod-tab-trigger{
 		margin-bottom: 5px;
-		li{
+	}
+	.mod-tab-trigger li,.mod-tab-more{
 			height: 30px;
 			line-height: 30px;
 			background-color: #EAEAEA;
@@ -56,12 +57,11 @@
 			font-weight: normal;
 			padding: 0 17px;
 			width: auto;
-			a{
-				color: #666;
-			}
+			cursor: pointer;
 		}
-		li.selected{
-			background-color: #3A6ECC;
+	.mod-tab-trigger li{
+		&.selected{
+			background-color: nth($base-link-color,2);
 			color: #fff;
 			position: relative;
 			font-weight: normal;
@@ -74,12 +74,18 @@
 				height: 0;
 				border-width: 4px;
 				border-style: solid;
-				border-color: #3A6ECC transparent transparent;
+				border-color: nth($base-link-color,2) transparent transparent;
 				font-size: 0;
 				line-height: 0;
 				margin-left: -4px;
 			}
 		}
+	}
+	.mod-tab-trigger li a{
+		color: #666;
+	}
+	.mod-tab-more{
+		float: left;
 	}
 	.mod-tab-content{
 		position: relative;
@@ -92,7 +98,7 @@
 		font-size: 14px;
 		li{
 			overflow: hidden;
-			
+
 		}
 	}
 }
@@ -172,7 +178,7 @@
 			}
 		}
 		.guide-box__bd{
-			
+
 		}
 	}
 	.game-role{
@@ -250,7 +256,7 @@
 			}
 			.label{
 				background-color: #E9F1FD;
-				color: #3A6ECC;
+				color: nth($base-link-color,2);
 				font-size: 12px;
 				padding: 0 10px;
 				position: relative;
@@ -311,7 +317,7 @@
 			}
 		}
 		.guide-box__bd{
-			
+
 		}
 	}
 	.job-list{
@@ -363,31 +369,41 @@
 
 /* 专区资料 */
 .ZQ-channal-data{
+	padding-bottom: 4px;
 	.data-list{
 		padding: 21px 0 0 0;
 		font-size: 0px;
 		position: relative;
 		margin-left: -17px;
-		margin-top: -1px;
-		border-top: 1px dashed #EAEAEA;
+		// margin-top: -1px;
+		border-bottom: 1px dashed #EAEAEA;
 		padding-bottom: 12px;
 		.label,a{
-			display: inline-block; *display: inline; *zoom: 1;
+			// display: inline-block; *display: inline; *zoom: 1;
+			display:inline-block;
 			font-size: 14px;
+			margin:3px 0;
+			vertical-align: middle;
+			// line-height: 18px;
+			// height:18px;
 		}
 		.label{
 			padding: 0 6px;
-			background-color: #3A6ECC;
+			background-color: nth($base-link-color,2);
 			color: #fff;
-			margin-left: 17px;
+			// margin-left: 17px;
+			padding-left: 23px;
 		}
 		a{
 			padding: 0 16px;
 			border-left: 1px solid #EAEAEA;
-			line-height: 1.2em;
-			height: 1.2em;
-			margin-bottom: 10px;
+			// line-height: 1.2em;
+			// height: 1.2em;
+			// margin-bottom: 10px;
 		}
+	}
+	.is-nborder{
+		border-bottom:none;
 	}
 	.box-bd{
 		overflow: hidden;
@@ -413,7 +429,7 @@
 		margin-bottom: 13px;
 		h3{
 			font-size: 18px;
-			color: #3A6ECC;
+			color: nth($base-link-color,2);
 			padding-bottom: 10px;
 			span{
 				color: #999;
@@ -427,7 +443,7 @@
 			height: 25px;
 			line-height: 25px;
 			background-color: #E9F1FD;
-			color: #3A6ECC;
+			color: nth($base-link-color,2);
 			font-size: 12px;
 			padding: 0 10px;
 			margin-right: 8px;
@@ -494,7 +510,7 @@
 			}
 		}
 		.guide-box__bd{
-			
+
 		}
 	}
 	.upgrade-guide{
@@ -609,3 +625,9 @@
 		}
 	}
 }
+
+/* 英雄选择 */
+@import "hero";
+
+/* 神明数据库 */
+@import "database";

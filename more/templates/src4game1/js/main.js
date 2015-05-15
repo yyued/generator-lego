@@ -1,6 +1,6 @@
 (function($,w){
     //'use strict';
-    
+
     //定义专区对象
     w.ZQ = {};
 
@@ -24,12 +24,28 @@
             $("head").append(cssHtml);
             $.getScript("http://assets.dwstatic.com/common/lib/lightbox/js/lightbox.js");
 
+
             //文章图片
             imgList = $( "#text img" );
             //文章题目
             articalTitle = $("h1").text();
             imgList.each(function(index, el) {
-                $(this).wrap('<a href="'+ $(this).attr("src") +'" data-lightbox="zq-article-pop" data-title="'+ articalTitle +'"></a>');
+                var isA=$(this).parent()[0].tagName;
+                var w=$(this).width();
+                var pWidth=$(this).parents('p').width();
+                if(isA != "A"){
+                    if(w > pWidth){
+                        $(this).css('width',pWidth+'px');
+                        $(this).wrap('<a href="'+ $(this).attr("src") +'" data-lightbox="zq-article-pop" data-title="'+ articalTitle +'"></a>');
+                        $(this).parent().css('display','block')
+                    }
+                } else{
+                    if(w > pWidth){
+                        $(this).css('width',pWidth+'px');
+                        $(this).parent().css('display','block')
+                    }
+                }
+
             });
         }
 

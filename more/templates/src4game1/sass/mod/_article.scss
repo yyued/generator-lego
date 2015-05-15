@@ -1,11 +1,11 @@
 @charset "UTF-8";
 
-@import "lightbox";
+//@import "lightbox";
 
 .ZQ-page--article{
 	h1{
 		text-align: center;
-		color: #3A6ECC;
+		color: nth($base-link-color,2);
 		font-size: 28px;
 		height: 1.1em;
 		line-height: 1.1em;
@@ -20,7 +20,7 @@
 		color: #999;
 		a{
 			margin: 0 10px;
-			color: #3A6ECC;
+			color: nth($base-link-color,2);
 		}
 		padding-bottom: 20px;
 		border-bottom: 1px dashed #EAEAEA;
@@ -69,13 +69,13 @@
 		padding: 0 30px;
 		p{
 			font-size: 16px;
-			margin-top: 2em;
-			line-height: 1.8em;
+			margin-top: 1.5em;
+			line-height: 1.5em;
 		}
 		img{
-			max-width: 100%;
-			margin: 0 auto;
-			cursor: pointer;
+			// max-width: 100%;
+			// margin: 0 auto;
+			// cursor: pointer;
 		}
 	}
 	.sweatmeat{
@@ -87,7 +87,7 @@
 		margin-bottom: 9px;
 		font-size: 14px;
 		a{
-			color: #3A6ECC;
+			color: nth($base-link-color,2);
 		}
 	}
 	.sweatmeat__bd{
