@@ -57,7 +57,7 @@ module.exports = function(gulp, plugins) {
         if(argv.n){
             return gulp.src('src/sass/*.scss')
                 .pipe(plugins.cached('sass', {optimizeMemory: true}))
-                .pipe(win32? sassCompile4win() : sassCompile4nix())
+                .pipe(win32? sassCompile4nix() : sassCompile4nix())
                 .pipe(plugins.autoprefixer({browsers: ['> 0%']}))
                 .pipe(plugins.remember('sass'))
                 .pipe(gulp.dest('src/css'))
@@ -66,7 +66,7 @@ module.exports = function(gulp, plugins) {
         return gulp.src('src/sass/*.scss')
             .pipe(plugins.plumber())
             .pipe(plugins.sourcemaps.init())
-            .pipe(win32? sassCompile4win() : sassCompile4nix())
+            .pipe(win32? sassCompile4nix() : sassCompile4nix())
             .pipe(plugins.sourcemaps.write({includeContent: false, sourceRoot: '../sass/'}))
             .pipe(plugins.sourcemaps.init({loadMaps: true}))
             .pipe(plugins.autoprefixer( {browsers: ['> 0%']} ))
