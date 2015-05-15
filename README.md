@@ -18,16 +18,16 @@
 ### <a name="intro"></a>主要功能 [[⬆]](#top)
 这是一个帮助前端开发工程师简化工作的工具，它的主要功能是：
 
-* webserver
-* 保存文件时，自动刷新浏览器
+* WebServer
+* 监听匹配文件的变化自动刷新浏览器
 * 初始化项目目录结构及文件
-* 自动编译sass
-* 自动补全css3浏览器前缀
+* 自动编译SASS
+* 自动补全CSS3浏览器前缀
 * 支持ejs模板
 * [多雪碧图合并、2x、3x拼图][4]
 * 压缩图片
 * 发布到svn
-* 打包
+* zip打包
 
 
 ### <a name="sys-env"></a>环境准备 [[⬆]](#top)
@@ -65,11 +65,11 @@ yourProj/
 │    ├── css/                   
 │    │   └── global.css         // 经过sass编译后的出口css文件
 │    ├── sass/                  // sass源文件
-│    ├── slice/                 // 切片文件夹，拼雪碧图用
 │    ├── img/                   // 仅 Copy 不做操作
+│    │   └── slice/             // 切片文件夹，拼雪碧图用
 │    ├── js/                    // 仅 Copy 不做操作
 │    ├── tpl/                   // 仅 Copy 不做操作，用来存放ejs模板
-│    └── index.html             
+│    └── _index.html             
 │    
 └── dest/                       // 发布目录，执行 `gulp build` 生成
     ├── css/                    
