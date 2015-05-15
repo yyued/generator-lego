@@ -50,16 +50,16 @@
 <p>这是一个帮助前端开发工程师简化工作的工具，它的主要功能是：</p>
 
 <ul>
-<li>webserver</li>
-<li>保存文件时，自动刷新浏览器</li>
+<li>WebServer</li>
+<li>监听匹配文件的变化自动刷新浏览器</li>
 <li>初始化项目目录结构及文件</li>
-<li>自动编译sass</li>
-<li>自动补全css3浏览器前缀</li>
+<li>自动编译SASS</li>
+<li>自动补全CSS3浏览器前缀</li>
 <li>支持ejs模板</li>
 <li><a href="https://github.com/twlk28/multi-sprite">多雪碧图合并、2x、3x拼图</a></li>
 <li>压缩图片</li>
 <li>发布到svn</li>
-<li>打包</li>
+<li>zip打包</li>
 </ul>
 
 <h3>
@@ -127,11 +127,11 @@
 │    ├── css/                   
 │    │   └── global.css         // 经过sass编译后的出口css文件
 │    ├── sass/                  // sass源文件
-│    ├── slice/                 // 切片文件夹，拼雪碧图用
 │    ├── img/                   // 仅 Copy 不做操作
+│    │   └── slice/             // 切片文件夹，拼雪碧图用
 │    ├── js/                    // 仅 Copy 不做操作
 │    ├── tpl/                   // 仅 Copy 不做操作，用来存放ejs模板
-│    └── index.html             
+│    └── _index.html             
 │    
 └── dest/                       // 发布目录，执行 `gulp build` 生成
     ├── css/                    
