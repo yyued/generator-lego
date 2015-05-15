@@ -21,7 +21,7 @@ module.exports = function(gulp, plugins) {
         }
         return gulp.src('src/sass/*.scss')
             .pipe(plugins.sass(config))
-            .pipe(plugins.autoprefixer( {browser: ['> 0%']} ))
+            .pipe(plugins.autoprefixer( {browsers: ['> 0%']} ))
             .pipe(gulp.dest('src/css'))
     })
     gulp.task('build_css', ['build_sass'], function() {
