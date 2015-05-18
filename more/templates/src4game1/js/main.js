@@ -34,13 +34,13 @@
                 var w=$(this).width();
                 var pWidth=$(this).parents('p').width();
                 if(isA != "A"){
-                    if(w > pWidth){
+                    if(w > (pWidth - 2)){
                         $(this).css('width',pWidth+'px');
                         $(this).wrap('<a href="'+ $(this).attr("src") +'" data-lightbox="zq-article-pop" data-title="'+ articalTitle +'"></a>');
                         $(this).parent().css('display','block')
                     }
                 } else{
-                    if(w > pWidth){
+                    if(w >= pWidth){
                         $(this).css('width',pWidth+'px');
                         $(this).parent().css('display','block')
                     }
