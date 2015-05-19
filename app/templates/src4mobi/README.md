@@ -64,6 +64,7 @@
 			'swiper': 'legoPath/module/swiper/swiper.min.js',         // swiper(轮播)核心包
 	      	'iscroll': 'legoPath/module/iscroll/iscroll.js',          // iscroll(滑动)核心包
 	      	'hammer': 'legoPath/module/iscroll/hammer.min.js',        // hammer(手势)核心包
+	      	'hbURL': 'legoPath/module/hideBrowserURL/hideBrowserURL.js',// 隐藏UCQQ等浏览器地址栏
 		}      	
       	
   
