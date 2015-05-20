@@ -102,7 +102,7 @@ module.exports = function(gulp, plugins) {
 
         var classnameRule = function(fileName, p){
             var relPath = path.relative('src/img/slice', path.dirname(p))
-            var name = path.join(relPath, fileName).replace(/\//g, '-')
+            var name = win32? path.join(relPath, fileName).replace(/\\/g, '-'):path.join(relPath, fileName).replace(/\//g, '-')
             return name
         }
 
