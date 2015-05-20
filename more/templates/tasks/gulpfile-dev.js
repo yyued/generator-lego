@@ -16,6 +16,7 @@ module.exports = function(gulp, plugins) {
     
     gulp.task('dev_conn', function() {
         browserSync({
+            ui:false,
             server: {
                 baseDir: "src",
                 directory: true
@@ -78,6 +79,16 @@ module.exports = function(gulp, plugins) {
         return gulp.src('src/tpl/*.ejs')
             .pipe(plugins.ejs().on('error', console.log))
             .pipe(gulp.dest('src/'))
+            .pipe(reload({stream:true}))
+    })
+    gulp.task('dev_svg', function() {
+        function renameSvg(p){
+            p.basename = 'symbols'
+        }
+        return gulp.src('src/svg/slice/*.svg')
+            .pipe(plugins.svgSymbols({templates: ['default-svg']}))
+            .pipe(plugins.rename(renameSvg))
+            .pipe(gulp.dest('src/svg'))
             .pipe(reload({stream:true}))
     })
 
@@ -149,12 +160,12 @@ module.exports = function(gulp, plugins) {
     })
 
     gulp.task('default', ['dev_conn'], function(){
-        if(argv.w){
-            gulp.watch('src/img/slice/**', ['dev_slice2css'])
-        }
+        gulp.watch('src/img/slice/**', ['dev_slice2css'])
+        gulp.watch('src/svg/slice/**', ['dev_svg'])
         gulp.watch('src/tpl/**', ['dev_ejs'])
         gulp.watch('src/sass/**', ['dev_sass'])
         gulp.watch('src/img/**', reload)
+        gulp.watch('src/svg/**', reload)
         gulp.watch('src/js/**', reload)
         gulp.watch('src/*.html', reload)
     })

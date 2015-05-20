@@ -13,15 +13,22 @@ module.exports = function(gulp, plugins) {
     var banner = '/*!' + '\n * @project : ' + pkg.name + '\n * @version : ' + pkg.version + '\n * @author  : ' + pkg.author + '\n * @update  : ' + moment().format('YYYY-MM-DD h:mm:ss a') + '\n */\r';
 
     gulp.task('build_sass', function() {
-        var config = {
-            sourceComments: 'map',
-            sourceMap: 'sass',
-            style: 'compact',
-            onError: function(err){ log(chalk.bold.red('【sass compile error】>>> \n' + JSON.stringify(err) )) }
+        function sassCompile4nix(){
+            function handler(){
+                return plugins.notify.onError({
+                    title:'sass编译错误', 
+                    message:'<%=error.message%>'
+                })
+            }
+            return plugins.sass().on('error', handler()) 
         }
         return gulp.src('src/sass/*.scss')
-            .pipe(plugins.sass(config))
+            .pipe(plugins.sourcemaps.init())
+            .pipe(sassCompile4nix())
+            .pipe(plugins.sourcemaps.write({includeContent: false, sourceRoot: '../sass/'}))
+            .pipe(plugins.sourcemaps.init({loadMaps: true}))
             .pipe(plugins.autoprefixer( {browsers: ['> 0%']} ))
+            .pipe(plugins.sourcemaps.write({includeContent: false, sourceRoot: '../sass/'}))
             .pipe(gulp.dest('src/css'))
     })
     gulp.task('build_css', ['build_sass'], function() {
@@ -59,7 +66,7 @@ module.exports = function(gulp, plugins) {
     })
     gulp.task('build_js', function() {
         return gulp.src('src/js/**')
-            .pipe(plugins.uglify())
+            .pipe(plugins.uglify({mangle:false}))
             .pipe(plugins.header(banner, { pkg : pkg } ))
             .pipe(gulp.dest('dest/js'))
     })
@@ -69,6 +76,19 @@ module.exports = function(gulp, plugins) {
                 progressive: true
             }))
             .pipe(gulp.dest('dest/img'))
+    })
+    gulp.task('build_svgslice', function() {
+        function renameSvg(p){
+            p.basename = 'symbols'
+        }
+        return gulp.src('src/svg/slice/*.svg')
+            .pipe(plugins.svgSymbols({templates: ['default-svg']}))
+            .pipe(plugins.rename(renameSvg))
+            .pipe(gulp.dest('src/svg'))
+    })
+    gulp.task('build_svg', ['build_svgslice'], function() {
+        return gulp.src(['src/svg/**', '!src/svg/slice/**', '!src/svg/slice/'])
+            .pipe(gulp.dest('dest/svg'))
     })
     gulp.task('build_fonts', function() {
         return gulp.src('src/fonts/**')
@@ -89,6 +109,7 @@ module.exports = function(gulp, plugins) {
 
     gulp.task('build', ['build_clean', 'build_html', 'build_sprite', 'build_js', 'build_img', 'build_fonts'], function(){
         browserSync({
+            ui:false,
             server: {
                 baseDir: "dest",
                 directory: true
@@ -103,6 +124,7 @@ module.exports = function(gulp, plugins) {
     })
     gulp.task('dest', function(){
         browserSync({
+            ui:false,
             server: {
                 baseDir: "dest",
                 directory: true
