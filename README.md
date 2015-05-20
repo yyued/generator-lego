@@ -42,7 +42,7 @@
 		* [添加环境变量][3]  设置环境变量后，重启系统。
 
 ### <a name="install"></a>安装 [[⬆]](#top)
-1. 在 [主页][7] 点击【clone in desktop】克隆到本地
+1. 点击【clone in desktop】克隆到本地
 2. 在本地的克隆目录里执行 `npm link`
 	
 ### <a name="usage"></a>使用 [[⬆]](#top)
@@ -143,4 +143,3 @@ Released under [MIT] LICENSE
 [4]: https://github.com/twlk28/multi-sprite
 [5]: https://github.com/sass/node-sass/issues/933
 [6]: https://github.com/sass/node-sass/pull/943
-[7]: https://github.com/duowan/generator-lego
