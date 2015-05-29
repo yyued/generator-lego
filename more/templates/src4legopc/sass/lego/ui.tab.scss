@@ -1,16 +1,20 @@
 @charset "utf-8";
+
 /*
- *@name:   tab基础模块
- *@update: 2014-11-14 14:23:07
+ * @file: 选项卡UI组件
+ * @update: 2015-05-19 13:59:52
  */
  
-
-/* ===基类=== */
+/*
+ * 默认选项卡
+ * @base
+ */
 .ui-tab {
 	
 }
 .ui-tab__hd {
     position: relative;
+    margin-bottom: 15px;
 }
 .ui-tab__ext {
 	position: absolute;
@@ -21,7 +25,7 @@
 .ui-tab__nav {
     font-size: 0; /* 所有浏览器 */
     *word-spacing: -1px; /* IE6/7 */
-    border-bottom: 1px solid #E5E5E5;
+    border-bottom: 1px solid $base-border-color;
 }
 @media (-webkit-min-device-pixel-ratio:0) {
     .ui-tab__nav {
@@ -37,7 +41,8 @@
     height: 32px;
 	line-height: 32px;
     font-size: 14px;
-    border: 1px solid #E5E5E5;
+    border: 1px solid #fff;
+    border-: 1px solid #fff;
 	border-bottom: 0;
 	background-color: #fff;
     overflow: hidden;
@@ -46,14 +51,15 @@
 		position: relative;
 		margin-bottom: -1px;
 		padding-bottom: 1px;
+        border-color: $base-border-color;
 	    font-weight: 700;
 	}
     a {
     	display: block;
-    	padding: 0 10px;
-        color: #333;
+    	padding: 0 15px;
+        color: $base-text-color;
     }
 }
-.ui-tab__content {
+.ui-tab__bd {
     
 }

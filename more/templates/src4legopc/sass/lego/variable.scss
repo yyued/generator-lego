@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+/*
+ * @file: UI配色
+ * @update: 2015-05-27 22:35:34
+ */
+ 
+/* 字体配置 */
+$base-font-size          : 12px !default; // 字号
+$base-font-family        : Tahoma, Arial, "Helvetica Neue", Helvetica, sans-serif !default; // 字体族
+
+/* 其他配置 */
+$base-line-height        : 1.5 !default; // 行高
+$base-link-decoration    : underline !default; // 链接下划线
+
+
+/* 颜色配置 */
+$base-text-color         : #333 !default; // 文本颜色
+$base-bg-color           : #fff !default; // 背景颜色
+$base-link-color         : #333 #f40 !default; // 链接颜色[default，hover]
+$base-border-color       : #dedede !default; // 边框颜色
+$heading-bg-color        : #f5f5f5 !default; // 面板头部背景颜色
+$active-bg-color         : #e7e7e7 !default; // 激活状态背景颜色
+$disabled-text-color     : #aaa !default; // 禁用状态文本颜色
+$disabled-bg-color       : #eee !default; // 禁用状态背景颜色
+
+$primary-text-color      : #fff !default; // 首选文本颜色
+$primary-color           : #288ad6 !default; // 首选背景颜色
+
+$success-text-color      : #fff !default; // 成功状态文本颜色
+$success-color           : #16c98d !default; // 成功状态背景颜色
+
+$info-text-color         : #fff !default; // 信息状态文本颜色
+$info-color              : #2fc2ef !default; // 信息状态背景颜色
+
+$warning-text-color      : #3b444f !default; // 警告状态文本颜色
+$warning-color           : #feef6d !default; // 警告状态背景颜色
+
+$danger-text-color       : #fff !default; // 危险状态文本颜色
+$danger-color            : #fa5e5b !default; // 危险状态背景颜色

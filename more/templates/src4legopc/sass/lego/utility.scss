@@ -78,6 +78,21 @@
     -moz-osx-font-smoothing: grayscale; /* 1 */
 }
 
+/* 衬线字体，中文显示宋体 */
+.u-serif {
+    font-family: Georgia, "Times New Roman", Times, SimSun, serif;
+}
+
+/* 等宽字体 */
+.u-monospace {
+    font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+}
+
+/* 雅黑字体 */
+.u-yahei {
+    font-family: "Microsoft YaHei", SimHei, "Hiragino Sans GB";
+}
+
 /* 文本颜色 */
 .u-txtPrimary {
     color: #0097d6;
@@ -100,24 +115,24 @@
 
 /* 背景颜色 */
 .u-bgPrimary {
-    color: #fff;
-    background-color: #0097d6;
+    color: $primary-text-color;
+    background-color: $primary-color;
 }
 .u-bgSuccess {
-    color: #fff;
-    background-color: #7CAE23;
+    color: $success-text-color;
+    background-color: $success-color;
 }
 .u-bgInfo {
-    color: #fff;
-    background-color: #9ac9e3;
+    color: $info-text-color;
+    background-color: $info-color;
 }
 .u-bgWarning {
-    color: #fff;
-    background-color: #FF9966;
+    color: $warning-text-color;
+    background-color: $warning-color;
 }
 .u-bgDanger {
-    color: #fff;
-    background-color: #e4393c;
+    color: $danger-text-color;
+    background-color: $danger-color;
 }
 
 
@@ -286,49 +301,49 @@ $arrow-color: #666;
     vertical-align: -2px;
     border: 0 dashed transparent;
     border-width: $border-width;
-}
-.u-arrow--top {
-    border-bottom-style: solid;
-    border-bottom-color: $arrow-color;
-}
-.u-arrow--bottom {
-    border-top-style: solid;
-    border-top-color: $arrow-color;
-}
-.u-arrow--left {
-    border-right-style: solid;
-    border-right-color: $arrow-color;
-}
-.u-arrow--right {
-    border-left-style: solid;
-    border-left-color: $arrow-color;
-}
+    &.ext-top {
+        border-bottom-style: solid;
+        border-bottom-color: $arrow-color;
+    }
+    &.ext-bottom {
+        border-top-style: solid;
+        border-top-color: $arrow-color;
+    }
+    &.ext-left {
+        border-right-style: solid;
+        border-right-color: $arrow-color;
+    }
+    &.ext-right {
+        border-left-style: solid;
+        border-left-color: $arrow-color;
+    }
 
-/* ◤左上角 */
-.u-arrow--leftTop {
-    border-top-style: solid;
-    border-top-color: $arrow-color;
-    border-left-width: 0 !important;
-}
+    /* ◤左上角 */
+    &.ext-leftTop {
+        border-top-style: solid;
+        border-top-color: $arrow-color;
+        border-left-width: 0 !important;
+    }
 
-/* ◥右上角 */
-.u-arrow--rightTop {
-    border-top-style: solid;
-    border-top-color: $arrow-color;
-    border-right-width: 0 !important;
-}
+    /* ◥右上角 */
+    &.ext-rightTop {
+        border-top-style: solid;
+        border-top-color: $arrow-color;
+        border-right-width: 0 !important;
+    }
 
-/* ◣左下角 */
-.u-arrow--leftBottom {
-    border-bottom-style: solid;
-    border-bottom-color: $arrow-color;
-    border-left-width: 0 !important;
-}
+    /* ◣左下角 */
+    &.ext-leftBtm {
+        border-bottom-style: solid;
+        border-bottom-color: $arrow-color;
+        border-left-width: 0 !important;
+    }
 
-/* ◢右下角 */
-.u-arrow--rightBottom {
-    border-bottom-style: solid;
-    border-bottom-color: $arrow-color;
-    border-right-width: 0 !important;
+    /* ◢右下角 */
+    &.ext-rightBtm {
+        border-bottom-style: solid;
+        border-bottom-color: $arrow-color;
+        border-right-width: 0 !important;
+    }
 }
 

@@ -1,0 +1,43 @@
+@charset "utf-8";
+/*
+ * @file: 轮播文字条基础UI模块
+ * @update: 2015-05-03 14:19:53
+ */
+ 
+/*
+ * 默认轮播文字条
+ * @base
+ */
+$panelXWidth: 300px; // 手风琴宽度
+$panelXHeight: 150px; // panel高度
+
+.ui-marquee {
+    position: relative;
+    height: 22px;
+    padding: 0 30px 0 10px;
+    border: 1px solid #dedede;
+    font-size: 12px;
+    overflow: hidden;
+}
+.ui-marquee__panel {
+    height: 22px;
+    line-height: 22px;
+    overflow: hidden;
+}
+.ui-marquee__prev,
+.ui-marquee__next {
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    opacity: .5;
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.ui-marquee__prev {
+    top: -2px;
+}
+.ui-marquee__next {
+    top: 8px;
+}

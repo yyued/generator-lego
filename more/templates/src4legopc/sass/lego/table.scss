@@ -1,9 +1,14 @@
 @charset "utf-8";
+
 /*
- *@name:   table表格基础模块
- *@update: 2014-11-11 21:22:19
+ * @file: table表格基础UI组件
+ * @update: 2015-05-03 13:45:51
  */
- 
+
+/*
+ * 默认表格
+ * @base
+ */
 $font-size: 12px; // 表格字号
 $cell-padding: 8px; // 单元格padding
 $border-color: #d2d2d2; // 边框颜色
@@ -11,7 +16,6 @@ $th-font-wieght: 700; // 表头加粗
 $striped-bg: #f9f9f9; // 隔行变色的背景色
 $tr-hover-bg: #f9f9f9; // hover变色的背景色
 
-/* ===基类=== */
 .ui-table {
 	width: 100%;
 	font-size: $font-size;
@@ -23,32 +27,42 @@ $tr-hover-bg: #f9f9f9; // hover变色的背景色
 		text-align: left;
 		font-weight: $th-font-wieght;
 	}
-	
-	/* ===情景类（隔行变色表格）=== */
-	&.has-border {
+}
+
+/*
+ * 有边框的表格
+ * @extend: border
+ */
+.ui-table {
+	&.ext-border {
 		th,
 		td {
 			border: 1px solid $border-color;
 		}
 	}
-	
-	/* ===情景类（隔行变色表格）=== */
-	&.has-striped {
+}
+
+/*
+ * 隔行变色表格
+ * @extend: striped
+ */
+.ui-table {
+	&.ext-striped {
 		tbody tr:nth-child(even) td {
 			background-color: $striped-bg;
 		}
 	}
-	
-	/* ===情景类（hover变色表格）=== */
-	&.has-hover {
+
+}
+
+/*
+ * hover变色表格
+ * @extend: hover
+ */
+.ui-table {
+	&.ext-hover {
 		tbody tr:hover {
 			background-color: $tr-hover-bg;
 		}
 	}
 }
-
-
-
-
-
-

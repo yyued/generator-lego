@@ -1,0 +1,441 @@
+@charset "utf-8";
+/*
+ * @file: 表单UI组件
+ * @update: 2015-05-03 14:19:53
+ */
+ 
+/*
+ * 默认表单
+ * @base
+ */
+$label-width: 110px; // label宽度
+$label-adjust: 10px; // label右边距
+$item-adjust: 15px; // 每一行之间的间距
+
+$input-height: 30px; // input输入框高度
+$input-color: #666; // 输入框边文本颜色
+$input-border-color: #ccc; // 输入框边颜色
+
+$upload-file-width: 214px; // 普通型文件上传总宽度
+$upload-file-height: 30px; // 普通型文件上传高度
+
+.ui-form {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	line-height: 1.5;
+}
+.ui-form__item {
+	@include clearfix;
+	padding: 0 5px $item-adjust ($label-width + $label-adjust);
+    // overflow: hidden;
+	// zoom: 1;
+    
+    /*
+     * 表单验证提示
+     * @state: error
+     */
+    &.is-error {
+        .ui-input {
+            border-color: $danger-color;
+        }
+        .ui-form__tips {
+            color: $danger-color;
+        }
+    }
+
+}
+.ui-form__label {
+	float: left;
+	width: $label-width;
+	margin-left: -($label-width + $label-adjust);
+	padding-top: 6px;
+	text-align: right;
+}
+.ui-form__tips {
+	margin-left: 5px;
+	color: #999;
+}
+.ui-form__required {
+    font-family: SimSun;
+    color: $danger-color;
+    margin-right: 2px;
+}
+.ui-form__control {
+	.ui-btn {
+		margin-right: 10px;
+	}
+}
+.ui-form__multi {
+	.ui-input {
+		margin-bottom: 10px;
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+}
+
+
+/*
+ * 说明文本独立一行
+ * @extend: blockTips
+ */
+.ui-form {
+    &.ext-blockTips {
+        .ui-form__tips {
+            display: block;
+            padding-top: 8px;
+        }
+    }
+}
+
+/*
+ * 标签左对齐
+ * @extend: alignLeft
+ */
+$label-width--left: 60px; // label宽度
+
+.ui-form {
+    &.ext-alignLeft {
+        .ui-form__item {
+            padding-left: $label-width--left + $label-adjust;
+        }
+        .ui-form__label {
+            width: $label-width--left;
+            margin-left: -$label-width--left - $label-adjust;
+            text-align: left;
+        }
+        .ui-form__required {
+            margin-left: 2px;
+        }
+    }
+}
+
+/*
+ * 标签顶部对齐
+ * @extend: stacked
+ */
+.ui-form {
+    &.ext-stacked {
+        padding-left: 0;
+        .ui-form__item {
+            padding-left: 0;
+        }
+        .ui-form__label {
+            float: none;
+            width: auto;
+            display: block;
+            margin-left: 0;
+            padding-top: 0;
+            padding-bottom: 5px;
+            text-align: left;
+        }
+        .ui-form__required {
+            margin-left: 2px;
+        }
+    }
+}
+
+/*
+ * 内联表单
+ * @extend: inline
+ */
+.ui-form {
+    &.ext-inline {
+        padding-left: 0;
+        .ui-form__item {
+            @include inline-block;
+            padding-right: 15px;
+            padding-left: 0;
+            vertical-align: middle;
+        }
+        .ui-form__label {
+            float: none;
+            @include inline-block;
+            margin-left: 0;
+            width: auto;
+            margin-right: 10px;
+        }
+    }
+}
+
+/*
+ * 无lable标签
+ * @extend: noLabel
+ */
+.ui-form {
+    &.ext-noLabel {
+       .ui-form__item {
+            padding-left: 0;
+        }
+    }
+}
+
+
+/*
+ * 栅格化多列表单
+ * @extend: multiCol
+ */
+.ui-form {
+    &.ext-multiCol {
+        letter-spacing: -.31em;
+        *letter-spacing: normal;
+        *word-spacing: -.43em;
+        font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif;
+        text-rendering: optimizespeed;
+        display: -webkit-flex;
+        -webkit-flex-flow: row wrap;
+        display: -ms-flexbox;
+        -ms-flex-flow: row wrap;
+        
+        .ui-form__item {
+            @include inline-block;
+            letter-spacing: normal;
+            word-spacing: normal;
+            vertical-align: top;
+            text-rendering: auto;
+            
+            padding: 0 0 15px;
+        }
+        .ui-form__label {
+            display: block;
+            float: none;
+            margin: 0 0 5px 0;
+            padding: 0;
+            text-align: left;
+        }
+        .ui-form__control {
+            display: block;
+            width: 100%!important;
+        }
+    }
+    
+    
+    /*
+     * 2列栅格化
+     * @extend: ext-grid2
+     */
+    &.ext-grid2 {
+        .ui-form__item {
+            width: 50%;
+            *width: 49.9690%;
+        }
+    }
+    
+    /*
+     * 3列栅格化
+     * @extend: ext-grid3
+     */
+    &.ext-grid3 {
+        .ui-form__item {
+            width: 33.3333%;
+            *width: 33.3023%;
+        }
+    }
+    
+    /*
+     * 4列栅格化
+     * @extend: ext-grid4
+     */
+    &.ext-grid4 {
+        .ui-form__item {
+            width: 25%;
+            *width: 24.9690%;
+        }
+    }
+}
+
+
+/* ============================ 以下为表单控件 ============================ */
+
+/*
+ * 单行输入框
+ * @module: input
+ */
+.ui-input {
+	height: $input-height - 10;
+	line-height: $input-height - 10;
+	padding: 4px 5px;
+	vertical-align: middle;
+	border: 1px solid $input-border-color;
+	color: $input-color;
+}
+
+/*
+ * 输入框组
+ * @base
+ */
+.ui-inputGroup {
+	font-size: 0; // 所有浏览器
+    *word-spacing: -1px; // IE6/7
+    * {
+	    font-size: 12px;
+	    vertical-align: top;
+	    letter-spacing: normal;
+	    word-spacing: normal;
+    }
+    .ui-input,
+    .ui-btn {
+    	position: relative;
+    	&:focus {
+    		z-index: 2;
+    	}
+    }
+}
+@media (-webkit-min-device-pixel-ratio:0) {
+	.ui-inputGroup {
+    	letter-spacing: -5px; // Safari 5- 等不支持 font-size: 0 的浏览器
+    }
+}
+
+.ui-inputGroup__addon {
+    @extend .ui-input;
+    @include inline-block;
+    width: auto;
+    min-width: 16px;
+    margin-right: -1px;
+    text-align: center;
+    background-color: #eee;
+    color: #666;
+}
+
+.ui-back-top-index__item {
+    
+}
+
+.ui-backTopIndex__item {
+    
+}
+
+/*
+ * 附加输入框
+ * @extend: append
+ */
+.ui-inputGroup {
+    &.ext-append {
+        .ui-inputGroup__addon,
+        .ui-btn {
+            margin-left: -1px;
+        }
+    }
+}
+
+
+/*
+ * 文本域
+ * @base
+ */
+.ui-textarea {
+	padding: 4px 5px;
+	border: 1px solid $input-border-color;
+	color: $input-color;
+}
+
+
+/*
+ * 下拉选择/单选/多选框
+ * @base: select/radio/checkbox
+ */
+input[type="radio"] {
+    margin: 2px 0;
+    *margin-top: 0;
+}
+input[type="checkbox"] {
+    margin: 3px 0;
+    *margin-top: 0;
+}
+.ui-select {
+	vertical-align: middle;
+	margin-right: 5px;
+}
+.ui-form__txt,
+.ui-radio,
+.ui-checkbox,
+.ui-fileInput {
+	@include inline-block;
+	vertical-align: middle;
+	// _vertical-align: 0;
+	margin: 5px 12px 0 0;
+}
+.ui-radio,
+.ui-checkbox {
+	input[type="radio"],
+	input[type="checkbox"] {
+	    float: left;
+	    margin-right: 5px;
+	}
+}
+
+
+
+/*
+ * 文件上传
+ * @base
+ */
+.ui-upload {
+	position: relative;
+	font-size: 0;
+	.ui-input {
+		margin-right: 10px;
+		font-size: 12px;
+	}
+}
+.ui-upload__file {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	width: $upload-file-width;
+	height: $upload-file-height;
+	line-height: $upload-file-height;
+	font-size: 12px;
+	cursor: pointer;
+}
+
+/*
+ * 文件上传
+ * @extend: single
+ */
+.ui-upload {
+    &.ext-single {
+        @include inline-block;
+        vertical-align: middle;
+        position: relative;
+        overflow: hidden;
+        .ui-upload__file {
+            right: 0;
+            left: auto;
+            height: 100%;
+            font-size: 26px;
+        }
+    }
+}
+
+
+/*
+ * 禁用只读状态
+ * @base
+ */
+input[disabled],
+select[disabled],
+textarea[disabled],
+input[readonly],
+select[readonly],
+textarea[readonly] {
+    color: $disabled-text-color;
+    // padding: 4px;
+    background-color: $disabled-bg-color;
+    border: 1px solid #ddd;
+}
+input[disabled],
+select[disabled],
+textarea[disabled] {
+    cursor: not-allowed;
+}
+input[readonly],
+select[readonly],
+textarea[readonly] {
+    color: #999;
+    cursor: text;
+    background-color: #f7f7f7;
+}

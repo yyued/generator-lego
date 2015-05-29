@@ -1,0 +1,34 @@
+@charset "utf-8";
+
+/*
+ * @file: 带分割线的文本列表
+ * @update: 2015-05-16 22:22:47
+ */
+ 
+$line-color: #ddd; // 带分割线颜色
+
+/*
+ * 默认
+ * @base
+ */
+.ui-lineList {
+    overflow: hidden;
+    font-size: 0;
+    a {
+    	@include inline-block;
+	    margin-left: -1px;
+	    padding: 0 10px;
+	    line-height: 1.1;
+	    border-left: 1px solid $line-color;
+	    white-space: nowrap;
+	    word-wrap: normal;
+	    color: #999;
+	    font-size: 12px;
+    }
+}
+
+
+
+
+
+

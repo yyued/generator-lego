@@ -1,12 +1,16 @@
 @charset "utf-8";
-/*
- *@name:   进度条基础UI组件
- *@update: 2014-11-30 15:03:02
- */
- 
-/* ===基类=== */
-$progress-height: 24px;
 
+/*
+ * @file: 进度条基础UI组件
+ * @update: 2015-05-03 13:45:51
+ */
+
+/*
+ * 默认面板
+ * @base
+ */
+
+$progress-height: 24px;
 .ui-progress {
     overflow: hidden;
     height: $progress-height;
