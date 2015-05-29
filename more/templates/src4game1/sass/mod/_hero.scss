@@ -27,9 +27,11 @@
 		vertical-align: middle;
 		height:60px;
 		font-size: 0px;
+		@include clearfix;
 		li{
 			position: relative;
-			@include inline-block;
+			// @include inline-block;
+			float: left;
 			// margin-right: 10px;
 			padding-right: 10px;
 			cursor: pointer;
