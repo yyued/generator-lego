@@ -18,9 +18,6 @@ a {
         text-decoration: $base-link-decoration;
         color: nth($base-link-color,2);
     }
-    &:focus {
-        outline: none;
-    }
 }
 
 /* 去除现代浏览器图片底部的空隙 */
