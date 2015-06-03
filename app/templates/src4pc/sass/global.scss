@@ -14,7 +14,7 @@ $base-bg-color           : #fff !default; // 背景颜色
 $base-link-color         : #333 #f40 !default; // 链接颜色[default，hover]
 
 @import "base/base"; // 样式基础设置
-@import "slice"; // sprites切片样式
+@import "slice"; // sprites切片占位符
 
 body {
     font: #{$base-font-size}/#{$base-line-height} $base-font-family;
