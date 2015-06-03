@@ -2,35 +2,35 @@
 
 /*
  * @file: 图文混排基础UI组件
- * @update: 2015-05-17 16:37:05
+ * @update: 2015-06-03 16:26:12
  */
 
 $img-width: 60px; // 图片宽度
 $img-height: 60px; // 图片高度
 
 .ui-media__item {
-	@include clearfix;
-	margin-bottom: 20px;
+    @include clearfix;
+    margin-bottom: 20px;
 }
 .ui-media__hd {
-	float: left;
-	margin-right: 15px;
+    float: left;
+    margin-right: 15px;
 }
 .ui-media__bd {
-	overflow: hidden;
-	zoom: 1;
+    overflow: hidden;
+    zoom: 1;
 }
 .ui-media__ft {
-	float: right;
-	margin-left: 15px;
+    float: right;
+    margin-left: 15px;
 }
 .ui-media__tit {
-	margin-bottom: 10px;
-	line-height: 1.1;
-	font-size: 16px;
+    margin-bottom: 10px;
+    line-height: 1.1;
+    font-size: 16px;
 }
 .ui-media__img {
-	width: $img-width;
-	height: $img-height;
-	overflow: hidden;
+    width: $img-width;
+    height: $img-height;
+    overflow: hidden;
 }

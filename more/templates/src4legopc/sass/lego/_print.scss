@@ -1,7 +1,7 @@
 @charset "utf-8";
 /*
  * @file: 打印样式
- * @update: 2015-05-28 11:09:51
+ * @update: 2015-06-03 16:49:29
  * @source: https://github.com/h5bp/html5-boilerplate/blob/master/css/main.css
  */
 
@@ -87,9 +87,8 @@
         page-break-after: avoid;
     }
     
-    
     .u-printHide {
-        display: none!important;
+        display: none !important;
     }
 
 }

@@ -1,7 +1,7 @@
 @charset "utf-8";
 /*
  * @file: 图片列表基础UI组件
- * @update: 2015-05-03 14:19:53
+ * @update: 2015-06-03 16:32:45
  */
  
 /*
@@ -16,75 +16,75 @@ $mask-height: 24px; // 遮罩层高度
 $mask-line-height: 24px; // 遮罩层行高
 
 .ui-figure {
-	margin-right: -$item-margin-right;
-	font-size: 0; // 所有浏览器
+    margin-right: -$item-margin-right;
+    font-size: 0; // 所有浏览器
     *word-spacing: -1px; // IE6/7
 }
 @media (-webkit-min-device-pixel-ratio:0) {
-	.ui-figure {
-		letter-spacing: -5px; // Safari 5- 等不支持 font-size: 0 的浏览器
-	}
+    .ui-figure {
+        letter-spacing: -5px; // Safari 5- 等不支持 font-size: 0 的浏览器
+    }
 }
 .ui-figure__item {
     @include inline-block;
     width: $img-width;
-	margin-right: $item-margin-right;
-	margin-bottom: $item-margin-bottom;
+    margin-right: $item-margin-right;
+    margin-bottom: $item-margin-bottom;
     font-size: 12px;
     vertical-align: top;
     letter-spacing: normal;
     word-spacing: normal;
-	overflow: hidden;
+    overflow: hidden;
 }
 .ui-figure__bd {
-	position: relative;
-	display: block;
+    position: relative;
+    display: block;
     height: $img-height; // 如不需兼容IE6，可使用100%
 }
 a.ui-figure__bd {
-	cursor: pointer;
-	&:hover {
-		text-decoration: none;
-	}
+    cursor: pointer;
+    &:hover {
+        text-decoration: none;
+    }
 }
 .ui-figure__img {
-	width: $img-width;
-	height: $img-height;
+    width: $img-width;
+    height: $img-height;
     overflow: hidden;
 }
 .ui-figure__mask {
-	position: absolute;
-	right: 0;
-	bottom: 0;
-	width: 100%;
-	height: $mask-height;
-	line-height: $mask-line-height;
-	text-indent: 5px;
-	color: #fff;
-	overflow: hidden;
-	background-color: transparent;
-	background-color: rgba(0,0,0,.5);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#7f000000,endColorstr=#7f000000);
-	zoom: 1;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: $mask-height;
+    line-height: $mask-line-height;
+    text-indent: 5px;
+    color: #fff;
+    overflow: hidden;
+    background-color: transparent;
+    background-color: rgba(0, 0, 0, .5);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#7f000000,endColorstr=#7f000000);
+    zoom: 1;
 }
 :root .ui-figure__mask {
-	filter:none\9; // for IE9+
+    filter: none\9; // for IE9+
 }
 .ui-figure__sign {
-	float: left;
-	margin-right: 5px;
+    float: left;
+    margin-right: 5px;
 }
 .ui-figure__meta {
-	display: block;
-	margin-right: 5px;
-	overflow: hidden;
-	*zoom: 1;
-	text-align: right;
+    display: block;
+    margin-right: 5px;
+    overflow: hidden;
+    *zoom: 1;
+    text-align: right;
 }
 .ui-figure__caption {
-	display: block;
-	margin-top: 5px;
-	font-weight: normal;
+    display: block;
+    margin-top: 5px;
+    font-weight: normal;
 }
 
 
@@ -94,26 +94,26 @@ a.ui-figure__bd {
 
 /*
 .ui-figure {
-	&.ext-name {
-		margin-right: -$item-margin-right;
-		.ui-figure__item {
-			width: $img-width;
-			margin-right: $item-margin-right;
-			margin-bottom: $item-margin-bottom;
-		}
-		.ui-figure__bd {
-		    height: $img-height; //如不需兼容IE6，可使用100%
-		}
-		.ui-figure__img {
-			width: $img-width;
-			height: $img-height;
-		}
-		.ui-figure__mask {
-			height: $mask-height;
-			line-height: $mask-line-height;
-			text-indent: 5px;
-		}
-	}
+    &.ext-name {
+        margin-right: -$item-margin-right;
+        .ui-figure__item {
+            width: $img-width;
+            margin-right: $item-margin-right;
+            margin-bottom: $item-margin-bottom;
+        }
+        .ui-figure__bd {
+            height: $img-height; //如不需兼容IE6，可使用100%
+        }
+        .ui-figure__img {
+            width: $img-width;
+            height: $img-height;
+        }
+        .ui-figure__mask {
+            height: $mask-height;
+            line-height: $mask-line-height;
+            text-indent: 5px;
+        }
+    }
 }
 */
 
@@ -123,30 +123,26 @@ a.ui-figure__bd {
  * @extend: cover
  */
 .ui-figure {
-	&.ext-cover {
-		.ui-figure__bd {
-			overflow: hidden;
-			&:hover,
-			&.is-hover {
-				.ui-figure__mask {
-					bottom: 0;
-				}
-			}
-		}
-		.ui-figure__mask {
-			bottom: -100%;
-			height: 100%;
-			line-height: 1.5;
-			text-indent: 0;
-			-webkit-transition: bottom 0.2s ease-out 0s;
-			   -moz-transition: bottom 0.2s ease-out 0s;
-			    -ms-transition: bottom 0.2s ease-out 0s;
-			     -o-transition: bottom 0.2s ease-out 0s;
-				    transition: bottom 0.2s ease-out 0s;
-			-webkit-backface-visibility: hidden;
-			-webkit-transform-style: preserve-3d;
-		}
-	}
+    &.ext-cover {
+        .ui-figure__bd {
+            overflow: hidden;
+            &:hover,
+            &.is-hover {
+                .ui-figure__mask {
+                    bottom: 0;
+                }
+            }
+        }
+        .ui-figure__mask {
+            bottom: -100%;
+            height: 100%;
+            line-height: 1.5;
+            text-indent: 0;
+            transition: bottom .2s ease-out 0;
+            -webkit-backface-visibility: hidden;
+            -webkit-transform-style: preserve-3d;
+        }
+    }
 }
 
 
@@ -155,11 +151,11 @@ a.ui-figure__bd {
  * @extend: autoMask
  */
 .ui-figure {
-	&.ext-autoMask {
-		.ui-figure__mask {
-			width: auto;
-		}
-	}
+    &.ext-autoMask {
+        .ui-figure__mask {
+            width: auto;
+        }
+    }
 }
 
 
@@ -168,12 +164,12 @@ a.ui-figure__bd {
  * @extend: noMask
  */
 .ui-figure {
-	&.ext-noMask {
-		.ui-figure__mask {
-			background: none;
-			filter: none;
-		}
-	}
+    &.ext-noMask {
+        .ui-figure__mask {
+            background: none;
+            filter: none;
+        }
+    }
 }
 
 
@@ -183,15 +179,15 @@ a.ui-figure__bd {
  */
 $figure-border-color: #ddd;
 .ui-figure {
-	&.ext-border {
-		.ui-figure__item {
-			padding: 2px;
-			border: 1px solid $figure-border-color;
-		}
-		.ui-figure__caption {
-			padding: 0 5px 5px;
-		}
-	}
+    &.ext-border {
+        .ui-figure__item {
+            padding: 2px;
+            border: 1px solid $figure-border-color;
+        }
+        .ui-figure__caption {
+            padding: 0 5px 5px;
+        }
+    }
 }
 
 

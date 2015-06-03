@@ -1,7 +1,7 @@
 @charset "utf-8";
 /*
  * @file: 图片轮播基础UI组件
- * @update: 2015-05-19 14:00:52
+ * @update: 2015-06-03 16:19:56
  */
  
 /*
@@ -41,7 +41,7 @@ $img-height: 300px; // 图片高度
     width: 100%;
     color: #fff;
     background-color: transparent;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, .5);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#7f000000,endColorstr=#7f000000);
     zoom: 1;
     overflow: hidden;
@@ -58,7 +58,7 @@ $img-height: 300px; // 图片高度
     top: 50%;
     cursor: pointer;
     background-color: transparent;
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0, 0, 0, .3);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#4c000000,endColorstr=#4c000000);
     zoom: 1;
     .ui-icon {
@@ -66,7 +66,7 @@ $img-height: 300px; // 图片高度
         color: #fff;
     }
     &:hover {
-        background-color: rgba(0,0,0,0.6);
+        background-color: rgba(0, 0, 0, .6);
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);
     }
 }

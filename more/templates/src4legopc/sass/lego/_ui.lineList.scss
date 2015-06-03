@@ -2,7 +2,7 @@
 
 /*
  * @file: 带分割线的文本列表
- * @update: 2015-05-16 22:22:47
+ * @update: 2015-06-03 16:28:04
  */
  
 $line-color: #ddd; // 带分割线颜色
@@ -15,20 +15,15 @@ $line-color: #ddd; // 带分割线颜色
     overflow: hidden;
     font-size: 0;
     a {
-    	@include inline-block;
-	    margin-left: -1px;
-	    padding: 0 10px;
-	    line-height: 1.1;
-	    border-left: 1px solid $line-color;
-	    white-space: nowrap;
-	    word-wrap: normal;
-	    color: #999;
-	    font-size: 12px;
+        @include inline-block;
+        margin-left: -1px;
+        padding: 0 10px;
+        line-height: 1.1;
+        border-left: 1px solid $line-color;
+        white-space: nowrap;
+        word-wrap: normal;
+        color: #999;
+        font-size: 12px;
     }
 }
-
-
-
-
-
 

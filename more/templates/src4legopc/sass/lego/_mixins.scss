@@ -1,8 +1,8 @@
-/**
+/*
  * @file:      SASS常用Function与Mixins
- * @update:    2015-01-08 15:32:38
+ * @update:    2015-06-03 17:17:50
  * @copyright: MIT License
-*/
+ */
 
 /* ==========================================================================
    SASS function
@@ -16,7 +16,7 @@
 @function px2em($px, $base-font-size: 16px) {
     @if (unitless($px)) {
         @warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels for you";
-        @return px2em($px + 0px); // That may fail.
+        @return px2em($px + 0); // That may fail.
     } @else if (unit($px) == em) {
         @return $px;
     }
@@ -27,11 +27,11 @@
  * @name:  半透明颜色
  * @param: $opacity {number}  透明度值
  */
-@function black($opacity){
-    @return rgba(0,0,0,$opacity);
+@function black($opacity) {
+    @return rgba(0, 0, 0, $opacity);
 }
-@function white($opacity){
-    @return rgba(255,255,255,$opacity);
+@function white($opacity) {
+    @return rgba(255, 255, 255, $opacity);
 }
 
 
@@ -133,7 +133,7 @@
 // }
    
 /* @name: 重置 */
-@mixin reset{
+@mixin reset {
     margin: 0;
     padding: 0;
 }
@@ -143,7 +143,7 @@
  * @param: $alignment {string}  对齐类型
  * @param: $support-for-ie {boolean}  是否支持IE6
  */
-@mixin inline-block($alignment: middle,$support-for-ie:true) {
+@mixin inline-block($alignment: middle, $support-for-ie: true) {
     display: inline-block;
     @if $alignment and $alignment != none {
         vertical-align: $alignment;
@@ -156,15 +156,15 @@
 }
 
 /* @name: 闭合浮动 */
-@mixin clearfix{
+@mixin clearfix {
     *zoom: 1;
     &:before,
-    &:after{
+    &:after {
         content: "";
         display: table;
         line-height: 0;
     }
-    &:after{
+    &:after {
         clear: both;
     }
 }
@@ -174,15 +174,15 @@
  * @param: $side {string}  浮动方向
  * @param: $support-for-ie {boolean}  是否支持IE6
  */
-@mixin float($side: left,$support-for-ie:true){
+@mixin float($side: left, $support-for-ie: true) {
     float: unquote($side);
-    @if $support-for-ie{
+    @if $support-for-ie {
         _display: inline;
     }
 }
 
 /* @name: 文本隐藏 */
-@mixin hide-text{
+@mixin hide-text {
     text-indent: 100%;
     white-space: nowrap;
     overflow: hidden;
@@ -258,11 +258,11 @@
  * @param: $support-for-ie {boolean}  是否支持IE6
  * @link:  https://github.com/airen/Sass_mixins_function/tree/master/mixins
  */
-@mixin transparent($color,$opacity,$support-for-ie:true){
+@mixin transparent($color, $opacity, $support-for-ie:true) {
     background-color: transparent;
-    background-color: rgba($color,$opacity);
-    @if $support-for-ie{
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#{ie-hex-str(rgba($color,$opacity))},endColorstr=#{ie-hex-str(rgba($color,$opacity))});
+    background-color: rgba($color, $opacity);
+    @if $support-for-ie {
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#{ie-hex-str(rgba($color, $opacity))},endColorstr=#{ie-hex-str(rgba($color, $opacity))});
         zoom: 1;
         :root & {
             filter: none;
@@ -275,7 +275,7 @@
  * @param: $opacity {number}  透明度
  * @param: $support-for-ie {boolean}  是否支持IE6
  */
-@mixin opacity($opacity:.65,$support-for-ie:true) {
+@mixin opacity($opacity:.65, $support-for-ie:true) {
     opacity: $opacity;
     @if $support-for-ie{
         $opacity-ie: $opacity * 100;
@@ -294,11 +294,11 @@
  * @param: $small-size {dimension}  背景图片小尺寸
  * @link:  http://voormedia.com/blog/2012/11/responsive-background-images-with-fixed-or-fluid-aspect-ratios
  */
-@mixin fluid-ratio($large-size,$small-size) {
-    $width-large: nth($large-size,1); //背景图片大尺寸的宽度
-    $width-small: nth($small-size,1); //背景图片小尺寸的宽度
-    $height-large: nth($large-size,2); //背景图片大尺寸的高度
-    $height-small: nth($small-size,2); //背景图片小尺寸的高度
+@mixin fluid-ratio($large-size, $small-size) {
+    $width-large: nth($large-size, 1); //背景图片大尺寸的宽度
+    $width-small: nth($small-size, 1); //背景图片小尺寸的宽度
+    $height-large: nth($large-size, 2); //背景图片大尺寸的高度
+    $height-small: nth($small-size, 2); //背景图片小尺寸的高度
     //计算slope => slope = (h2 - h1) / (w2 - w1)
     //h1:背景图片大尺寸的高度　=> $height-large
     //w1:背景图片大尺寸的宽度  => $width-large
@@ -323,37 +323,37 @@
  * @param: $direction {string}  方向 (top || bottom || left || right)
  * @link:  http://codepen.io/zhouwenbin/pen/emZVZp
  */
-@mixin triangle($base,$height,$color,$direction){
+@mixin triangle($base, $height, $color, $direction) {
     font-size: 0;
     width: 0;
     height: 0;
     line-height: 0;
     overflow: hidden;
     display: inline-block;
-    *display:inline;
-    *zoom:1;
+    *display: inline;
+    *zoom: 1;
     vertical-align: -2px;
     border-style: dashed;
     
-    @if($direction == top){
-        border-width: $height $base / 2 ;
-        border-color:transparent transparent $color transparent;
-        margin-top:-$height;
+    @if($direction == top) {
+        border-width: $height $base / 2;
+        border-color: transparent transparent $color;
+        margin-top: -$height;
     }
-    @if($direction == bottom){
-        border-width: $height $base / 2 ;
-        border-color: $color transparent transparent transparent;
-        margin-bottom:-$height;
+    @if($direction == bottom) {
+        border-width: $height $base / 2;
+        border-color: $color transparent transparent;
+        margin-bottom: -$height;
     }
-    @if($direction == left){
-        border-width: $base / 2 $height ;
-        border-color:transparent transparent transparent $color;
-        margin-right:-$height;
+    @if($direction == left) {
+        border-width: $base / 2 $height;
+        border-color: transparent transparent transparent $color;
+        margin-right: -$height;
     }
-    @if($direction == right){
-        border-width: $base / 2 $height ;
-        border-color:transparent $color transparent transparent;
-        margin-left:-$height;
+    @if($direction == right) {
+        border-width: $base / 2 $height;
+        border-color: transparent $color transparent transparent;
+        margin-left: -$height;
     }
 }
 
@@ -372,39 +372,39 @@
 /* ========= Screen ========= */
 
 //@media screen and (min-width ...) and (max-width ...){...}
-@mixin screen($resMin, $resMax){
-    @media screen and (min-width: $resMin) and (max-width: $resMax){
+@mixin screen($res-min, $res-max) {
+    @media screen and (min-width: $res-min) and (max-width: $res-max) {
         @content;
     }
 }
 //@media screen and (max-width ...){...}
-@mixin max-screen($res){
-    @media screen and (max-width: $res){
+@mixin max-screen($res) {
+    @media screen and (max-width: $res) {
         @content;
     }
 }
 
 //@media screen and (min-width ...){...}
-@mixin min-screen($res){
-    @media screen and (min-width: $res){
+@mixin min-screen($res) {
+    @media screen and (min-width: $res) {
         @content;
     }
 }
 //@media screen and (min-height ...) and (max-height ...){...}
-@mixin screen-height($resMin, $resMax){
-    @media screen and (min-height: $resMin) and (max-height: $resMax){
+@mixin screen-height($res-min, $res-max) {
+    @media screen and (min-height: $res-min) and (max-height: $res-max) {
         @content;
     }
 }
 //@media screen and (max-height ...){...}
-@mixin max-screen-height($res){
-    @media screen and (max-height: $res){
+@mixin max-screen-height($res) {
+    @media screen and (max-height: $res) {
         @content;
     }
 }
 //@media screen and (min-height ...){...}
-@mixin min-screen-height($res){
-    @media screen and (min-height: $res){
+@mixin min-screen-height($res) {
+    @media screen and (min-height: $res) {
         @content;
     }
 }
@@ -414,59 +414,57 @@
 // Based on bourbon hidpi-media-queries file (https://github.com/thoughtbot/bourbon/blob/master/app/assets/stylesheets/css3/_hidpi-media-query.scss)
 // HiDPI mixin. Default value set to 1.3 to target Google Nexus 7 (http://bjango.com/articles/min-device-pixel-ratio/)
 
-@mixin hidpi($ratio: 1.3){
+@mixin hidpi($ratio: 1.3) {
     @media only screen and (-webkit-min-device-pixel-ratio: $ratio),
     only screen and (min--moz-device-pixel-ratio: $ratio),
     only screen and (-o-min-device-pixel-ratio: #{$ratio}/1),
     only screen and (min-resolution: #{round($ratio*96)}dpi),
-    only screen and (min-resolution: #{$ratio}dppx){
+    only screen and (min-resolution: #{$ratio}dppx) {
         @content;
     }
 }
 
-@mixin retina-image($filename, $background-size, $ratio:1.3,$extension: png, $retina-filename: null, $retina-suffix: _2x, $asset-pipeline: false) {
+@mixin retina-image($filename, $background-size, $ratio: 1.3, $extension: png, $retina-filename: null, $retina-suffix: _2x, $asset-pipeline: false) {
     @if $asset-pipeline {
         background-image: image-url("#{$filename}.#{$extension}");
     } @else {
         background-image: url("#{$filename}.#{$extension}");
     }
 
-  @include hidpi($ratio) {
-    @if $asset-pipeline {
-        @if $retina-filename {
-            background-image: image-url("#{$retina-filename}.#{$extension}");
+    @include hidpi($ratio) {
+        @if $asset-pipeline {
+            @if $retina-filename {
+                background-image: image-url("#{$retina-filename}.#{$extension}");
+            } @else {
+                background-image: image-url("#{$filename}#{$retina-suffix}.#{$extension}");
+            }
         } @else {
-            background-image: image-url("#{$filename}#{$retina-suffix}.#{$extension}");
+            @if $retina-filename {
+                background-image: url("#{$retina-filename}.#{$extension}");
+            } @else {
+                background-image: url("#{$filename}#{$retina-suffix}.#{$extension}");
+            }
         }
+        background-size: $background-size;
     }
-    @else {
-        @if $retina-filename {
-            background-image: url("#{$retina-filename}.#{$extension}");
-        } @else {
-            background-image: url("#{$filename}#{$retina-suffix}.#{$extension}");
-        }
-    }
-    background-size: $background-size;
-  }
 }
 
 
 /* ========= iPhone5 ========= */
-@mixin iphone5($orientation: all){
-    $deviceMinWidth: 320px;
-    $deviceMaxWidth: 568px;
-    $devicePixelRatio: 2;
-    $deviceAspectRatio: '40/71';
+@mixin iphone5($orientation: all) {
+    $device-min-width: 320px;
+    $device-max-width: 568px;
+    $device-pixel-ratio: 2;
+    $device-aspect-ratio: '40/71';
 
-    @if $orientation == all{
-        @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
-        and (-webkit-device-pixel-ratio: $devicePixelRatio) and (device-aspect-ratio: $deviceAspectRatio){
+    @if $orientation == all {
+        @media only screen and (min-device-width: $device-min-width) and (max-device-width: $device-max-width)
+        and (-webkit-device-pixel-ratio: $device-pixel-ratio) and (device-aspect-ratio: $device-aspect-ratio) {
             @content;
         }
-    }
-    @else{
-        @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
-        and (-webkit-device-pixel-ratio: $devicePixelRatio) and (device-aspect-ratio: $deviceAspectRatio) and (orientation:#{$orientation}){
+    } @else {
+        @media only screen and (min-device-width: $device-min-width) and (max-device-width: $device-max-width)
+        and (-webkit-device-pixel-ratio: $device-pixel-ratio) and (device-aspect-ratio: $device-aspect-ratio) and (orientation:#{$orientation}) {
             @content;
         }
     }
@@ -474,21 +472,20 @@
 
 
 /* ========= iPhone4 ========= */
-@mixin iphone4($orientation: all){
-    $deviceMinWidth: 320px;
-    $deviceMaxWidth: 480px;
-    $devicePixelRatio: 2;
-    $deviceAspectRatio: '2/3';
+@mixin iphone4($orientation: all) {
+    $device-min-width: 320px;
+    $device-max-width: 480px;
+    $device-pixel-ratio: 2;
+    $device-aspect-ratio: '2/3';
 
-    @if $orientation == all{
-        @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
-        and (-webkit-device-pixel-ratio: $devicePixelRatio) and (device-aspect-ratio: $deviceAspectRatio){
+    @if $orientation == all {
+        @media only screen and (min-device-width: $device-min-width) and (max-device-width: $device-max-width)
+        and (-webkit-device-pixel-ratio: $device-pixel-ratio) and (device-aspect-ratio: $device-aspect-ratio) {
             @content;
         }
-    }
-    @else{
-        @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
-        and (-webkit-device-pixel-ratio: $devicePixelRatio) and (device-aspect-ratio: 2/3) and (orientation:#{$orientation}){
+    } @else {
+        @media only screen and (min-device-width: $device-min-width) and (max-device-width: $device-max-width)
+        and (-webkit-device-pixel-ratio: $device-pixel-ratio) and (device-aspect-ratio: 2/3) and (orientation:#{$orientation}) {
             @content;
         }
     }
@@ -496,20 +493,19 @@
 
 
 /* ========= iPhone3 ========= */
-@mixin iphone3($orientation: all){
-    $deviceMinWidth: 320px;
-    $deviceMaxWidth: 480px;
-    $devicePixelRatio: 1;
+@mixin iphone3($orientation: all) {
+    $device-min-width: 320px;
+    $device-max-width: 480px;
+    $device-pixel-ratio: 1;
 
-    @if $orientation == all{
-        @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
-        and (-webkit-device-pixel-ratio: $devicePixelRatio){
+    @if $orientation == all {
+        @media only screen and (min-device-width: $device-min-width) and (max-device-width: $device-max-width)
+        and (-webkit-device-pixel-ratio: $device-pixel-ratio) {
             @content;
         }
-    }
-    @else{
-        @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
-        and (-webkit-device-pixel-ratio: $devicePixelRatio) and (orientation:#{$orientation}){
+    } @else {
+        @media only screen and (min-device-width: $device-min-width) and (max-device-width: $device-max-width)
+        and (-webkit-device-pixel-ratio: $device-pixel-ratio) and (orientation:#{$orientation}) {
             @content;
         }
     }
@@ -517,18 +513,17 @@
 
 
 /* ========= iPad All ========= */
-@mixin ipad($orientation: all){
-    $deviceMinWidth: 768px;
-    $deviceMaxWidth: 1024px;
+@mixin ipad($orientation: all) {
+    $device-min-width: 768px;
+    $device-max-width: 1024px;
 
-    @if $orientation == all{
-        @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth){
+    @if $orientation == all {
+        @media only screen and (min-device-width: $device-min-width) and (max-device-width: $device-max-width) {
             @content;
         }
-    }
-    @else{
-        @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
-        and (orientation:#{$orientation}){
+    } @else {
+        @media only screen and (min-device-width: $device-min-width) and (max-device-width: $device-max-width)
+        and (orientation:#{$orientation}) {
             @content;
         }
     }
@@ -536,20 +531,19 @@
 
 
 /* ========= iPad Mini ========= */
-@mixin ipad-mini($orientation: all){
-    $deviceMinWidth: 768px;
-    $deviceMaxWidth: 1024px;
-    $devicePixelRatio: 1;
+@mixin ipad-mini($orientation: all) {
+    $device-min-width: 768px;
+    $device-max-width: 1024px;
+    $device-pixel-ratio: 1;
 
     @if $orientation == all{
-        @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
-        and (-webkit-min-device-pixel-ratio: $devicePixelRatio){
+        @media only screen and (min-device-width: $device-min-width) and (max-device-width: $device-max-width)
+        and (-webkit-min-device-pixel-ratio: $device-pixel-ratio) {
             @content;
         }
-    }
-    @else{
-        @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
-        and (-webkit-min-device-pixel-ratio: $devicePixelRatio) and (orientation:#{$orientation}){
+    } @else {
+        @media only screen and (min-device-width: $device-min-width) and (max-device-width: $device-max-width)
+        and (-webkit-min-device-pixel-ratio: $device-pixel-ratio) and (orientation:#{$orientation}){
             @content;
         }
     }
@@ -557,20 +551,19 @@
 
 
 /* ========= iPad Retina ========= */
-@mixin ipad-retina($orientation: all){
-    $deviceMinWidth: 768px;
-    $deviceMaxWidth: 1024px;
-    $devicePixelRatio: 2;
+@mixin ipad-retina($orientation: all) {
+    $device-min-width: 768px;
+    $device-max-width: 1024px;
+    $device-pixel-ratio: 2;
 
-    @if $orientation == all{
-        @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
-        and (-webkit-min-device-pixel-ratio: $devicePixelRatio){
+    @if $orientation == all {
+        @media only screen and (min-device-width: $device-min-width) and (max-device-width: $device-max-width)
+        and (-webkit-min-device-pixel-ratio: $device-pixel-ratio) {
             @content;
         }
-    }
-    @else{
-        @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
-        and (-webkit-min-device-pixel-ratio: $devicePixelRatio) and (orientation:#{$orientation}){
+    } @else {
+        @media only screen and (min-device-width: $device-min-width) and (max-device-width: $device-max-width)
+        and (-webkit-min-device-pixel-ratio: $device-pixel-ratio) and (orientation:#{$orientation}){
             @content;
         }
     }

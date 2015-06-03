@@ -2,7 +2,7 @@
 
 /*
  * @file: 文字列表UI组件
- * @update: 2015-05-17 16:37:05
+ * @update: 2015-06-03 17:18:51
  */
  
 /*
@@ -17,32 +17,32 @@ $num-color: #666 !default; // number颜色
 $num-bgcolor: #E8E8E8 !default; // number背景颜色
 
 .ui-list__item {
-	height: $item-height;
-	line-height: $item-line-height;
-	overflow: hidden;
+    height: $item-height;
+    line-height: $item-line-height;
+    overflow: hidden;
 }
 .ui-list__link {
-	margin-right: 10px;
+    margin-right: 10px;
 }
 .ui-list__tag {
-	color: $tag-color;
+    color: $tag-color;
 }
 .ui-list__meta {
-	float: right;
-	margin-left: 10px;
-	color: $meta-color;
+    float: right;
+    margin-left: 10px;
+    color: $meta-color;
 }
 .ui-list__num {
-	@include inline-block;
-	overflow: hidden;
-	margin-right: 5px;
-	width: 18px;
-	height: 14px;
-	border-radius: 2px;
-	font: normal 12px/14px verdana;
-	text-align: center;
-	color: $num-color;
-	background-color: $num-bgcolor;
+    @include inline-block;
+    overflow: hidden;
+    margin-right: 5px;
+    width: 18px;
+    height: 14px;
+    border-radius: 2px;
+    font: normal 12px/14px verdana;
+    text-align: center;
+    color: $num-color;
+    background-color: $num-bgcolor;
 }
 
 
@@ -51,9 +51,9 @@ $num-bgcolor: #E8E8E8 !default; // number背景颜色
  * @extend: disc
  */
 .ui-list {
-	&.ext-disc {
-		list-style: disc inside none;
-	}
+    &.ext-disc {
+        list-style: disc inside none;
+    }
 }
 
 /*
@@ -61,9 +61,9 @@ $num-bgcolor: #E8E8E8 !default; // number背景颜色
  * @extend: square
  */
 .ui-list {
-	&.ext-square {
-		list-style: square inside none;
-	}
+    &.ext-square {
+        list-style: square inside none;
+    }
 }
  
 
@@ -72,20 +72,20 @@ $num-bgcolor: #E8E8E8 !default; // number背景颜色
  * @extend: half
  */
 .ui-list {
-	&.ext-half {
-		font-size: 0; /* 所有浏览器 */
-	    *word-spacing: -1px; /* IE6/7 */
-		.ui-list__item {
-			@include inline-block;
-			vertical-align: top;
-	        font-size: 12px;
-	        letter-spacing: normal;
-	        word-spacing: normal;
-			width: 48%;
-			*width: 47.99%;
-			margin-right: 2%;
-		}
-	}
+    &.ext-half {
+        font-size: 0; /* 所有浏览器 */
+        *word-spacing: -1px; /* IE6/7 */
+        .ui-list__item {
+            @include inline-block;
+            vertical-align: top;
+            font-size: 12px;
+            letter-spacing: normal;
+            word-spacing: normal;
+            width: 48%;
+            *width: 47.99%;
+            margin-right: 2%;
+        }
+    }
 }
 @media (-webkit-min-device-pixel-ratio:0) {
     .ui-list.ext-half {

@@ -1,7 +1,7 @@
 @charset "utf-8";
 /*
  * @file: 样式基础
- * @update: 2015-05-05 21:09:12
+ * @update: 2015-06-03 17:28:19
  */
 
 @import "normalize";
@@ -13,35 +13,82 @@ body {
 }
 a {
     text-decoration: none;
-    color: nth($base-link-color,1);
+    color: nth($base-link-color, 1);
     &:hover {
         text-decoration: $base-link-decoration;
-        color: nth($base-link-color,2);
+        color: nth($base-link-color, 2);
     }
 }
 
 /* 去除现代浏览器图片底部的空隙 */
 img {
-	vertical-align: top;
+    vertical-align: top;
 }
-i, em {
-	font-style: normal;
+i,
+em {
+    font-style: normal;
 }
-ol, ul, menu {
-	list-style: none outside none;
+ol,
+ul,
+menu {
+    list-style: none outside none;
 }
-fieldset, iframe {
-	border: 0 none;
+fieldset,
+iframe {
+    border: 0 none;
 }
-dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td, hr,
-article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-	margin: 0;
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+button,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
     padding: 0;
 }
 
 /* IE6 7 8(q) bug 显示为行内表现 */
 iframe {
-	display: block;
+    display: block;
 }
 
 /* IE bug fixed: th 不继承 text-align */
@@ -50,7 +97,10 @@ th {
 }
 
 /* 修正表单元素不继承父级字体族的问题 */
-input, button, select, textarea {
+input,
+button,
+select,
+textarea {
     font-family: Tahoma, Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
@@ -65,7 +115,7 @@ textarea {
 
 /* 一致的 del 样式 */
 del {
-    text-decoration:line-through;
+    text-decoration: line-through;
 }
 
 abbr {
@@ -77,8 +127,8 @@ abbr {
 
 hr {
     height: 10px;
-    margin-bottom: 0.8em;
-    border: none;
+    margin-bottom: .8em;
+    border: 0;
     border-bottom: 1px solid #cfcfcf;
 }
 

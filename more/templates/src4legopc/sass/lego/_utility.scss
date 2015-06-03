@@ -1,6 +1,6 @@
 /**
  * @author:    liveme
- * @update:    2015-01-07 18:28:25
+ * @update:    2015-06-03 17:29:12
  * @copyright: 基于 Neat.css | MIT License     
 */
 
@@ -66,7 +66,7 @@
  * @doc:  https://developer.mozilla.org/en-US/docs/Web/CSS/ime-mode
 */
 .u-imeInactive {
-    ime-mode: inactive!important; /* 1 */
+    ime-mode: inactive !important; /* 1 */
 }
 
 /*
@@ -98,13 +98,13 @@
     color: #0097d6;
 }
 .u-txtSuccess {
-    color: #7CAE23;
+    color: #7cae23;
 }
 .u-txtInfo {
     color: #9ac9e3;
 }
 .u-txtWarning {
-    color: #FF9966;
+    color: #f96;
 }
 .u-txtDanger {
     color: #e4393c;
@@ -143,13 +143,13 @@
 /* 浮动 */  
 .u-left,
 .u-right {
-    display:inline;
+    display: inline;
 }
 .u-left {
-    float:left;
+    float: left;
 }
 .u-right {
-    float:right;
+    float: right;
 }
 
 /* 隐藏 */
@@ -209,12 +209,12 @@
     font-size: 0;
     *word-spacing: -1px;
 }
- @media (-webkit-min-device-pixel-ratio:0) {
+@media (-webkit-min-device-pixel-ratio:0) {
     .u-center {
         letter-spacing: -5px;
     }
 }
-.u-center__inner{
+.u-center__inner {
     width: 100%; /* 2 */
     padding: 0 !important; /* 3 */
     margin: 0 !important;
@@ -290,17 +290,17 @@
 $border-width: 6px;
 $arrow-color: #666;
 .u-arrow {
-    font-size: 0;
     width: 0;
     height: 0;
     line-height: 0;
     overflow: hidden;
     display: inline-block;
-    *display:inline;
-    *zoom:1;
+    *display: inline;
+    *zoom: 1;
     vertical-align: -2px;
     border: 0 dashed transparent;
     border-width: $border-width;
+    font-size: 0;
     &.ext-top {
         border-bottom-style: solid;
         border-bottom-color: $arrow-color;

@@ -1,7 +1,7 @@
 @charset "utf-8";
 /*
  * @file: 旋转木马基础UI组件
- * @update: 2015-05-03 14:19:53
+ * @update: 2015-06-03 16:33:54
  */
  
 /*
@@ -26,7 +26,7 @@ $carousel-x-switch-btn-width: 24px; // 翻页按钮宽度
     overflow: hidden;
 }
 .ui-carousel__content {
-    width: 100000px!important; /* 修正carousel组件自生成的长度值太大导致低版本IE不显示的bug */
+    width: 100000px !important; /* 修正carousel组件自生成的长度值太大导致低版本IE不显示的bug */
     height: $carousel-x-item-height;
 }
 .ui-carousel__item {
@@ -83,7 +83,7 @@ $carousel-y-switch-btn-height: 24px; // 翻页按钮高度
         width: $carousel-y-width;
         padding: 29px 0;
         .ui-carousel__content {
-            width: auto!important;
+            width: auto !important;
             height: auto;
         }
         .ui-carousel__scroller {
@@ -98,7 +98,8 @@ $carousel-y-switch-btn-height: 24px; // 翻页按钮高度
             padding: $carousel-y-spacing/2 0;
             margin: 0;
         }
-        .ui-carousel__prev, .ui-carousel__next {
+        .ui-carousel__prev,
+        .ui-carousel__next {
             width: $carousel-y-width;
             height: $carousel-y-switch-btn-height;
             line-height: $carousel-y-switch-btn-height;

@@ -1,15 +1,13 @@
 @charset "utf-8";
 /*
  * @file: 轮播文字条基础UI模块
- * @update: 2015-05-03 14:19:53
+ * @update: 2015-06-03 16:27:18
  */
  
 /*
  * 默认轮播文字条
  * @base
  */
-$panelXWidth: 300px; // 手风琴宽度
-$panelXHeight: 150px; // panel高度
 
 .ui-marquee {
     position: relative;
