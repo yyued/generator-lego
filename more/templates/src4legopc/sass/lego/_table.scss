@@ -2,30 +2,25 @@
 
 /*
  * @file: table表格基础UI组件
- * @update: 2015-06-03 16:48:43
+ * @update: 2015-06-05 16:45:07
  */
 
 /*
  * 默认表格
  * @base
  */
-$font-size: 12px; // 表格字号
 $cell-padding: 8px; // 单元格padding
-$border-color: #d2d2d2; // 边框颜色
-$th-font-wieght: 700; // 表头加粗
-$striped-bg: #f9f9f9; // 隔行变色的背景色
-$tr-hover-bg: #f9f9f9; // hover变色的背景色
 
 .ui-table {
     width: 100%;
-    font-size: $font-size;
+    font-size: 12px;
     th,
     td {
         padding: $cell-padding;
     }
     th {
         text-align: left;
-        font-weight: $th-font-wieght;
+        font-weight: 700;
     }
 }
 
@@ -37,7 +32,7 @@ $tr-hover-bg: #f9f9f9; // hover变色的背景色
     &.ext-border {
         th,
         td {
-            border: 1px solid $border-color;
+            border: 1px solid #d2d2d2;
         }
     }
 }
@@ -49,7 +44,7 @@ $tr-hover-bg: #f9f9f9; // hover变色的背景色
 .ui-table {
     &.ext-striped {
         tbody tr:nth-child(even) {
-            background-color: $striped-bg; 
+            background-color: #f9f9f9; 
         }
     }
 
@@ -62,7 +57,7 @@ $tr-hover-bg: #f9f9f9; // hover变色的背景色
 .ui-table {
     &.ext-hover {
         tbody tr:hover {
-            background-color: $tr-hover-bg;
+            background-color: #f9f9f9;
         }
     }
 }

@@ -39,17 +39,13 @@ $img-height: 300px; // 图片高度
     bottom: 0;
     right: 0;
     width: 100%;
-    color: #fff;
-    background-color: transparent;
-    background-color: rgba(0, 0, 0, .5);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#7f000000,endColorstr=#7f000000);
-    zoom: 1;
     overflow: hidden;
-    
     padding: 10px 0;
     text-indent: 10px;
     font-size: 20px;
     line-height: 20px;
+    color: #fff;
+    @include transparent(#000, .5, true);
 }
 
 .ui-slide__prev,
@@ -57,17 +53,13 @@ $img-height: 300px; // 图片高度
     position: absolute;
     top: 50%;
     cursor: pointer;
-    background-color: transparent;
-    background-color: rgba(0, 0, 0, .3);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#4c000000,endColorstr=#4c000000);
-    zoom: 1;
+    @include transparent(#000, .3, true);
     .ui-icon {
         font-size: 24px;
         color: #fff;
     }
     &:hover {
-        background-color: rgba(0, 0, 0, .6);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);
+        @include transparent(#000, .6, true);
     }
 }
 .ui-slide__prev {
@@ -75,10 +67,6 @@ $img-height: 300px; // 图片高度
 }
 .ui-slide__next {
     right: 0;
-}
-:root .ui-slide__prev,
-:root .ui-slide__next {
-    filter: none\9;
 }
 
 /*
@@ -141,8 +129,7 @@ $active-border-color: #288ad6; // 激活项边框颜色
                 .ui-slide__thumbMask {
                     border: $active-border-width solid $active-border-color;
                     background: 0 0;
-                    opacity: 1;
-                    filter: alpha(opacity=100);
+                    @include opacity(1, true);
                 }
                 &::after {
                     content: "";
@@ -162,8 +149,7 @@ $active-border-color: #288ad6; // 激活项边框颜色
     left: 0;
     display: block;
     background: #fff;
-    opacity: .1;
-    filter: alpha(opacity=10);
+    @include opacity(.1, true);
 }
 
     

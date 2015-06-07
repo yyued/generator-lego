@@ -30,8 +30,7 @@
     }
 }
 .ui-tab__trigger {
-    @include inline-block;
-    vertical-align: top;
+    @include inline-block(top, true);
     letter-spacing: normal;
     word-spacing: normal;
     margin-right: 3px;
@@ -39,13 +38,12 @@
     line-height: 32px;
     font-size: 14px;
     border: 1px solid #fff;
-    border-: 1px solid #fff;
     border-bottom: 0;
     background-color: #fff;
     overflow: hidden;
     cursor: pointer;
     &.is-active {
-        position: relative;
+        *position: relative;
         margin-bottom: -1px;
         padding-bottom: 1px;
         border-color: $base-border-color;

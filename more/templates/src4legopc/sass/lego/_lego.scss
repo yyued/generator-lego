@@ -1,21 +1,23 @@
 @charset "utf-8";
 /*
- *@file:   LegoUI for pc
- *@version: V3.0.0
- *@update: 2015-06-02 10:53:44
+ * @file:   LegoUI for pc
+ * @version: V3.0.1
+ * @update: 2015-06-05 15:20:50
  */
 
-@import "variable"; // 变量配置
-@import "mixins";
+/* 基础设施(必须引入) */
 @import "base";
-@import "print"; // 打印
 
+
+/* HTML元素 */
 @import "list"; // 文字列表
 @import "button"; // 按钮
 @import "form"; // 表单
 @import "table"; // 表格
 @import "icon"; // 字体图标
 
+
+/* CSS UI */
 @import "ui.panel"; // 区块面板
 @import "ui.figure"; // 图片列表
 @import "ui.media"; // 媒体对象
@@ -24,6 +26,8 @@
 @import "ui.progress"; // 进度条
 @import "ui.lineList"; // 带分割线的文本列表
 
+
+/* JS UI */
 @import "ui.dialog"; // 弹窗
 @import "ui.tab"; // 选项卡
 @import "ui.slide"; // 幻灯片
@@ -31,4 +35,6 @@
 @import "ui.accordion"; // 手风琴
 @import "ui.marquee"; // 轮播文字条
 
-@import "utility"; // 辅助工具类
+
+/* 辅助工具类 */
+@import "utility";

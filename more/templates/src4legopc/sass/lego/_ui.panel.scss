@@ -12,8 +12,6 @@
 $panel-font-size: 12px; // 面板字号
 $panel-hd-height: 36px; // 标题高度
 $tit-font-size: 14px; // 标题字号
-$tit-font-weight: 700; // 标题字体加粗
-$tit-txt-color: #333; // 标题字体颜色
 
 .ui-panel {
     font-size: $panel-font-size;
@@ -38,8 +36,8 @@ $tit-txt-color: #333; // 标题字体颜色
     float: left;
     margin-right: 10px;
     font-size: $tit-font-size;
-    font-weight: $tit-font-weight;
-    color: $tit-txt-color;
+    font-weight: 700;
+    color: #333;
 }
 .ui-panel__ico {
     float: left;
@@ -94,9 +92,7 @@ $pop-border-radius: 5px; // 区块圆角
     &.ext-pop {
         padding: $pop-border-width;
         border-radius: $pop-border-radius;
-        background-color: transparent;
-        background-color: rgba(0, 0, 0, .1);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#19000000,endColorstr=#19000000);
+        @include transparent(#000, .1, true);
         .ui-panel__hd {
             padding: 10px;
             background-color: $title-bg-color;
@@ -123,8 +119,5 @@ $pop-border-radius: 5px; // 区块圆角
             }
         }
     }
-}
-:root .ui-panel.ext-pop {
-    filter: none\9;
 }
 

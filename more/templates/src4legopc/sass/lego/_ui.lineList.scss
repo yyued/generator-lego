@@ -2,26 +2,25 @@
 
 /*
  * @file: 带分割线的文本列表
- * @update: 2015-06-03 16:28:04
+ * @update: 2015-06-05 16:44:52
  */
- 
-$line-color: #ddd; // 带分割线颜色
 
 /*
  * 默认
  * @base
  */
+$line-color: #ddd; // 带分割线颜色
+
 .ui-lineList {
     overflow: hidden;
     font-size: 0;
     a {
         @include inline-block;
+        @include nowrap;
         margin-left: -1px;
         padding: 0 10px;
         line-height: 1.1;
         border-left: 1px solid $line-color;
-        white-space: nowrap;
-        word-wrap: normal;
         color: #999;
         font-size: 12px;
     }

@@ -1,64 +1,45 @@
 @charset "utf-8";
 /*
  * @file: 按钮基础UI组件
- * @update: 2015-06-03 17:25:16
+ * @update: 2015-06-07 17:57:18
  */
  
 /*
  * 默认按钮
  * @base
+ * @param: button-variant(字体颜色, 背景色, 边框颜色)
+ * @param: button-size($padding-vertical, $padding-horizontal, $font-size, $border-radius)
  */
 
-/* 默认按钮大小配置 */
+/* 按钮大小配置 */
 $btn-height: 30px !default; // 按钮高度
-$btn-padding-x: 18px !default; // 按钮padding left/right值
+$btn-padding-horizontal: 18px !default; // 按钮padding left/right值
 $btn-font-size: 12px !default; // 按钮字号大小
-$btn-border-width: 1px !default; // 按钮边框宽度
 $btn-radius: 2px !default; // 按钮圆角值
 
 /* 默认按钮配色 */
-$btn-color: #333 !default; // 字体颜色
-$btn-color-hover: #333 !default; // 字体颜色hover
+$btn-color: #288ad6 !default; // 字体颜色
 $btn-bg: #fff !default; // 背景色
-$btn-bg-hover: #ebebeb !default; // 背景色hover
-$btn-border: #ccc !default; // 边框颜色
-$btn-border-hover: #adadad !default; // 边框颜色hover
+$btn-border: #288ad6 !default; // 边框颜色
 
-/* 禁用状态按钮配置 */
+/* 禁用按钮配置 */
 $disabled-btn-color: #999 !default; // 字体颜色
-$disabled-btn-color-hover: #999 !default; // 字体颜色hover
 $disabled-btn-bg: #f5f5f5 !default; // 背景色
-$disabled-btn-bg-hover: #f5f5f5 !default; // 背景色hover
 $disabled-btn-border: #e6e6e6 !default; // 边框颜色
-$disabled-btn-border-hover: #e6e6e6 !default; // 边框颜色hover
 
 .ui-btn {
     @include inline-block;
+    @include button-size(($btn-height - $btn-font-size)/2 - 1, $btn-padding-horizontal, $btn-font-size, $btn-radius);
+    @include button-variant($btn-color, $btn-bg, $btn-border);
     width: auto; // 宽度自适应
-    padding: ($btn-height - $btn-font-size)/2 - 1 $btn-padding-x; // 某些浏览器私有属性里面额外设置了padding
     line-height: 1; // 重置某些浏览器内置的私有属性默认定义的行高
-    border: $btn-border-width solid $btn-border; // 某些浏览器私有属性里面额外设置了border
-    border-radius: $btn-radius;
-    font-size: $btn-font-size;
-    color: $btn-color;
-    background-color: $btn-bg;
+    border: 1px solid; // 某些浏览器私有属性里面额外设置了border
     cursor: pointer;
     text-align: center;
     vertical-align: middle;
     *overflow: visible; // fix IE6/IE67 button随着字变宽
     user-select: none;
-    
-    /*
-     * 鼠标悬浮状态
-     * @state: hover
-     */
-    &.is-hover,
-    &:hover {
-        color: $btn-color-hover;
-        background-color: $btn-bg-hover;
-        border-color: $btn-border-hover;
-        text-decoration: none; // 去掉a标签按钮的下划线
-    }
+    transition: all 0.2s ease-in-out;
     
     /*
      * 激活状态
@@ -67,23 +48,24 @@ $disabled-btn-border-hover: #e6e6e6 !default; // 边框颜色hover
     &.is-active,
     &:active {
         outline: 0; // 隐藏点击时的outline
-        box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+        box-shadow: inset 0 3px 5px rgba(0, 0, 0, .08);
     }
     
     /*
      * 禁用状态
      * @state: disabled
      */
-    &.is-disabled {
+    &.is-disabled,
+    &[disabled] {
         color: $disabled-btn-color;
         background-color: $disabled-btn-bg;
         border-color: $disabled-btn-border;
         &.is-hover,
         &:hover {
             cursor: not-allowed;
-            color: $disabled-btn-color-hover;
-            background-color: $disabled-btn-bg-hover;
-            border-color: $disabled-btn-border-hover;
+            color: $disabled-btn-color;
+            background-color: $disabled-btn-bg;
+            border-color: $disabled-btn-border;
         }
         &.is-active,
         &:active {
@@ -99,32 +81,19 @@ a.ui-btn {
 }
 input.ui-btn,
 button.ui-btn {
-    *padding: ($btn-height - $btn-font-size)/2 - 2 $btn-padding-x - 1 ($btn-height - $btn-font-size)/2 - 3; // IE6/IE67在垂直方向会高出3px，水平方向多出2px
+    *padding: ($btn-height - $btn-font-size)/2 - 2 $btn-padding-horizontal - 1 ($btn-height - $btn-font-size)/2 - 3; // IE6/IE67在垂直方向会高出3px，水平方向多出2px
 }
 
 
 /*
  * 首选按钮
  * @extend: primary
+ * @param:  button-variant(字体颜色, 背景色, 边框颜色)
  */
-$primary-btn-color: #fff !default; // 字体颜色
-$primary-btn-color-hover: #fff !default; // 字体颜色hover
-$primary-btn-bg: #288ad6 !default; // 背景色
-$primary-btn-bg-hover: #52a1de !default; // 背景色hover
-$primary-btn-border: #288ad6 !default; // 边框颜色
-$primary-btn-border-hover: #52a1de !default; // 边框颜色hover
 
 .ui-btn {
     &.ext-primary {
-        color: $primary-btn-color;
-        background-color: $primary-btn-bg;
-        border-color: $primary-btn-border;
-        &.is-hover,
-        &:hover {
-            color: $primary-btn-color-hover;
-            background-color: $primary-btn-bg-hover;
-            border-color: $primary-btn-border-hover;
-        }
+        @include button-variant($primary-text-color, $primary-color, $primary-color);
     }
 }
 
@@ -132,96 +101,48 @@ $primary-btn-border-hover: #52a1de !default; // 边框颜色hover
 /*
  * 成功按钮
  * @extend: success
+ * @param:  button-variant(字体颜色, 背景色, 边框颜色)
  */
-$success-btn-color: #fff !default; // 字体颜色
-$success-btn-color-hover: #fff !default; // 字体颜色hover
-$success-btn-bg: #16c98d !default; // 背景色
-$success-btn-bg-hover: #44d3a3 !default; // 背景色hover
-$success-btn-border: #16c98d !default; // 边框颜色
-$success-btn-border-hover: #44d3a3 !default; // 边框颜色hover
+
 .ui-btn {
     &.ext-success {
-        color: $success-btn-color;
-        background-color: $success-btn-bg;
-        border-color: $success-btn-border;
-        &.is-hover,
-        &:hover {
-            color: $success-btn-color-hover;
-            background-color: $success-btn-bg-hover;
-            border-color: $success-btn-border-hover;
-        }
+        @include button-variant($success-text-color, $success-color, $success-color);
     }
 }
 
 /*
  * 信息按钮
  * @extend: info
+ * @param:  button-variant(字体颜色, 背景色, 边框颜色)
  */
-$info-btn-color: #fff !default; // 字体颜色
-$info-btn-color-hover: #fff !default; // 字体颜色hover
-$info-btn-bg: #2fc2ef !default; // 背景色
-$info-btn-bg-hover: #58cef2 !default; // 背景色hover
-$info-btn-border: #2fc2ef !default; // 边框颜色
-$info-btn-border-hover: #58cef2 !default; // 边框颜色hover
+
 .ui-btn {
     &.ext-info {
-        color: $info-btn-color;
-        background-color: $info-btn-bg;
-        border-color: $info-btn-border;
-        &.is-hover,
-        &:hover {
-            color: $info-btn-color-hover;
-            background-color: $info-btn-bg-hover;
-            border-color: $info-btn-border-hover;
-        }
+        @include button-variant($info-text-color, $info-color, $info-color);
     }
 }
 
 /*
  * 警告按钮
  * @extend: warning
+ * @param:  button-variant(字体颜色, 背景色, 边框颜色)
  */
-$warning-btn-color: #3b444f !default; // 字体颜色
-$warning-btn-color-hover: #3b444f !default; // 字体颜色hover
-$warning-btn-bg: #feef6d !default; // 背景色
-$warning-btn-bg-hover: #feef6d !default; // 背景色hover
-$warning-btn-border: #3b444f !default; // 边框颜色
-$warning-btn-border-hover: #3b444f !default; // 边框颜色hover
+
 .ui-btn {
     &.ext-warning {
-        color: $warning-btn-color;
-        background-color: $warning-btn-bg;
-        border-color: $warning-btn-border;
-        &.is-hover,
-        &:hover {
-            color: $warning-btn-color-hover;
-            background-color: $warning-btn-bg-hover;
-            border-color: $warning-btn-border-hover;
-        }
+        @include button-variant($warning-text-color, $warning-color, $warning-color);
     }
 }
 
 /*
  * 危险按钮
  * @extend: danger
+ * @param:  button-variant(字体颜色, 背景色, 边框颜色)
  */
-$danger-btn-color: #fff !default; // 字体颜色
-$danger-btn-color-hover: #fff !default; // 字体颜色hover
-$danger-btn-bg: #fa5e5b !default; // 背景色
-$danger-btn-bg-hover: #fb7e7b !default; // 背景色hover
-$danger-btn-border: #fa5e5b !default; // 边框颜色
-$danger-btn-border-hover: #fb7e7b !default; // 边框颜色hover
+
 .ui-btn {
     &.ext-danger {
-        color: $danger-btn-color;
-        background-color: $danger-btn-bg;
-        border-color: $danger-btn-border;
-        &.is-hover,
-        &:hover {
-            color: $danger-btn-color-hover;
-            background-color: $danger-btn-bg-hover;
-            border-color: $danger-btn-border-hover;
-        }
+        @include button-variant($danger-text-color, $danger-color, $danger-color);
     }
 }
 

@@ -1,7 +1,7 @@
 @charset "utf-8";
 /*
  * @file: 轮播文字条基础UI模块
- * @update: 2015-06-03 16:27:18
+ * @update: 2015-06-05 16:45:23
  */
  
 /*
@@ -27,9 +27,9 @@
     position: absolute;
     right: 0;
     cursor: pointer;
-    opacity: .5;
+    @include opacity(.5, true);
     &:hover {
-        opacity: 1;
+        @include opacity(1, true);
     }
 }
 

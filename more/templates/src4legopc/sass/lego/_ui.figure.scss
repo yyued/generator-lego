@@ -1,7 +1,7 @@
 @charset "utf-8";
 /*
  * @file: 图片列表基础UI组件
- * @update: 2015-06-03 16:32:45
+ * @update: 2015-06-05 16:45:29
  */
  
 /*
@@ -26,12 +26,11 @@ $mask-line-height: 24px; // 遮罩层行高
     }
 }
 .ui-figure__item {
-    @include inline-block;
+    @include inline-block(top, true);
     width: $img-width;
     margin-right: $item-margin-right;
     margin-bottom: $item-margin-bottom;
     font-size: 12px;
-    vertical-align: top;
     letter-spacing: normal;
     word-spacing: normal;
     overflow: hidden;
@@ -62,13 +61,7 @@ a.ui-figure__bd {
     text-indent: 5px;
     color: #fff;
     overflow: hidden;
-    background-color: transparent;
-    background-color: rgba(0, 0, 0, .5);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#7f000000,endColorstr=#7f000000);
-    zoom: 1;
-}
-:root .ui-figure__mask {
-    filter: none\9; // for IE9+
+    @include transparent(#000, .5, true);
 }
 .ui-figure__sign {
     float: left;

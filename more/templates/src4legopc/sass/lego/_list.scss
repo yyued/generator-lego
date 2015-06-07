@@ -2,7 +2,7 @@
 
 /*
  * @file: 文字列表UI组件
- * @update: 2015-06-03 17:18:51
+ * @update: 2015-06-05 16:45:17
  */
  
 /*
@@ -11,10 +11,6 @@
  */
 $item-height: 24px; // item高度
 $item-line-height: 24px; // item行高
-$tag-color: #F60 !default; // 标签颜色
-$meta-color: #999 !default; // meta颜色
-$num-color: #666 !default; // number颜色
-$num-bgcolor: #E8E8E8 !default; // number背景颜色
 
 .ui-list__item {
     height: $item-height;
@@ -25,12 +21,12 @@ $num-bgcolor: #E8E8E8 !default; // number背景颜色
     margin-right: 10px;
 }
 .ui-list__tag {
-    color: $tag-color;
+    color: #f60;
 }
 .ui-list__meta {
     float: right;
     margin-left: 10px;
-    color: $meta-color;
+    color: #999;
 }
 .ui-list__num {
     @include inline-block;
@@ -41,8 +37,8 @@ $num-bgcolor: #E8E8E8 !default; // number背景颜色
     border-radius: 2px;
     font: normal 12px/14px verdana;
     text-align: center;
-    color: $num-color;
-    background-color: $num-bgcolor;
+    color: #666;
+    background-color: #e8e8e8;
 }
 
 

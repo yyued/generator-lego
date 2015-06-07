@@ -11,19 +11,10 @@
 
 /**
  * 闭合浮动
- * 1. IE6-7 触发 hasLayout
  */
 
 .u-clearfix {
-    *zoom: 1; /* 1 */
-    &:before,
-    &:after {
-        content: "";
-        display: table; 
-    }
-    &:after {
-        clear: both; 
-    }
+    @include clearfix;
 }
 
 
@@ -33,30 +24,21 @@
 
 /**
  * 文字溢出显示省略号,需指定宽度
- * 1. Opera 9-10.6
- * 2. Chrome 21+ bug https://bugs.webkit.org/show_bug.cgi?id=121902
  */
 
 .u-ellipsis {
     display: block;
-    white-space: nowrap;
-    word-wrap: normal;
-    overflow: hidden;
-    -o-text-overflow: ellipsis; /* 1 */
-    text-overflow: ellipsis;
-    text-align: left; /* 2 */
+    @include ellipsis;
 }
 
 /* 强制不换行 */
 .u-nowrap {
-    white-space: nowrap;
-    word-wrap: normal;
+    @include nowrap;
 }
 
 /* 连续字符换行 */
 .u-wrap {
-    white-space: normal;
-    word-wrap: break-word;
+    @include break;
 }
 
 /**
@@ -141,15 +123,11 @@
    ========================================================================== */
 
 /* 浮动 */  
-.u-left,
-.u-right {
-    display: inline;
-}
 .u-left {
-    float: left;
+    @include float(left, true);
 }
 .u-right {
-    float: right;
+    @include float(right, true);
 }
 
 /* 隐藏 */
@@ -182,10 +160,7 @@
     }
 }
 .u-inb {
-    display: inline-block;
-    *display: inline;
-    *zoom: 1;
-    vertical-align: top;
+    @include inline-block(top, true);
     font-size: 12px; /* 4 */
     letter-spacing: normal;
     word-spacing: normal;
@@ -294,10 +269,7 @@ $arrow-color: #666;
     height: 0;
     line-height: 0;
     overflow: hidden;
-    display: inline-block;
-    *display: inline;
-    *zoom: 1;
-    vertical-align: -2px;
+    @include inline-block(-2px, true);
     border: 0 dashed transparent;
     border-width: $border-width;
     font-size: 0;
