@@ -7,7 +7,15 @@
  
 /* 字体配置 */
 $base-font-size          : 12px !default; // 字号
-$base-font-family        : Tahoma, Arial, "Helvetica Neue", Helvetica, sans-serif !default; // 字体族
+$base-font-family        : "Helvetica Neue", Helvetica, Tahoma, Arial, sans-serif !default; // 字体族
+
+/*
+ * 字体策略
+ * 1. 默认：使用无衬线字体，OS X使用"Helvetica Neue", Helvetica； Windows使用Tahoma, Arial；
+ * 2. 黑体：通过字体辅助类.u-heiti 或者 @extend %u-heiti来调用；
+ * 3. 宋体：通过字体辅助类.u-songti 或者 @extend %u-songti来调用；
+ * 4. 参考链接：http://www.zhihu.com/question/19911793   http://zenozeng.github.io/fonts.css/
+ */
 
 /* 其他配置 */
 $base-line-height        : 1.5 !default; // 行高

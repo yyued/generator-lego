@@ -60,20 +60,32 @@
     -moz-osx-font-smoothing: grayscale; /* 1 */
 }
 
-/* 衬线字体，中文显示宋体 */
-.u-serif {
-    font-family: Georgia, "Times New Roman", Times, SimSun, serif;
+/*
+ * 雅黑
+ * 对于西文，OS X使用"Helvetica Neue", Helvetica； Windows使用Tahoma, Arial；
+ * 字体策略参考：http://zenozeng.github.io/fonts.css/
+ */
+.u-heiti,
+%u-heiti {
+    font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, "Liberation Sans", "Hiragino Sans GB", "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+}
+
+/*
+ * 宋体
+ * 对于西文，OS X使用"Helvetica Neue", Helvetica； Windows使用Tahoma, Arial。使用宋体时字号不宜超过14px，并且不宜设置字体平滑
+ * 字体策略参考：http://zenozeng.github.io/fonts.css/
+ */
+.u-songti,
+%u-songti {
+    font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, SimSun, "TW\-Sung", "WenQuanYi Bitmap Song", "AR PL UMing CN", "AR PL UMing HK", "AR PL UMing TW", "AR PL UMing TW MBE", serif;
 }
 
 /* 等宽字体 */
-.u-monospace {
+.u-monospace,
+%u-songti {
     font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
 }
 
-/* 雅黑字体 */
-.u-yahei {
-    font-family: "Microsoft YaHei", SimHei, "Hiragino Sans GB";
-}
 
 /* 文本颜色 */
 .u-txtPrimary {

@@ -22,7 +22,6 @@ a {
 img {
     vertical-align: top;
 }
-i,
 em {
     font-style: normal;
 }
@@ -131,9 +130,9 @@ hr {
 
 blockquote {
     position: relative;
-    padding-left: 1em;
-    border-left: 1px solid #1abc9c;
-    font-weight: 300;
+    padding: 0 15px;
+    margin: 15px 0;
+    border-left: 4px solid #ddd;
     color: #999;
 }
 
