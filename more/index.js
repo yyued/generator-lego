@@ -52,11 +52,11 @@ var LegoGenerator = yeoman.generators.Base.extend({
 				message: '初始的静态资源:',
 				choices: [
 					{
-						name: 'pc模板(LEGO UI)',
+						name: 'LegoUI for pc模板',
 						value: 'src4legopc',
 						checked: true
 					},{
-						name: 'mobi模板(LEGO UI)',
+						name: 'LegoUI for mobile模板',
 						value: 'src4legomobi'
 					},{
 						name: '新游戏一线专区模板',
