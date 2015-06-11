@@ -39,7 +39,7 @@ $disabled-btn-border: #e6e6e6 !default; // 边框颜色
     vertical-align: middle;
     *overflow: visible; // fix IE6/IE67 button随着字变宽
     user-select: none;
-    transition: all 0.2s ease-in-out;
+    transition: all .2s ease-in-out;
     
     /*
      * 激活状态
