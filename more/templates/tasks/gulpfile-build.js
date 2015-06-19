@@ -120,6 +120,13 @@ module.exports = function(gulp, plugins) {
             port: that.port,
             open: "external",
             browser: "/Applications/Google\ Chrome.app/"
+        },function(err, arg){
+            if (argv.q) {
+                var url = arg.options.get('urls').get('external')
+                var qrcode = require('qrcode-terminal')
+                qrcode.generate(url);
+            }
+
         })
     })
     gulp.task('dest', function(){
@@ -135,6 +142,13 @@ module.exports = function(gulp, plugins) {
             port: that.port,
             open: "external",
             browser: "/Applications/Google\ Chrome.app/"
+        },function(err, arg){
+            if (argv.q) {
+                var url = arg.options.get('urls').get('external')
+                var qrcode = require('qrcode-terminal')
+                qrcode.generate(url);
+            }
+
         })
     })
 

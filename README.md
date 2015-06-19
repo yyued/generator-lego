@@ -34,13 +34,6 @@
 1. Node 环境：*默认此步骤已完成*  （Mac用户建议使用 [Brew] 安装 [Node.js]） 
 2. Yeoman环境：`npm install -g yo`
 3. Gulp 环境：`npm install -g gulp`
-4. 图片编辑环境(Mac)：
-	* `brew install GraphicsMagick` 
-	* `brew install phantomjs` 
-5. 图片编辑环境(Win)：
-	* [GraphicsMagick 下载地址][1] 备胎：[GraphicsMagick-1.3.20-**Q8**-win**32/64**-dll.zip](http://pan.baidu.com/s/1qWDE7Y8#path=%252Ff2e-workflow)
-	* [phantomjs 下载地址][2]  备胎：[phantomjs-1.9.7-windows.zip](http://pan.baidu.com/s/1qWDE7Y8#path=%252Ff2e-workflow)
-	* [添加环境变量][3]  设置环境变量后，重启系统。
 
 
 ### <a name="quick-start"></a>快速开始 [[⬆]](#top)
@@ -109,13 +102,13 @@ yourProj/
 * `gulp zip` 将源码和构建后代码压缩成一个zip包。
 
 #### 其他命令参数
-1. `gulp [-p <port>] [-w] `
+1. `gulp [-p <port>] [-q]`
 	* `-p` port 的简写，给webserver指定端口号；此参数需要指定参数值作为端口号，如：8080
-	* `-w` watch 的简写，检测slice文件夹，自动生成scss样式；此参数不需指定参数值
+	* `-q` qrcode 的简写，指定该参数生成 url的二维码
 
-2. `gulp build [-p <port>]`
+2. `gulp build [-p <port>] [-q]`
 	* `-p` port 的简写，给webserver指定端口号；此参数需要指定参数值作为端口号，如：8080
-
+	* `-q` qrcode 的简写，指定该参数生成 url的二维码
 
 ### <a name="show-case"></a>Demo [[⬆]](#top)
 ![showcase01](https://cloud.githubusercontent.com/assets/1762523/4558145/146cf2e4-4edc-11e4-8e21-9d408776a14d.gif)

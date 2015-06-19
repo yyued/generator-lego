@@ -26,6 +26,13 @@ module.exports = function(gulp, plugins) {
             port: that.port,
             open: "external",
             browser: "/Applications/Google\ Chrome.app/"
+        },function(err, arg){
+            if (argv.q) {
+                var url = arg.options.get('urls').get('external')
+                var qrcode = require('qrcode-terminal')
+                qrcode.generate(url);
+            }
+
         })
     })
     gulp.task('dev_sass', function() {
@@ -97,7 +104,7 @@ module.exports = function(gulp, plugins) {
         var fs = require('fs')
         var path = require('path')
         var async = require('gulp-uglify/node_modules/uglify-js/node_modules/async')
-        var gm = require('gm')
+        var getPixels = require('multi-sprite/node_modules/spritesmith/node_modules/pixelsmith/node_modules/get-pixels')
         var ejs = require('gulp-ejs/node_modules/ejs')
 
         var classnameRule = function(fileName, p){
@@ -123,14 +130,14 @@ module.exports = function(gulp, plugins) {
                 var arr = data.slice = []
                 async.eachSeries(files, iterator, callback)
                 function iterator(f, _next){
-                    gm(f).size(function(err, size){
+                    getPixels(f, function (err, pixels) {
                         if(err){return}
                         arr.push({
                             filepath: f,
                             imageurl: path.relative('src/sass', f).split(path.sep).join('/'),
                             classname: classnameRule.call({}, path.basename(f, path.extname(f)), f),
-                            width: size.width,
-                            height: size.height
+                            width: pixels.shape[0],
+                            height: pixels.shape[1]
                         })
                         _next(null)
                     })
