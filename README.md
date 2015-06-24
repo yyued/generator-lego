@@ -37,9 +37,16 @@
 
 
 ### <a name="quick-start"></a>快速开始 [[⬆]](#top)
-* 点击右边【clone in desktop】克隆到本地
-* 在克隆目录执行 `npm link` 链接到全局模块的位置
-* 在任意空目录执行 `yo lego` 初始化项目
+提供以下2种获取方式：	
+
+1. npm
+	* `npm install -g generator-lego`
+	* 在空目录执行 `yo lego` 初始化项目
+
+2. Clone the repo
+	* 点击右边【clone in desktop】克隆到本地
+	* 在克隆目录执行 `npm link` 链接到全局模块的位置
+	* 在空目录执行 `yo lego` 初始化项目
 
 
 ### <a name="file-tree"></a>文件结构 [[⬆]](#top)

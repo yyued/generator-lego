@@ -65,7 +65,7 @@ module.exports = function(gulp, plugins) {
         })
     })
     gulp.task('build_js', function() {
-        return gulp.src('src/js/**')
+        return gulp.src('src/js/**/*.js')
             .pipe(plugins.uglify({mangle:false}))
             .pipe(plugins.header(banner, { pkg : pkg } ))
             .pipe(gulp.dest('dest/js'))

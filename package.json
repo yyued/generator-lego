@@ -1,6 +1,6 @@
 {
     "name": "generator-lego",
-    "version": "0.2.19",
+    "version": "0.2.22",
     "description": "F2E workflow, a gulp app generator",
     "license": "MIT",
     "repository": {
@@ -12,6 +12,10 @@
         "url": "https://github.com/duowan/generator-lego/issues"
     },
     "main": "app/index.js",
+    "scripts": {
+        "postinstall": "node scripts/post-install.js",
+        "uninstall": "node scripts/uninstall.js"
+    },
     "dependencies": {
         "yeoman-generator": "~0.17.0",
         "del": "~0.1.3"

@@ -1,4 +1,8 @@
 .DS_Store
 .svn
 .idea
+.yo-rc.json
+adi/
 node_modules
+
+README_ignore.md
