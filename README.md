@@ -31,9 +31,10 @@
 
 
 ### <a name="sys-env"></a>环境准备 [[⬆]](#top)
-1. Node 环境：*默认此步骤已完成*  （Mac用户建议使用 [Brew] 安装 [Node.js]） 
+1. Node 环境：*默认此步骤已完成*  （Mac建议使用 [Brew] 安装 [Node.js]） 
 2. Yeoman环境：`npm install -g yo`
 3. Gulp 环境：`npm install -g gulp`
+4. Subversion Command-Line (Mac已自带，Win如未安装可[点击下载][7]，注销后让环境变量生效)
 
 
 ### <a name="quick-start"></a>快速开始 [[⬆]](#top)
@@ -142,3 +143,4 @@ Released under [MIT] LICENSE
 [4]: https://github.com/twlk28/multi-sprite
 [5]: https://github.com/sass/node-sass/issues/933
 [6]: https://github.com/sass/node-sass/pull/943
+[7]: http://pan.baidu.com/s/1gdrQ7Px

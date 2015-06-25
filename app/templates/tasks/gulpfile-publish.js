@@ -8,13 +8,16 @@ module.exports = function(gulp, plugins) {
     var that = this;
     that.message = argv.m || '初始化项目';
     var pkg = require('../package.json');
-    var proj_namespace = path.join(pkg.description, pkg.name, pkg.version, '/');
+    var proj_namespace = [pkg.description, pkg.name, pkg.version+'/'].join('/')
+
+    var homedir = process.env[(process.platform == 'win32')?'USERPROFILE':'HOME']
+    var config = require(homedir+'/.generator-lego/config.json')
 
     gulp.task('publish', function(){
         svn({
             message: that.message,
-            username: '<%= gConfig.svnUsr %>',
-            password: '<%= gConfig.svnPwd %>',
+            username: config.svnUsr,
+            password: config.svnPwd,
             trymkdir: true,
             pushIgnore: ['*.html', '.DS_Store', '.idea/**', '.tmp_svn/**', '.svn/**'],
             src: 'dest',
