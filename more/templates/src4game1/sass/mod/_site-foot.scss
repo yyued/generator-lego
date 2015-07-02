@@ -111,28 +111,28 @@
 		}
 	}
 	.foot-action{
-		float: right;
-		display: inine;
-		.duowan{
-			width: 178px;
-			height: 44px;
-			text-indent: -100%;
-			font-size: 0px;
-			display: block;
-			background-image: url("../img/slice/icon-footlogo.png");
-		}
+		text-align: center;
+		height:45px - 10;
+		background-color: #e4e4e4;
+		padding-top: 10px;
+		font-size: 0px;
 		.search{
-			margin-top: 20px;
-			margin-bottom: 10px;
 			position: relative;
-			zoom: 1;
+			@include inline-block;
+			width: 400px;
+			background-color: #eeeeee;
+			border-radius:4px;
+			border:1px solid #E2E2E2;
 			input{
-				font-size: 14px;
-				padding: 8px 30px 8px 4px;
-				width: 144px;
+				font-size: 12px;
+				line-height: 24px;
+				height:24px;
+				padding: 0px 30px 0px 4px;
+				width: 144px + 220;
 				color: #BCBCBC;
-				border: 1px solid #E2E2E2;
-				background-color: #FBFBFB;
+				border: none;
+				background-color: transparent;
+				display:block;
 				&:focus{
 					outline: none;
 				}
@@ -148,13 +148,17 @@
 				overflow: hidden;
 				margin-top: -9px;
 				font-size: 0px;
+				outline: 0 none;
 			}
 		}
-		.connect,.que{
-			color: #888;
-		}
-		.que{
-			margin-left: 5px;
+		.connect{
+			font-weight: bold;
+			color:#999999;
+			font-size: 14px;
+			font-family: "Microsoft YaHei",sans-serif;
+			padding-left: 30px;
+			display:inline-block;
+			line-height: 26px;
 		}
 	}
 }

@@ -2,7 +2,7 @@
     //'use strict';
 
     //定义专区对象
-    w.ZQ = {};
+    // w.ZQ = {};
 
     /**
      * [imageLightbox 专区文章页，文章内容图片格式化，为文章内图片添加lightbox插件功能]
@@ -32,17 +32,18 @@
             imgList.each(function(index, el) {
                 var isA=$(this).parent()[0].tagName;
                 var w=$(this).width();
-                var pWidth=$(this).parents('p').width();
+                var pWidth=$(this).parents('#text').width();
+                console.log(pWidth)
                 if(isA != "A"){
                     if(w > (pWidth - 2)){
                         $(this).css('width',pWidth+'px');
                         $(this).wrap('<a href="'+ $(this).attr("src") +'" data-lightbox="zq-article-pop" data-title="'+ articalTitle +'"></a>');
-                        $(this).parent().css('display','block')
+                        // $(this).parent().css('display','block')
                     }
                 } else{
                     if(w >= pWidth){
                         $(this).css('width',pWidth+'px');
-                        $(this).parent().css('display','block')
+                        // $(this).parent().css('display','block')
                     }
                 }
 
@@ -116,9 +117,6 @@
         }
     }
 
-    $(function(){
-        //ZQ.aniHead.init();
-    })
 
 
 })(jQuery,window);
