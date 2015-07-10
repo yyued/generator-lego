@@ -1,0 +1,72 @@
+/* @name: 上下左右居中 */
+@mixin centers{
+    text-align:center; 
+	display:table-cell; 
+	vertical-align:middle;
+}
+
+/*
+ * @name: 文字溢出显示省略号
+ * @ps: 需要设置宽度
+ */
+@mixin ellipsis{
+    white-space: nowrap;
+    word-wrap: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+}
+
+/* @name: 强制不换行 */
+@mixin nowrap{
+    white-space: nowrap;
+    word-wrap: normal;
+    word-break: keep-all;
+}
+
+/* @name: 清除浮动 */
+@mixin clearFix{
+	overflow: hidden;
+	clear: both;
+}
+
+/*
+ * @name:  border三角形
+ * @param: $base {dimension}  底边尺寸
+ * @param: $height {dimension}  高度
+ * @param: $color {color}  颜色
+ * @param: $direction {string}  方向 (top || bottom || left || right)
+ * @link:  http://codepen.io/zhouwenbin/pen/emZVZp
+ */
+@mixin triangle($base,$height,$color,$direction){
+    font-size: 0;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: -2px;
+    border-style: dashed;
+    
+    @if($direction == top){
+        border-width: $height $base / 2 ;
+        border-color: transparent transparent $color transparent;
+        margin-top: -$height;
+    }
+    @if($direction == bottom){
+        border-width: $height $base / 2 ;
+        border-color: $color transparent transparent transparent;
+        margin-bottom: -$height;
+    }
+    @if($direction == left){
+        border-width: $base / 2 $height ;
+        border-color: transparent transparent transparent $color;
+        margin-right: -$height;
+    }
+    @if($direction == right){
+        border-width: $base / 2 $height ;
+        border-color: transparent $color transparent transparent;
+        margin-left: -$height;
+    }
+}
+
