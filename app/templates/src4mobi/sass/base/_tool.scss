@@ -2,7 +2,6 @@
  * @ps: 需要设置父元素 display:table
  */
 @mixin centers{
-    text-align:center;
 	display:table-cell;
 	vertical-align:middle;
 }
