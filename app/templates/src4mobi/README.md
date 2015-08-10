@@ -74,19 +74,19 @@
 1. 自动设置头部viewport，头部引入JS脚本<script src="http://assets.dwstatic.com/mobile/viewport.js"></script>
 2. Sass工具类模块包含REM转换函数：
 
-	/* @name: 转为REM单位fn
-	 * @ps: 默认宽度为750px
-	 */
-	@function toRem($px , $width: 750px) {
-		// 动态尺寸单位
-		$ppr: $width / 16 / 1rem;
-		@return ($px / $ppr);
-	}
+		/* @name: 转为REM单位fn
+		 * @ps: 默认宽度为750px
+		 */
+		@function toRem($px , $width: 750px) {
+			// 动态尺寸单位
+			$ppr: $width / 16 / 1rem;
+			@return ($px / $ppr);
+		}
 
  使用方式，如：
 
-	#div{
-	    width: 100%;
-	    height: toRem(100px);
-	    background-color: red;
-	}
+		#div{
+		    width: 100%;
+		    height: toRem(100px);
+		    background-color: red;
+		}
