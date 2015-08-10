@@ -16,14 +16,10 @@
 			box-sizing: border-box;
 }
 
-/* 设置基本body样式 */
-body{
+/* 设置基本html,body样式 */
+html,body{
 	margin: 0 auto;
 	padding: 0;
-	max-width: 640px;
-	min-width: 320px;
-	color: #333;
-	font-size: 12px;
 }
 
 /* 设置图片最大宽度 */

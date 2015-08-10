@@ -1,6 +1,8 @@
-## YY UED 2015移动端解决方案（纯净版）
+# YY UED 2015移动端解决方案（纯净版）
 
-> 目录结构：
+---
+
+### 目录结构：
 
 	src----sass---base---_base.scss	                              // 基础样式
 		  |		    | 	|
@@ -17,40 +19,39 @@
 		  |---css
 		  |
 		  |---js---index.js                                      // 自定义脚本文件
-		  |      |		  
+		  |      |
 		  |      |
 		  |      |---module----header.js....                     // 自定义模块脚本文件
 		  |
 		  |---img---slice                                        // 工作流切片图片文件夹
 		  |
-		  |						
-		  |			
+		  |
+		  |
           |---tpl---partial---header.ejs....                     // HTML模板库文件夹
-		  |		   |          
+		  |		   |
 		  |        |
 		  |		   |--index.ejs.... 		                      // 调用用HTML模板文件
-		  |	   
+		  |
 		  |
 		  |---index.html
 
 
 
-- - -
+---
 
-
-> 公用部分
+### 公用部分
 
 1. SASS
-	
+
 		页面样式需要引入 全局公共SCSS文件：
-		脚手架生成 src/sass/_global.scss 
+		脚手架生成 src/sass/_global.scss
 		ps: 无须编译的sass文件，命名需要带下划线开头
-	
+
 2. JS
 
 		页面脚本seaJS模块化配置脚本：
 		http://assets.dwstatic.com/mobile/src/js/main/seajs/sea-lego.js
-		
+
 		可直接加载模块包括：
 		paths: {
 		'legoPath': 'http://assets.dwstatic.com/mobile/src/js/'
@@ -65,28 +66,28 @@
 	      	'iscroll': 'legoPath/module/iscroll/iscroll.js',          // iscroll(滑动)核心包
 	      	'hammer': 'legoPath/module/iscroll/hammer.min.js',        // hammer(手势)核心包
 	      	'hbURL': 'legoPath/module/hideBrowserURL/hideBrowserURL.js',// 隐藏UCQQ等浏览器地址栏
-		}      	
-      	
-  
-- - -  
-      	
- > 插件
- 
- 1. scroll
- 	
- 	参考svn/assets/mobile/demo/scroll目录下相关demo
- 
- 2. swiper 
- 
- 	参考[官网API](http://www.swiper.com.cn/api/index.html) 或 参考svn/assets/mobile/demo/swiper目录下相关demo<br/>
- 	PS：需要引入样式文件 
- 		
- 		
- 3. expand方法包(基于zepto的扩展方法集)
- 	     	
+		}
 
-- - -
+---  
 
-> 最近更新
-  
-  20150504 - 新增 hammer(手势)
+### REM布局
+
+1. 自动设置头部viewport，头部引入JS脚本<script src="http://assets.dwstatic.com/mobile/viewport.js"></script>
+2. Sass工具类模块包含REM转换函数：
+
+	/* @name: 转为REM单位fn
+	 * @ps: 默认宽度为750px
+	 */
+	@function toRem($px , $width: 750px) {
+		// 动态尺寸单位
+		$ppr: $width / 16 / 1rem;
+		@return ($px / $ppr);
+	}
+
+	使用方式，如：
+
+	#div{
+	    width: 100%;
+	    height: toRem(100px);
+	    background-color: red;
+	}
