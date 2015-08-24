@@ -73,7 +73,7 @@
 
 		<script src="http://assets.dwstatic.com/mobile/viewport.js"></script>
 
-	使用方式，如：
+	直接使用方式，如：
 
 		<!doctype html>
 		<html>
@@ -85,7 +85,7 @@
 		</head>
 
 
-2. Sass工具类模块包含REM转换函数：
+2. Sass工具类模块已包含REM转换函数：
 
 		/* @name: 转为REM单位fn
 		 * @ps: 默认宽度为750px
@@ -96,7 +96,7 @@
 			@return ($px / $ppr);
 		}
 
- 	使用方式，如：
+ 	直接使用方式，如：
 
 		#div{
 		    width: 100%;
