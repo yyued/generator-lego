@@ -7,8 +7,6 @@
 		  |		    | 	|
 		  |         |   |
 		  |         |   |-_tool.scss                             // 工具类使用样式
-		  |			|
-		  |         |
 		  |         |---_slice.scss                              // 切片样式文件
 		  |         |
 		  |         |---_global.scss                             // 需要导入的全局公共样式
@@ -71,7 +69,11 @@
 
 ### REM布局
 
-1. 自动设置头部viewport，头部引入JS脚本<script src="http://assets.dwstatic.com/mobile/viewport.js"></script>
+1. 自动设置头部viewport，头部引入JS脚本
+
+		<script src="http://assets.dwstatic.com/mobile/viewport.js"></script>
+
+		
 2. Sass工具类模块包含REM转换函数：
 
 		/* @name: 转为REM单位fn
