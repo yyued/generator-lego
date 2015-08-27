@@ -106,6 +106,9 @@ yourProj/
 #### 构建
 * `gulp build` 将静态文件压缩到 `dest/`，该阶段会执行雪碧图合并、ejs编译。
 
+#### 发布
+* `gulp publish` 将 `dest/`静态文件上传到svn。
+
 #### 打包
 * `gulp zip` 将源码和构建后代码压缩成一个zip包。
 
@@ -115,8 +118,12 @@ yourProj/
 	* `-q` qrcode 的简写，指定该参数生成 url的二维码
 
 2. `gulp build [-p <port>] [-q]`
-	* `-p` port 的简写，给webserver指定端口号；此参数需要指定参数值作为端口号，如：8080
-	* `-q` qrcode 的简写，指定该参数生成 url的二维码
+	* `-p` 指port，给webserver指定端口号；此参数需要指定参数值作为端口号，如：8080
+	* `-q` 指qrcode，指定该参数生成 url的二维码
+	* `-vw` 指viewport-width，生成rem定位的雪碧图用，默认值 `750/16`
+
+3. `gulp publish [-m <message>]`
+	* `-m` svn提交日记
 
 ### <a name="show-case"></a>Demo [[⬆]](#top)
 ![showcase01](https://cloud.githubusercontent.com/assets/1762523/4558145/146cf2e4-4edc-11e4-8e21-9d408776a14d.gif)
