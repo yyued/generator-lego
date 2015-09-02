@@ -135,6 +135,7 @@ var LegoGenerator = yeoman.generators.Base.extend({
 		// 拷贝资源文件，资源文件可以通过`<%= %>`读取当前实例的数据
 		this.directory(this.projectAssets, 'src')
 		this.directory('tasks', 'tasks')
+		this.copy('.jshintrc', '.jshintrc')
 		this.copy('gulpfile.js', 'gulpfile.js')
 		this.pkgGulpSassVersion = (win32?'1.3.3':'~2.0.1')
 		this.copy('package.json', 'package.json')

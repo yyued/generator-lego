@@ -112,15 +112,19 @@ yourProj/
 #### 打包
 * `gulp zip` 将源码和构建后代码压缩成一个zip包。
 
+#### 检测
+* `gulp hint` 检测`src/`文件下的语法。
+
+
 #### 其他命令参数
 1. `gulp [-p <port>] [-q]`
 	* `-p` port 的简写，给webserver指定端口号；此参数需要指定参数值作为端口号，如：8080
 	* `-q` qrcode 的简写，指定该参数生成 url的二维码
 
-2. `gulp build [-p <port>] [-q]`
+2. `gulp build [-p <port>] [-q] [-vw <view-width>]`
 	* `-p` 指port，给webserver指定端口号；此参数需要指定参数值作为端口号，如：8080
 	* `-q` 指qrcode，指定该参数生成 url的二维码
-	* `-vw` 指viewport-width，生成rem定位的雪碧图用，默认值 `750`
+	* `-vw` 指view-width，生成rem定位的雪碧图用，默认值 `750`
 
 3. `gulp publish [-m <message>]`
 	* `-m` svn提交日记
