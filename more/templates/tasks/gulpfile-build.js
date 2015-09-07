@@ -43,7 +43,7 @@ module.exports = function(gulp, plugins) {
     })
     gulp.task('build_sprite', ['build_slice', 'build_css'], function() {
         return multiSprite({
-            rootFontSize: argv.vw? +argv.vw/16 : 750/16,
+            rootFontSize: argv.w? +argv.w/16 : 750/16,
             srcCss: 'dest/css',
             srcImg: 'dest/img/slice',
             destCss: 'dest/css',

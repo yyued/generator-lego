@@ -164,7 +164,7 @@ var LegoGenerator = yeoman.generators.Base.extend({
 	        		this.spawnCommand('open', ['-a', this.gConfig['open_app'], '.'])
 	        	} 
 			}
-        	this.spawnCommand('gulp', ['-w'])
+        	this.spawnCommand('gulp')
             log('资源初始化完毕! 现在可以 coding...')
         }
 	}

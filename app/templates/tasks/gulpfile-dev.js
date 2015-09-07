@@ -113,7 +113,7 @@ module.exports = function(gulp, plugins) {
             return name
         }
 
-        var files, data = {}
+        var pageWidth = argv.w, data = {}, files
         async.series([
             // 1. 文件过滤
             function(next){
@@ -136,10 +136,16 @@ module.exports = function(gulp, plugins) {
                             filepath: f,
                             imageurl: path.relative('src/sass', f).split(path.sep).join('/'),
                             classname: classnameRule.call({}, path.basename(f, path.extname(f)), f),
-                            width: pixels.shape[0],
-                            height: pixels.shape[1]
+                            width: formatPX(pixels.shape[0]),
+                            height: formatPX(pixels.shape[1])
                         })
                         _next(null)
+
+                        function formatPX (pxValue) {
+                            if (!pageWidth) {return pxValue+'px'}
+                            if (+pageWidth === 1) { return pxValue*16/720+'rem' }
+                            return (pxValue*16/+pageWidth)+'rem'
+                        }
                     })
                 }
                 function callback(err, result){
@@ -153,8 +159,8 @@ module.exports = function(gulp, plugins) {
 // CSS Sprites切片样式
 <% slice.forEach(function(e){ %>
 %<%= e.classname%> {
-    width: <%= e.width%>px;
-    height: <%= e.height %>px;
+    width: <%= e.width%>;
+    height: <%= e.height %>;
     background-image: url(<%= e.imageurl%>);
     background-repeat: no-repeat;
 }

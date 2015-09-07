@@ -120,11 +120,12 @@ yourProj/
 1. `gulp [-p <port>] [-q]`
 	* `-p` port 的简写，给webserver指定端口号；此参数需要指定参数值作为端口号，如：8080
 	* `-q` qrcode 的简写，指定该参数生成 url的二维码
+	* `-w` 指view-width，生成切片样式语法，默认值 `750`；如不指定将生成px单位的语法
 
 2. `gulp build [-p <port>] [-q] [-vw <view-width>]`
 	* `-p` 指port，给webserver指定端口号；此参数需要指定参数值作为端口号，如：8080
 	* `-q` 指qrcode，指定该参数生成 url的二维码
-	* `-vw` 指view-width，生成rem定位的雪碧图用，默认值 `750`
+	* `-w` 指view-width，生成rem定位的雪碧图用，默认值 `750`
 
 3. `gulp publish [-m <message>]`
 	* `-m` svn提交日记
