@@ -113,7 +113,7 @@ module.exports = function(gulp, plugins) {
             return name
         }
 
-        var pageWidth = argv.w, data = {}, files
+        var pageWidth = argv.w, isProcessREM = !!argv.w, data = {}, files
         async.series([
             // 1. 文件过滤
             function(next){
@@ -137,7 +137,8 @@ module.exports = function(gulp, plugins) {
                             imageurl: path.relative('src/sass', f).split(path.sep).join('/'),
                             classname: classnameRule.call({}, path.basename(f, path.extname(f)), f),
                             width: formatPX(pixels.shape[0]),
-                            height: formatPX(pixels.shape[1])
+                            height: formatPX(pixels.shape[1]),
+                            cover: isProcessREM?'background-size:cover;':''
                         })
                         _next(null)
 
@@ -163,6 +164,7 @@ module.exports = function(gulp, plugins) {
     height: <%= e.height %>;
     background-image: url(<%= e.imageurl%>);
     background-repeat: no-repeat;
+    <%= e.cover%>
 }
 <% }) %>
                     */}).toString().split('\n').slice(1, -1).join('\n')
