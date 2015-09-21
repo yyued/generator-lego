@@ -72,7 +72,7 @@ module.exports = function(gulp, plugins) {
             .pipe(gulp.dest('dest/js'))
     })
     gulp.task('build_img', function() {
-        return gulp.src(['src/img/**', '!src/img/**/*.psd', '!src/img/slice/**'])
+        return gulp.src(['src/img/**', '!src/img/**/*.psd', '!src/img/slice/**', '!src/img/slice/'])
             .pipe(plugins.imagemin({
                 progressive: true
             }))
