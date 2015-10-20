@@ -6,6 +6,7 @@
 	background-image: url("../img/zq-bg.jpg");
 	background-position: 50% 0px;
 	background-repeat: no-repeat;
+    overflow: hidden;
 }
 
 /* 头部样式 */
@@ -70,20 +71,19 @@
 	padding: 10px 20px 0 20px;
 	height:70px;
 	@include clearfix();
+    overflow: hidden;
 	.guide-nav{
 		width: 920px;
 		@include clearfix();
 		position: relative;
 		margin-left: -4px;
-		overflow: hidden;
+//		overflow: hidden;
 		zoom: 1;
 		.list{
-			float: left;
-			display: inline;
+            @include float;
 			width: 450px;
 			margin-bottom: 10px;
 			height: 25px;
-			overflow: hidden;
 			font-size: 14px;
 			//margin-left: 16px;
 		}
@@ -99,12 +99,9 @@
 			font-size: 14px;
 		}
 		ul{
-			overflow: hidden;
-			*zoom: 1;
-			font-size: 0px;
+            @include clearfix;
 			li{
-				float: left;
-				display: inline;
+                @include float;
 				height: 25px;
 				line-height: 25px;
 				font-size: 14px;

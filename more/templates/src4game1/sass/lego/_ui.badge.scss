@@ -1,0 +1,39 @@
+@charset "utf-8";
+/*
+ * @file: 徽章UI组件
+ * @update: 2015-06-03 16:35:21
+ */
+
+/*
+ * 默认徽章
+ * @base
+ */
+.ui-badge {
+    @include inline-block;
+    min-width: 10px;
+    padding: 3px 6px;
+    line-height: 1;
+    text-align: center;
+}
+
+
+/*
+ * 圆角徽章
+ * @extend: radius
+ */
+.ui-badge {
+    &.ext-radius {
+        border-radius: 3px;
+    }
+}
+
+
+/*
+ * 圆形徽章
+ * @extend: round
+ */
+.ui-badge {
+    &.ext-round {
+        border-radius: 10px;
+    }
+}

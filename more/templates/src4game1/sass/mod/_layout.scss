@@ -96,3 +96,16 @@
 .ZQ-row.no-margin{
 	margin-bottom: 0px;
 }
+.ZQ__free {
+	@extend .ZQ__body;
+	border: 0;
+	padding: 0;
+	height: 0;
+	position: relative;
+	&.ZQ__free--pin {
+		position: fixed;
+		top: 36px;
+		left: 50%;
+		margin-left: 0px -(1136/2)
+	}
+}

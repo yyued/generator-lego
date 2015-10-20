@@ -1,130 +1,214 @@
-@charset "UTF-8";
-//
-// $Date: 2014-07-05 16:56:30 +0800 (Sat, 05 Jul 2014) $
-//
-@function getButtonColor($color) {
-	@return if( lightness($color) > 50, #333, #FFF );
+/*
+ * @file:      SASS常用Function与Mixins
+ * @update:    2015-06-03 17:17:50
+ * @copyright: MIT License
+ */
+
+
+/*
+ * @name:  inline-block
+ * @param: $alignment {string}  对齐类型
+ * @param: $support-for-ie {boolean}  是否支持IE6
+ */
+@mixin inline-block($alignment: middle, $support-for-ie: true) {
+    display: inline-block;
+    @if $alignment and $alignment != none {
+        vertical-align: $alignment;
+    }
+    @if $support-for-ie {
+        *vertical-align: auto;
+        *display: inline;
+        zoom: 1;
+    }
 }
-@function black($opacity){
-	@return rgba(0,0,0,$opacity);
+
+/* @name: 闭合浮动 */
+@mixin clearfix {
+    *zoom: 1;
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+        line-height: 0;
+    }
+    &:after {
+        clear: both;
+    }
 }
-@function white($opacity){
-	@return rgba(255,255,255,$opacity);
+
+/*
+ * @name:  浮动
+ * @param: $side {string}  浮动方向
+ * @param: $support-for-ie {boolean}  是否支持IE6
+ */
+@mixin float($side: left, $support-for-ie: true) {
+    float: unquote($side);
+    @if $support-for-ie {
+        _display: inline;
+    }
 }
-@mixin reset{
-	margin: 0;
-	padding: 0;
-}
-@mixin inline-block{
-	display: inline-block;
-	*display: inline;
-	*zoom: 1;
-}
-@mixin clearfix{
-	*zoom: 1;
-	&:before,
-	&:after{
-		content: "";
-		display: table;
-		line-height: 0;
-	}
-	&:after{
-		clear: both;
-	}
-}
-@mixin size($value) {
-	width: $value;
-	height: $value;
-}
-@mixin size($width, $height) {
-	width: $width;
-	height: $height;
-}
-@mixin float($float:left){
-	float: $float;
-	_display: inline;
-}
-@mixin float-left{
-	float: left;
-	_display: inline;
-}
-@mixin float-right{
-	float: right;
-	_display: inline;
-}
-@mixin hide-text{
-	text-indent: 100%;
-	white-space: nowrap;
-	overflow: hidden;
-}
-@mixin reset-filter {
-	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
-}
-@mixin background-color($value) {
-	background-color: transparent;
-	background-color: $value;
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#{ie-hex-str($value)},endColorstr=#{ie-hex-str($value)});
-	zoom: 1;
-}
-@mixin break {
-	-ms-word-break: break-all;
-	word-break: break-all;
-	word-break: break-word;
-}
-@mixin ellipsis {
+
+/* @name: 文本隐藏 */
+@mixin hide-text {
+    text-indent: 100%;
     white-space: nowrap;
     overflow: hidden;
-    -ms-text-overflow: ellipsis;
-    -o-text-overflow: ellipsis;
-    text-overflow: ellipsis;
 }
+
+/*
+ * @name:  文字溢出显示省略号
+ * @param: $width {dimension}  指定宽度 (需带单位)
+ * 1. Opera 9-10.6
+ * 2. Chrome 21+ bug https://bugs.webkit.org/show_bug.cgi?id=121902
+ */
+@mixin ellipsis($width: auto) {
+    @if($width) {
+        width: $width;
+    }
+    white-space: nowrap;
+    word-wrap: normal;
+    overflow: hidden;
+    -o-text-overflow: ellipsis; /* 1 */
+    text-overflow: ellipsis;
+    text-align: left; /* 2 */
+}
+
+/*
+ * @name: 强制不换行
+ * @link: http://www.hicss.net/solve-change-line-in-css
+ */
+@mixin nowrap {
+    white-space: nowrap;
+    word-wrap: normal;
+    word-break: keep-all;
+}
+
+/* @name: 连续字符换行 */
+@mixin break {
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+}
+
+/* @name: 保留空白符序列，但是正常地进行换行 */
 @mixin pre {
-	white-space: pre-wrap;
     white-space: -moz-pre-wrap;
     white-space: -pre-wrap;
     white-space: -o-pre-wrap;
+    white-space: pre-wrap;
     word-wrap: break-word;
 }
-@mixin wrap {
-	text-wrap: wrap;
-	white-space: pre-wrap;
-	white-space: -moz-pre-wrap;
-	word-wrap: break-word;
-}
-// http://www.hicss.net/solve-change-line-in-css/
-@mixin nowrap {
-	white-space: nowrap;
-	word-break: keep-all;
-}
-@mixin opacity($opacity) {
-	opacity: $opacity;
-	filter: alpha(opacity=#{$opacity * 100});
-}
-@mixin min-height($height) {
-	min-height: $height;
-	height: auto !important;
-	_height: $height;
-}
-//http://manaten.net/archives/270
-@mixin sprite($image, $x, $y, $width, $height) {
-	width: $width;
-	height: $height;
-	display: block;
-	overflow: hidden;
-	background: $image $x*-1 $y*-1 no-repeat;
-	text-indent: 100%;
-	white-space: nowrap;
+
+/*
+ * @name:  resizable
+ * @param: $direction {string}  缩放的方向 (horizontal || vertical || both)
+ * @link:  https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/mixins/_resize.scss
+ * @1:     Per CSS3 UI, `resize` only applies when `overflow` isn't `visible`
+ */
+@mixin resizable($direction) {
+    resize: $direction;
+    overflow: auto; /* 1 */
 }
 
-// Gradients  添加渐变过渡函数，20140110 add by petsa
-@mixin gradient($color-form, $color-to) {
-  background: $color-form; // Old browsers
-  background: -moz-linear-gradient(top, $color-form 0%, $color-to 100%); // FF3.6+
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$color-form), color-stop(100%,$color-to)); // Chrome,Safari4+
-  background: -webkit-linear-gradient(top, $color-form 0%, $color-to 100%); // Chrome10+,Safari5.1+
-  background: -o-linear-gradient(top, $color-form 0%, $color-to 100%); // Opera 11.10+
-  background: -ms-linear-gradient(top, $color-form 0%, $color-to 100%); // IE10+
-  background: linear-gradient(to bottom, $color-form 0%, $color-to 100%); // W3C
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-form', endColorstr='$color-to',GradientType=0 ); // IE6-9
 
+/*
+ * @name:  背景透明
+ * @param: $color {color}  颜色  
+ * @param: $opacity {number}  透明度
+ * @param: $support-for-ie {boolean}  是否支持IE6
+ * @link:  https://github.com/airen/Sass_mixins_function/tree/master/mixins
+ */
+@mixin transparent($color, $opacity, $support-for-ie:true) {
+    background-color: transparent;
+    background-color: rgba($color, $opacity);
+    @if $support-for-ie {
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#{ie-hex-str(rgba($color, $opacity))},endColorstr=#{ie-hex-str(rgba($color, $opacity))});
+        zoom: 1;
+        :root & {
+            filter: none;
+        }
+    }
 }
+
+/*
+ * @name:  透明度
+ * @param: $opacity {number}  透明度
+ * @param: $support-for-ie {boolean}  是否支持IE6
+ */
+@mixin opacity($opacity:.65, $support-for-ie:true) {
+    opacity: $opacity;
+    @if $support-for-ie{
+        $opacity-ie: $opacity * 100;
+        filter: alpha(opacity=$opacity-ie); //IE8
+    }
+}
+
+/* @name: 重置滤镜 */
+@mixin reset-filter {
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+
+
+/*
+ * @name:  border三角形
+ * @param: $base {dimension}  底边尺寸
+ * @param: $height {dimension}  高度
+ * @param: $color {color}  颜色
+ * @param: $direction {string}  方向 (top || bottom || left || right)
+ * @link:  http://codepen.io/zhouwenbin/pen/emZVZp
+ */
+@mixin triangle($base, $height, $color, $direction) {
+    font-size: 0;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    overflow: hidden;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: -2px;
+    border-style: dashed;
+    
+    @if($direction == top) {
+        border-width: $height $base / 2;
+        border-color: transparent transparent $color;
+        margin-top: -$height;
+    }
+    @if($direction == bottom) {
+        border-width: $height $base / 2;
+        border-color: $color transparent transparent;
+        margin-bottom: -$height;
+    }
+    @if($direction == left) {
+        border-width: $base / 2 $height;
+        border-color: transparent transparent transparent $color;
+        margin-right: -$height;
+    }
+    @if($direction == right) {
+        border-width: $base / 2 $height;
+        border-color: transparent $color transparent transparent;
+        margin-left: -$height;
+    }
+}
+
+/* @name: 按钮配色 */
+@mixin button-variant($color, $background, $border) {
+    color: $color;
+    background-color: $background;
+    border-color: $border;
+    &.is-hover,
+    &:hover {
+        color: $color;
+        background-color: lighten($background, 8%);
+        border-color: lighten($border, 10%);
+        text-decoration: none; // 去掉a标签按钮的下划线
+    }
+}
+
+/* @name: 按钮尺寸 */
+@mixin button-size($padding-vertical, $padding-horizontal, $font-size, $border-radius) {
+    padding: $padding-vertical $padding-horizontal;
+    font-size: $font-size;
+    border-radius: $border-radius;
+}
+

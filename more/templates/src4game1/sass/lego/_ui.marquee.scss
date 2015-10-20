@@ -1,0 +1,41 @@
+@charset "utf-8";
+/*
+ * @file: 轮播文字条基础UI模块
+ * @update: 2015-06-05 16:45:23
+ */
+ 
+/*
+ * 默认轮播文字条
+ * @base
+ */
+
+.ui-marquee {
+    position: relative;
+    height: 22px;
+    padding: 0 30px 0 10px;
+    border: 1px solid #dedede;
+    font-size: 12px;
+    overflow: hidden;
+}
+.ui-marquee__panel {
+    height: 22px;
+    line-height: 22px;
+    overflow: hidden;
+}
+.ui-marquee__prev,
+.ui-marquee__next {
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    @include opacity(.5, true);
+    &:hover {
+        @include opacity(1, true);
+    }
+}
+
+.ui-marquee__prev {
+    top: -2px;
+}
+.ui-marquee__next {
+    top: 8px;
+}

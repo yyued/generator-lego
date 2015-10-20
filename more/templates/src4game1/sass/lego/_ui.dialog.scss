@@ -1,0 +1,75 @@
+@charset "utf-8";
+/*
+ * @file: dialog基础UI组件
+ * @update: 2015-06-05 16:45:13
+ */
+
+/*
+ * 默认dialog
+ * @base
+ */
+$close-icon-width: 46px; // 关闭按钮宽度
+$close-icon-height: 44px; // 关闭按钮高度
+$close-icon: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAsCAMAAAAtr3oOAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAOVBMVEX////19fX+/v7y8vX///+oqKjz8/Xz8/b09Pb09Pf19ff29vj39/n4+Pn4+Pr5+fr5+fv6+vsAAABX36Q3AAAAA3RSTlPmTOc1ux8eAAAAAWJLR0QSe7xsAAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAIhJREFUSMft0tsKgDAIBmArbZ0P7/+yERHF/B1JDLrIu8GHuF+p4udFBXk4lz7OP//5ay5iv1D3u4g1GuYySsPZT6U1/urhgDaS2SXSVpAiUJu5Y81U+7oH3+zB0EYywdI492BquNUmlYm+mTaZoLrImKeLOh/vs/IhKx99fPLxOStffHz9EN8Aw/wgV5BHry4AAAAASUVORK5CYII=";  // 关闭按钮背景图片链接地址
+$close-icon-hover: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAsCAMAAAAtr3oOAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAOVBMVEX////19fX+/v7y8vX////MzMzz8/Xz8/b09Pb09Pf19ff29vj39/n4+Pn4+Pr5+fr5+fv6+vsAAABAtFMnAAAAA3RSTlPmTOc1ux8eAAAAAWJLR0QSe7xsAAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAIhJREFUSMft0tsKgDAIBmArbZ0P7/+yERHF/B1JDLrIu8GHuF+p4udFBXk4lz7OP//5ay5iv1D3u4g1GuYySsPZT6U1/urhgDaS2SXSVpAiUJu5Y81U+7oH3+zB0EYywdI492BquNUmlYm+mTaZoLrImKeLOh/vs/IhKx99fPLxOStffHz9EN8Aw/wgV5BHry4AAAAASUVORK5CYII=";  // 关闭按钮hover背景图链接地址
+
+.ui-dialog {
+    outline: none;
+}
+.ui-dialog-close {
+    position: absolute;
+    right: 0;
+    z-index: 9;
+    width: $close-icon-width;
+    height: 0;
+    padding-top: $close-icon-height;
+    overflow: hidden;
+    background-image: url($close-icon);
+    background-repeat: no-repeat;
+    border-top-right-radius: 4px;
+    &:hover {
+        background-image: url($close-icon-hover);
+    }
+}
+.ui-dialog__hd {
+    position: relative;
+    height: 22px;
+    padding: 12px;
+    border-bottom: 1px solid #f2f2f5;
+    line-height: 22px;
+    background-color: #fff;
+    border-radius: 4px 4px 0 0;
+}
+.ui-dialog__tit {
+    float: left;
+    margin-right: 10px;
+    font-size: 16px;
+    font-weight: 700;
+}
+.ui-dialog__meta {
+    font-size: 12px;
+    color: #999;
+}
+.ui-dialog__bd {
+    background-color: #fff;
+    border-radius: 0 0 4px 4px;
+}
+
+
+/*
+ * 带半透明边框dialog
+ * @extend: border
+ */
+$border-width: 5px; // 边框大小
+$radius: 4px; // 边框圆角
+
+.ui-dialog {
+    &.ext-border {
+        padding: $border-width;
+        border-radius: $radius;
+        background-color: rgba(0, 0, 0, .2);
+        .ui-dialog-close {
+            right: $border-width;
+        }
+    }
+}

@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+/*
+ * @file: 选项卡UI组件
+ * @update: 2015-06-03 16:17:02
+ */
+ 
+/*
+ * 默认选项卡
+ * @base
+ */
+.ui-tab__hd {
+    position: relative;
+    margin-bottom: 15px;
+}
+.ui-tab__ext {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -8px;
+}
+.ui-tab__nav {
+    font-size: 0; /* 所有浏览器 */
+    *word-spacing: -1px; /* IE6/7 */
+    border-bottom: 1px solid $base-border-color;
+}
+@media (-webkit-min-device-pixel-ratio:0) {
+    .ui-tab__nav {
+        letter-spacing: -5px; /* Safari 5- 等不支持 font-size: 0 的浏览器*/
+    }
+}
+.ui-tab__trigger {
+    @include inline-block(top, true);
+    letter-spacing: normal;
+    word-spacing: normal;
+    margin-right: 3px;
+    height: 32px;
+    line-height: 32px;
+    font-size: 14px;
+    border: 1px solid #fff;
+    border-bottom: 0;
+    background-color: #fff;
+    overflow: hidden;
+    cursor: pointer;
+    &.is-active {
+        *position: relative;
+        margin-bottom: -1px;
+        padding-bottom: 1px;
+        border-color: $base-border-color;
+        font-weight: 700;
+    }
+    a {
+        display: block;
+        padding: 0 15px;
+        color: $base-text-color;
+    }
+}
+

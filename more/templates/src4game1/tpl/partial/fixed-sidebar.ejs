@@ -1,0 +1,138 @@
+<div class="ZQ-sidebox" id="sidebox">
+    <div class="ZQ-sidebody ext-sidebar">
+        <div class="navtree-box is-open ext-sidebar">
+            <div class="navtree-box__hd" data-role="navtree-trigger">
+                <h3 class="navtree-box__title"></h3>
+                <div class="navtree-box__icon"><i></i></div>
+            </div>
+            <div class="navtree-box__bd" data-role="navtree-content">
+                <ul class="m-list"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+<style type="text/css">
+    .ZQ__free {display: none;}
+    .ZQ-sidebox .ZQ-sidebody.ext-sidebar {background: none;}
+    .ZQ-sidebox .ZQ-sidebody.ext-sidebar .m-list {background: #fff;}
+</style>
+<script>
+    (function($){
+        var topbar_height = $('#dw-topbar').height();
+        var free = $('.ZQ__free');
+        var side_body = free.find('.ZQ-sidebody');
+        var gap_top = 23;
+        var gap_bot = 16;
+        var isShow = false;
+        $(function(){
+            var isWider = $(window).width() < 1565 ? false : true;
+            var page_table = $('#page-table');
+            if (page_table.length) {
+                var foot = $('.ZQ__foot');
+                var body = $('#sidebox .ZQ-sidebody');
+                var box = body.find('.navtree-box').eq(0);
+                body.find('.navtree-box').remove();
+                var nav = page_table.find('.J_nav').children();
+                var content = page_table.find('.J_content').children();
+                nav.each(function(){
+                    var one = box.clone();
+                    one.find('.navtree-box__title').text($(this).text());
+                    var ul = one.find('.m-list');
+                    content.eq($(this).index()).find('td').each(function(){
+                        ul.append($('<li>').html($(this).html()));
+                    });
+                    body.append(one);
+                })
+                $('#sidebox').on('click', '[data-role="navtree-trigger"]', function(){
+                    var parent = $(this).parent();
+                    var content = parent.find('[data-role="navtree-content"]');
+                    if (parent.hasClass('is-open')) {
+                        parent.removeClass('is-open').addClass('is-close');
+                        var height = content.height();
+                        content.data('height', height).stop().animate({
+                            height : 0
+                        }, parseInt(50+height*1.1), 'linear');
+                    } else {
+                        parent.removeClass('is-close').addClass('is-open');
+                        var height = content.data('height');
+                        if (height) {
+                            content.stop().animate({
+                                height : height
+                            }, parseInt(50+height*1.1), 'linear');
+                        }
+                    }
+                    recheck_position();
+                });
+                var flag = side_body.children().length - 1;
+                var body_top = $('.ZQ__body').offset().top;
+                $(window).on('resize', function(){
+                    var width = $(window).width();
+                    if (width < 1565) {
+                        if (!isWider) {
+                            isWider = true;
+                            free.css({
+                                zIndex : -999
+                            });
+                        };
+                        
+                    } else {
+                        if (isWider) {
+                            isWider = false;
+                            free.css({
+                                zIndex : 1
+                            });
+                            $(window).trigger('scroll');
+                        };
+                    }
+                }).trigger('resize');
+                $(window).on('scroll', function(){
+                    var now = $(window).scrollTop();
+                    var table_bot = page_table.offset().top + page_table.height() - topbar_height;
+                    var now_fixed = table_bot - now;
+                    if (now_fixed < 0) {
+                        if ( !isShow ) {
+                            isShow = true;
+                            free.css({
+                                opacity : 0,
+                                display : 'block'
+                            }).stop().animate({
+                                opacity : 1
+                            });
+                        }
+                        recheck_position();
+                    } else {
+                        if ( isShow ) {
+                            isShow = false;
+                            free.stop().animate({
+                                opacity : 0
+                            }, function(){
+                                free.css({
+                                    display : 'none'
+                                });
+                            });
+                        }
+                    }
+                }).trigger('scroll');
+                function recheck_position (){
+                    var now = $(window).scrollTop();
+                    var foot_top = foot.offset().top;
+                    var sidebar_height = side_body.height();
+                    var sidebar_bot = now + sidebar_height + topbar_height + gap_top + gap_bot;
+                    var bot_fixed = sidebar_bot - foot_top;
+                    if (bot_fixed > 0) {
+                        side_body.children().eq(flag).addClass('is-hide').hide();
+                        flag--;
+                    } else {
+                        var last_one = side_body.children('.is-hide').eq(0);
+                        if (last_one.length > 0) {
+                            if (Math.abs(bot_fixed) > last_one.height()) {
+                                last_one.show().removeClass('is-hide');
+                                flag++;
+                            };
+                        };
+                    }
+                }
+            }
+        });
+    })(jQuery);
+</script>

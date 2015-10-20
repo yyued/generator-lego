@@ -1,0 +1,117 @@
+@charset "utf-8";
+
+/*
+ * @file: 分页导航基础UI组件
+ * @update: 2015-06-03 16:25:44
+ */
+
+/*
+ * 默认分页导航
+ * @base
+ */
+$paging-num-color: #666; // 分页码字体颜色
+
+.ui-paging {
+    vertical-align: middle;
+    zoom: 1;
+    font-size: 0; /* 所有浏览器 */
+    *word-spacing: -1px; /* IE6/7 */
+}
+@media (-webkit-min-device-pixel-ratio:0) {
+    .ui-paging {
+        letter-spacing: -5px; /* Safari 5- 等不支持 font-size: 0 的浏览器*/
+    }
+}
+.ui-paging {
+    .ui-paging__item,
+    .ui-paging__info,
+    .ui-paging__which,
+    .ui-paging__ellipsis {
+        font-size: 12px;
+        letter-spacing: normal;
+        word-spacing: normal;
+    }
+}
+.ui-paging__item {
+    @include inline-block;
+    padding: 5px 8px;
+    margin-right: 10px;
+    line-height: 1;
+    border-radius: 3px;
+    color: $paging-num-color;
+    border: 1px solid #fff;
+    
+    /* ===状态类（当前）=== */
+    &.is-current {
+        color: $primary-text-color;
+        background-color: $primary-color;
+        border-color: $primary-color;
+        &:hover {
+            background-color: $primary-color;
+            border-color: $primary-color;
+        }
+    }
+    
+    /* ===状态类（禁用）=== */
+    &.is-disabled {
+        filter: none;
+        cursor: default;
+    }
+}
+a.ui-paging__item {
+    &:hover {
+        text-decoration: none;
+        color: $paging-num-color;
+        background-color: $heading-bg-color;
+        border-color: $heading-bg-color;
+    }
+}
+.ui-paging__ellipsis,
+.ui-paging__info {
+    margin-right: 10px;
+}
+.ui-paging__info {
+    @include inline-block;
+}
+.ui-paging__which {
+    width: 22px;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 6px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    vertical-align: middle;
+    text-align: center;
+}
+
+
+/*
+ * 完整型分页导航
+ * @extend: primary
+ */
+.ui-paging {
+    &.ext-full {
+        .ui-paging__item {
+            background-color: $heading-bg-color;
+            border-color: $heading-bg-color;
+            &.is-current {
+                color: $primary-text-color;
+                background-color: $primary-color;
+                border-color: $primary-color;
+            }
+            &.is-disabled {
+                color: $disabled-text-color;
+                background-color: $disabled-bg-color;
+                border-color: $disabled-bg-color;
+            }
+        }
+        a.ui-paging__item {
+            &:hover {
+                color: $primary-text-color;
+                background-color: $primary-color;
+                border-color: $primary-color;
+            }
+        }
+    }
+}
+

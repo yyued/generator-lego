@@ -1,0 +1,251 @@
+@charset "utf-8";
+/*
+ * @file: 图片轮播基础UI组件
+ * @update: 2015-06-30 17:46:06
+ */
+ 
+/*
+ * 默认图片轮播
+ * @base
+ */
+$img-width: 740px; // 图片宽度
+$img-height: 300px; // 图片高度
+
+.ui-slide {
+    position: relative;
+    width: $img-width;
+    overflow: hidden;
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+.ui-slide__content {
+    position: relative;
+    height: $img-height;
+}
+.ui-slide__panel {
+    position: relative;
+    width: $img-width;
+    height: $img-height;
+    overflow: hidden;
+    a {
+        display: block;
+    }
+}
+.ui-slide__mask {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    overflow: hidden;
+    padding: 10px 0;
+    text-indent: 10px;
+    font-size: 20px;
+    line-height: 20px;
+    color: #fff;
+    @include transparent(#000, .5, true);
+}
+
+.ui-slide__prev,
+.ui-slide__next {
+    position: absolute;
+    top: 50%;
+    cursor: pointer;
+    @include transparent(#000, .3, true);
+    .ui-icon {
+        font-size: 24px;
+        color: #fff;
+    }
+    &:hover {
+        @include transparent(#000, .6, true);
+    }
+}
+.ui-slide__prev {
+    left: 0;
+}
+.ui-slide__next {
+    right: 0;
+}
+
+/*
+ * 点状导航的图片轮播
+ * @extend: dotted
+ */
+.ui-slide {
+    &.ext-dotted {
+        .ui-slide__nav {
+            position: absolute;
+            bottom: 15px;
+            z-index: 99;
+            width: 100%;
+            text-align: center;
+            font-size: 0; /* 所有浏览器 */
+            *word-spacing: -1px; /* IE6/7 */
+        }
+
+        .ui-slide__trigger {
+            @include inline-block;
+            vertical-align: top;
+            font-size: 12px;
+            letter-spacing: normal;
+            word-spacing: normal;
+            
+            width: 10px;
+            height: 0;
+            padding-top: 10px;
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 50%;
+            margin-left: 4px;
+            margin-right: 4px;
+            background-color: #ccc;
+            &.is-active {
+                background-color: #ff6c00;
+            }
+        }
+    }
+}
+@media (-webkit-min-device-pixel-ratio:0) {
+    .ui-slide.ext-dotted .ui-slide__nav {
+        letter-spacing: -5px; /* Safari 5- 等不支持 font-size: 0 的浏览器*/
+    }
+}
+
+
+/*
+ * 缩略图导航公共部分
+ * @extend: thumbX/thumbY
+ */
+$active-border-width: 3px; // 激活项边框宽度
+$active-border-color: #288ad6; // 激活项边框颜色
+
+.ui-slide {
+    &.ext-thumbX,
+    &.ext-thumbY {
+        .ui-slide__trigger {
+            &.is-active {
+                .ui-slide__thumbMask {
+                    border: $active-border-width solid $active-border-color;
+                    background: 0 0;
+                    @include opacity(1, true);
+                }
+                &::after {
+                    content: "";
+                    position: absolute;
+                    width: 0;
+                    height: 0;
+                    border-width: 8px;
+                    border-style: solid;
+                }
+            }
+        }
+    }
+}
+.ui-slide__thumbMask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    background: #fff;
+    @include opacity(.1, true);
+}
+
+    
+/*
+ * 横向缩略图导航
+ * @extend: thumbX
+ */
+$thumb-x-width: 170px; // 缩略图宽度
+$thumb-x-height: 94px; // 缩略图高度
+$thumb-x-spacing: 20px; // 缩略图间距
+
+.ui-slide {
+    &.ext-thumbX {
+        .ui-slide__nav {
+            @include clearfix;
+            padding-top: 15px;
+            margin-right: -$thumb-x-spacing;
+        }
+        .ui-slide__trigger {
+            position: relative;
+            float: left;
+            margin-right: $thumb-x-spacing;
+            width: $thumb-x-width;
+            height: $thumb-x-height;
+            cursor: pointer;
+            &.is-active {
+                .ui-slide__thumbMask {
+                    width: $thumb-x-width - 2*$active-border-width;
+                    height: $thumb-x-height - 2*$active-border-width;
+                }
+                &::after {
+                    top: -16px;
+                    left: 50%;
+                    margin-left: -8px;
+                    border-color: transparent transparent $active-border-color;
+                }
+            }
+        }
+        .ui-slide__thumbMask {
+            width: $thumb-x-width;
+            height: $thumb-x-height;
+        }
+    }
+}
+
+/*
+ * 纵向缩略图导航
+ * @extend: thumbY
+ */
+$img-y-width: 555px; // 图片宽度
+$img-y-height: 300px; // 图片高度
+$thumb-y-width: 170px; // 缩略图宽度
+$thumb-y-height: 90px; // 缩略图高度
+$thumb-y-spacing: 15px; // 缩略图间距
+
+.ui-slide {
+    &.ext-thumbY {
+        height: $img-y-height;
+        .ui-slide__content {
+            float: left;
+            width: $img-y-width;
+            height: $img-y-height;
+        }
+        .ui-slide__panel {
+            width: $img-y-width;
+            height: $img-y-height;
+        }
+        .ui-slide__nav {
+            overflow: hidden;
+            zoom: 1;
+            padding-left: 15px;
+            margin-bottom: -$thumb-y-spacing;
+        }
+        .ui-slide__trigger {
+            position: relative;
+            float: left;
+            margin-bottom: $thumb-y-spacing;
+            width: $thumb-y-width;
+            height: $thumb-y-height;
+            cursor: pointer;
+            &.is-active {
+                .ui-slide__thumbMask {
+                    width: $thumb-y-width - 2*$active-border-width;
+                    height: $thumb-y-height - 2*$active-border-width;
+                }
+                &::after {
+                    left: -16px;
+                    top: 50%;
+                    margin-top: -8px;
+                    border-color: transparent $active-border-color transparent transparent;
+                }
+            }
+        }
+        .ui-slide__thumbMask {
+            width: $thumb-y-width;
+            height: $thumb-y-height;
+        }
+    }
+}
+

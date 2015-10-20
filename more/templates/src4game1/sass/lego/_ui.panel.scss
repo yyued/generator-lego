@@ -1,0 +1,123 @@
+@charset "utf-8";
+
+/*
+ * @file: 区块面板基础UI组件
+ * @update: 2015-06-03 16:23:03
+ */
+
+/*
+ * 默认面板
+ * @base
+ */
+$panel-font-size: 12px; // 面板字号
+$panel-hd-height: 36px; // 标题高度
+$tit-font-size: 14px; // 标题字号
+
+.ui-panel {
+    font-size: $panel-font-size;
+    *zoom: 1;
+}
+.ui-panel__hd {
+    position: relative;
+    height: $tit-font-size + 2;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    line-height: $tit-font-size + 2;
+    .ui-lineList {
+        margin-top: 1px;
+        margin-right: -10px;
+    }
+}
+.ui-panel__bd {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.ui-panel__tit {
+    float: left;
+    margin-right: 10px;
+    font-size: $tit-font-size;
+    font-weight: 700;
+    color: #333;
+}
+.ui-panel__ico {
+    float: left;
+    width: 14px;
+    height: 14px;
+    margin-right: 5px;
+    background-color: #666;
+}
+.ui-panel__meta {
+    float: left;
+    margin-top: 1px;
+    margin-right: 10px;
+    color: #999;
+}
+.ui-panel__more {
+    float: right;
+}
+
+
+/*
+ * 带边框的面板
+ * @extend: border
+ */
+$title-bg-color: #f5f5f5; // 标题背景颜色
+$box-border-color: #ddd; // 边框颜色
+
+.ui-panel {
+    &.ext-border {
+        border: 1px solid $box-border-color;
+        border-bottom: 0;
+        .ui-panel__hd {
+            padding: 10px;
+            border-bottom: 1px solid $box-border-color;
+            background-color: $title-bg-color;
+        }
+        .ui-panel__bd {
+            padding: 10px;
+            border-bottom: 1px solid $box-border-color;
+        }
+    }
+}
+
+
+/*
+ * 弹窗外观的面板
+ * @extend: pop
+ */
+$pop-border-width: 5px; // 半透明边框宽度
+$pop-border-radius: 5px; // 区块圆角
+
+.ui-panel {
+    &.ext-pop {
+        padding: $pop-border-width;
+        border-radius: $pop-border-radius;
+        @include transparent(#000, .1, true);
+        .ui-panel__hd {
+            padding: 10px;
+            background-color: $title-bg-color;
+        }
+        .ui-panel__bd {
+            padding: 10px;
+            background-color: #fff;
+        }
+        .ui-panel__close {
+            @include inline-block;
+            width: 18px;
+            height: 18px;
+            margin-top: -4px;
+            font-family: Helvetica, STHeiti;
+            _font-family: '\u9ed1\u4f53', 'Book Antiqua', Palatino;
+            font-size: 18px;
+            text-align: center;
+            line-height: 18px;
+            color: #bbb;
+            &:hover {
+                color: #fff;
+                background-color: #ddd;
+                border-radius: 3px;
+            }
+        }
+    }
+}
+

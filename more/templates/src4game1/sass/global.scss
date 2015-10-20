@@ -3,8 +3,9 @@
 @import "lego/lego";
 
 /* 定义专区通用样式变量 */
-@import "mod/variables";
-
+//@import "mod/variables";
+/* 切片样式 */
+@import "slice"; 
 /* 通用样式 */
 @import "mod/pagemod";
 @import "mod/layout";
@@ -26,7 +27,7 @@ body {
         }
     }
 }
-
+//
 :root em,:root span{filter:none\9}/*for IE9*/
 
 /* 首页样式 */

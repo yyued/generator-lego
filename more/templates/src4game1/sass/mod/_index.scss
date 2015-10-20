@@ -18,7 +18,9 @@
 			line-height: 1.2em;
 			margin-bottom: 10px;
 			font-weight: bold;
-			@include ellipsis();
+//			@include ellipsis();
+            width: 368px;
+            overflow: hidden;
 		}
 		.toppic{
 			height: 1.2em;
@@ -167,8 +169,50 @@
 			margin-bottom: -10px;
 		}
 	}
+    &.ext-dblVideo{
+        .mod-pic--video{
+            li{
+                width: 184px;
+//                height: 102px;
+            }
+            img{
+                width: 184px;
+                height: 102px;
+                border: none;
+            }
+            .video-time{
+                top:77px;
+                width: 174px;
+            }
+        }
+    }
 }
-
+.index-video__aside {
+    .m-list {
+        padding-top: 16px;
+        li {
+            padding-left: 24px;
+            line-height: 32px;
+            height: 33px;
+            overflow: hidden;
+        }
+        i {
+            width: 16px;
+            height: 16px;
+            background-color: #b7b7b7;
+            text-align: center;
+            line-height: 16px;
+            color: #fff;
+            margin-top: -8px;
+            font-family: "宋体", sans-serif;
+        }
+        .top {
+            i {
+                background-color: #ff1e00;
+            }
+        }
+    }
+}
 /* 游戏攻略 */
 .index-gameguide{
 	padding: 12px 0;

@@ -1,0 +1,187 @@
+@charset "utf-8";
+/*
+ * @file: 图片列表基础UI组件
+ * @update: 2015-06-05 16:45:29
+ */
+ 
+/*
+ * 默认图片列表
+ * @base
+ */
+$img-width: 130px; // 图片宽度
+$img-height: 90px; // 图片高度
+$item-margin-right: 10px; // item右方外边距
+$item-margin-bottom: 10px; // item下方外边距
+$mask-height: 24px; // 遮罩层高度
+$mask-line-height: 24px; // 遮罩层行高
+
+.ui-figure {
+    margin-right: -$item-margin-right;
+    font-size: 0; // 所有浏览器
+    *word-spacing: -1px; // IE6/7
+}
+@media (-webkit-min-device-pixel-ratio:0) {
+    .ui-figure {
+        letter-spacing: -5px; // Safari 5- 等不支持 font-size: 0 的浏览器
+    }
+}
+.ui-figure__item {
+    @include inline-block(top, true);
+    width: $img-width;
+    margin-right: $item-margin-right;
+    margin-bottom: $item-margin-bottom;
+    font-size: 12px;
+    letter-spacing: normal;
+    word-spacing: normal;
+    overflow: hidden;
+}
+.ui-figure__bd {
+    position: relative;
+    display: block;
+    height: $img-height; // 如不需兼容IE6，可使用100%
+}
+a.ui-figure__bd {
+    cursor: pointer;
+    &:hover {
+        text-decoration: none;
+    }
+}
+.ui-figure__img {
+    width: $img-width;
+    height: $img-height;
+    overflow: hidden;
+}
+.ui-figure__mask {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: $mask-height;
+    line-height: $mask-line-height;
+    text-indent: 5px;
+    color: #fff;
+    overflow: hidden;
+    @include transparent(#000, .5, true);
+}
+.ui-figure__sign {
+    float: left;
+    margin-right: 5px;
+}
+.ui-figure__meta {
+    display: block;
+    margin-right: 5px;
+    overflow: hidden;
+    *zoom: 1;
+    text-align: right;
+}
+.ui-figure__caption {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+
+/*
+ * 以下为带变量参数的公用类，可方便拷贝并新建无冗余的扩展类
+ */
+
+/*
+.ui-figure {
+    &.ext-name {
+        margin-right: -$item-margin-right;
+        .ui-figure__item {
+            width: $img-width;
+            margin-right: $item-margin-right;
+            margin-bottom: $item-margin-bottom;
+        }
+        .ui-figure__bd {
+            height: $img-height; //如不需兼容IE6，可使用100%
+        }
+        .ui-figure__img {
+            width: $img-width;
+            height: $img-height;
+        }
+        .ui-figure__mask {
+            height: $mask-height;
+            line-height: $mask-line-height;
+            text-indent: 5px;
+        }
+    }
+}
+*/
+
+
+/*
+ * 全屏封面
+ * @extend: cover
+ */
+.ui-figure {
+    &.ext-cover {
+        .ui-figure__bd {
+            overflow: hidden;
+            &:hover,
+            &.is-hover {
+                .ui-figure__mask {
+                    bottom: 0;
+                }
+            }
+        }
+        .ui-figure__mask {
+            bottom: -100%;
+            height: 100%;
+            line-height: 1.5;
+            text-indent: 0;
+            transition: bottom .2s ease-out 0;
+            -webkit-backface-visibility: hidden;
+            -webkit-transform-style: preserve-3d;
+        }
+    }
+}
+
+
+/*
+ * 遮罩自适应
+ * @extend: autoMask
+ */
+.ui-figure {
+    &.ext-autoMask {
+        .ui-figure__mask {
+            width: auto;
+        }
+    }
+}
+
+
+/*
+ * 无遮罩
+ * @extend: noMask
+ */
+.ui-figure {
+    &.ext-noMask {
+        .ui-figure__mask {
+            background: none;
+            filter: none;
+        }
+    }
+}
+
+
+/*
+ * 有边框
+ * @extend: border
+ */
+$figure-border-color: #ddd;
+.ui-figure {
+    &.ext-border {
+        .ui-figure__item {
+            padding: 2px;
+            border: 1px solid $figure-border-color;
+        }
+        .ui-figure__caption {
+            padding: 0 5px 5px;
+        }
+    }
+}
+
+

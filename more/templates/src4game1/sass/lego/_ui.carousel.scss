@@ -1,0 +1,117 @@
+@charset "utf-8";
+/*
+ * @file: 旋转木马基础UI组件
+ * @update: 2015-06-03 16:33:54
+ */
+ 
+/*
+ * 默认旋转木马
+ * @base
+ */
+$carousel-x-width: 440px; // 主体宽度
+$carousel-x-per-number: 5; // 每一页item个数
+$carousel-x-item-height: 80px; // item高度
+$carousel-x-item-width: 80px; // item宽度
+$carousel-x-spacing: 10px; // item间距
+$carousel-x-switch-btn-width: 24px; // 翻页按钮宽度
+
+.ui-carousel {
+    position: relative;
+    width: $carousel-x-per-number*$carousel-x-item-width+($carousel-x-per-number - 1)*$carousel-x-spacing;
+    padding: 0 $carousel-x-switch-btn-width+$carousel-x-spacing;
+}
+.ui-carousel__scroller {
+    width: $carousel-x-per-number*$carousel-x-item-width+($carousel-x-per-number - 1)*$carousel-x-spacing;
+    height: $carousel-x-item-height;
+    overflow: hidden;
+}
+.ui-carousel__content {
+    width: 100000px !important; /* 修正carousel组件自生成的长度值太大导致低版本IE不显示的bug */
+    height: $carousel-x-item-height;
+}
+.ui-carousel__item {
+    float: left;
+    width: $carousel-x-item-width;
+    height: $carousel-x-item-height;
+    margin-right: $carousel-x-spacing;
+}
+.ui-carousel__prev,
+.ui-carousel__next {
+    position: absolute;
+    top: 0;
+    width: $carousel-x-switch-btn-width;
+    height: $carousel-x-item-height;
+    line-height: $carousel-x-item-height;
+    cursor: pointer;
+    text-align: center;
+    &.is-disabled {
+        color: #ccc;
+        cursor: default;
+    }
+    .ui-icon {
+        font-size: 24px;
+    }
+}
+.ui-carousel__prev {
+    left: 0;
+}
+.ui-carousel__next {
+    right: 0;
+}
+.ui-carousel__controller {
+    margin-top: 5px;
+    text-align: center;
+    .ui-carousel__prev {
+        margin-right: 5px;
+    }
+}
+
+
+/*
+ * 纵向旋转木马
+ * @extend: vertical
+ */
+$carousel-y-width: 300px;  // 主体宽度
+$carousel-y-per-number: 5; // 每一页item个数
+$carousel-y-item-width: 300px; // item宽度
+$carousel-y-item-height: 50px; // item高度
+$carousel-y-spacing: 10px; // item间距
+$carousel-y-switch-btn-height: 24px; // 翻页按钮高度
+
+.ui-carousel {
+    &.ext-vertical {
+        width: $carousel-y-width;
+        padding: 29px 0;
+        .ui-carousel__content {
+            width: auto !important;
+            height: auto;
+        }
+        .ui-carousel__scroller {
+            width: $carousel-y-width;
+            height: $carousel-y-per-number*$carousel-y-item-height+($carousel-y-per-number - 1)*$carousel-y-spacing;
+            overflow: hidden;
+        }
+        .ui-carousel__item {
+            float: none;
+            width: auto;
+            height: $carousel-y-item-height;
+            padding: $carousel-y-spacing/2 0;
+            margin: 0;
+        }
+        .ui-carousel__prev,
+        .ui-carousel__next {
+            width: $carousel-y-width;
+            height: $carousel-y-switch-btn-height;
+            line-height: $carousel-y-switch-btn-height;
+        }
+        .ui-carousel__prev {
+            top: 0;
+            left: 0;
+        }
+        .ui-carousel__next {
+            top: auto;
+            right: 0;
+            bottom: 0;
+        }
+    }
+}

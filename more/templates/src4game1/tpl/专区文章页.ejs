@@ -38,13 +38,11 @@
                         </blockquote>
 
                         <% include partial/article %>
+                        <% include partial/zq-face %>
                         <div class="ZQ__releateNews">
                             <div class="ZQ-box ZQ-gameread">
                                 <div class="box-hd">
                                     <h3 class="title">游戏攻略</h3>
-                                    <div class="act">
-                                        <a class="more" href="#"><i></i>更多</a>
-                                    </div>
                                 </div>
                                 <div class="box-bd">
                                     <ul class="m-list">
@@ -107,23 +105,16 @@
                             }
                             </style>
                             <!-- }百度分享 -->
-                          <!--   <script type="text/javascript">
-                                var thisTitle =encodeURIComponent('FF14深夜独11111是打测试文章');
-                                showQqWeibo(thisTitle);
-                                shareToSina(thisTitle);
-                                shareTokaixin001(thisTitle);
-                                shareTorenren(thisTitle);
-                                shareToQq(thisTitle);
-                            </script> -->
-                            <!-- }社交站分享 -->
                         </div>
-
                     </div>
                     <div class="ZQ-gap"></div>
                     <!-- 新闻{ -->
                     <div class="ZQ-box ZQ-gameread">
                         <div class="box-hd">
                             <h3 class="title">游戏攻略</h3>
+                            <div class="act">
+                                <a class="more" href="#"><i></i>更多</a>
+                            </div>
                         </div>
                         <div class="box-bd">
                             <ul class="m-list">
@@ -180,7 +171,8 @@
                         </div>
                     </div>
                     <div class="ZQ-gap"></div>
-
+                    <% include partial/article-picrec %>
+                    <div class="ZQ-gap"></div>
                     <!-- }通用评论 -->
                     <div id="comment_frame">
                         <script>

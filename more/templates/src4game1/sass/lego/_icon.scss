@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+/*
+ * @file: 字体图标
+ * @update: 2015-06-03 17:19:51
+ */
+
+@font-face {
+    font-family: "lego";
+    src: url("../font/lego/iconfont.eot"); /* IE9*/
+    src: url("../font/lego/iconfont.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("../font/lego/iconfont.woff") format("woff"), /* chrome、firefox */
+    url("../font/lego/iconfont.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url("../font/lego/iconfont.svg#iconfont") format("svg"); /* iOS 4.1- */
+}
+
+.ui-icon {
+    font-family: "lego" !important;
+    font-size: 16px;
+    font-style: normal;
+    line-height: 1.1;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: .2px;
+    -moz-osx-font-smoothing: grayscale;
+}

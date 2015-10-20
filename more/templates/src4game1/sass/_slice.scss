@@ -11,16 +11,28 @@
     background-image: url(../img/slice/hot.png);
     background-repeat: no-repeat;
 }
+%i_normal {
+    width: 12px;
+    height: 12px;
+    background-image: url(../img/slice/i_normal.png);
+    background-repeat: no-repeat;
+}
+%i_selected {
+    width: 12px;
+    height: 12px;
+    background-image: url(../img/slice/i_selected.png);
+    background-repeat: no-repeat;
+}
 %icon-backtoTop-hover {
     width: 48px;
     height: 48px;
-    background-image: url(../img/slice/icon-backtoTop-hover.jpg);
+    background-image: url(../img/slice/icon-backtoTop-hover.png);
     background-repeat: no-repeat;
 }
 %icon-backtoTop {
     width: 48px;
     height: 48px;
-    background-image: url(../img/slice/icon-backtoTop.jpg);
+    background-image: url(../img/slice/icon-backtoTop.png);
     background-repeat: no-repeat;
 }
 %icon-down {
@@ -47,10 +59,22 @@
     background-image: url(../img/slice/icon-home.png);
     background-repeat: no-repeat;
 }
+%icon-minus {
+    width: 15px;
+    height: 15px;
+    background-image: url(../img/slice/icon-minus.png);
+    background-repeat: no-repeat;
+}
 %icon-more {
     width: 9px;
     height: 9px;
     background-image: url(../img/slice/icon-more.png);
+    background-repeat: no-repeat;
+}
+%icon-plus {
+    width: 15px;
+    height: 15px;
+    background-image: url(../img/slice/icon-plus.png);
     background-repeat: no-repeat;
 }
 %icon-search {

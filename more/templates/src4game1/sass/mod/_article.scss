@@ -74,9 +74,10 @@
 		}
 		img{
 			max-width: 100%;
-			// margin: 0 auto;
-			// cursor: pointer;
 		}
+        a{
+            color: nth($base-link-color,2);
+        }
 	}
 	.sweatmeat{
 		margin: 40px auto 0 auto;
@@ -122,7 +123,7 @@
 	}
 }
 
-/* 新增相关新闻 */
+/* 20150814 新增相关新闻 */
 .ZQ__releateNews{
     .ZQ-box{
         border:none;
@@ -132,5 +133,312 @@
 .ext-widthScreen{
     .ZQ-gameread .m-list li{
         width: 322px;
+    }
+}
+
+/* 20150910 更新宽屏文章页 表格模块 */
+/* 导航列表 */
+.ZQ-page__table{
+    margin: 30px 30px 0;
+}
+.pageTable__hd{
+    table{
+        width: 100%;
+    }
+    thead,tr,th{
+        height: 32px;
+        line-height: 32px;
+        text-align: center;
+    }
+    tr{
+        border-left: 1px solid #e4e4e4;
+        border-right: 1px solid #e4e4e4;
+    }
+    th{
+        border-top:2px solid #d7d7d7;
+        border-right: 1px solid #d7d7d7;
+        background-color: #e8e8e8;
+        cursor: pointer;
+        &.selected{
+            border-top-color: nth($base-link-color,2);
+            background-color: #fff;
+        }
+    }
+}
+.pageTable__bd{
+    
+    table{
+        width: 100%;
+        font-size: 14px;
+    }
+    thead{
+        tr{
+            height: 38px;
+        }
+    }
+    tbody{
+        tr{
+            height: 34px;
+        }
+    }
+    th,td{
+        border:1px solid #e4e4e4;
+        padding: 5px 0px;
+    }
+    th{
+        background-color: #f8f8f8;
+        color: #999999;
+        text-align: center;
+    }
+    td{
+        background-color: #fbfbfb;
+        text-align: center;
+    }
+    .th1{
+        width: 138px - 40;
+    }
+    .td1{
+        text-align: center;
+        color: #999999;
+    }
+    .td2{
+            color: #333333;
+    }
+}
+
+/* 进入原帖 */
+.page-article__enter{
+    width: 368px ;
+    height: 30px ;
+    display: block;
+    background-color: #fef2ef;
+    margin: 40px auto 40px;
+    font-size: 14px;
+    text-align: center;
+    color: #ec4828;
+    line-height: 30px;
+    border-radius: 3px;
+    &:hover{
+        text-decoration: none;
+        background-color: #ffebe6;
+    }
+}
+
+
+/* 20151014 更新表情模块 */
+@import "face";
+
+/* 最终资料页左侧导航 */
+.ZQ-navtree {
+	.mod-tab-hd {
+		border: 0;
+		.mod-tab-trigger {
+			float: none;
+			display: block;
+			text-align: center;
+			font-size: 0;
+			li {
+				width: 67px;
+				border-right: 1px solid #fff;
+				padding: 0;
+				background-color: #eaeaea;
+				float: none;
+				@include inline-block;
+				&.selected {
+					background-color: nth($base-link-color,2);
+				}
+			}
+		}
+	}
+}
+
+/* 可伸缩目录树 */
+.navtree-box {
+	&.is-open {
+		.navtree-box__icon {
+			i {
+				@extend %icon-minus;
+			}
+		}
+	}
+	&.is-close {
+		.navtree-box__icon {
+			i {
+				@extend %icon-plus;
+			}
+		}
+	}
+	&.ext-sidebar {
+		border-top: 2px solid nth($base-link-color,2);
+		.navtree-box__hd {
+			border-left: 1px solid #efefef;
+			border-right: 1px solid #efefef;
+			background: #f8f8f8;
+		}
+		.navtree-box__title {
+			border: 0;
+			margin: 0;
+			height: 35px;
+			line-height: 35px;
+			color: nth($base-link-color,2);
+			font-size: 14px;
+			padding-left: 16px;
+		}
+		.navtree-box__bd {
+			border-left: 1px solid #efefef;
+			border-right: 1px solid #efefef;
+			.m-list li {
+				padding-left: 16px;
+				padding-right: 14px;
+			}
+		}
+	}
+	.navtree-box__hd {
+		border-bottom: 1px solid #eaeaea;
+		@include clearfix;
+		cursor: pointer;
+		user-select: none;
+	}
+	.navtree-box__title {
+		@include float;
+	    margin: 0 10px 0 0;
+	    font-size: 16px;
+	    border-bottom: 2px solid nth($base-link-color,2);
+	    height: 34px;
+	    line-height: 34px;
+	    position: relative;
+	    margin-bottom: -1px;
+	}
+	.navtree-box__icon {
+		@include float(right);
+		width: 35px;
+		height: 35px;
+		line-height: 35px;
+		position: relative;
+		i {
+			position: absolute;
+			display: block;
+			top: 50%;
+			left: 50%;
+			margin: -8px 0 0 -8px;
+		}
+	}
+	.m-list {
+		padding-top: 8px;
+		&.ext-flow {
+			@include clearfix;
+			li {
+				@include float;
+				padding-right: 14px;
+			}
+		}
+		&.ext-double {
+			@include clearfix;
+			li {
+				width: 0px + (272/2) - 14;
+				@include float;
+			}
+		}
+	}
+	.navtree-box__bd {
+		overflow: hidden;
+		position: relative;
+	}
+}
+
+/* 侧边囧图 */
+.page-aside__jtu{
+    padding-bottom: 0px;
+    .mod-pic--mid{
+//        padding: 0px;
+        padding-bottom: 0;
+        font-size: 0px;
+    }
+    li{
+        width: 128px;
+        position: relative;
+        margin-bottom: 5px;
+        img{
+            width: 128px;
+//            height: 97px;
+            border: none;
+            margin-bottom: 0px;
+        }
+        em{
+            font-size: 12px;
+            text-align: center;
+            height: 18px;
+            overflow: hidden;
+            padding: 4px 0;
+        }
+    }
+    .jtu__img{
+        width: 128px;
+        height: 88px;
+        overflow: hidden;
+        display: block;
+    }
+    .jtu__shadow{
+        position: absolute;
+        top:68px;
+        right: 0px;
+        height: 20px;
+        padding: 0 10px;
+        font-size: 12px;
+        line-height: 20px;
+        overflow: hidden;
+        color: #fff;
+    }
+}
+.page-aside__jtu .jtu__shadow {
+    background-color: transparent;
+    background-color: rgba(0,0,0,0.6);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);
+    zoom: 1;
+}
+:root .page-aside__jtu .jtu__shadow {
+    filter: none\9;
+}
+/* 文章页图集推荐 */
+.article__picRec{
+    .box-bd{
+        padding-top: 20px;
+    }
+    .mod-pic{
+        @include clearfix;
+        margin-right: -20px;
+    }
+    li{
+        position: relative;
+        float: left;
+        overflow:visible;
+        width: 144px;
+        img{
+            width: 144px;
+            height: 110px;
+        }
+        em{
+            line-height: 22px;
+            height: 22px;
+            overflow: hidden;
+        }
+    }
+    a:hover{
+        .m-list__mask{
+            display: block;
+        }
+    }
+    a,img{
+        display: block;
+    }
+        
+    .m-list__mask{
+        position: absolute;
+        left:-2px;
+        top:-2px;
+        width: 144px;
+        height: 110px;
+        border:2px solid nth($base-link-color,2);
+        display: none;
     }
 }

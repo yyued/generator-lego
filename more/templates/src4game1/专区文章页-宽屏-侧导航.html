@@ -1,0 +1,776 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Keywords" content="多玩游戏">
+    <meta name="description" content="">
+    <title> 一线专区模板 </title>
+    <link href="css/global.css" rel="stylesheet">
+    <script src="http://assets.dwstatic.com/common/js/jquery.js"></script>
+    <script src="http://assets.dwstatic.com/b=lego/2.0.0/js&f=lego.switchable.js"></script>
+</head>
+<body>
+    <!-- 专区{ -->
+    <div class="ZQ" id="ZQ">
+        <!-- 站点导航{ -->
+<script src="http://www.duowan.com/public/s/i/navbar/navbar.js" charset="utf-8"></script>
+<!-- }站点导航 -->
+        <!-- 专区导航{ -->
+        <div class="ZQ__head">
+    <div class="ZQ__topnav">
+        <a href="" class="bbs"><span>进入论坛</span></a>
+        <div class="nav">
+            <ul>
+                <li class="current"><a href="">专区首页</a></li>
+                <li><a href="">新闻资讯</a></li>
+                <li><a href="">攻略站</a></li>
+                <li><a href="">视频站</a></li>
+                <li><a href="">新手入门</a></li>
+                <li><a href="">职业心得</a></li>
+                <li><a href="">经验攻略</a></li>
+                <li><a href="">有问必答</a></li>
+            </ul>
+        </div>
+        <!-- 引导{ -->
+        <div class="ZQ__topguide">
+            <!-- 功能模块{ -->
+            <div class="function-search">
+                <p>
+                    <a href="" class="download"><i></i>下载游戏</a>
+                    <a href="" class="fav"><i></i>注册游戏</a>
+                </p>
+                <div class="search">
+                    <form id="form-search" method="get" action="http://so.duowan.com/cse/search" target="_blank" accept-charset="utf-8">
+                        <input type="text" name="q" data-baidusug="on" id="" value="请输入关键字" onfocus="if(this.value=='请输入关键字') this.value='';" onblur="if(this.value=='') this.value='请输入关键字';" >
+                        <input type="hidden" name="s" value="14439980297804472906" />
+                        <a href="javascript:void(0)" class="submit" onClick="javascript:document.getElementById('form-search').submit()" target="_self" title="搜索">搜索</a>
+                    </form>
+                </div>
+            </div>
+            <!-- }功能模块 -->
+            <div class="guide-nav">
+                <!-- list-1{ -->
+                <div class="list">
+                    <span class="label">新手指引</span>
+                    <ul>
+                        <li class="icon-hot"><i></i><a href="">新手入门</a></li>
+                        <li class="icon-new"><i></i><a href="">注册账号</a></li>
+                        <li><a href="">创建人物</a></li>
+                        <li><a href="">新手入门</a></li>
+                        <li><a href="">注册账号</a></li>
+                    </ul>
+                </div>
+                <!-- }list-1 -->
+                <!-- list-2{ -->
+                <div class="list">
+                    <span class="label">游戏相关</span>
+                    <ul>
+                        <li><a href="">升级</a></li>
+                        <li><a href="">副本</a></li>
+                        <li><a href="">部队</a></li>
+                        <li><a href="">军票</a></li>
+                        <li><a href="">讨伐</a></li>
+                        <li><a href="">宠物</a></li>
+                        <li><a href="">赚钱</a></li>
+                    </ul>
+                </div>
+                <!-- }list-2 -->
+                <!-- list-3{ -->
+                <div class="list">
+                    <span class="label">常用攻略</span>
+                    <ul>
+                        <li><a href="">战士</a></li>
+                        <li><a href="">龙崎</a></li>
+                        <li><a href="">武僧</a></li>
+                        <li><a href="">骑士</a></li>
+                        <li><a href="">学者</a></li>
+                        <li><a href="">召唤</a></li>
+                        <li><a href="">诗人</a></li>
+                        <li><a href="">唤魔</a></li>
+                    </ul>
+                </div>
+                <!-- }list-3 -->
+                <!-- list-4{ -->
+                <div class="list">
+                    <span class="label">生产</span>
+                    <ul>
+                        <li><a href="">支架</a></li>
+                        <li><a href="">彩衣</a></li>
+                        <li><a href="">刻木</a></li>
+                        <li><a href="">连加</a></li>
+                        <li><a href="">烹调师</a></li>
+                        <li><a href="">炼金术师</a></li>
+                        <li><a href="">捕鱼人</a></li>
+                    </ul>
+                </div>
+                <!-- }list-4 -->
+            </div>
+        </div>
+        <!-- }引导 -->
+    </div>
+</div>
+        <!-- }专区导航 -->
+        <!-- 专区悬浮区{ -->
+        <div class="ZQ__free ZQ__free--pin">
+            <div class="ZQ-sidebox" id="sidebox">
+    <div class="ZQ-sidebody ext-sidebar">
+        <div class="navtree-box is-open ext-sidebar">
+            <div class="navtree-box__hd" data-role="navtree-trigger">
+                <h3 class="navtree-box__title"></h3>
+                <div class="navtree-box__icon"><i></i></div>
+            </div>
+            <div class="navtree-box__bd" data-role="navtree-content">
+                <ul class="m-list"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+<style type="text/css">
+    .ZQ__free {display: none;}
+    .ZQ-sidebox .ZQ-sidebody.ext-sidebar {background: none;}
+    .ZQ-sidebox .ZQ-sidebody.ext-sidebar .m-list {background: #fff;}
+</style>
+<script>
+    (function($){
+        var topbar_height = $('#dw-topbar').height();
+        var free = $('.ZQ__free');
+        var side_body = free.find('.ZQ-sidebody');
+        var gap_top = 23;
+        var gap_bot = 16;
+        var isShow = false;
+        $(function(){
+            var isWider = $(window).width() < 1565 ? false : true;
+            var page_table = $('#page-table');
+            if (page_table.length) {
+                var foot = $('.ZQ__foot');
+                var body = $('#sidebox .ZQ-sidebody');
+                var box = body.find('.navtree-box').eq(0);
+                body.find('.navtree-box').remove();
+                var nav = page_table.find('.J_nav').children();
+                var content = page_table.find('.J_content').children();
+                nav.each(function(){
+                    var one = box.clone();
+                    one.find('.navtree-box__title').text($(this).text());
+                    var ul = one.find('.m-list');
+                    content.eq($(this).index()).find('td').each(function(){
+                        ul.append($('<li>').html($(this).html()));
+                    });
+                    body.append(one);
+                })
+                $('#sidebox').on('click', '[data-role="navtree-trigger"]', function(){
+                    var parent = $(this).parent();
+                    var content = parent.find('[data-role="navtree-content"]');
+                    if (parent.hasClass('is-open')) {
+                        parent.removeClass('is-open').addClass('is-close');
+                        var height = content.height();
+                        content.data('height', height).stop().animate({
+                            height : 0
+                        }, parseInt(50+height*1.1), 'linear');
+                    } else {
+                        parent.removeClass('is-close').addClass('is-open');
+                        var height = content.data('height');
+                        if (height) {
+                            content.stop().animate({
+                                height : height
+                            }, parseInt(50+height*1.1), 'linear');
+                        }
+                    }
+                    recheck_position();
+                });
+                var flag = side_body.children().length - 1;
+                var body_top = $('.ZQ__body').offset().top;
+                $(window).on('resize', function(){
+                    var width = $(window).width();
+                    if (width < 1565) {
+                        if (!isWider) {
+                            isWider = true;
+                            free.css({
+                                zIndex : -999
+                            });
+                        };
+                        
+                    } else {
+                        if (isWider) {
+                            isWider = false;
+                            free.css({
+                                zIndex : 1
+                            });
+                            $(window).trigger('scroll');
+                        };
+                    }
+                }).trigger('resize');
+                $(window).on('scroll', function(){
+                    var now = $(window).scrollTop();
+                    var table_bot = page_table.offset().top + page_table.height() - topbar_height;
+                    var now_fixed = table_bot - now;
+                    if (now_fixed < 0) {
+                        if ( !isShow ) {
+                            isShow = true;
+                            free.css({
+                                opacity : 0,
+                                display : 'block'
+                            }).stop().animate({
+                                opacity : 1
+                            });
+                        }
+                        recheck_position();
+                    } else {
+                        if ( isShow ) {
+                            isShow = false;
+                            free.stop().animate({
+                                opacity : 0
+                            }, function(){
+                                free.css({
+                                    display : 'none'
+                                });
+                            });
+                        }
+                    }
+                }).trigger('scroll');
+                function recheck_position (){
+                    var now = $(window).scrollTop();
+                    var foot_top = foot.offset().top;
+                    var sidebar_height = side_body.height();
+                    var sidebar_bot = now + sidebar_height + topbar_height + gap_top + gap_bot;
+                    var bot_fixed = sidebar_bot - foot_top;
+                    if (bot_fixed > 0) {
+                        side_body.children().eq(flag).addClass('is-hide').hide();
+                        flag--;
+                    } else {
+                        var last_one = side_body.children('.is-hide').eq(0);
+                        if (last_one.length > 0) {
+                            if (Math.abs(bot_fixed) > last_one.height()) {
+                                last_one.show().removeClass('is-hide');
+                                flag++;
+                            };
+                        };
+                    }
+                }
+            }
+        });
+    })(jQuery);
+</script>
+        </div>
+        <!-- }专区悬浮区 -->
+        <!-- 专区内容{ -->
+        <div class="ZQ__body">
+        	<div class="ZQ-row no-margin">
+	        	<!-- 文章页{ -->
+	        	<div class="ZQ-71">
+                    <div class="ZQ-page ZQ-page--article">
+                        <!-- 面包屑导航{ -->
+                        <div class="mod-crumbs">
+                            <a class="back-to-index" href="#"><i></i>多玩首页</a><span class="arrow">»</span><a href="/">某专区</a><span class="arrow">»</span><b>某文章标题</b>
+                        </div>
+                        <!-- }面包屑导航 -->
+
+                        <h1>根本停不下来 疾风之刃魔影师超理想连招</h1>
+                        <address>
+                            [<span> 2014-11-12 11:27:29 </span><span class="comment"><a href="#comment_top" id="first_comment_url" target="_self">网友评论<span id="first_comment_count">3</span>条</a></span> <span>来源：优酷</span> <span>作者：彭哥列第十代</span> <span><a href="http://bbs.duowan.com/forum-1624-1.html">进入论坛</a></span>]
+                        </address>
+
+                        <blockquote class="summary">
+                            <span class="label">小编前言</span>
+                            <p>哈喽小伙伴们，新的一期手游抢鲜看和大家见面啦！本期节目同样是猛料多多哟！EA出品经典模拟城市登陆手机双平台，吼吼！我是要成为市长的男人~哈喽小伙伴们，新的一期手游抢鲜看和大家见面啦！</p>
+                        </blockquote>
+                        <div class="ZQ-page__table" id="page-table">
+    <div class="pageTable__hd">
+        <table>
+            <thead>
+                <tr class="J_nav">
+                    <th class="selected">技能平衡改版</th>
+                    <th>游戏便利改版</th>
+                    <th>EX内容展示</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div class="pageTable__bd J_content">
+        <table style="display: table;">
+            <tbody>
+  <tr>
+    <td class="td2"><a href="http://dnf.duowan.com/1507/302193879617.html">改版公告</a></td>
+    <td class="td2"><a href="http://dnf.duowan.com/1507/302193879617_7.html">蓝拳平衡调整</a></td>
+    </tr>
+  <tr>
+    <td class="td2"><a href="http://dnf.duowan.com/1507/302193879617_9.html">男机械技能平衡</a></td>
+    <td class="td2"><a href="http://dnf.duowan.com/1507/302193879617_10.html">机械30级被动展示</a></td>
+  </tr>
+    <tr>
+    <td class="td2"><a href="http://dnf.duowan.com/1507/302193879617_13.html">忍者技能平衡</a></td>
+    <td class="td2"><a href="http://dnf.duowan.com/1507/302193879617_14.html">男弹药技能平衡</a></td>
+  </tr>
+            </tbody>
+        </table>
+        <table class="hide" style="display: none;">
+            <tbody>
+    <tr>
+    <td class="td2"><a href="http://dnf.duowan.com/1507/302193879617_21.html">公会界面改版</a></td>
+    <td class="td2"><a href="http://dnf.duowan.com/1507/302193879617_29.html">史诗相关改版</a></td>
+  </tr>
+      <tr>
+    <td class="td2"><a href="http://dnf.duowan.com/1507/302193879617_43.html">普鲁兹改动展示</a></td>
+    <td class="td2"><a href="http://dnf.duowan.com/1507/302193879617_44.html">格兰迪改动展示</a></td>
+  </tr>
+      <tr>
+    <td class="td2"><a href="http://dnf.duowan.com/1507/302193879617_48.html">寂静城深渊位置</a></td>
+    <td class="td2"><a href="http://dnf.duowan.com/1507/302193879617_49.html">能源熔炉改动</a></td>
+  </tr>
+      <tr>
+    <td class="td2"><a href="http://dnf.duowan.com/1507/302193879617_53.html">领主粉改版陨石数量</a></td>
+    <td class="td2"><a href="http://dnf.duowan.com/1507/302193879617_53.html">天界</a></td>
+  </tr>
+            </tbody>
+        </table>
+        <table class="hide" style="display: none;">
+            <tbody>
+      <tr>
+    <td class="td2"><a href="http://dnf.duowan.com/1507/302193879617_65.html">任务簿画册外观</a></td>
+    <td class="td2"><a href="http://dnf.duowan.com/1507/302193879617_67.html">男法二觉相关</a></td>
+    <td class="td2"><a href="http://dnf.duowan.com/1507/302193879617_68.html">男弹药一觉改版</a></td>
+  </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
+                        <div id="text">
+    <p>HELLO大家好，我是超控团灯火，这是我在不删档测试里做的第二篇攻略，今天给大家带来一个我们超控团从来都没做过的内容，就是高级怪的特殊技能介绍以及应对方法，大家在将近两个礼拜对游戏的体验，应该已经对<a href="http://jf.duowan.com/" target="_blank">疾风之刃</a>这款游戏大体上比较熟悉了，在这里还是扫盲一下，高级怪物就是蓝色名字的精英怪，区别于BOSS和普通小怪。</p>
+    <p><strong>　Part1.蓝名精英怪的小秘密</strong></p>
+    <p>①蓝名精英怪都是有特殊技能的，要注意应对方法。</p>
+    <p>②不要被带有催促、粘性爆炸的高级怪和小怪群围攻。</p>
+    <p>③对付有虚张声势的怪物先把小怪杀光，如果同时出现两个虚张声势，自认倒霉。</p>
+    <p>④看清是否是免疫类型技能的高级怪，防止技能丢空。</p>
+    <p>⑤要注意领域类技能，不要不注意被毒死了。</p>
+    <p><strong>Part2.高级怪物特殊技能大汇总</strong></p>
+    <p>1.沼泽地</p>
+    <p style="text-align: center;"><img src="http://img1.dwstatic.com/jf/1411/279719263395/279719379204.jpg" zoomfile="http://img.dwstatic.com/jf/1411/279719263395/279719379204.jpg" file="http://img.dwstatic.com/jf/1411/279719263395/279719379204.jpg" inpost="1" alt="点击放大" title="沼泽地.jpg" initialized="true" width="600" style="cursor: pointer;"></p>
+    <p>沼泽地这个技能会在怪物脚下生成一个土黄色的范围领域，站在里面不会掉血但会减攻速和移速，沼泽地是自动生成的，不管怪物是被击飞还是击晕，沼泽地都会自动释放。</p>
+    <p>2.雄心</p>
+    <p style="text-align: center;"><img src="http://img4.dwstatic.com/jf/1411/279719263395/279719379205.jpg" zoomfile="http://img.dwstatic.com/jf/1411/279719263395/279719379205.jpg" file="http://img.dwstatic.com/jf/1411/279719263395/279719379205.jpg" inpost="1" alt="雄心.jpg" title="雄心.jpg" initialized="true"></p>
+    <p>拥有雄心效果的怪物身边会有几个红色的小球，在受到程度的攻击后，小球会消失，同时怪物进入持续霸体状态，破霸体技能是破除不了雄心的，只能等雄心持续时间结束或者击杀该怪物。</p>
+    <p style="text-align: center;"> <img src="http://img2.dwstatic.com/aa/1505/295624239831/1431669079316.jpg" alt="三个步骤教你上古世纪滑翔翼升级 新手必看"></p>
+    <p style="text-align: center;">
+        <a href="javascript:;"><img src="http://img2.dwstatic.com/aa/1505/295624239831/1431669079316.jpg" alt="三个步骤教你上古世纪滑翔翼升级 新手必看"></a>
+    </p>
+</div>
+<!-- 进入原帖{ -->
+<a href="" class="page-article__enter">点击进入论坛参与原帖讨论  ></a>
+<!-- }进入原帖 -->
+<!-- 页码{ -->
+<div id="pageNum">
+    <span><a target="_self" href="308664160379_2.html">上一页</a></span>
+    <span><a target="_self" href="308664160379.html">1</a></span>
+    <span><a target="_self" href="308664160379_2.html">2</a></span>
+    <span id="pageNow"><a target="_self" href="#">3</a></span><span>
+    <a target="_self" href="308664160379_4.html">4</a></span>
+    <span><a target="_self" href="308664160379_4.html">下一页</a></span>
+</div>
+<!-- }页码 -->
+
+<!-- 相关新闻{ -->
+<div class="ZQ-relative">
+    <div class="ZQ-relative__hd">
+        <h3>相关推荐</h3>
+    </div>
+    <div class="ZQ-relative__bd">
+        <ul class="m-list">
+            <li><i></i><a href="#" title="">韩国玩家星际争霸高达作品死神来了</a></li>
+            <li><i></i><a href="#" title="">转虫族给力啊 星际猪出品趣味星际2漫画</a></li>
+            <li><i></i><a href="#" title="">首位GSL美女选手参赛照片 震撼护士装</a></li>
+            <li><i></i><a href="#" title="">韩国GSL第三季1500人预选赛首日现场图赏</a></li>
+            <li><i></i><a href="#" title="">国内画师leon19星际争霸2美术作品欣赏</a></li>
+            <li><i></i><a href="#" title="">转虫族给力啊 星际猪出品趣味星际2漫画</a></li>
+            <li><i></i><a href="#" title="">首位GSL美女选手参赛照片 震撼护士装</a></li>
+            <li><i></i><a href="#" title="">韩国GSL第三季1500人预选赛首日现场图赏</a></li>
+            <li><i></i><a href="#" title="">国内画师leon19星际争霸2美术作品欣赏</a></li>
+        </ul>
+    </div>
+</div>
+<!-- }相关新闻 -->
+
+<!-- 移动 - sweatmeat{ -->
+<div class="sweatmeat">
+    <div class="sweatmeat__hd">
+        <a href="">更多资讯尽在多玩最终幻想14专区</a>
+    </div>
+    <div class="sweatmeat__bd">
+        <img src="" alt="">
+    </div>
+</div>
+<!-- }移动 - sweatmeat -->
+                        <div id="share-links">
+                            <!-- 社交站分享{ -->
+                            <!-- 百度分享{ -->
+                            <div class="bdsharebuttonbox bdshare-button-style0-16" data-bd-bind="1415939419529">
+                                <span>分享到：</span>
+                                <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                                <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                                <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+                                <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+                                <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+                                <a href="#" class="bds_more" data-cmd="more"></a>
+                            </div>
+                            <script>
+                            window._bd_share_config = {
+                                "common": {
+                                    "bdSnsKey": {
+                                        "tsina": "4079905110",
+                                        "tqq": "42d33144240e4386a43ee39629560564"
+                                    },
+                                    "bdText": "",
+                                    "bdMini": "2",
+                                    "bdMiniList": false,
+                                    "bdPic": "",
+                                    "bdStyle": "0",
+                                    "bdSize": "16"
+                                },
+                                "share": {}
+                            };
+                            with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+                            </script>
+                            <style>
+                            .bdsharebuttonbox {
+                                float: right !important;
+                                _display: inline;
+                                padding-right: 10px;
+                                height: 20px;
+                                line-height: 20px;
+                                overflow: hidden;
+                            }
+                            .bdsharebuttonbox a {
+                                position: relative;
+                                top: -4px;
+                            }
+                            .bdsharebuttonbox span {
+                                float: left;
+                                _display: inline;
+                            }
+                            </style>
+                            <!-- }百度分享 -->
+                            <!-- }社交站分享 -->
+                        </div>
+                    </div>
+
+                    <div class="ZQ-gap"></div>
+
+                    <div class="ZQ-row no-margin ZQ-page--article">
+                        <div class="ZQ-71-51">
+                            <!-- 表情投票{ -->
+                            <div class="vote-system vote-system__background" data-role="vote-system">
+    <div class="vote-system__hd">
+        <p class="vote-system__tit">看完本文后有何评价？已有<span id="face_title_span" class="vote-system__color">0</span>人评价，点选表情后可看到其他玩家的表态。</p>
+    </div>
+    <div class="vote-system__bd">
+        <div class="vote-system__opts" id="face">
+            <input type="hidden" id="type" value="1">
+            <input type="hidden" id="articleId" value="307323263730">
+            <input type="hidden" id="channelId" value="wuxia">
+            <input type="hidden" id="tag" value="normal">
+            <input type="hidden" id="title" value="剑者孤独 论剑热身赛赛区前十榜单公布">
+            <input type="hidden" id="url" value="http://wuxia.duowan.com/1509/307323263730.html">
+            <input type="hidden" id="encode" value="utf-8">
+            <div id="face_title" style="display:none"><span></span></div>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="vote-system__opt">
+                            <div class="vote-system__result">
+                                <div id="xx1" class="vote-system__chart vote-system__forecolor" style="height:0%">
+                                    <span id="span1" class="vote-system__value">0</span>
+                                </div>
+                            </div>
+							<img name="_img" alt="" src="http://pic.duowan.com/mhzx/1001/126702134993/126714114417.gif" _fcksavedurl="http://pic.duowan.com/mhzx/1001/126702134993/126714114417.gif">
+                        </td>
+                        <td class="vote-system__opt">
+                            <div class="vote-system__result">
+                                <div id="xx2" class="vote-system__chart vote-system__forecolor" style="height:0%">
+                                    <span id="span2" class="vote-system__value">0</span>
+                                </div>
+                            </div>
+                            <img name="_img" alt="" src="http://pic.duowan.com/mhzx/1001/126702134993/126714114418.gif" _fcksavedurl="http://pic.duowan.com/mhzx/1001/126702134993/126714114418.gif">
+                        </td>
+                        <td class="vote-system__opt">
+                            <div class="vote-system__result">
+                                <div id="xx3" class="vote-system__chart vote-system__forecolor" style="height:0%">
+                                    <span id="span3" class="vote-system__value">0</span>
+                                </div>
+                            </div>
+                            <img name="_img" alt="" src="http://pic.duowan.com/mhzx/1001/126702134993/126714114419.gif" _fcksavedurl="http://pic.duowan.com/mhzx/1001/126702134993/126714114419.gif">
+                        </td>
+                        <td class="vote-system__opt">
+                            <div class="vote-system__result">
+                                <div id="xx4" class="vote-system__chart vote-system__forecolor" style="height:0%">
+                                    <span id="span4" class="vote-system__value">0</span>
+                                </div>
+                            </div>
+                            <img name="_img" alt="" src="http://pic.duowan.com/mhzx/1001/126702134993/126714114420.gif" _fcksavedurl="http://pic.duowan.com/mhzx/1001/126702134993/126714114420.gif">
+                        </td>
+                        <td class="vote-system__opt">
+                            <div class="vote-system__result">
+                                <div id="xx5" class="vote-system__chart vote-system__forecolor" style="height:0%">
+                                    <span id="span5" class="vote-system__value">0</span>
+                                </div>
+                            </div>
+                            <img name="_img" alt="" src="http://pic.duowan.com/mhzx/1001/126702134993/126714114421.gif" _fcksavedurl="http://pic.duowan.com/mhzx/1001/126702134993/126714114421.gif">
+                        </td>
+                        <td class="vote-system__opt">
+                            <div class="vote-system__result">
+                                <div id="xx6" class="vote-system__chart vote-system__forecolor" style="height:0%">
+                                    <span id="span6" class="vote-system__value">0</span>
+                                </div>
+                            </div>
+                            <img name="_img" alt="" src="http://pic.duowan.com/mhzx/1006/141831485415/141831511458.gif" _fcksavedurl="http://pic.duowan.com/mhzx/1006/141831485415/141831511458.gif">
+                        </td>
+                        <td class="vote-system__opt">
+                            <div class="vote-system__result">
+                                <div id="xx7" class="vote-system__chart vote-system__forecolor" style="height:0%">
+                                    <span id="span7" class="vote-system__value">0</span>
+                                </div>
+                            </div>
+                            <img name="_img" alt="" src="http://pic.duowan.com/mhzx/1001/126702134993/126716586710.gif" _fcksavedurl="http://pic.duowan.com/mhzx/1001/126702134993/126714114423.gif">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="vote-system__txt">牛顶</span>
+                        </td>
+                        <td>
+                            <span class="vote-system__txt">鄙视</span>
+                        </td>
+                        <td>
+                            <span class="vote-system__txt">膜拜</span>
+                        </td>
+                        <td>
+                            <span class="vote-system__txt">么个</span>
+                        </td>
+                        <td>
+                            <span class="vote-system__txt">雷囧</span>
+                        </td>
+                        <td>
+                            <span class="vote-system__txt">不解</span>
+                        </td>
+                        <td>
+                            <span class="vote-system__txt">路过</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i class="vote-system__btn"></i>
+                            <input name="choice" type="radio" value="1" onclick="voteRadio(1,'face',0,0)" style="display:none">
+                        </td>
+                        <td>
+                            <i class="vote-system__btn"></i>
+                            <input name="choice" type="radio" value="2" onclick="voteRadio(2,'face',0,0)" style="display:none">
+                        </td>
+                        <td>
+                            <i class="vote-system__btn"></i>
+                            <input name="choice" type="radio" value="3" onclick="voteRadio(3,'face',0,0)" style="display:none">
+                        </td>
+                        <td>
+                            <i class="vote-system__btn"></i>
+                            <input name="choice" type="radio" value="4" onclick="voteRadio(4,'face',0,0)" style="display:none">
+                        </td>
+                        <td>
+                            <i class="vote-system__btn"></i>
+                            <input name="choice" type="radio" value="5" onclick="voteRadio(5,'face',0,0)" style="display:none">
+                        </td>
+                        <td>
+                            <i class="vote-system__btn"></i>
+                            <input name="choice" type="radio" value="6" onclick="voteRadio(6,'face',0,0)" style="display:none">
+                        </td>
+                        <td>
+                            <i class="vote-system__btn"></i>
+                            <input name="choice" type="radio" value="7" onclick="voteRadio(7,'face',0,0)" style="display:none">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="vote-system__aside" id="ding">
+            <input type="hidden" id="type" value="2">
+            <input type="hidden" id="articleId" value="307323263730">
+            <input type="hidden" id="channelId" value="wuxia">
+            <input type="hidden" id="tag" value="normal">
+            <input type="hidden" id="title" value="剑者孤独 论剑热身赛赛区前十榜单公布">
+            <input type="hidden" id="url" value="http://wuxia.duowan.com/1509/307323263730.html">
+            <input type="hidden" id="encode" value="utf-8">
+            <input type="radio" id="choice" value="1" style="display:none">
+            <div class="vote-system__like">
+                <p class="vote-system__total"><span id="span1">4</span><span>票</span></p>
+                <p class="vote-system__ding vote-system__forecolor vote-system__forecolor--hover" onclick="voteRadio(1,'ding',0,0)">我顶！</p>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    (function(){
+        var btns = document.getElementById('face').getElementsByTagName('i');
+        var len = btns.length;
+        var select = function(){
+            for (var i = 0; i < len; i++) {
+                btns[i].className = 'vote-system__btn';
+            }
+            this.className += ' vote-system__btn--selected';
+            var radio = this.nextElementSibling||this.nextSibling;
+            radio&&radio.click&&radio.click();
+        }
+        for (var i = 0; i < len; i++) {
+            btns[i].onclick = select;
+        }
+    })();
+</script>
+<script src="http://www.duowan.com/public/s/i/vote_statistics.js"></script>
+<script>
+    (function(){
+        var _parseText = window.parseText;
+        window.parseText = function(){
+            _parseText.apply(null, arguments);
+            if (arguments[0] == 'face') {
+                document.getElementById('face_title_span').innerHTML = document.getElementById('face_title').getElementsByTagName('span')[0].innerHTML;
+            }
+        }
+        getValue("face");
+        voteRadio(8,'face',1,0);
+        getValue("ding");
+        voteRadio(1,'ding',1,0);
+    })();
+</script>
+                            <!-- }表情投票 -->
+                            
+                        </div>
+                        <div class="ZQ-71-19">
+                            <div class="m-tab m-tab--weekly is-short">
+                                <div class="mod-tab-hd">
+                                    <h3 class="mod-tab-title">综合攻略</h3>
+                                    <div class="act">
+                                        <a href="" class="more"><i></i>更多</a>
+                                    </div>
+                                </div>
+                                <div class="mod-tab-bd J_content">
+                                    <div class="mod-tab-content">
+                                        <ul class="m-list--news ext-nodate">
+                                            <li><i></i><a href="#" title="">韩国玩家星际争霸高达作品死神来了</a></li>
+                                            <li><i></i><a href="#" title="">转虫族给力啊 星际猪出品趣味星际2漫画</a></li>
+                                            <li><i></i><a href="#" title="">首位GSL美女选手参赛照片 震撼护士装</a></li>
+                                            <li><i></i><a href="#" title="">韩国GSL第三季1500人预选赛首日现场图赏</a></li>
+                                            <li><i></i><a href="#" title="">国内画师leon19星际争霸2美术作品欣赏</a></li>
+                                            <li><i></i><a href="#" title="">转虫族给力啊 星际猪出品趣味星际2漫画</a></li>
+                                            <li><i></i><a href="#" title="">转虫族给力啊 星际猪出品趣味星际2漫画</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 专区评论{ -->
+                        $comment
+                    <!-- }专区评论 -->
+
+	        	</div>
+	        	<!-- }文章页 -->
+        	</div>
+        </div>
+        <!-- }专区内容 -->
+        <!-- 专区底部{ -->
+        <div class="ZQ__foot">
+    <!-- 网站地图{ -->
+    <div class="ZQ__map">
+        <!-- 搜索 - 标识{ -->
+        <div class="foot-action">
+            <form id="form-search2" method="get" action="http://so.duowan.com/cse/search" target="_blank" accept-charset="utf-8">
+                <div class="search">
+                    <input type="text" name="q" data-baidusug="on" id="" value="请输入关键字" onfocus="if(this.value=='请输入关键字') this.value='';" onblur="if(this.value=='') this.value='请输入关键字';" >
+                    <input type="hidden" name="s" value="14439980297804472906" />
+                    <a href="javascript:void(0)" onclick="javascript:document.getElementById('form-search2').submit()" title="搜索" class="submit">搜索</a>
+                </div>
+                <a href="" class="connect">联系主编</a>
+            </form>
+        </div>
+        <!-- }搜索 - 标识 -->
+        <div class="inner">
+            <div class="map-list">
+                <ul class="list">
+                    <li><span class="label">热点新闻</span></li>
+                    <li><a href="">官方新闻</a></li>
+                    <li><a href="">研发日志</a></li>
+                    <li><a href="">小道消息</a></li>
+                </ul>
+                <ul class="list">
+                    <li><span class="label">热点新闻</span></li>
+                    <li><a href="">官方新闻官方新闻官方新闻</a></li>
+                    <li><a href="">研发日志</a></li>
+                    <li><a href="">小道消息</a></li>
+                </ul>
+                <ul class="list">
+                    <li><span class="label">热点新闻</span></li>
+                    <li><a href="">官方新闻</a></li>
+                    <li><a href="">研发日志</a></li>
+                    <li><a href="">小道消息</a></li>
+                    <li><a href="">官方新闻</a></li>
+                    <li><a href="">研发日志</a></li>
+                    <li><a href="">小道消息</a></li>
+                </ul>
+                <ul class="list">
+                    <li><span class="label">热点新闻</span></li>
+                    <li><a href="">官方新闻</a></li>
+                    <li><a href="">研发日志</a></li>
+                    <li><a href="">小道消息</a></li>
+                    <li><a href="">官方新闻</a></li>
+                    <li><a href="">研发日志</a></li>
+                    <li><a href="">小道消息</a></li>
+                </ul>
+                <ul class="list">
+                    <li><span class="label">热点新闻</span></li>
+                    <li><a href="">官方新闻</a></li>
+                    <li><a href="">研发日志</a></li>
+                    <li><a href="">小道消息</a></li>
+                </ul>
+                <ul class="list">
+                    <li><span class="label">热点新闻</span></li>
+                    <li><a href="">官方新闻</a></li>
+                    <li><a href="">研发日志</a></li>
+                    <li><a href="">小道消息</a></li>
+                </ul>
+                <ul class="list">
+                    <li><span class="label">热点新闻</span></li>
+                    <li><a href="">官方新闻</a></li>
+                    <li><a href="">研发日志</a></li>
+                    <li><a href="">小道消息</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <!-- }网站地图 -->
+    <div class="ZQ__friend">
+        <div class="inner">
+            <p class="link">
+                <span class="label"><em>友情链接</em></span>
+                <a href="">5253手游网</a><a href="">多玩风暴英雄</a><a href="">多玩DNF</a><a href="">NEOTV LOL</a><a href="">NEOTV LOL</a><a href="">LOL图片</a><a href="">5253手游网</a><a href="">多玩风暴英雄</a><a href="">多玩DNF</a><a href="">NEOTV LOL</a><a href="">NEOTV LOL</a><a href="">LOL图片</a><a href="">5253手游网</a><a href="">多玩风暴英雄</a><a href="">多玩DNF</a><a href="">NEOTV LOL</a><a href="">NEOTV LOL</a><a href="">LOL图片</a>
+            </p>
+        </div>
+    </div>
+    <!-- 版权信息{ -->
+<script src="http://www.duowan.com/assets/js/duowanFooter.js" charset="utf-8"></script>
+<!-- }版权信息 -->
+</div>
+
+        <!-- }专区底部 -->
+    </div>
+    <!-- }专区 -->
+</body>
+    <script src="js/main.js"></script>
+    <script>
+    //格式文章页图片
+    ZQ.imageLightbox();
+    if($('#page-table').length){
+        LEGO.tab("#page-table",{event:"hover"});
+    }
+</script>
+</html>

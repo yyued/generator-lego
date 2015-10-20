@@ -33,7 +33,6 @@
                 var isA=$(this).parent()[0].tagName;
                 var w=$(this).width();
                 var pWidth=$(this).parents('#text').width();
-                console.log(pWidth)
                 if(isA != "A"){
                     if(w > (pWidth - 2)){
                         $(this).css('width',pWidth+'px');

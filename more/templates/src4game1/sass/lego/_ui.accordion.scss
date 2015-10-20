@@ -1,0 +1,71 @@
+@charset "utf-8";
+/*
+ * @file: 手风琴UI组件
+ * @update: 2015-06-03 16:36:10
+ */
+
+/*
+ * 默认手风琴（horizontal）
+ * @base
+ */
+$base-width: 500px; // 手风琴宽度
+$base-content-height: 150px; // content高度
+
+.ui-accordion {
+    width: $base-width;
+}
+.ui-accordion__hd {
+    @include clearfix;
+    padding: 8px 10px;
+    margin-top: -1px;
+    background-color: $heading-bg-color;
+    border: 1px solid $base-border-color;
+    cursor: pointer;
+    &.is-active {
+        background-color: $active-bg-color;
+        cursor: default;
+    }
+}
+.ui-accordion__tit {
+    float: left;
+}
+.ui-accordion__ext {
+    float: right;
+}
+.ui-accordion__bd {
+    height: $base-content-height;
+    padding: 10px;
+    border: 1px solid $base-border-color;
+    border-top-width: 0;
+}
+
+
+/*
+ * 纵向手风琴
+ * @extend: vertical
+ */
+$vertical-content-width: 320px; // content宽度
+$vertical-content-height: 300px; // content高度
+
+.ui-accordion {
+    &.ext-vertical {
+        @include clearfix;
+        width: auto;
+        .ui-accordion__hd {
+            float: left;
+            width: 18px;
+            height: $vertical-content-height;
+            padding: 10px 8px;
+            margin-top: 0;
+            margin-left: -1px;
+            text-align: center;
+        }
+        .ui-accordion__bd {
+            float: left;
+            width: $vertical-content-width;
+            height: $vertical-content-height;
+            margin-left: -1px;
+            border-top-width: 1px;
+        } 
+    }
+}

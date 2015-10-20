@@ -2,15 +2,23 @@
 	 //返回顶部
     backtoTop();
     function backtoTop(){
-    var sTop=$(window).scrollTop();
+        var sTop=$(window).scrollTop();
      	if(sTop > 500){
             $('#backtoTop').stop().animate({opacity:1}, 200)
         } else{
             $('#backtoTop').stop().animate({opacity:0}, 200)
         }
+        
+        var winW=$(window).width();
+        if(winW < 1350){
+            $('#backtoTop').stop().animate({opacity:0}, 200)
+        } else{
+            $('#backtoTop').stop().animate({opacity:1}, 200)
+        }
         $(window).scroll(function(){
             var scrollTop=$(this).scrollTop();
-            if(scrollTop > 200){
+            var winW=$(window).width();
+            if(scrollTop > 200 && winW > 1350){
             $('#backtoTop').stop().animate({opacity:1}, 200)
             } else{
             $('#backtoTop').stop().animate({opacity:0}, 200)

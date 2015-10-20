@@ -1,0 +1,90 @@
+@charset "utf-8";
+
+/*
+ * @file: 文字列表UI组件
+ * @update: 2015-06-05 16:45:17
+ */
+ 
+/*
+ * 默认列表
+ * @base
+ */
+$item-height: 24px; // item高度
+$item-line-height: 24px; // item行高
+
+.ui-list__item {
+    height: $item-height;
+    line-height: $item-line-height;
+    overflow: hidden;
+}
+.ui-list__link {
+    margin-right: 10px;
+}
+.ui-list__tag {
+    color: #f60;
+}
+.ui-list__meta {
+    float: right;
+    margin-left: 10px;
+    color: #999;
+}
+.ui-list__num {
+    @include inline-block;
+    overflow: hidden;
+    margin-right: 5px;
+    width: 18px;
+    height: 14px;
+    border-radius: 2px;
+    font: normal 12px/14px verdana;
+    text-align: center;
+    color: #666;
+    background-color: #e8e8e8;
+}
+
+
+/*
+ * 实心圆标记
+ * @extend: disc
+ */
+.ui-list {
+    &.ext-disc {
+        list-style: disc inside none;
+    }
+}
+
+/*
+ * 实心方块标记
+ * @extend: square
+ */
+.ui-list {
+    &.ext-square {
+        list-style: square inside none;
+    }
+}
+ 
+
+/*
+ * 双栏列表
+ * @extend: half
+ */
+.ui-list {
+    &.ext-half {
+        font-size: 0; /* 所有浏览器 */
+        *word-spacing: -1px; /* IE6/7 */
+        .ui-list__item {
+            @include inline-block;
+            vertical-align: top;
+            font-size: 12px;
+            letter-spacing: normal;
+            word-spacing: normal;
+            width: 48%;
+            *width: 47.99%;
+            margin-right: 2%;
+        }
+    }
+}
+@media (-webkit-min-device-pixel-ratio:0) {
+    .ui-list.ext-half {
+        letter-spacing: -5px; /* Safari 5- 等不支持 font-size: 0 的浏览器*/
+    }
+}
