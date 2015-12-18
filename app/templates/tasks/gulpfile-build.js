@@ -86,8 +86,15 @@ module.exports = function(gulp, plugins) {
             .pipe(myReporter)
     })
     gulp.task('build_js', ['build_jshint'], function() {
+        // @see https://github.com/mishoo/UglifyJS2#compressor-options
         return gulp.src('src/js/**/*.js')
-            .pipe(plugins.uglify({preserveComments:'some', mangle:false}).on('error', console.log))
+            .pipe(plugins.uglify({
+                preserveComments:'some',
+                mangle:false,
+                compress: {
+                    drop_console: true 
+                }
+            }).on('error', console.log))
             .pipe(plugins.header(banner, { pkg : pkg } ))
             .pipe(gulp.dest('dest/js'))
     })
