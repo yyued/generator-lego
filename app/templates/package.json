@@ -27,7 +27,8 @@
     "gulp-plumber": "^1.0.0",
     "gulp-svg-symbols": "^0.3.1",
     "gulp-rename": "~1.2.2",
-    "gulp-imagemin": "~0.6.1",
+    "gulp-imagemin": "~2.4.0",
+    "imagemin-pngquant": "~4.2.0",
     "gulp-zip": "~0.4.0",
     "gulp-header": "~1.1.1",
     "gulp-cdn-absolute-path": "0.0.4",
@@ -35,6 +36,8 @@
     "gulp-replace": "~0.5.0",
     "gulp-jshint": "~1.11.2",
     "jshint-stylish": "~2.0.1",
+    "gulp-jsbeautifier": "^1.0.1",
+    "map-stream": "0.0.6",
     "qrcode-terminal": "^0.10.0"
   }
 }

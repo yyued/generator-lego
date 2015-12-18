@@ -16,11 +16,12 @@ var cfgRoot =  path.join(homeDir, '.generator-lego')
 var libPath = path.join(cfgRoot, 'node_modules')
 var configPath = path.join(cfgRoot, 'config.json')
 
-var LegoGenerator = yeoman.generators.Base.extend({
+var LegoGenerator = yeoman.Base.extend({
 	
 	// 1. 提问前的准备工作
-	init: function (){
-		this.conflicter.force = true
+	constructor: function (){
+		yeoman.Base.apply(this, arguments)
+		this.conflicter.force = true	
 
 		// 初始环境检测
 		// 若当前目录没有node_modules文件夹，则建立软连接；否则继续
@@ -136,8 +137,9 @@ var LegoGenerator = yeoman.generators.Base.extend({
 		fs.writeFileSync(configPath, JSON.stringify(this.gConfig, null, 4), {encoding: 'utf8'})
 		
 		// 拷贝资源文件，资源文件可以通过`<%= %>`读取当前实例的数据
-		this.directory(this.projectAssets, 'src')
 		this.directory('tasks', 'tasks')
+		this.directory(this.projectAssets, 'src')
+		this.copy(path.join(this.projectAssets, 'README.md'), 'README.md')
 		this.copy('.jshintrc', '.jshintrc')
 		this.copy('gulpfile.js', 'gulpfile.js')
 		this.pkgGulpSassVersion = (win32?'1.3.3':'~2.0.1')
@@ -147,7 +149,7 @@ var LegoGenerator = yeoman.generators.Base.extend({
 	// 4. 拷贝后执行命令 如建立软链接等
 	end: function(){
 		// 文件转移后，删除不需要的文件
-		del(['src/**/.gitignore','src/**/.npmignore'])
+		del(['src/**/.gitignore','src/**/.npmignore', 'src/README.md'])
 		
 		// 安装包依赖，然后执行`gulp`
 		// https://github.com/yeoman/generator/blob/45258c0a48edfb917ecf915e842b091a26d17f3e/lib/actions/install.js#L67-69
@@ -162,7 +164,7 @@ var LegoGenerator = yeoman.generators.Base.extend({
 			if(!win32){
 	        	if(this.gConfig['open_app']){
 	        		this.spawnCommand('open', ['-a', this.gConfig['open_app'], '.'])
-	        	} 
+	        	}
 			}
         	this.spawnCommand('gulp')
             log('资源初始化完毕! 现在可以 coding...')

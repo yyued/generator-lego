@@ -36,22 +36,7 @@ module.exports = function(gulp, plugins) {
         })
     })
     gulp.task('dev_sass', function() {
-
-        function sassCompile4win(){
-            function normalizeErr(err){
-                var path = require('path')
-                var cwd = path.join(__dirname, '..')
-                var relativePath = path.relative(cwd, err.file)
-                return relativePath+' @'+err.line+':'+err.column+'\n'+err.message
-            }
-            var config = {
-                onError: function(err){
-                    return plugins.notify().write(normalizeErr(err))
-                }
-            }
-            return plugins.sass(config)
-        }
-        function sassCompile4nix(){
+        function sassCompile(){
             function handler(){
                 return plugins.notify.onError({
                     title:'sass编译错误', 
@@ -60,26 +45,23 @@ module.exports = function(gulp, plugins) {
             }
             return plugins.sass().on('error', handler()) 
         }
-
-        // `gulp -n` 不启用sourcemap
-        if(argv.n){
-            return gulp.src('src/sass/*.scss')
-                .pipe(plugins.cached('sass', {optimizeMemory: true}))
-                .pipe(win32? sassCompile4nix() : sassCompile4nix())
-                .pipe(plugins.autoprefixer({browsers: ['> 0%']}))
-                .pipe(plugins.remember('sass'))
-                .pipe(gulp.dest('src/css'))
-                .pipe(reload({stream:true}))    
-        }
         return gulp.src('src/sass/*.scss')
             .pipe(plugins.plumber())
             .pipe(plugins.sourcemaps.init())
-            .pipe(win32? sassCompile4nix() : sassCompile4nix())
+            .pipe(sassCompile())
             .pipe(plugins.sourcemaps.write({includeContent: false, sourceRoot: '../sass/'}))
             .pipe(plugins.sourcemaps.init({loadMaps: true}))
             .pipe(plugins.autoprefixer( {browsers: ['> 0%']} ))
             .pipe(plugins.sourcemaps.write({includeContent: false, sourceRoot: '../sass/'}))
             .pipe(gulp.dest('src/css'))
+            .pipe(reload({stream:true}))
+    })
+    gulp.task('dev_js', function() {
+        var stylish = require('jshint-stylish')
+        return gulp.src(['src/js/**', '!src/js/lib/**'])
+            .pipe(plugins.cached('jshint'))
+            .pipe(plugins.jshint('.jshintrc'))
+            .pipe(plugins.jshint.reporter(stylish, { verbose: true }))
             .pipe(reload({stream:true}))
     })
     gulp.task('dev_ejs', function() {
@@ -174,14 +156,14 @@ module.exports = function(gulp, plugins) {
         ])
     })
 
-    gulp.task('default', ['dev_conn'], function(){
+    gulp.task('default', ['dev_js', 'dev_conn'], function(){
         gulp.watch('src/img/slice/**', ['dev_slice2css'])
         gulp.watch('src/svg/slice/**', ['dev_svg'])
         gulp.watch('src/tpl/**', ['dev_ejs'])
         gulp.watch('src/sass/**', ['dev_sass'])
         gulp.watch('src/img/**', reload)
         gulp.watch('src/svg/**', reload)
-        gulp.watch('src/js/**', reload)
+        gulp.watch('src/js/**', ['dev_js'])
         gulp.watch('src/*.html', reload)
     })
 

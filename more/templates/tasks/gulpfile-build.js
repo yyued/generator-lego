@@ -9,6 +9,7 @@ module.exports = function(gulp, plugins) {
 
     var that = this;
     that.port = +argv.p || 3000;
+    var isBeautifyHTML = argv.b || false;
     var pkg = require('../package.json');
     var banner = '/*!' + '\n * @project : ' + pkg.name + '\n * @version : ' + pkg.version + '\n * @author  : ' + pkg.author + '\n * @update  : ' + moment().format('YYYY-MM-DD h:mm:ss a') + '\n */\r';
 
@@ -33,7 +34,7 @@ module.exports = function(gulp, plugins) {
     })
     gulp.task('build_css', ['build_sass'], function() {
         return gulp.src('src/css/**/*.css')
-            .pipe(plugins.minifyCss({"compatibility":"ie7"}))
+            .pipe(plugins.minifyCss({"compatibility":"ie7", "shorthandCompacting": false}))
             .pipe(plugins.header(banner, { pkg : pkg } ))
             .pipe(gulp.dest('dest/css'))
     })
@@ -65,9 +66,28 @@ module.exports = function(gulp, plugins) {
             }
         })
     })
-    gulp.task('build_js', function() {
+    gulp.task('build_jshint', function() {
+        var stylish = require('jshint-stylish')
+        var mapStream = require('map-stream')
+        var myReporter = mapStream(function (file, cb) {
+            if (!file.jshint.success) {
+                file.jshint.results.forEach(function (info) {
+                    if (info.error.code.charAt(0) === 'E') {
+                        console.log('请消除error后再执行 build')
+                        process.exit(1)
+                    }
+                })
+            }
+            cb(null, file)
+        })
+        return gulp.src(['src/js/**/*.js', '!src/js/lib/**'])
+            .pipe(plugins.jshint('.jshintrc'))
+            .pipe(plugins.jshint.reporter(stylish))
+            .pipe(myReporter)
+    })
+    gulp.task('build_js', ['build_jshint'], function() {
         return gulp.src('src/js/**/*.js')
-            .pipe(plugins.uglify({mangle:false}).on('error', console.log))
+            .pipe(plugins.uglify({preserveComments:'some', mangle:false}).on('error', console.log))
             .pipe(plugins.header(banner, { pkg : pkg } ))
             .pipe(gulp.dest('dest/js'))
     })
@@ -96,6 +116,12 @@ module.exports = function(gulp, plugins) {
             .pipe(gulp.dest('dest/fonts'))
     })
     gulp.task('build_html', ['build_ejs'], function() {
+        // @see https://github.com/tarunc/gulp-jsbeautifier#default-options-from-js-beautify-can-be-used
+        if (isBeautifyHTML) {
+            return gulp.src(['src/*.html'])
+                .pipe(plugins.jsbeautifier({indentSize: 4}))
+                .pipe(gulp.dest('dest'))
+        }
         return gulp.src(['src/*.html'])
             .pipe(gulp.dest('dest'))
     })
@@ -107,8 +133,20 @@ module.exports = function(gulp, plugins) {
     gulp.task('build_clean', function() {
         del.sync(['dest/**'])
     })
+    gulp.task('build_copyrest', function(){
+        return gulp.src(['src/**', '!src/*.html'].concat(getIgnoreFolder()))
+            .pipe(gulp.dest('dest/'))
+        function getIgnoreFolder(){
+            var paths = []
+            ;['css', 'img', 'js', 'sass', 'tpl', 'svg'].forEach(function(item){
+                paths.push('!src/'+item)
+                paths.push('!src/'+item+'/**')
+            })
+            return paths
+        }
+    })
 
-    gulp.task('build', ['build_clean', 'build_html', 'build_sprite', 'build_js', 'build_img', 'build_fonts'], function(){
+    gulp.task('build', ['build_clean', 'build_html', 'build_sprite', 'build_js', 'build_img', 'build_copyrest'], function(){
         browserSync({
             ui:false,
             server: {
@@ -125,9 +163,8 @@ module.exports = function(gulp, plugins) {
             if (argv.q) {
                 var url = arg.options.get('urls').get('external')
                 var qrcode = require('qrcode-terminal')
-                qrcode.generate(url);
+                qrcode.generate(url)
             }
-
         })
     })
     gulp.task('dest', function(){
@@ -147,9 +184,8 @@ module.exports = function(gulp, plugins) {
             if (argv.q) {
                 var url = arg.options.get('urls').get('external')
                 var qrcode = require('qrcode-terminal')
-                qrcode.generate(url);
+                qrcode.generate(url)
             }
-
         })
     })
 
