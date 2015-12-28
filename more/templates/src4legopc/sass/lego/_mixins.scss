@@ -113,7 +113,7 @@
 
 /*
  * @name:  背景透明
- * @param: $color {color}  颜色  
+ * @param: $color {color}  颜色
  * @param: $opacity {number}  透明度
  * @param: $support-for-ie {boolean}  是否支持IE6
  * @link:  https://github.com/airen/Sass_mixins_function/tree/master/mixins
@@ -168,7 +168,7 @@
     *zoom: 1;
     vertical-align: -2px;
     border-style: dashed;
-    
+
     @if($direction == top) {
         border-width: $height $base / 2;
         border-color: transparent transparent $color;
@@ -212,3 +212,32 @@
     border-radius: $border-radius;
 }
 
+/*
+ * @name:  背景线性渐变
+ * @param: $startColor {number}  渐变始点颜色
+ * @param: $endColor {boolean}  渐变终点颜色
+ * @param: $direction {color}  渐变方向
+ */
+@mixin gradient($startColor: rgba(255,255,255,0), $endColor: rgba(0,0,0,0.6), $direction: top) {
+    // 定义方向
+    @if ($direction == top) {
+        $endPoint : bottom;
+        $GradientType : 0;
+    } @else {
+        $endPoint : right;
+        $GradientType : 1;
+    }
+    background: none;
+    background-color: transparent;
+    // w3c标准 IE10支持
+    background-image: linear-gradient(to $endPoint, $startColor, $endColor);
+    // 新版本webkit
+    background-image: -webkit-linear-gradient($direction, $startColor, $endColor);
+    // moz
+    background-image: -moz-linear-gradient($direction, $startColor, $endColor);
+    // o
+    background-image: -o-linear-gradient($direction, $startColor, $endColor);
+    // IE9及以下
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#{ie-hex-str($startColor)},endColorstr=#{ie-hex-str($endColor)},GradientType=#{$GradientType});
+    zoom: 1;
+}

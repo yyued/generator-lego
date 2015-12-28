@@ -33,7 +33,8 @@ $disabled-btn-border: #e6e6e6 !default; // 边框颜色
     @include button-variant($btn-color, $btn-bg, $btn-border);
     width: auto; // 宽度自适应
     line-height: 1; // 重置某些浏览器内置的私有属性默认定义的行高
-    border: 1px solid; // 某些浏览器私有属性里面额外设置了border
+    border-width: 1px;
+    border-style: solid;
     cursor: pointer;
     text-align: center;
     vertical-align: middle;
@@ -57,16 +58,10 @@ $disabled-btn-border: #e6e6e6 !default; // 边框颜色
      */
     &.is-disabled,
     &[disabled] {
-        color: $disabled-btn-color;
-        background-color: $disabled-btn-bg;
-        border-color: $disabled-btn-border;
-        &.is-hover,
-        &:hover {
-            cursor: not-allowed;
-            color: $disabled-btn-color;
-            background-color: $disabled-btn-bg;
-            border-color: $disabled-btn-border;
-        }
+        cursor: not-allowed;
+        color: $disabled-btn-color!important;
+        background-color: $disabled-btn-bg!important;
+        border-color: $disabled-btn-border!important;
         &.is-active,
         &:active {
             box-shadow: none;

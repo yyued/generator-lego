@@ -67,7 +67,7 @@
  */
 .u-heiti,
 %u-heiti {
-    font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, "Liberation Sans", "Hiragino Sans GB", "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+    font-family: "PingFang sc", Lantinghei SC, "Helvetica Neue", "Microsoft YaHei", "Hiragino Sans GB", "Microsoft Sans Serif", "Wenquanyi Micro Hei", "ST Heiti", SimHei, sans-serif;
 }
 
 /*
@@ -82,7 +82,7 @@
 
 /* 等宽字体 */
 .u-monospace,
-%u-songti {
+%u-monospace {
     font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
 }
 
@@ -286,46 +286,46 @@ $arrow-color: #666;
     border-width: $border-width;
     font-size: 0;
     &.ext-top {
-        border-bottom-style: solid;
+        border-bottom-style: dashed;
         border-bottom-color: $arrow-color;
     }
     &.ext-bottom {
-        border-top-style: solid;
+        border-top-style: dashed;
         border-top-color: $arrow-color;
     }
     &.ext-left {
-        border-right-style: solid;
+        border-right-style: dashed;
         border-right-color: $arrow-color;
     }
     &.ext-right {
-        border-left-style: solid;
+        border-left-style: dashed;
         border-left-color: $arrow-color;
     }
 
     /* ◤左上角 */
     &.ext-leftTop {
-        border-top-style: solid;
+        border-top-style: dashed;
         border-top-color: $arrow-color;
         border-left-width: 0 !important;
     }
 
     /* ◥右上角 */
     &.ext-rightTop {
-        border-top-style: solid;
+        border-top-style: dashed;
         border-top-color: $arrow-color;
         border-right-width: 0 !important;
     }
 
     /* ◣左下角 */
     &.ext-leftBtm {
-        border-bottom-style: solid;
+        border-bottom-style: dashed;
         border-bottom-color: $arrow-color;
         border-left-width: 0 !important;
     }
 
     /* ◢右下角 */
     &.ext-rightBtm {
-        border-bottom-style: solid;
+        border-bottom-style: dashed;
         border-bottom-color: $arrow-color;
         border-right-width: 0 !important;
     }
