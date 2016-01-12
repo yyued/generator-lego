@@ -31,10 +31,9 @@
 
 
 ### <a name="sys-env"></a>环境准备 [[⬆]](#top)
-1. Node 环境：*默认此步骤已完成*  （Mac建议使用 [Brew] 安装 [Node.js]） 
-2. Yeoman环境：`npm install -g yo`
-3. Gulp 环境：`npm install -g gulp`
-4. Subversion Command-Line (Mac已自带，Win如未安装可[点击下载][7]，注销后让环境变量生效)
+1. Node 环境：支持到 [Node v0.12.9][8]；若已安装高版本的Node，[请使用 nvm 切换至 0.10.x 或 0.12.x](#known-issues) 再执行下面步骤
+2. Yo、Gulp 环境 ：`npm install -g yo gulp`
+3. Subversion Command-Line (Mac已自带，Win如未安装可[点击下载][7])
 
 
 ### <a name="quick-start"></a>快速开始 [[⬆]](#top)
@@ -134,9 +133,16 @@ yourProj/
 ![showcase01](https://cloud.githubusercontent.com/assets/1762523/4558145/146cf2e4-4edc-11e4-8e21-9d408776a14d.gif)
 
 ### <a name="known-issues"></a>已知问题 [[⬆]](#top)
-1. win下 `npm install gulp-sass@2.0.0` 报 git命令没有找到，导致安装失败 
-	* 临时处理，在 git shell 下执行`npm install gulp-sass@2.0.0`
-	* 该问题依赖模块已解决，等待官方下个版本更新[issue][5][issue][6]
+1. 管理 node版本
+	* mac用户使用[nvm][9]
+		* 安装nvm：`curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.30.1/install.sh | bash` 
+		* 激活nvm：`[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh`，并加到 `~/.bashrc`、`~/.profile`或`~/.zshrc`配置中
+		* node的安装和切换见官方文档
+	* win 用户使用[nvm-windows][10]
+	
+
+
+请使用Mac请使用[nvm] *默认此步骤已完成*  （Mac建议使用 [Brew] 安装 [Node.js]） 
 
 
 ### <a name="license"></a>License [[⬆]](#top)
@@ -156,3 +162,6 @@ Released under [MIT] LICENSE
 [5]: https://github.com/sass/node-sass/issues/933
 [6]: https://github.com/sass/node-sass/pull/943
 [7]: http://pan.baidu.com/s/1gdrQ7Px
+[8]: http://nodejs.org/en/blog/release/v0.12.9/
+[9]: https://github.com/creationix/nvm
+[10]: https://github.com/coreybutler/nvm-windows
