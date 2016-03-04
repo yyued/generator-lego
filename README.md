@@ -121,8 +121,9 @@ yourProj/
 	* `-q` qrcode 的简写，指定该参数生成 url的二维码
 	* `-w` 指设计稿像素宽度，默认值 `750`，用来生成生成rem单位的切片语法；如不指定`-w`将生成px单位的语法
 
-2. `gulp build [-p <port>] [-q] [-w <width-of-design-page>]`
+2. `gulp build [-p <port>] [-b] [-q] [-w <width-of-design-page>]`
 	* `-p` 指port，给webserver指定端口号；此参数需要指定参数值作为端口号，如：8080
+	* `-b` 移除 HTMl 的注释
 	* `-q` 指qrcode，指定该参数生成 url的二维码
 	* `-w` 指设计稿像素宽度，默认值 `750`，将使用rem单位更新定位数据；如不指定`-w`将使用px单位更新定位数据
 

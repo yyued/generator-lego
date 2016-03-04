@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-var mkdirp = require('yeoman-generator/node_modules/mkdirp')
 var path = require('path')
 var fs = require('fs')
+var mkdirp = require('mkdirp')
 
 var win32 = process.platform === 'win32'
 var homeDir = process.env[ win32? 'USERPROFILE' : 'HOME']

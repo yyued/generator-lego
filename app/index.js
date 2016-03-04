@@ -1,9 +1,9 @@
 "use strict";
 var yeoman = require('yeoman-generator'),
-	glob = require('yeoman-generator/node_modules/glob'),
-	_ = require('yeoman-generator/node_modules/lodash'),
-	chalk = require('yeoman-generator/node_modules/chalk'),
-	mkdirp = require('yeoman-generator/node_modules/mkdirp'),
+	glob = require('glob'),
+	_ = require('lodash'),
+	chalk = require('chalk'),
+	mkdirp = require('mkdirp'),
 	path = require('path'),
 	exec = require('child_process').exec,
 	fs = require('fs'),
@@ -139,7 +139,7 @@ var LegoGenerator = yeoman.Base.extend({
 		this.copy(this.projectAssets+'/README.md', 'README.md')
 		this.copy('.jshintrc', '.jshintrc')
 		this.copy('gulpfile.js', 'gulpfile.js')
-		this.pkgGulpSassVersion = (win32?'1.3.3':'~2.0.1')
+		this.pkgGulpSassVersion = (win32?'~2.1.1':'~2.1.1')
 		this.copy('package.json', 'package.json')
 	},
 

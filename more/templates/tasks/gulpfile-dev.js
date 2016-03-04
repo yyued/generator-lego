@@ -5,14 +5,17 @@ module.exports = function(gulp, plugins) {
         moment = require('moment'),
         browserSync = require('browser-sync'),
         reload = browserSync.reload,
+        fecs = require('gulp-fecs-fork'),
         log = console.log;
     
-    var win32 = process.platform === 'win32';
-
-    var that = this;
-    that.port = +argv.p || 3000;
-    var pkg = require('../package.json');
-    var banner = '/*!' + '\n * @project : ' + pkg.name + '\n * @version : ' + pkg.version + '\n * @author  : ' + pkg.author + '\n * @update  : ' + moment().format('YYYY-MM-DD h:mm:ss a') + '\n */\r';
+    var win32 = process.platform === 'win32'
+    var that = this
+    that.port = +argv.p || 3000
+    var pkg = require('../package.json')
+    var banner = '/*!' + '\n * @project : ' + pkg.name + '\n * @version : ' + pkg.version + '\n * @author  : ' + pkg.author + '\n * @update  : ' + moment().format('YYYY-MM-DD h:mm:ss a') + '\n */\r'
+    var fecsCheckOptions = {
+        maxerr: 5
+    }
     
     gulp.task('dev_conn', function() {
         browserSync({
@@ -24,7 +27,7 @@ module.exports = function(gulp, plugins) {
             notify: false,
             ghostMode:false,
             port: that.port,
-            open: "external",
+            open: false,
             browser: "/Applications/Google\ Chrome.app/"
         },function(err, arg){
             if (argv.q) {
@@ -32,7 +35,7 @@ module.exports = function(gulp, plugins) {
                 var qrcode = require('qrcode-terminal')
                 qrcode.generate(url);
             }
-
+ 
         })
     })
     gulp.task('dev_sass', function() {
@@ -57,17 +60,23 @@ module.exports = function(gulp, plugins) {
             .pipe(reload({stream:true}))
     })
     gulp.task('dev_js', function() {
-        var stylish = require('jshint-stylish')
-        return gulp.src(['src/js/**', '!src/js/lib/**'])
+        return gulp.src(['src/js/**/*.js', '!src/js/lib/**/*.js'])
             .pipe(plugins.cached('jshint'))
-            .pipe(plugins.jshint('.jshintrc'))
-            .pipe(plugins.jshint.reporter(stylish, { verbose: true }))
+            .pipe(fecs.check(fecsCheckOptions))
+            .pipe(fecs.reporter('baidu'))
             .pipe(reload({stream:true}))
     })
     gulp.task('dev_ejs', function() {
         return gulp.src('src/tpl/*.ejs')
             .pipe(plugins.ejs().on('error', console.log))
             .pipe(gulp.dest('src/'))
+            .pipe(reload({stream:true}))
+    })
+    gulp.task('dev_html', function(){
+        return gulp.src('src/**/*.html')
+            .pipe(plugins.cached('htmlhint'))
+            .pipe(fecs.check(fecsCheckOptions))
+            .pipe(fecs.reporter('baidu')) 
             .pipe(reload({stream:true}))
     })
     gulp.task('dev_svg', function() {
@@ -156,7 +165,7 @@ module.exports = function(gulp, plugins) {
         ])
     })
 
-    gulp.task('default', ['dev_js', 'dev_conn'], function(){
+    gulp.task('default', ['dev_conn'], function(){
         gulp.watch('src/img/slice/**', ['dev_slice2css'])
         gulp.watch('src/svg/slice/**', ['dev_svg'])
         gulp.watch('src/tpl/**', ['dev_ejs'])
@@ -164,7 +173,7 @@ module.exports = function(gulp, plugins) {
         gulp.watch('src/img/**', reload)
         gulp.watch('src/svg/**', reload)
         gulp.watch('src/js/**', ['dev_js'])
-        gulp.watch('src/*.html', reload)
+        gulp.watch('src/*.html', ['dev_html'])
     })
 
 }

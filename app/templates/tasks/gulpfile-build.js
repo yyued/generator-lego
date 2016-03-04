@@ -5,13 +5,17 @@ module.exports = function(gulp, plugins) {
         moment = require('moment'),
         multiSprite = require('multi-sprite'),
         browserSync = require('browser-sync'),
+        fecs = require('fecs-gulp'),
         log = console.log;
 
-    var that = this;
-    that.port = +argv.p || 3000;
-    var isBeautifyHTML = argv.b || false;
-    var pkg = require('../package.json');
-    var banner = '/*!' + '\n * @project : ' + pkg.name + '\n * @version : ' + pkg.version + '\n * @author  : ' + pkg.author + '\n * @update  : ' + moment().format('YYYY-MM-DD h:mm:ss a') + '\n */\r';
+    var that = this
+    that.port = +argv.p || 3000
+    var isStripCommentsInHTML = argv.b || false
+    var pkg = require('../package.json')
+    var banner = '/*!' + '\n * @project : ' + pkg.name + '\n * @version : ' + pkg.version + '\n * @author  : ' + pkg.author + '\n * @update  : ' + moment().format('YYYY-MM-DD h:mm:ss a') + '\n */\r'
+    var fecsCheckOptions = {
+        maxerr: 50
+    }
 
     gulp.task('build_sass', function() {
         function sassCompile4nix(){
@@ -67,23 +71,9 @@ module.exports = function(gulp, plugins) {
         })
     })
     gulp.task('build_jshint', function() {
-        var stylish = require('jshint-stylish')
-        var mapStream = require('map-stream')
-        var myReporter = mapStream(function (file, cb) {
-            if (!file.jshint.success) {
-                file.jshint.results.forEach(function (info) {
-                    if (info.error.code.charAt(0) === 'E') {
-                        console.log('请消除error后再执行 build')
-                        process.exit(1)
-                    }
-                })
-            }
-            cb(null, file)
-        })
         return gulp.src(['src/js/**/*.js', '!src/js/lib/**'])
-            .pipe(plugins.jshint('.jshintrc'))
-            .pipe(plugins.jshint.reporter(stylish))
-            .pipe(myReporter)
+            .pipe(fecs.check(fecsCheckOptions))
+            .pipe(fecs.reporter('baidu'))
     })
     gulp.task('build_js', ['build_jshint'], function() {
         // @see https://github.com/mishoo/UglifyJS2#compressor-options
@@ -99,11 +89,9 @@ module.exports = function(gulp, plugins) {
             .pipe(gulp.dest('dest/js'))
     })
     gulp.task('build_img', function() {
-        var pngquant = require('imagemin-pngquant')
         return gulp.src(['src/img/**', '!src/img/**/*.psd', '!src/img/slice/**', '!src/img/slice/'])
             .pipe(plugins.imagemin({
-                progressive: true,
-                use: [pngquant()]
+                progressive: true
             }))
             .pipe(gulp.dest('dest/img'))
     })
@@ -120,14 +108,24 @@ module.exports = function(gulp, plugins) {
         return gulp.src(['src/svg/**', '!src/svg/slice/**', '!src/svg/slice/'])
             .pipe(gulp.dest('dest/svg'))
     })
+    gulp.task('build_fonts', function() {
+        return gulp.src('src/fonts/**')
+            .pipe(gulp.dest('dest/fonts'))
+    })
     gulp.task('build_html', ['build_ejs'], function() {
         // @see https://github.com/tarunc/gulp-jsbeautifier#default-options-from-js-beautify-can-be-used
-        if (isBeautifyHTML) {
+        if (isStripCommentsInHTML) {
             return gulp.src(['src/*.html'])
+                .pipe(fecs.check(fecsCheckOptions))
+                .pipe(fecs.reporter('baidu'))
+                .pipe(plugins.stripComments())
                 .pipe(plugins.jsbeautifier({indentSize: 4}))
                 .pipe(gulp.dest('dest'))
         }
         return gulp.src(['src/*.html'])
+            .pipe(fecs.check(fecsCheckOptions))
+            .pipe(fecs.reporter('baidu'))
+            .pipe(plugins.jsbeautifier({indentSize: 4}))
             .pipe(gulp.dest('dest'))
     })
     gulp.task('build_ejs', function() {

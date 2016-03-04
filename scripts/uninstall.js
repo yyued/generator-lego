@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-var mkdirp = require('yeoman-generator/node_modules/mkdirp')
 var path = require('path')
 var del = require('del')
 
