@@ -5,7 +5,7 @@ module.exports = function(gulp, plugins) {
         moment = require('moment'),
         multiSprite = require('multi-sprite'),
         browserSync = require('browser-sync'),
-        fecs = require('fecs-gulp'),
+        fecs = require('gulp-fecs-fork'),
         log = console.log;
 
     var that = this

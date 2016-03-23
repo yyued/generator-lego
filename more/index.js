@@ -140,7 +140,6 @@ var LegoGenerator = yeoman.Base.extend({
 		this.directory('tasks', 'tasks')
 		this.directory(this.projectAssets, 'src')
 		this.copy(path.join(this.projectAssets, 'README.md'), 'README.md')
-		this.copy('.jshintrc', '.jshintrc')
 		this.copy('gulpfile.js', 'gulpfile.js')
 		this.pkgGulpSassVersion = (win32?'~2.1.1':'~2.1.1')
 		this.copy('package.json', 'package.json')
